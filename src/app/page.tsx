@@ -1,6 +1,7 @@
 import {Suspense} from 'react'
 import Header from '@/components/Header'
 import CarSellForm from '@/components/CarSellForm'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
 

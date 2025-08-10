@@ -97,6 +97,7 @@ export default function CarSellForm() {
       setTimeout(() => {
         if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 100);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError('Your quote request was saved, but email notification failed.');
       setLoading(false);
