@@ -1,45 +1,27 @@
 {
-  "name": "Auto-Sell-ai",
+  "name": "autosell",
   "version": "0.1.0",
-  "author": "Auto-Sell.ai",
-  "license": "custom 1",
   "private": true,
   "scripts": {
-    "dev": "dotenvx run -- next dev",
-    "build": "dotenvx run -f .env.production -- next build",
-    "start": "dotenvx run -f .env.production -- next start",
-    "lint": "dotenvx run -- next lint"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.991.0",
-    "@dotenvx/dotenvx": "^1.44.2",
-    "@headlessui/react": "^2.2.4",
-    "@hookform/resolvers": "^5.1.1",
-    "@supabase/supabase-js": "^2.50.0",
-    "@types/uuid": "^10.0.0",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.23.22",
-    "lucide-react": "^0.544.0",
-    "next": "^16.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-hook-form": "^7.60.0",
-    "tailwind-merge": "^3.3.1",
-    "twilio": "^5.9.0",
-    "uuid": "^11.1.0",
-    "zod": "^4.0.5"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.4.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.1.11",
+    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.3",
+    "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "@eslint/eslintrc": "^3"
   }
 }
