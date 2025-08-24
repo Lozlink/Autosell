@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "How to Sell Your Car Fast - AutoSell.ai | Expert Tips & Guide",
@@ -23,12 +24,12 @@ export default function HowToSellCarFastPage() {
               Want to sell your car quickly? Learn the best strategies, avoid common mistakes, 
               and discover the fastest way to get cash for your vehicle.
             </p>
-            <a 
+            <Link 
               href="/#sell-form" 
               className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Fast Quote Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -41,7 +42,7 @@ export default function HowToSellCarFastPage() {
               Quick Tips to Sell Your Car Fast
             </h2>
             <p className="text-xl text-gray-600">
-              Follow these proven strategies to maximize your car's value and speed
+              Follow these proven strategies to maximize your car&apos;s value and speed
             </p>
           </div>
 
@@ -168,7 +169,7 @@ export default function HowToSellCarFastPage() {
               Pre-Sale Preparation Checklist
             </h2>
             <p className="text-xl text-gray-600">
-              Complete these tasks to maximize your car's value and selling speed
+              Complete these tasks to maximize your car&apos;s value and selling speed
             </p>
           </div>
 
@@ -227,12 +228,12 @@ export default function HowToSellCarFastPage() {
             Our service is designed for speed, convenience, and fair pricing.
           </p>
           <div className="space-y-4">
-            <a 
+            <Link
               href="/#sell-form" 
               className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Fast Quote Now
-            </a>
+            </Link>
             <p className="text-emerald-200 text-sm">
               ⚡ Same-day payment • 🚗 We come to you • 💰 No fees or commissions
             </p>
