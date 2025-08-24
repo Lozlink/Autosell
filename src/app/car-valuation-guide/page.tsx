@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Car Valuation Guide - AutoSell.ai | How to Price Your Car Right",
@@ -20,15 +21,15 @@ export default function CarValuationGuidePage() {
               <span className="block text-emerald-400">How to Price Your Car Right</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-              Understanding your car's true value is crucial for getting the best price. 
+              Understanding your car&apos;s true value is crucial for getting the best price. 
               Learn what factors affect car values and how to maximize your return.
             </p>
-            <a 
+            <Link 
               href="/#sell-form" 
               className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Free Valuation
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -96,7 +97,7 @@ export default function CarValuationGuidePage() {
               Car Valuation Methods
             </h2>
             <p className="text-xl text-gray-600">
-              Different approaches to determining your car's worth
+              Different approaches to determining your car&apos;s worth
             </p>
           </div>
 
@@ -176,7 +177,7 @@ export default function CarValuationGuidePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Tips to Maximize Your Car's Value
+              Tips to Maximize Your Car&apos;s Value
             </h2>
             <p className="text-xl text-gray-600">
               Simple steps that can significantly increase what you get for your car
@@ -231,7 +232,7 @@ export default function CarValuationGuidePage() {
               Common Valuation Mistakes to Avoid
             </h2>
             <p className="text-xl text-gray-600">
-              Don't let these errors cost you money when selling your car
+              Don&apos;t let these errors cost you money when selling your car
             </p>
           </div>
 
@@ -279,7 +280,7 @@ export default function CarValuationGuidePage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-lg">•</span>
-                  <span>Be realistic about your car's condition</span>
+                  <span>Be realistic about your car&apos;s condition</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-lg">•</span>
@@ -302,12 +303,12 @@ export default function CarValuationGuidePage() {
             No guesswork, just real market data and expert analysis.
           </p>
           <div className="space-y-4">
-            <a 
+            <Link
               href="/#sell-form" 
               className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Free Valuation
-            </a>
+            </Link>
             <p className="text-emerald-200 text-sm">
               ⚡ 30-minute response • 📊 Market-based pricing • 💰 No obligations
             </p>
