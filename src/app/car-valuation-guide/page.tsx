@@ -1,45 +1,43 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Car Valuation Guide - Auto-Sell.ai | How to Price Your Car Right",
+  title: "Car Valuation Guide - AutoSell.ai | How to Price Your Car Right",
   description: "Learn how to value your car accurately with our comprehensive guide. Understand factors that affect car prices and get the best value when selling.",
 }
 
 export default function CarValuationGuidePage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800 py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Car Valuation Guide
-              <span className="block" style={{ color: '#FFC325' }}>How to Price Your Car Right</span>
+              <span className="block text-emerald-400">How to Price Your Car Right</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Understanding your car&apos;s true value is crucial for getting the best price. 
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+              Understanding your car's true value is crucial for getting the best price. 
               Learn what factors affect car values and how to maximize your return.
             </p>
-            <Link
-              href="/#sell-form"
-              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#FFC325', color: '#fff' }}
+            <a 
+              href="/#sell-form" 
+              className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Free Valuation
-            </Link>
+            </a>
           </div>
         </div>
       </section>
 
       {/* Key Factors Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Key Factors That Affect Car Value
             </h2>
             <p className="text-xl text-gray-600">
@@ -80,9 +78,9 @@ export default function CarValuationGuidePage() {
                 description: "Current market trends, fuel prices, and economic conditions influence what buyers are willing to pay."
               }
             ].map((factor, index) => (
-              <div key={index} className="text-center px-2 md:px-4 py-2 transition-colors">
+              <div key={index} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{factor.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-600 mb-3">{factor.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{factor.title}</h3>
                 <p className="text-gray-600">{factor.description}</p>
               </div>
             ))}
@@ -91,14 +89,14 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Valuation Methods */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Car Valuation Methods
             </h2>
             <p className="text-xl text-gray-600">
-              Different approaches to determining your car&apos;s worth
+              Different approaches to determining your car's worth
             </p>
           </div>
 
@@ -126,42 +124,42 @@ export default function CarValuationGuidePage() {
                 icon: "🔍"
               },
               {
-                method: "Auto-Sell.ai Valuation",
+                method: "AutoSell.ai Valuation",
                 description: "Our AI-powered system combines multiple data sources for accurate, market-based valuations.",
                 pros: ["Fast and accurate", "Market-based pricing", "Free service", "Local market data"],
                 cons: ["Requires basic information", "Online only"],
                 icon: "🤖"
               }
             ].map((method, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-[#FFC325]">
+              <div key={index} className="bg-white p-8 rounded-xl border border-gray-200">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{method.icon}</div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-600">{method.method}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{method.method}</h3>
                     <p className="text-gray-600 text-sm">{method.description}</p>
                   </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-[#FFC325]">✓ Pros</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2 text-green-600">✓ Pros</h4>
                     <ul className="space-y-1 text-sm">
                       {method.pros.map((pro, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[#FFC325]">•</span>
-                          <span className="text-[#FFC325]">{pro}</span>
+                          <span className="text-green-500">•</span>
+                          <span>{pro}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold mb-2 text-red-600">✗ Cons</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2 text-red-600">✗ Cons</h4>
                     <ul className="space-y-1 text-sm">
                       {method.cons.map((con, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="text-red-500">•</span>
-                          <span className="text-red-500">{con}</span>
+                          <span>{con}</span>
                         </li>
                       ))}
                     </ul>
@@ -174,11 +172,11 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Tips for Better Value */}
-      <section className="py-8" style={{ backgroundColor: '#FFC325' }}>
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Tips to Maximize Your Car&apos;s Value
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Tips to Maximize Your Car's Value
             </h2>
             <p className="text-xl text-gray-600">
               Simple steps that can significantly increase what you get for your car
@@ -213,10 +211,10 @@ export default function CarValuationGuidePage() {
                 icon: "✅"
               }
             ].map((tip, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-transparent border-l-2 border-[#FFC325]/40">
+              <div key={index} className="flex items-start gap-4 p-6 bg-gray-50 rounded-xl">
                 <div className="text-3xl">{tip.icon}</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">{tip.tip}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{tip.tip}</h3>
                   <p className="text-gray-600">{tip.description}</p>
                 </div>
               </div>
@@ -226,20 +224,20 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Common Valuation Mistakes */}
-      <section className="py-6 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Common Valuation Mistakes to Avoid
             </h2>
             <p className="text-xl text-gray-600">
-              Don&apos;t let these errors cost you money when selling your car
+              Don't let these errors cost you money when selling your car
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl border border-[#FFC325]">
-              <h3 className="text-xl font-semibold mb-4 text-red-600">❌ What Not to Do</h3>
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 text-red-600">❌ What Not to Do</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
                   <span className="text-red-500 text-lg">•</span>
@@ -281,7 +279,7 @@ export default function CarValuationGuidePage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-lg">•</span>
-                  <span>Be realistic about your car&apos;s condition</span>
+                  <span>Be realistic about your car's condition</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-lg">•</span>
@@ -294,24 +292,23 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#8b898740' }}>
+      <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Get Your Accurate Car Valuation Today
           </h2>
-          <p className="text-xl mb-8 text-gray-600">
+          <p className="text-xl mb-8 text-emerald-100">
             Our AI-powered system provides market-accurate valuations in minutes. 
             No guesswork, just real market data and expert analysis.
           </p>
           <div className="space-y-4">
-            <Link
-              href="/#sell-form"
-              className="inline-block px-12 py-4 rounded-lg text-xl font-bold hover:bg-[#e6af1f] transition-all duration-300 transform hover:scale-105 shadow-lg"
-              style={{ backgroundColor: '#8b898740', color: '#FFC325' }}
+            <a 
+              href="/#sell-form" 
+              className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Free Valuation
-            </Link>
-            <p className="text-gray-600 text-sm">
+            </a>
+            <p className="text-emerald-200 text-sm">
               ⚡ 30-minute response • 📊 Market-based pricing • 💰 No obligations
             </p>
           </div>

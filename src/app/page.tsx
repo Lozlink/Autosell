@@ -14,7 +14,7 @@ function CarSellFormFallback() {
             <div className="h-12 bg-gray-200 rounded"></div>
             <div className="h-12 bg-gray-200 rounded"></div>
             <div className="h-12 bg-gray-200 rounded"></div>
-            <div className="h-32 bg-gray-200 rounded"></div>
+            <div className="h-12 bg-gray-200 rounded"></div>
             <div className="h-12 bg-gray-200 rounded"></div>
           </div>
         </div>
@@ -39,146 +39,131 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
+      {/* Hero Section with Integrated Form */}
+      <section id="sell-form" className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Sell Your Car
-              <span className="block text-emerald-400">Fast for Cash</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-              Australia&apos;s #1 car buying service. Get an instant quote in 30 minutes, 
-              same-day payment, and skip all the hassles of private selling.
-            </p>
-            
-            {/* Key Benefits */}
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                <span className="text-2xl">⚡</span>
-                <span className="font-semibold">30min Quote</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                <span className="text-2xl">💰</span>
-                <span className="font-semibold">Same Day Payment</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                <span className="text-2xl">🚗</span>
-                <span className="font-semibold">Any Condition</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                <span className="text-2xl">🌏</span>
-                <span className="font-semibold">Australia Wide</span>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <a 
-                href="#sell-form" 
-                className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              >
-                Get My Free Quote Now
-              </a>
-              <p className="text-sm text-gray-300 mt-4">
-                ⭐ 4.9/5 from 5,000+ happy customers
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Hero Content */}
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Sell Your Car Today
+                <span className="block text-emerald-400">30-Min Quote, Same-Day OSKO Payment</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-8">
+                Australia&apos;s #1 car buying service. Get a <strong>FREE valuation</strong> in 30 minutes, 
+                same-day payment via OSKO, and skip all the hassles of private selling.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              
+              {/* Trust Strip */}
+              <div className="flex flex-wrap gap-4 mb-8 text-sm">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-emerald-400">✓</span>
+                  <span>We beat like-for-like offers</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-emerald-400">✓</span>
+                  <span>We come to you AU-wide</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-emerald-400">✓</span>
+                  <span>No fees, no fuss</span>
+                </div>
+              </div>
 
-      {/* Main Form Section */}
-      <section id="sell-form" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Car Sell Form */}
+              {/* Key Benefits */}
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-2xl">⚡</span>
+                  <span className="font-semibold">30min Quote</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-2xl">💰</span>
+                  <span className="font-semibold">Same Day OSKO</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-2xl">🚗</span>
+                  <span className="font-semibold">Any Condition</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-2xl">🌏</span>
+                  <span className="font-semibold">Australia Wide</span>
+                </div>
+              </div>
+
+              <div className="text-center lg:text-left">
+                <p className="text-sm text-gray-300 mb-4">
+                  ⭐ 4.9/5 from 5,000+ happy customers • Open 7 days a week
+                </p>
+              </div>
+            </div>
+
+            {/* Hero Form */}
             <div>
               <Suspense fallback={<CarSellFormFallback />}>
                 <CarSellForm />
               </Suspense>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Why Choose Us */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Why Choose AutoSell.ai?
-                </h2>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl">⚡</div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-lg">Lightning Fast</h3>
-                      <p className="text-gray-600">Get your quote in 30 minutes, not days. Our AI-powered system provides instant valuations.</p>
-                    </div>
-                  </div>
+      {/* Value Propositions Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Why Choose AutoSell.ai?
+            </h2>
+            <p className="text-xl text-gray-600">
+              The smart way to sell your car with maximum value and minimum hassle
+            </p>
+          </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl">💰</div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-lg">Best Prices Guaranteed</h3>
-                      <p className="text-gray-600">We pay more than dealers and beat most private sale prices. No hidden fees, no commissions.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl">🔒</div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-lg">Safe & Secure</h3>
-                      <p className="text-gray-600">Licensed, insured, and trusted. Instant bank transfers and professional service.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl">🚗</div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-lg">Any Car, Any Condition</h3>
-                      <p className="text-gray-600">Running or not, new or old, damaged or perfect. We buy all makes and models.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl">🌏</div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-lg">Australia Wide Service</h3>
-                      <p className="text-gray-600">From Sydney to Perth, Darwin to Hobart. We come to you anywhere in Australia.</p>
-                    </div>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "💰",
+                title: "Immediate Payment",
+                description: "Get paid instantly via OSKO transfer. No waiting, no delays."
+              },
+              {
+                icon: "🔍",
+                title: "On-Site Inspections",
+                description: "We come to you anywhere in Australia. No need to travel."
+              },
+              {
+                icon: "🕒",
+                title: "Open 7 Days",
+                description: "Available when you need us, including weekends and public holidays."
+              },
+              {
+                icon: "📈",
+                title: "Best Price Guarantee",
+                description: "We beat like-for-like offers. Get the best value for your car."
+              },
+              {
+                icon: "✅",
+                title: "100% Satisfaction",
+                description: "Thousands of happy customers across Australia trust us."
+              },
+              {
+                icon: "🚗",
+                title: "Smooth Sales Process",
+                description: "From quote to payment in hours, not days or weeks."
+              }
+            ].map((proposition, index) => (
+              <div key={index} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-4">{proposition.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{proposition.title}</h3>
+                <p className="text-gray-600">{proposition.description}</p>
               </div>
-
-              {/* Quick Stats */}
-              <div className="bg-emerald-100 rounded-xl p-8 border border-emerald-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Trusted by Thousands
-                </h3>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-emerald-700">5,000+</div>
-                    <div className="text-sm text-gray-600">Cars Purchased</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-emerald-700">4.9★</div>
-                    <div className="text-sm text-gray-600">Customer Rating</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-emerald-700">30min</div>
-                    <div className="text-sm text-gray-600">Average Quote Time</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-emerald-700">Same Day</div>
-                    <div className="text-sm text-gray-600">Payment Guarantee</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-white">
+      <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -238,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Car Brands We Buy */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -266,8 +251,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Australia-Wide Coverage */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Australia-Wide Service
+            </h2>
+            <p className="text-lg text-gray-600">
+              We come to you anywhere in Australia - from major cities to remote areas
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            {[
+              { city: 'Sydney', state: 'NSW', icon: '🏙️' },
+              { city: 'Melbourne', state: 'VIC', icon: '🏛️' },
+              { city: 'Brisbane', state: 'QLD', icon: '🌞' },
+              { city: 'Perth', state: 'WA', icon: '🌊' },
+              { city: 'Adelaide', state: 'SA', icon: '🍷' },
+              { city: 'Canberra', state: 'ACT', icon: '🏛️' },
+              { city: 'Gold Coast', state: 'QLD', icon: '🏖️' },
+              { city: 'Darwin', state: 'NT', icon: '🌴' }
+            ].map((location) => (
+              <div key={location.city} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">{location.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900">{location.city}</h3>
+                <p className="text-sm text-gray-600">{location.state}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-600 mb-4">
+              Plus all regional areas, country towns, and remote locations
+            </p>
+            <a 
+              href="#sell-form" 
+              className="inline-block bg-emerald-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-700 transition-colors"
+            >
+              Get Your Quote - We Come to You!
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Customer Reviews */}
-      <section className="py-20 bg-white">
+      <section id="reviews" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -316,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="faq" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -370,11 +400,104 @@ export default function Home() {
         </div>
       </section>
 
+      {/* We Buy All Types Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              We Buy All Types of Vehicles
+            </h2>
+            <p className="text-lg text-gray-600">
+              From cars to trucks, we buy everything - no matter the condition
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { type: 'Cars', icon: '🚗', description: 'All makes and models, any condition' },
+              { type: 'SUVs', icon: '🚙', description: '4WDs, crossovers, and family vehicles' },
+              { type: 'Utes', icon: '🛻', description: 'Work utes, dual cabs, and pickups' },
+              { type: 'Trucks', icon: '🚛', description: 'Commercial trucks and heavy vehicles' },
+              { type: 'Vans', icon: '🚐', description: 'Passenger vans and cargo vans' },
+              { type: 'Motorcycles', icon: '🏍️', description: 'Bikes, scooters, and ATVs' },
+              { type: 'Boats', icon: '🚤', description: 'Motorboats, yachts, and jet skis' },
+              { type: 'Caravans', icon: '🏕️', description: 'Caravans, campers, and trailers' }
+            ].map((vehicle) => (
+              <div key={vehicle.type} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-3">{vehicle.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{vehicle.type}</h3>
+                <p className="text-sm text-gray-600">{vehicle.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Details Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              What Happens After You Submit?
+            </h2>
+            <p className="text-lg text-gray-600">
+              Our streamlined process gets you paid quickly and safely
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Immediate Response</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>Quote generated within 30 minutes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>Phone call to discuss your offer</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>Inspection scheduled at your convenience</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>All paperwork prepared in advance</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Same-Day Completion</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>Professional inspection at your location</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>Final price confirmed on-site</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>All documents signed and completed</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-500 text-lg">✓</span>
+                  <span>OSKO payment transferred instantly</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Sell Your Car?
+            Ready to Get Your FREE Car Valuation?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
             Join thousands of satisfied customers who chose the fast, easy way to sell their car.
@@ -384,7 +507,7 @@ export default function Home() {
               href="#sell-form" 
               className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              Get My Quote Now
+              Get My FREE Valuation Now
             </a>
             <div className="text-center">
               <p className="text-emerald-100">Or call us directly:</p>
@@ -394,6 +517,7 @@ export default function Home() {
               >
                 📞 1800 AUTO SELL
               </a>
+              <p className="text-emerald-100 text-sm mt-2">Open 7 days a week • 8am-6pm AEST</p>
             </div>
           </div>
         </div>

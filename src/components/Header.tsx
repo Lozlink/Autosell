@@ -25,17 +25,23 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/#sell-form" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
-              Sell Your Car
-            </Link>
-            <Link href="/how-it-works" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/#how-it-works" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
               How It Works
             </Link>
-            <Link href="/reviews" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <Link href="/cash-for-damaged-cars" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
+              Damaged Cars
+            </Link>
+            <Link href='/how-to-sell-car-fast' className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
+              Sell Fast
+            </Link>
+            <Link href='/car-valuation-guide' className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
+              Valuation Guide
+            </Link>
+            <Link href="/#reviews" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
               Reviews
             </Link>
-            <Link href="/faq" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <Link href="/#faq" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors text-sm">
               FAQ
             </Link>
             <a 
@@ -72,28 +78,42 @@ export default function Header() {
           >
             <div className="flex flex-col space-y-4">
               <Link 
-                href="/#sell-form" 
-                className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sell Your Car
-              </Link>
-              <Link 
-                href="/how-it-works" 
+                href="/#how-it-works" 
                 className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How It Works
               </Link>
               <Link 
-                href="/reviews" 
+                href="/cash-for-damaged-cars" 
+                className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Damaged Cars
+              </Link>
+              <Link 
+                href="/how-to-sell-car-fast" 
+                className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sell Fast
+              </Link>
+              <Link 
+                href="/car-valuation-guide" 
+                className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Valuation Guide
+              </Link>
+              <Link 
+                href="/#reviews" 
                 className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Reviews
               </Link>
               <Link 
-                href="/faq" 
+                href="/#faq" 
                 className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
