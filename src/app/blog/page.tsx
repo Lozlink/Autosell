@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabaseClient'
-/* eslint-disable */
 
 export const metadata: Metadata = {
-  title: "Blog - Auto-Sell.ai",
-  description: "Read the latest tips, guides, and insights about selling your car in Australia. Expert advice from Auto-Sell.ai.",
+  title: "Blog - AutoSell.ai",
+  description: "Read the latest tips, guides, and insights about selling your car in Australia. Expert advice from AutoSell.ai.",
 }
 
 const blogPosts = [
@@ -66,37 +64,19 @@ const blogPosts = [
   }
 ]
 
-export default async function BlogPage() {
-  const { data } = await supabase
-    .from('posts')
-    .select('*')
-    .eq('published', true)
-    .order('created_at', { ascending: false });
-
-  const dbPosts = (data || []).map((p: any) => ({
-    id: p.slug || p.id,
-    title: p.title,
-    excerpt: p.excerpt || '',
-    date: p.created_at,
-    readTime: p.read_time || '',
-    category: p.category || 'General',
-    image: p.image_url || ''
-  }));
-
-  const posts = dbPosts.length ? dbPosts : blogPosts;
-
+export default function BlogPage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800 py-12" style={{ backgroundColor: '#FFC325' }}>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Auto-Sell.ai Blog
+              AutoSell.ai Blog
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
               Expert tips, guides, and insights to help you sell your car for the best price in Australia.
             </p>
           </div>
@@ -107,23 +87,23 @@ export default async function BlogPage() {
       <section className="py-12">
         <div className="px-4 sm:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <article key={post.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-[#FFC325] transition-all duration-300">
+            {blogPosts.map((post) => (
+              <article key={post.id} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#FFC325' }}>
-                    <span className="text-gray-800 text-4xl font-bold">{post.category.charAt(0)}</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center">
+                    <span className="text-white text-4xl font-bold">{post.category.charAt(0)}</span>
                   </div>
                 </div>
                 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#FFC325]/20 text-[#FFC325] text-xs font-semibold px-2 py-1 rounded-full">
+                    <span className="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-1 rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-gray-600 text-sm">{post.readTime}</span>
+                    <span className="text-gray-500 text-sm">{post.readTime}</span>
                   </div>
                   
-                  <h2 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
                     {post.title}
                   </h2>
                   
@@ -132,7 +112,7 @@ export default async function BlogPage() {
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <time className="text-sm text-gray-600">
+                    <time className="text-sm text-gray-500">
                       {new Date(post.date).toLocaleDateString('en-AU', {
                         year: 'numeric',
                         month: 'long',
@@ -141,7 +121,7 @@ export default async function BlogPage() {
                     </time>
                     <Link
                       href={`/blog/${post.id}`}
-                      className="text-[#FFC325] hover:text-[#FFC325] font-semibold text-sm"
+                      className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm"
                     >
                       Read More →
                     </Link>
@@ -154,21 +134,21 @@ export default async function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-12" style={{ background: '#FFC325' }}>
+      <section className="py-12 bg-emerald-600">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl font-bold text-white mb-4">
             Stay Updated with Car Selling Tips
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="text-xl text-emerald-100 mb-8">
             Get the latest insights and tips delivered to your inbox.
           </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#FFC325]"
+              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600"
             />
-            <button className="bg-white text-[#FFC325] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-emerald-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
               Subscribe
             </button>
           </div>
