@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Sydney - Auto-Sell.ai | Get Cash for Your Car in Sydney",
-  description: "Sell your car fast in Sydney with Auto-Sell.ai. We buy all cars in Sydney and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Sydney - AutoSell.ai | Get Cash for Your Car in Sydney",
+  description: "Sell your car fast in Sydney with AutoSell.ai. We buy all cars in Sydney and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car sydney, car buyers sydney, sell car sydney, cash for cars sydney, sell car fast sydney, sydney car buyers",
 }
 
@@ -14,21 +14,20 @@ export default function SellMyCarSydneyPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="text-white py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: '#000' }}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Sell My Car Sydney
-              <span className="block" style={{ color: '#000' }}>Get Cash for Your Car in Sydney</span>
+              <span className="block text-emerald-400">Get Cash for Your Car in Sydney</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8" style={{ color: '#1f2937' }}>
-              We buy all cars in Sydney and surrounding areas. Get an instant quote and same-day payment.
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+              We buy all cars in Sydney and surrounding areas. Get an instant quote and same-day payment. 
               Free pickup service across Greater Sydney.
             </p>
-            <Link
-              href="/#sell-form"
-              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#FFC325', color: '#fff' }}
+            <Link 
+              href="/#sell-form" 
+              className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get My Sydney Car Quote Now
             </Link>
@@ -74,10 +73,10 @@ export default function SellMyCarSydneyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Auto-Sell.ai in Sydney?
+              Why Choose AutoSell.ai in Sydney?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Sydney&apos;s car market and offer competitive prices
+              We understand Sydney's car market and offer competitive prices
             </p>
           </div>
 
@@ -125,18 +124,17 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#000' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Sell Your Car in Sydney?
           </h2>
-          <p className="text-xl mb-8" style={{ color: '#1f2937' }}>
+          <p className="text-xl mb-8 text-emerald-100">
             Get your free Sydney car valuation in 30 minutes and receive same-day payment.
           </p>
-          <Link
-            href="/#sell-form"
-            className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#FFC325', color: '#fff' }}
+          <Link 
+            href="/#sell-form" 
+            className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get My Sydney Car Quote Now
           </Link>

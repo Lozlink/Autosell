@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Sedan - Auto-Sell.ai | Get Cash for Your Sedan Car",
-  description: "Sell your sedan fast with Auto-Sell.ai. We buy all sedan models including compact, mid-size, and large sedans. Get instant quotes and same-day payment.",
+  title: "Sell My Sedan - AutoSell.ai | Get Cash for Your Sedan Car",
+  description: "Sell your sedan fast with AutoSell.ai. We buy all sedan models including compact, mid-size, and large sedans. Get instant quotes and same-day payment.",
   keywords: "sell sedan, sedan buyers, sell my sedan, sedan car buyers, cash for sedans, sell sedan fast, compact sedan, large sedan",
 }
 
@@ -14,21 +14,20 @@ export default function SellSedansPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800 py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Sell My Sedan
-              <span className="block" style={{ color: '#000' }}>Get Cash for Your Sedan Car</span>
+              <span className="block text-emerald-400">Get Cash for Your Sedan Car</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
-              We buy all sedan models including compact, mid-size, and large sedans.
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+              We buy all sedan models including compact, mid-size, and large sedans. 
               Get an instant quote and same-day payment for your sedan.
             </p>
-            <Link
-              href="/#sell-form"
-              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#FFC325', color: '#fff' }}
+            <Link 
+              href="/#sell-form" 
+              className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get My Sedan Quote Now
             </Link>
@@ -74,7 +73,7 @@ export default function SellSedansPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Auto-Sell.ai for Your Sedan?
+              Why Choose AutoSell.ai for Your Sedan?
             </h2>
             <p className="text-xl text-gray-600">
               We understand sedan values and offer competitive prices
@@ -125,18 +124,17 @@ export default function SellSedansPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Sell Your Sedan?
           </h2>
-          <p className="text-xl mb-8 text-gray-700">
+          <p className="text-xl mb-8 text-emerald-100">
             Get your free sedan valuation in 30 minutes and receive same-day payment.
           </p>
-          <Link
-            href="/#sell-form"
-            className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#FFC325', color: '#fff' }}
+          <Link 
+            href="/#sell-form" 
+            className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get My Sedan Quote Now
           </Link>

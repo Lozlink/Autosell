@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Gold Coast - Auto-Sell.ai | Get Cash for Your Car on the Gold Coast",
-  description: "Sell your car fast on the Gold Coast with Auto-Sell.ai. We buy all cars on the Gold Coast and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Gold Coast - AutoSell.ai | Get Cash for Your Car on the Gold Coast",
+  description: "Sell your car fast on the Gold Coast with AutoSell.ai. We buy all cars on the Gold Coast and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car gold coast, car buyers gold coast, sell car gold coast, cash for cars gold coast, sell car fast gold coast, gold coast car buyers",
 }
 
@@ -14,21 +14,20 @@ export default function SellMyCarGoldCoastPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="text-white py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: '#000' }}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Sell My Car Gold Coast
-              <span className="block" style={{ color: '#000' }}>Get Cash for Your Car on the Gold Coast</span>
+              <span className="block text-emerald-400">Get Cash for Your Car on the Gold Coast</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8" style={{ color: '#1f2937' }}>
-              We buy all cars on the Gold Coast and surrounding areas. Get an instant quote and same-day payment.
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+              We buy all cars on the Gold Coast and surrounding areas. Get an instant quote and same-day payment. 
               Free pickup service across the Gold Coast region.
             </p>
-            <Link
-              href="/#sell-form"
-              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#FFC325', color: '#fff' }}
+            <Link 
+              href="/#sell-form" 
+              className="inline-block bg-emerald-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get My Gold Coast Car Quote Now
             </Link>
@@ -74,10 +73,10 @@ export default function SellMyCarGoldCoastPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Auto-Sell.ai on the Gold Coast?
+              Why Choose AutoSell.ai on the Gold Coast?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand the Gold Coast&apos;s car market and offer competitive prices
+              We understand the Gold Coast's car market and offer competitive prices
             </p>
           </div>
 
@@ -125,18 +124,17 @@ export default function SellMyCarGoldCoastPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
+      <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#000' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Sell Your Car on the Gold Coast?
           </h2>
-          <p className="text-xl mb-8" style={{ color: '#1f2937' }}>
+          <p className="text-xl mb-8 text-emerald-100">
             Get your free Gold Coast car valuation in 30 minutes and receive same-day payment.
           </p>
-          <Link
-            href="/#sell-form"
-            className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#FFC325', color: '#fff' }}
+          <Link 
+            href="/#sell-form" 
+            className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get My Gold Coast Car Quote Now
           </Link>
