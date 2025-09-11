@@ -222,6 +222,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/*incorporate links in the mapping process*/}
+      {/* We Buy All Types Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              We Buy All Types of Vehicles
+            </h2>
+            <p className="text-lg text-gray-600">
+              From cars to trucks, we buy everything - no matter the condition
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { type: 'Cars', icon: '🚗', description: 'All makes and models, any condition' },
+              { type: 'SUVs', icon: '🚙', description: '4WDs, crossovers, and family vehicles' },
+              { type: 'Utes', icon: '🛻', description: 'Work utes, dual cabs, and pickups' },
+              { type: 'Trucks', icon: '🚛', description: 'Commercial trucks and heavy vehicles' },
+              { type: 'Vans', icon: '🚐', description: 'Passenger vans and cargo vans' },
+              { type: 'Motorcycles', icon: '🏍️', description: 'Bikes, scooters, and ATVs' },
+              { type: 'Boats', icon: '🚤', description: 'Motorboats, yachts, and jet skis' },
+              { type: 'Caravans', icon: '🏕️', description: 'Caravans, campers, and trailers' }
+            ].map((vehicle) => (
+              <div key={vehicle.type} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-3">{vehicle.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{vehicle.type}</h3>
+                <p className="text-sm text-gray-600">{vehicle.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Car Brands We Buy */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -233,7 +267,8 @@ export default function Home() {
               Any make, any model, any condition - we buy them all
             </p>
           </div>
-          
+
+          {/*incorporate links in the mapping proces*/}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
             {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
               <div key={brand} className="text-center text-2xl font-bold text-gray-500">
@@ -247,6 +282,54 @@ export default function Home() {
               Don&apos;t see your brand? We buy all makes and models - 
               <a href="#sell-form" className="text-emerald-600 hover:text-emerald-700 font-semibold"> get your quote anyway!</a>
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <div className="flex justify-center items-center gap-2 mb-8">
+              <div className="flex text-yellow-400 text-2xl">★★★★★</div>
+              <span className="text-lg text-gray-600">4.9/5 from 2,000+ reviews</span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah M.",
+                location: "Sydney, NSW",
+                review: "Absolutely fantastic service! Got my quote in 20 minutes and sold my car the same day. The payment was instant and the process was so smooth.",
+                rating: 5
+              },
+              {
+                name: "Mark T.",
+                location: "Melbourne, VIC",
+                review: "I was skeptical at first but AutoSell.ai delivered exactly what they promised. Fair price, fast service, and professional throughout.",
+                rating: 5
+              },
+              {
+                name: "Jenny L.",
+                location: "Brisbane, QLD",
+                review: "My car wasn't running and I thought it would be worthless. AutoSell.ai still gave me a great offer and handled everything professionally.",
+                rating: 5
+              }
+            ].map((review, index) => (
+              <div key={index} className="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                <div className="flex text-yellow-400 text-lg mb-4">
+                  {'★'.repeat(review.rating)}
+                </div>
+                <p className="text-gray-700 mb-4 italic">&quot;{review.review}&quot;</p>
+                <div>
+                  <div className="font-semibold text-gray-900">{review.name}</div>
+                  <div className="text-sm text-gray-500">{review.location}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -296,54 +379,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <section id="reviews" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
-            </h2>
-            <div className="flex justify-center items-center gap-2 mb-8">
-              <div className="flex text-yellow-400 text-2xl">★★★★★</div>
-              <span className="text-lg text-gray-600">4.9/5 from 2,000+ reviews</span>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah M.",
-                location: "Sydney, NSW",
-                review: "Absolutely fantastic service! Got my quote in 20 minutes and sold my car the same day. The payment was instant and the process was so smooth.",
-                rating: 5
-              },
-              {
-                name: "Mark T.",
-                location: "Melbourne, VIC",
-                review: "I was skeptical at first but AutoSell.ai delivered exactly what they promised. Fair price, fast service, and professional throughout.",
-                rating: 5
-              },
-              {
-                name: "Jenny L.",
-                location: "Brisbane, QLD",
-                review: "My car wasn't running and I thought it would be worthless. AutoSell.ai still gave me a great offer and handled everything professionally.",
-                rating: 5
-              }
-            ].map((review, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-                <div className="flex text-yellow-400 text-lg mb-4">
-                  {'★'.repeat(review.rating)}
-                </div>
-                <p className="text-gray-700 mb-4 italic">&quot;{review.review}&quot;</p>
-                <div>
-                  <div className="font-semibold text-gray-900">{review.name}</div>
-                  <div className="text-sm text-gray-500">{review.location}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+     
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-gray-50">
@@ -399,39 +436,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* We Buy All Types Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              We Buy All Types of Vehicles
-            </h2>
-            <p className="text-lg text-gray-600">
-              From cars to trucks, we buy everything - no matter the condition
-            </p>
-          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { type: 'Cars', icon: '🚗', description: 'All makes and models, any condition' },
-              { type: 'SUVs', icon: '🚙', description: '4WDs, crossovers, and family vehicles' },
-              { type: 'Utes', icon: '🛻', description: 'Work utes, dual cabs, and pickups' },
-              { type: 'Trucks', icon: '🚛', description: 'Commercial trucks and heavy vehicles' },
-              { type: 'Vans', icon: '🚐', description: 'Passenger vans and cargo vans' },
-              { type: 'Motorcycles', icon: '🏍️', description: 'Bikes, scooters, and ATVs' },
-              { type: 'Boats', icon: '🚤', description: 'Motorboats, yachts, and jet skis' },
-              { type: 'Caravans', icon: '🏕️', description: 'Caravans, campers, and trailers' }
-            ].map((vehicle) => (
-              <div key={vehicle.type} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3">{vehicle.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{vehicle.type}</h3>
-                <p className="text-sm text-gray-600">{vehicle.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/*incorporate links in the mapping process*/}
+      
 
       {/* Process Details Section */}
       <section className="py-20 bg-gray-50">
@@ -467,6 +474,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+            {/* Value my car now button to auto-scroll to the top  */}
             
             <div className="bg-white p-8 rounded-xl border border-gray-200">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Same-Day Completion</h3>
@@ -525,3 +533,4 @@ export default function Home() {
     </div>
   )
 }
+
