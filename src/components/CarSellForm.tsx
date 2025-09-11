@@ -255,6 +255,10 @@ export default function CarSellForm() {
             disabled={loading}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              // Auto-scroll to top when button is clicked
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
             className="w-full cursor-pointer bg-emerald-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Getting Your Quote...' : 'Value My Car Now'}
@@ -262,11 +266,17 @@ export default function CarSellForm() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            🔒 Your information is secure and will not be shared with third parties
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Your information is secure and will not be shared with third parties
           </p>
-          <p className="text-sm text-gray-500 mt-1">
-            ⚡ We&apos;ll contact you within 30 minutes with your competitive offer
+          <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
+            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            We&apos;ll contact you within 30 minutes with your competitive offer
           </p>
         </div>
       </motion.div>
@@ -497,14 +507,20 @@ export default function CarSellForm() {
         </motion.button>
       </form>
 
-      <div className="mt-6 text-center">
-        <p className="text-sm text-gray-500">
-          🔒 Your information is secure and will not be shared with third parties
-        </p>
-        <p className="text-sm text-gray-500 mt-1">
-          ⚡ We&apos;ll contact you within 30 minutes with your competitive offer
-        </p>
-      </div>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Your information is secure and will not be shared with third parties
+          </p>
+          <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
+            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            We&apos;ll contact you within 30 minutes with your competitive offer
+          </p>
+        </div>
     </motion.div>
   );
 }

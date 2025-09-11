@@ -1,6 +1,9 @@
 import {Suspense} from 'react'
 import Header from '@/components/Header'
 import CarSellForm from '@/components/CarSellForm'
+import CarModelsRotation from '@/components/CarModelsRotation'
+import ReviewsComponent from '@/components/ReviewsComponent'
+import MapComponent from '@/components/MapComponent'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
@@ -40,14 +43,14 @@ export default function Home() {
       <Header />
       
       {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="sell-form" className="bg-gradient-to-br from-black via-zinc-900 to-black text-white py-12">
+        <div className="px-4 sm:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Sell Your Car Today
-                <span className="block text-emerald-400">30-Min Quote, Same-Day OSKO Payment</span>
+                <span className="block text-red-400">30-Min Quote, Same-Day OSKO Payment</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-8">
                 Australia&apos;s #1 car buying service. Get a <strong>FREE valuation</strong> in 30 minutes, 
@@ -57,15 +60,15 @@ export default function Home() {
               {/* Trust Strip */}
               <div className="flex flex-wrap gap-4 mb-8 text-sm">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-emerald-400">✓</span>
+                  <span className="text-red-400">✓</span>
                   <span>We beat like-for-like offers</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-emerald-400">✓</span>
+                  <span className="text-red-400">✓</span>
                   <span>We come to you AU-wide</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-emerald-400">✓</span>
+                  <span className="text-red-400">✓</span>
                   <span>No fees, no fuss</span>
                 </div>
               </div>
@@ -73,26 +76,34 @@ export default function Home() {
               {/* Key Benefits */}
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-2xl">⚡</span>
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">⚡</span>
+                  </div>
                   <span className="font-semibold">30min Quote</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-2xl">💰</span>
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">$</span>
+                  </div>
                   <span className="font-semibold">Same Day OSKO</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-2xl">🚗</span>
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">✓</span>
+                  </div>
                   <span className="font-semibold">Any Condition</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-2xl">🌏</span>
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">AU</span>
+                  </div>
                   <span className="font-semibold">Australia Wide</span>
                 </div>
               </div>
 
               <div className="text-center lg:text-left">
                 <p className="text-sm text-gray-300 mb-4">
-                  ⭐ 4.9/5 from 5,000+ happy customers • Open 7 days a week
+                  ★ 4.9/5 from 5,000+ happy customers • Open 7 days a week
                 </p>
               </div>
             </div>
@@ -108,8 +119,8 @@ export default function Home() {
       </section>
 
       {/* Value Propositions Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 bg-zinc-950">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Why Choose AutoSell.ai?
@@ -124,52 +135,62 @@ export default function Home() {
               {
                 icon: "💰",
                 title: "Immediate Payment",
-                description: "Get paid instantly via OSKO transfer. No waiting, no delays."
+                description: "Get paid instantly via OSKO transfer. No waiting, no delays.",
+                href: "/value-propositions/immediate-payment"
               },
               {
                 icon: "🔍",
                 title: "On-Site Inspections",
-                description: "We come to you anywhere in Australia. No need to travel."
+                description: "We come to you anywhere in Australia. No need to travel.",
+                href: "/value-propositions/on-site-inspections"
               },
               {
                 icon: "🕒",
                 title: "Open 7 Days",
-                description: "Available when you need us, including weekends and public holidays."
+                description: "Available when you need us, including weekends and public holidays.",
+                href: "#"
               },
               {
                 icon: "📈",
                 title: "Best Price Guarantee",
-                description: "We beat like-for-like offers. Get the best value for your car."
+                description: "We beat like-for-like offers. Get the best value for your car.",
+                href: "/value-propositions/best-price-guarantee"
               },
               {
                 icon: "✅",
                 title: "100% Satisfaction",
-                description: "Thousands of happy customers across Australia trust us."
+                description: "Thousands of happy customers across Australia trust us.",
+                href: "#"
               },
               {
                 icon: "🚗",
                 title: "Smooth Sales Process",
-                description: "From quote to payment in hours, not days or weeks."
+                description: "From quote to payment in hours, not days or weeks.",
+                href: "#"
               }
             ].map((proposition, index) => (
-              <div key={index} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">{proposition.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{proposition.title}</h3>
-                <p className="text-gray-600">{proposition.description}</p>
-              </div>
+              <a
+                key={index}
+                href={proposition.href}
+                className="text-center p-6 rounded-xl border border-zinc-800 bg-zinc-900 hover:shadow-lg transition-all duration-300 hover:border-red-600/60 hover:bg-zinc-800 group cursor-pointer"
+              >
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{proposition.icon}</div>
+                <h3 className="text-xl font-semibold text-zinc-100 mb-3 group-hover:text-red-400 transition-colors">{proposition.title}</h3>
+                <p className="text-zinc-400 group-hover:text-zinc-300 transition-colors">{proposition.description}</p>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="how-it-works" className="py-12 bg-zinc-950">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
               Selling your car has never been this easy
             </p>
           </div>
@@ -205,11 +226,11 @@ export default function Home() {
               }
             ].map((step, index) => (
                 <div key={index} className="relative">
-                  <div className={`${step.bgColor} p-8 rounded-xl shadow-lg border ${step.borderColor} text-center`}>
+                  <div className={`p-8 rounded-xl shadow-lg border border-zinc-800 bg-zinc-900 text-center`}>
                     <div className="text-6xl mb-4">{step.icon}</div>
-                    <div className={`text-4xl font-bold ${step.stepColor} mb-4`}>{step.step}</div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
+                    <div className={`text-4xl font-bold text-red-500 mb-4`}>{step.step}</div>
+                    <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
+                    <p className="text-zinc-400">{step.description}</p>
                   </div>
                   {index < 2 && (
                       <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
@@ -222,113 +243,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/*incorporate links in the mapping process*/}
-      {/* We Buy All Types Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Car Models We Buy */}
+      <section className="py-12 bg-white">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              We Buy All Types of Vehicles
+              Popular Car Models We Buy
             </h2>
             <p className="text-lg text-gray-600">
               From cars to trucks, we buy everything - no matter the condition
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { type: 'Cars', icon: '🚗', description: 'All makes and models, any condition' },
-              { type: 'SUVs', icon: '🚙', description: '4WDs, crossovers, and family vehicles' },
-              { type: 'Utes', icon: '🛻', description: 'Work utes, dual cabs, and pickups' },
-              { type: 'Trucks', icon: '🚛', description: 'Commercial trucks and heavy vehicles' },
-              { type: 'Vans', icon: '🚐', description: 'Passenger vans and cargo vans' },
-              { type: 'Motorcycles', icon: '🏍️', description: 'Bikes, scooters, and ATVs' },
-              { type: 'Boats', icon: '🚤', description: 'Motorboats, yachts, and jet skis' },
-              { type: 'Caravans', icon: '🏕️', description: 'Caravans, campers, and trailers' }
-            ].map((vehicle) => (
-              <div key={vehicle.type} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3">{vehicle.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{vehicle.type}</h3>
-                <p className="text-sm text-gray-600">{vehicle.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Car Brands We Buy */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              We Buy All Car Brands
-            </h2>
-            <p className="text-lg text-gray-600">
-              Any make, any model, any condition - we buy them all
-            </p>
-          </div>
-
-          {/*incorporate links in the mapping proces*/}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-            {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
-              <div key={brand} className="text-center text-2xl font-bold text-gray-500">
-                {brand}
-              </div>
-            ))}
-          </div>
+          <CarModelsRotation />
           
           <div className="text-center mt-8">
             <p className="text-gray-600">
-              Don&apos;t see your brand? We buy all makes and models - 
+              Don&apos;t see your model? We buy all makes and models - 
               <a href="#sell-form" className="text-emerald-600 hover:text-emerald-700 font-semibold"> get your quote anyway!</a>
             </p>
           </div>
         </div>
       </section>
 
-      <section id="reviews" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Brands Grid (linked to /brands/[brand]) */}
+      <section className="py-12 bg-gray-50">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
-            </h2>
-            <div className="flex justify-center items-center gap-2 mb-8">
-              <div className="flex text-yellow-400 text-2xl">★★★★★</div>
-              <span className="text-lg text-gray-600">4.9/5 from 2,000+ reviews</span>
-            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse by Brand</h2>
+            <p className="text-lg text-gray-600">We buy all makes. Pick yours to start.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah M.",
-                location: "Sydney, NSW",
-                review: "Absolutely fantastic service! Got my quote in 20 minutes and sold my car the same day. The payment was instant and the process was so smooth.",
-                rating: 5
-              },
-              {
-                name: "Mark T.",
-                location: "Melbourne, VIC",
-                review: "I was skeptical at first but AutoSell.ai delivered exactly what they promised. Fair price, fast service, and professional throughout.",
-                rating: 5
-              },
-              {
-                name: "Jenny L.",
-                location: "Brisbane, QLD",
-                review: "My car wasn't running and I thought it would be worthless. AutoSell.ai still gave me a great offer and handled everything professionally.",
-                rating: 5
-              }
-            ].map((review, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-                <div className="flex text-yellow-400 text-lg mb-4">
-                  {'★'.repeat(review.rating)}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {["Toyota","Ford","Holden","Mazda","Honda","Nissan","BMW","Mercedes","Audi","Volkswagen","Hyundai","Kia"].map((brand) => (
+              <a
+                key={brand}
+                href={`/brands/${brand.toLowerCase()}`}
+                className="group text-center p-4 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-all duration-300 hover:border-emerald-300 hover:scale-[1.02]"
+              >
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-emerald-50">
+                  <span className="text-gray-700 group-hover:text-emerald-600 font-bold text-lg">{brand.charAt(0)}</span>
                 </div>
-                <p className="text-gray-700 mb-4 italic">&quot;{review.review}&quot;</p>
-                <div>
-                  <div className="font-semibold text-gray-900">{review.name}</div>
-                  <div className="text-sm text-gray-500">{review.location}</div>
-                </div>
-              </div>
+                <div className="text-sm font-semibold text-gray-900 group-hover:text-emerald-600">{brand}</div>
+              </a>
             ))}
           </div>
         </div>
@@ -348,24 +305,26 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {[
-              { city: 'Sydney', state: 'NSW', icon: '🏙️' },
-              { city: 'Melbourne', state: 'VIC', icon: '🏛️' },
-              { city: 'Brisbane', state: 'QLD', icon: '🌞' },
-              { city: 'Perth', state: 'WA', icon: '🌊' },
-              { city: 'Adelaide', state: 'SA', icon: '🍷' },
-              { city: 'Canberra', state: 'ACT', icon: '🏛️' },
-              { city: 'Gold Coast', state: 'QLD', icon: '🏖️' },
-              { city: 'Darwin', state: 'NT', icon: '🌴' }
+              { city: 'Sydney', state: 'NSW', color: 'bg-blue-500' },
+              { city: 'Melbourne', state: 'VIC', color: 'bg-purple-500' },
+              { city: 'Brisbane', state: 'QLD', color: 'bg-orange-500' },
+              { city: 'Perth', state: 'WA', color: 'bg-cyan-500' },
+              { city: 'Adelaide', state: 'SA', color: 'bg-red-500' },
+              { city: 'Canberra', state: 'ACT', color: 'bg-indigo-500' },
+              { city: 'Gold Coast', state: 'QLD', color: 'bg-yellow-500' },
+              { city: 'Darwin', state: 'NT', color: 'bg-green-500' }
             ].map((location) => (
-              <div key={location.city} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-3">{location.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900">{location.city}</h3>
+              <div key={location.city} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                <div className={`w-12 h-12 mx-auto mb-3 rounded-full ${location.color} flex items-center justify-center`}>
+                  <span className="text-white font-bold text-lg">{location.city.charAt(0)}</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">{location.city}</h3>
                 <p className="text-sm text-gray-600">{location.state}</p>
               </div>
             ))}
           </div>
           
-          <div className="text-center">
+          <div className="text-center mb-8">
             <p className="text-gray-600 mb-4">
               Plus all regional areas, country towns, and remote locations
             </p>
@@ -376,15 +335,34 @@ export default function Home() {
               Get Your Quote - We Come to You!
             </a>
           </div>
+
+          {/* Map Component */}
+          <div className="max-w-4xl mx-auto">
+            <MapComponent />
+          </div>
         </div>
       </section>
 
-      
-     
+      {/* Customer Reviews */}
+      <section id="reviews" className="py-12 bg-white">
+        <div className="px-4 sm:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <div className="flex justify-center items-center gap-2 mb-8">
+              <div className="flex text-yellow-400 text-2xl">★★★★★</div>
+              <span className="text-lg text-gray-600">4.9/5 from 2,000+ reviews</span>
+            </div>
+          </div>
+
+          <ReviewsComponent />
+        </div>
+      </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-12 bg-gray-50">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
@@ -436,13 +414,45 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* We Buy All Types Section */}
+      <section className="py-12 bg-white">
+        <div className="px-4 sm:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              We Buy All Types of Vehicles
+            </h2>
+            <p className="text-lg text-gray-600">
+              From cars to trucks, we buy everything - no matter the condition
+            </p>
+          </div>
           
-      {/*incorporate links in the mapping process*/}
-      
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { type: 'Cars', href: '/types/cars', bg: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)', desc: 'All makes and models, any condition' },
+              { type: 'SUVs', href: '/types/suvs', bg: 'linear-gradient(135deg, #10b981 0%, #047857 100%)', desc: '4WDs, crossovers, and family vehicles' },
+              { type: 'Utes', href: '/types/utes', bg: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', desc: 'Work utes, dual cabs, and pickups' },
+              { type: 'Trucks', href: '/types/trucks', bg: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', desc: 'Commercial trucks and heavy vehicles' },
+              { type: 'Vans', href: '/types/vans', bg: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', desc: 'Passenger vans and cargo vans' },
+              { type: 'Motorcycles', href: '/types/motorcycles', bg: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)', desc: 'Bikes, scooters, and ATVs' },
+              { type: 'Boats', href: '/types/boats', bg: 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)', desc: 'Motorboats, yachts, and jet skis' },
+              { type: 'Caravans', href: '/types/caravans', bg: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)', desc: 'Caravans, campers, and trailers' }
+            ].map((t) => (
+              <a key={t.type} href={t.href} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold" style={{ background: t.bg }}>
+                  {t.type.charAt(0)}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">{t.type}</h3>
+                <p className="text-sm text-gray-600">{t.desc}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Process Details Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 bg-gray-50">
+        <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               What Happens After You Submit?
@@ -502,8 +512,8 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white">
+        <div className="px-4 sm:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Get Your FREE Car Valuation?
           </h2>
@@ -521,9 +531,12 @@ export default function Home() {
               <p className="text-emerald-100">Or call us directly:</p>
               <a 
                 href="tel:1800AUTOSELL" 
-                className="text-2xl font-bold text-white hover:text-emerald-200 transition-colors"
+                className="text-2xl font-bold text-white hover:text-emerald-200 transition-colors flex items-center justify-center gap-2"
               >
-                📞 1800 AUTO SELL
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                1800 AUTO SELL
               </a>
               <p className="text-emerald-100 text-sm mt-2">Open 7 days a week • 8am-6pm AEST</p>
             </div>
