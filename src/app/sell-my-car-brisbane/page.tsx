@@ -76,7 +76,7 @@ export default function SellMyCarBrisbanePage() {
               Why Choose AutoSell.ai in Brisbane?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Brisbane's car market and offer competitive prices
+              We understand Brisbane&apos;s car market and offer competitive prices
             </p>
           </div>
 

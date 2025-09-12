@@ -76,7 +76,7 @@ export default function SellMyCarSydneyPage() {
               Why Choose AutoSell.ai in Sydney?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Sydney's car market and offer competitive prices
+              We understand Sydney&apos;s car market and offer competitive prices
             </p>
           </div>
 
