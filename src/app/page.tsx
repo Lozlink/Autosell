@@ -475,6 +475,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+            {/* Value my car now button to auto-scroll to the top  */}
             
             <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
               <h3 className="text-xl font-semibold text-white mb-4">Same-Day Completion</h3>
@@ -536,3 +537,4 @@ export default function Home() {
     </div>
   )
 }
+

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -13,8 +12,8 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <section className="py-12">
-        <div className="px-4 sm:px-8 max-w-5xl">
+      <section className="py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
             <p className="text-xl text-gray-600">
@@ -148,7 +147,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

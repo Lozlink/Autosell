@@ -38,6 +38,26 @@ export const metadata: Metadata = {
 };
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+// floating phone icon on entire website. Create component for this and insert in this file. 
+// Stands parallel to the chat icon, 
+// Remove description, add images for each model. max width of 150px. 3 car models at a time, rotating.  
+// {/* Value my car now button to auto-scroll to the top  */} home page 
+// incorporate links in the mapping process for home page for brands and types 
+// Hero banner for individual car brands to have home page form 
+// Styling of home page as trial 
+// reviews integration 
+// include navigtation link for Contact 
+// Maps API integration 
+// Footer to include the querystring for brands and types
+// Under the Why choose Auto sell AI - each of the value proposition icons need to be clickable to a page explaining the value proposition statement
+// blog page integration & supabase authentication 
+// regional areas integration pending confirmatio of viability
+// remove damaged cars from navigation, add brands & types to navigation with dropdown for each 
+// Contact dropdown to include blog, reviews, FAQ 
+// fix padding in contact us page. 
+// 15th of September Soft launch. Fully functional
+// remove emojis & add background images for vehicle types . Logo's for model brands
+
 
 export default function RootLayout({
   children,
