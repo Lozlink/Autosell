@@ -66,17 +66,17 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               AutoSell.ai Blog
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-red-100 mb-8 max-w-3xl mx-auto">
               Expert tips, guides, and insights to help you sell your car for the best price in Australia.
             </p>
           </div>
@@ -88,9 +88,9 @@ export default function BlogPage() {
         <div className="px-4 sm:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-all duration-300">
+              <article key={post.id} className="overflow-hidden transition-shadow duration-300">
                 <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
                     <span className="text-white text-4xl font-bold">{post.category.charAt(0)}</span>
                   </div>
                 </div>
@@ -100,19 +100,19 @@ export default function BlogPage() {
                     <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-zinc-400 text-sm">{post.readTime}</span>
+                    <span className="text-gray-400 text-sm">{post.readTime}</span>
                   </div>
                   
                   <h2 className="text-xl font-bold text-white mb-3 line-clamp-2">
                     {post.title}
                   </h2>
                   
-                  <p className="text-zinc-400 mb-4 line-clamp-3">
+                  <p className="text-gray-300 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <time className="text-sm text-zinc-400">
+                    <time className="text-sm text-gray-400">
                       {new Date(post.date).toLocaleDateString('en-AU', {
                         year: 'numeric',
                         month: 'long',
@@ -134,7 +134,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-12 bg-red-700">
+      <section className="py-12 bg-red-600">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Stay Updated with Car Selling Tips
@@ -146,9 +146,9 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-700"
+              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600"
             />
-            <button className="bg-white text-red-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+            <button className="bg-gray-800 text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
               Subscribe
             </button>
           </div>
