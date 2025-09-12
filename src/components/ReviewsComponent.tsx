@@ -141,7 +141,7 @@ export default function ReviewsComponent() {
             </div>
             
             <p className="text-gray-700 mb-4 italic leading-relaxed">
-              "{review.review}"
+              &ldquo;{review.review}&rdquo;
             </p>
             
             <div className="flex items-center justify-between">

@@ -76,7 +76,7 @@ export default function SellMyCarPerthPage() {
               Why Choose AutoSell.ai in Perth?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Perth's car market and offer competitive prices
+              We understand Perth&apos;s car market and offer competitive prices
             </p>
           </div>
 

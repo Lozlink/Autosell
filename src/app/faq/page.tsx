@@ -1,13 +1,9 @@
-'use client'
 
-import type { Metadata } from 'next'
+"use client"
+
 import Header from '@/components/Header'
 import { useState } from 'react'
 
-export const metadata: Metadata = {
-  title: "FAQ - AutoSell.ai",
-  description: "Frequently asked questions about selling your car with AutoSell.ai. Get answers to common questions about our car buying service.",
-}
 
 const faqs = [
   {

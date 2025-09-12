@@ -76,7 +76,7 @@ export default function SellMyCarCanberraPage() {
               Why Choose AutoSell.ai in Canberra?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Canberra's car market and offer competitive prices
+              We understand Canberra&apos;s car market and offer competitive prices
             </p>
           </div>
 

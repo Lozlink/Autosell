@@ -80,7 +80,7 @@ export default function BestPriceGuaranteePage() {
                 <span className="text-2xl">💰</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Beat Guarantee</h3>
-              <p className="text-gray-600">If you receive a better offer, we'll beat it or match it to ensure you get maximum value.</p>
+              <p className="text-gray-600">If you receive a better offer, we&apos;ll beat it or match it to ensure you get maximum value.</p>
             </div>
           </div>
 

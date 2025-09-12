@@ -1,15 +1,22 @@
 import twilio from 'twilio';
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const whatsappNumber = process.env.TWILIO_WHATSAPP_NUMBER;
-const smsNumber = process.env.TWILIO_SMS_NUMBER;
+let client: twilio.Twilio | null = null;
 
-if (!accountSid || !authToken || !whatsappNumber || !smsNumber) {
-  throw new Error('Missing Twilio environment variables');
+function getTwilioClient() {
+  if (!client) {
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
+    const whatsappNumber = process.env.TWILIO_WHATSAPP_NUMBER;
+    const smsNumber = process.env.TWILIO_SMS_NUMBER;
+
+    if (!accountSid || !authToken || !whatsappNumber || !smsNumber) {
+      throw new Error('Missing Twilio environment variables');
+    }
+
+    client = twilio(accountSid, authToken);
+  }
+  return client;
 }
-
-const client = twilio(accountSid, authToken);
 
 export interface MessageData {
   to: string;
@@ -152,9 +159,10 @@ export function analyzeMessage(message: string): ChatbotResponse {
 
 export async function sendSMS(data: MessageData): Promise<void> {
   try {
-    await client.messages.create({
+    const twilioClient = getTwilioClient();
+    await twilioClient.messages.create({
       body: data.body,
-      from: smsNumber,
+      from: process.env.TWILIO_SMS_NUMBER,
       to: data.to
     });
   } catch (error) {
@@ -165,9 +173,10 @@ export async function sendSMS(data: MessageData): Promise<void> {
 
 export async function sendWhatsApp(data: MessageData): Promise<void> {
   try {
-    await client.messages.create({
+    const twilioClient = getTwilioClient();
+    await twilioClient.messages.create({
       body: data.body,
-      from: `whatsapp:${whatsappNumber}`,
+      from: `whatsapp:${process.env.TWILIO_WHATSAPP_NUMBER}`,
       to: `whatsapp:${data.to}`
     });
   } catch (error) {
@@ -184,4 +193,4 @@ export async function sendMessage(data: MessageData, platform: 'sms' | 'whatsapp
   }
 }
 
-export { client };
+export { getTwilioClient };

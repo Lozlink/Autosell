@@ -65,7 +65,7 @@ export default function ImmediatePaymentPage() {
                 <li>• Wait days or weeks for payment</li>
                 <li>• Bank processing delays</li>
                 <li>• Risk of payment issues</li>
-                <li>• Uncertainty about when you'll get paid</li>
+                <li>• Uncertainty about when you&apos;ll get paid</li>
               </ul>
             </div>
             

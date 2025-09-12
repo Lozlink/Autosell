@@ -4,11 +4,11 @@ import CarSellForm from '@/components/CarSellForm'
 import { Suspense } from 'react'
 
 interface BrandPageProps {
-	params: { brand: string }
+	params: Promise<{ brand: string }>
 }
 
 export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
-	const brand = params.brand
+	const { brand } = await params
 	const titleBrand = brand.charAt(0).toUpperCase() + brand.slice(1)
 	return {
 		title: `Sell Your ${titleBrand} - AutoSell.ai`,
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
 	}
 }
 
-export default function BrandPage({ params }: BrandPageProps) {
-	const brand = params.brand
+export default async function BrandPage({ params }: BrandPageProps) {
+	const { brand } = await params
 	const titleBrand = brand.charAt(0).toUpperCase() + brand.slice(1)
 
 	return (

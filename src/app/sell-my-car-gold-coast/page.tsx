@@ -76,7 +76,7 @@ export default function SellMyCarGoldCoastPage() {
               Why Choose AutoSell.ai on the Gold Coast?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand the Gold Coast's car market and offer competitive prices
+              We understand the Gold Coast&apos;s car market and offer competitive prices
             </p>
           </div>
 
