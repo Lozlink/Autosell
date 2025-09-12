@@ -7,11 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-all-round-gothic)', 'var(--font-montserrat)', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-all-round-gothic)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',

@@ -1,22 +1,15 @@
 import twilio from 'twilio';
 
-let client: twilio.Twilio | null = null;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const whatsappNumber = process.env.TWILIO_WHATSAPP_NUMBER;
+const smsNumber = process.env.TWILIO_SMS_NUMBER;
 
-function getTwilioClient() {
-  if (!client) {
-    const accountSid = process.env.TWILIO_ACCOUNT_SID;
-    const authToken = process.env.TWILIO_AUTH_TOKEN;
-    const whatsappNumber = process.env.TWILIO_WHATSAPP_NUMBER;
-    const smsNumber = process.env.TWILIO_SMS_NUMBER;
-
-    if (!accountSid || !authToken || !whatsappNumber || !smsNumber) {
-      throw new Error('Missing Twilio environment variables');
-    }
-
-    client = twilio(accountSid, authToken);
-  }
-  return client;
+if (!accountSid || !authToken || !whatsappNumber || !smsNumber) {
+  throw new Error('Missing Twilio environment variables');
 }
+
+const client = twilio(accountSid, authToken);
 
 export interface MessageData {
   to: string;
@@ -35,14 +28,14 @@ export interface ChatbotResponse {
 const automatedResponses = {
   greeting: {
     keywords: ['hello', 'hi', 'hey', 'start', 'help'],
-    response: "Hi! I'm Auto-Sell.ai's assistant. I can help you with:\n\n🚗 Getting a car valuation\n💰 Understanding our pricing\n📅 Booking an inspection\n❓ General questions\n\nWhat would you like to know?",
+    response: "Hi! I'm AutoSell.ai's assistant. I can help you with:\n\n🚗 Getting a car valuation\n💰 Understanding our pricing\n📅 Booking an inspection\n❓ General questions\n\nWhat would you like to know?",
     shouldEscalate: false,
     nextStep: 'waiting_for_query'
   },
   
   valuation: {
     keywords: ['quote', 'valuation', 'price', 'value', 'worth', 'how much'],
-    response: "Great! I can help you get a free car valuation. To get started, I'll need:\n\n• Your car's make and model\n• Year and odometer reading\n• General condition\n• Your postcode\n\nWould you like to provide these details now, or would you prefer to fill out our online form at Auto-Sell.ai?",
+    response: "Great! I can help you get a free car valuation. To get started, I'll need:\n\n• Your car's make and model\n• Year and odometer reading\n• General condition\n• Your postcode\n\nWould you like to provide these details now, or would you prefer to fill out our online form at autosell.ai?",
     shouldEscalate: false,
     nextStep: 'collecting_car_details'
   },
@@ -159,10 +152,9 @@ export function analyzeMessage(message: string): ChatbotResponse {
 
 export async function sendSMS(data: MessageData): Promise<void> {
   try {
-    const twilioClient = getTwilioClient();
-    await twilioClient.messages.create({
+    await client.messages.create({
       body: data.body,
-      from: process.env.TWILIO_SMS_NUMBER,
+      from: smsNumber,
       to: data.to
     });
   } catch (error) {
@@ -173,10 +165,9 @@ export async function sendSMS(data: MessageData): Promise<void> {
 
 export async function sendWhatsApp(data: MessageData): Promise<void> {
   try {
-    const twilioClient = getTwilioClient();
-    await twilioClient.messages.create({
+    await client.messages.create({
       body: data.body,
-      from: `whatsapp:${process.env.TWILIO_WHATSAPP_NUMBER}`,
+      from: `whatsapp:${whatsappNumber}`,
       to: `whatsapp:${data.to}`
     });
   } catch (error) {
@@ -193,4 +184,4 @@ export async function sendMessage(data: MessageData, platform: 'sms' | 'whatsapp
   }
 }
 
-export { getTwilioClient };
+export { client };
