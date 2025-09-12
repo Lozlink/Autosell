@@ -241,7 +241,7 @@ export default function Header() {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden py-4 border-t border-gray-200"
+            className="md:hidden py-4 border-t border-gray-700"
           >
             <div className="flex flex-col space-y-4 text-zinc-200">
               <Link 
@@ -252,45 +252,77 @@ export default function Header() {
                 How It Works
               </Link>
               
-              {/* Mobile Brands */}
+              {/* Mobile Brands Dropdown */}
               <div>
-                <div className="text-zinc-200 font-medium mb-2">Brands</div>
-                <div className="ml-4 grid grid-cols-2 gap-2">
-                  {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes'].map((brand) => (
-                    <Link
-                      key={brand}
-                      href={`/brands/${brand.toLowerCase()}`}
-                      className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {brand}
-                    </Link>
-                  ))}
-                </div>
+                <button
+                  onClick={() => setIsBrandsOpen(!isBrandsOpen)}
+                  className="flex items-center justify-between w-full text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                >
+                  <span>Brands</span>
+                  <svg className={`w-4 h-4 transition-transform ${isBrandsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isBrandsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="ml-4 mt-2 grid grid-cols-2 gap-2"
+                  >
+                    {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
+                      <Link
+                        key={brand}
+                        href={`/brands/${brand.toLowerCase()}`}
+                        className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {brand}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
               </div>
 
-              {/* Mobile Types */}
+              {/* Mobile Types Dropdown */}
               <div>
-                <div className="text-zinc-200 font-medium mb-2">Types</div>
-                <div className="ml-4 grid grid-cols-2 gap-2">
-                  {[
-                    { type: 'Cars', href: '/types/cars' },
-                    { type: 'SUVs', href: '/types/suvs' },
-                    { type: 'Utes', href: '/types/utes' },
-                    { type: 'Trucks', href: '/types/trucks' },
-                    { type: 'Vans', href: '/types/vans' },
-                    { type: 'Motorcycles', href: '/types/motorcycles' }
-                  ].map((item) => (
-                    <Link
-                      key={item.type}
-                      href={item.href}
-                      className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.type}
-                    </Link>
-                  ))}
-                </div>
+                <button
+                  onClick={() => setIsTypesOpen(!isTypesOpen)}
+                  className="flex items-center justify-between w-full text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                >
+                  <span>Types</span>
+                  <svg className={`w-4 h-4 transition-transform ${isTypesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isTypesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="ml-4 mt-2 grid grid-cols-2 gap-2"
+                  >
+                    {[
+                      { type: 'Cars', href: '/types/cars' },
+                      { type: 'SUVs', href: '/types/suvs' },
+                      { type: 'Utes', href: '/types/utes' },
+                      { type: 'Trucks', href: '/types/trucks' },
+                      { type: 'Vans', href: '/types/vans' },
+                      { type: 'Motorcycles', href: '/types/motorcycles' },
+                      { type: 'Boats', href: '/types/boats' },
+                      { type: 'Caravans', href: '/types/caravans' }
+                    ].map((item) => (
+                      <Link
+                        key={item.type}
+                        href={item.href}
+                        className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.type}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
               </div>
 
               <Link 

@@ -54,45 +54,46 @@ export default function CarModelsRotation() {
   }, [])
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <AnimatePresence mode="wait">
-        {displayedModels.map((model, index) => (
-          <motion.div
-            key={`${model.id}-${currentIndex}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ 
-              duration: 0.5, 
-              delay: index * 0.1 
-            }}
-            className="text-center group"
-          >
-            <div className="relative w-full h-32 mb-4 rounded-lg overflow-hidden bg-gray-100">
-              <Image
-                src={model.image}
-                alt={`${model.brand} ${model.name}`}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  // Fallback to placeholder if image doesn't exist
-                  const target = e.target as HTMLImageElement
-                  target.src = `data:image/svg+xml;base64,${btoa(`
-                    <svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="150" height="100" fill="#f3f4f6"/>
-                      <text x="75" y="50" text-anchor="middle" dy=".3em" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">
-                        ${model.brand} ${model.name}
-                      </text>
-                    </svg>
-                  `)}`
-                }}
-              />
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.2 }}
+          className="contents"
+        >
+          {displayedModels.map((model, index) => (
+            <div
+              key={`${model.id}-${currentIndex}`}
+              className="text-center group p-8 transition-shadow"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              {/* Brand Icon */}
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500 transition-colors">
+                <span className="text-2xl font-bold text-red-500 group-hover:text-white transition-colors">
+                  {model.brand.charAt(0)}
+                </span>
+              </div>
+              
+              {/* Brand Name */}
+              <div className="text-xl font-semibold text-white mb-2 group-hover:text-red-400 transition-colors">
+                {model.brand}
+              </div>
+              
+              {/* Model Name */}
+              <div className="text-lg text-gray-300 mb-4">
+                {model.name}
+              </div>
+              
+              {/* Description */}
+              <div className="text-sm text-gray-400 font-medium">
+                ESTIMATED VALUE
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-              {model.brand} {model.name}
-            </h3>
-          </motion.div>
-        ))}
+          ))}
+        </motion.div>
       </AnimatePresence>
     </div>
   )
