@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -9,6 +9,60 @@ export default function Header() {
   const [isBrandsOpen, setIsBrandsOpen] = useState(false)
   const [isTypesOpen, setIsTypesOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
+  
+  const brandsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const typesTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const contactTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleBrandsMouseEnter = () => {
+    if (brandsTimeoutRef.current) {
+      clearTimeout(brandsTimeoutRef.current)
+      brandsTimeoutRef.current = null
+    }
+    setIsBrandsOpen(true)
+  }
+
+  const handleBrandsMouseLeave = () => {
+    brandsTimeoutRef.current = setTimeout(() => {
+      setIsBrandsOpen(false)
+    }, 150)
+  }
+
+  const handleTypesMouseEnter = () => {
+    if (typesTimeoutRef.current) {
+      clearTimeout(typesTimeoutRef.current)
+      typesTimeoutRef.current = null
+    }
+    setIsTypesOpen(true)
+  }
+
+  const handleTypesMouseLeave = () => {
+    typesTimeoutRef.current = setTimeout(() => {
+      setIsTypesOpen(false)
+    }, 150)
+  }
+
+  const handleContactMouseEnter = () => {
+    if (contactTimeoutRef.current) {
+      clearTimeout(contactTimeoutRef.current)
+      contactTimeoutRef.current = null
+    }
+    setIsContactOpen(true)
+  }
+
+  const handleContactMouseLeave = () => {
+    contactTimeoutRef.current = setTimeout(() => {
+      setIsContactOpen(false)
+    }, 150)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (brandsTimeoutRef.current) clearTimeout(brandsTimeoutRef.current)
+      if (typesTimeoutRef.current) clearTimeout(typesTimeoutRef.current)
+      if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current)
+    }
+  }, [])
 
   return (
     <header className="bg-gradient-to-b from-black via-zinc-900 to-zinc-900/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/80 shadow-lg sticky top-0 z-50 text-zinc-200">
@@ -36,8 +90,8 @@ export default function Header() {
             {/* Brands Dropdown */}
             <div className="relative">
               <button
-                onMouseEnter={() => setIsBrandsOpen(true)}
-                onMouseLeave={() => setIsBrandsOpen(false)}
+                onMouseEnter={handleBrandsMouseEnter}
+                onMouseLeave={handleBrandsMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Brands
@@ -50,9 +104,9 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={() => setIsBrandsOpen(true)}
-                  onMouseLeave={() => setIsBrandsOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={handleBrandsMouseEnter}
+                  onMouseLeave={handleBrandsMouseLeave}
+                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
                 >
                   {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
                     <Link
@@ -70,8 +124,8 @@ export default function Header() {
             {/* Types Dropdown */}
             <div className="relative">
               <button
-                onMouseEnter={() => setIsTypesOpen(true)}
-                onMouseLeave={() => setIsTypesOpen(false)}
+                onMouseEnter={handleTypesMouseEnter}
+                onMouseLeave={handleTypesMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Types
@@ -84,9 +138,9 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={() => setIsTypesOpen(true)}
-                  onMouseLeave={() => setIsTypesOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={handleTypesMouseEnter}
+                  onMouseLeave={handleTypesMouseLeave}
+                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
                 >
                   {[
                     { type: 'Cars', href: '/types/cars' },
@@ -120,8 +174,8 @@ export default function Header() {
             {/* Contact Dropdown */}
             <div className="relative">
               <button
-                onMouseEnter={() => setIsContactOpen(true)}
-                onMouseLeave={() => setIsContactOpen(false)}
+                onMouseEnter={handleContactMouseEnter}
+                onMouseLeave={handleContactMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Contact
@@ -134,9 +188,9 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={() => setIsContactOpen(true)}
-                  onMouseLeave={() => setIsContactOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={handleContactMouseEnter}
+                  onMouseLeave={handleContactMouseLeave}
+                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
                 >
                   <Link href="/contact" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
                     Contact Us
