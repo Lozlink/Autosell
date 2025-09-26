@@ -116,6 +116,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Customer Reviews */}
+      <section id="reviews" className="py-12 bg-zinc-950">
+        <div className="px-4 sm:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              What Our Customers Say
+            </h2>
+            <div className="flex justify-center items-center gap-2 mb-8">
+            </div>
+          </div>
+
+          <ReviewsComponent />
+        </div>
+      </section>
+
       {/* Value Propositions Section */}
       <section className="py-10 bg-zinc-950">
         <div className="px-4 sm:px-8">
@@ -341,20 +356,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <section id="reviews" className="py-12 bg-zinc-950">
-        <div className="px-4 sm:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              What Our Customers Say
-            </h2>
-            <div className="flex justify-center items-center gap-2 mb-8">
-            </div>
-          </div>
 
-          <ReviewsComponent />
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section id="faq" className="py-12 bg-zinc-950">
