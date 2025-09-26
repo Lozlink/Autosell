@@ -6,9 +6,10 @@ export default function Footer() {
   return (
     <footer className="bg-black text-zinc-200 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 xl:gap-24">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">A</span>
@@ -93,47 +94,6 @@ export default function Footer() {
                   Best Price Guarantee
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Popular Brands */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Popular Brands</h4>
-            <ul className="space-y-2">
-              {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes'].map((brand) => (
-                <li key={brand}>
-                  <Link 
-                    href={`/brands/${brand.toLowerCase()}?utm_source=footer&utm_medium=brand_link`} 
-                    className="text-zinc-400 hover:text-white transition-colors"
-                  >
-                    {brand}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Vehicle Types */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Vehicle Types</h4>
-            <ul className="space-y-2">
-              {[
-                { type: 'Cars', href: '/types/cars' },
-                { type: 'SUVs', href: '/types/suvs' },
-                { type: 'Utes', href: '/types/utes' },
-                { type: 'Trucks', href: '/types/trucks' },
-                { type: 'Vans', href: '/types/vans' },
-                { type: 'Motorcycles', href: '/types/motorcycles' }
-              ].map((item) => (
-                <li key={item.type}>
-                  <Link 
-                    href={`${item.href}?utm_source=footer&utm_medium=type_link`} 
-                    className="text-zinc-400 hover:text-white transition-colors"
-                  >
-                    {item.type}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </div>
         </div>

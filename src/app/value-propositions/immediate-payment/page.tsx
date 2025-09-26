@@ -1,97 +1,35 @@
 import Header from '@/components/Header'
-import CarSellForm from '@/components/CarSellForm'
-import { Suspense } from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Immediate Payment - AutoSell.ai',
+  description: 'Get paid instantly via OSKO once the deal is done. No waiting, no delays.'
+}
 
 export default function ImmediatePaymentPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white py-12">
-        <div className="px-4 sm:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Immediate Payment
-                <span className="block text-emerald-200">Get Paid Instantly</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-emerald-100 mb-8">
-                No waiting, no delays. Get paid instantly via OSKO transfer when you sell your car with AutoSell.ai.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-200">✓</span>
-                  </div>
-                  <span>OSKO transfer within minutes</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-200">✓</span>
-                  </div>
-                  <span>No bank delays or processing fees</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-200">✓</span>
-                  </div>
-                  <span>Secure and guaranteed payment</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <Suspense fallback={<div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200 animate-pulse h-96"></div>}>
-                <CarSellForm />
-              </Suspense>
-            </div>
-          </div>
+      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+        <div className="px-4 sm:px-8 max-w-5xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Immediate Payment</h1>
+          <p className="text-lg text-zinc-300 max-w-3xl">
+            Once you accept our offer and the inspection is complete, we transfer the funds via OSKO immediately. Most customers see the money in their account within minutes.
+          </p>
         </div>
       </section>
-
-      {/* Content Section */}
-      <section className="py-12 bg-white">
-        <div className="px-4 sm:px-8 max-w-5xl">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Why Immediate Payment Matters
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Traditional Car Selling</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Wait days or weeks for payment</li>
-                <li>• Bank processing delays</li>
-                <li>• Risk of payment issues</li>
-                <li>• Uncertainty about when you'll get paid</li>
-              </ul>
+      <section className="py-12">
+        <div className="px-4 sm:px-8 max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+          {[
+            { title: 'OSKO Fast Transfer', desc: 'Instant bank-to-bank payment the same day.' },
+            { title: 'No Waiting', desc: 'No bank cheques or processing delays.' },
+            { title: 'Secure & Verified', desc: 'Payments made to your nominated account, verified on-site.' },
+          ].map((item) => (
+            <div key={item.title} className="bg-zinc-900 rounded-xl p-8 border border-zinc-800 shadow-sm">
+              <h2 className="text-xl font-semibold mb-2 text-zinc-100">{item.title}</h2>
+              <p className="text-zinc-400">{item.desc}</p>
             </div>
-            
-            <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">AutoSell.ai Process</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• OSKO transfer within minutes</li>
-                <li>• No bank delays or fees</li>
-                <li>• Guaranteed secure payment</li>
-                <li>• Money in your account immediately</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Paid Instantly?</h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Join thousands of customers who chose the fast, secure way to sell their car.
-            </p>
-            <a 
-              href="#sell-form" 
-              className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-emerald-700 transition-colors"
-            >
-              Get Your Instant Quote
-            </a>
-          </div>
+          ))}
         </div>
       </section>
     </div>

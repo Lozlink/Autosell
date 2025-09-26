@@ -13,59 +13,50 @@ interface Review {
   verified: boolean
 }
 
-const mockReviews: Review[] = [
+const realReviews: Review[] = [
+  {
+    id: 0,
+    name: "Ziggy S",
+    location: "Sydney",
+    rating: 5,
+    review: "Great to deal with and an easy negotiator.\n",
+    date: "2025-09-22",
+    verified: true
+  },
   {
     id: 1,
-    name: "Sarah M.",
+    name: "Michael S.",
     location: "Sydney, NSW",
     rating: 5,
-    review: "Absolutely fantastic service! Got my quote in 20 minutes and sold my car the same day. The payment was instant and the process was so smooth.",
-    date: "2024-01-15",
+    review: "The team was very easy to deal with from start to finish. Communication was clear and straightforward, which made the whole process stress-free. They were professional yet friendly, and always willing to answer questions. The staff came across as genuine and honest, which built a lot of trust. Everything was handled smoothly without any issues. Overall, a really good experience with a nice team that I’d happily recommend.”",
+    date: "2025-09-21",
     verified: true
   },
   {
     id: 2,
-    name: "Mark T.",
-    location: "Melbourne, VIC",
+    name: "Tia",
+    location: "Sydney",
     rating: 5,
-    review: "I was skeptical at first but AutoSell.ai delivered exactly what they promised. Fair price, fast service, and professional throughout.",
-    date: "2024-01-10",
+    review: "Very friendly and easy to deal with. Money paid instantly. Would definitely recommend Alex if you’re wanting to sell your car.",
+    date: "2025-08-25",
     verified: true
   },
   {
     id: 3,
-    name: "Jenny L.",
-    location: "Brisbane, QLD",
+    name: "James G.",
+    location: "Sydney",
     rating: 5,
-    review: "My car wasn't running and I thought it would be worthless. AutoSell.ai still gave me a great offer and handled everything professionally.",
-    date: "2024-01-05",
+    review: "Quick easy sale, knows what they are talking about,great customer service,and gave me top dollar on my car I'll be using them every time I need to sell my car.",
+    date: "2024-08-24",
     verified: true
   },
   {
     id: 4,
-    name: "David K.",
-    location: "Perth, WA",
+    name: "Marissa C",
+    location: "Sydney",
     rating: 5,
-    review: "Best car buying experience I've had. They came to my house, inspected the car, and transferred the money within an hour.",
-    date: "2024-01-01",
-    verified: true
-  },
-  {
-    id: 5,
-    name: "Lisa R.",
-    location: "Adelaide, SA",
-    rating: 5,
-    review: "No hassle, no hidden fees, just a straightforward process. Would definitely recommend to anyone looking to sell their car.",
-    date: "2023-12-28",
-    verified: true
-  },
-  {
-    id: 6,
-    name: "Michael P.",
-    location: "Gold Coast, QLD",
-    rating: 5,
-    review: "Excellent service from start to finish. The team was professional and the price was better than what the dealership offered.",
-    date: "2023-12-25",
+    review: "Very happy with the whole process with trading in my car. Alex is very friendly and communicates promptly. Went out of his way to accommodate me so I didn't even have to leave my house.",
+    date: "2025-08-18",
     verified: true
   }
 ]
@@ -76,13 +67,22 @@ export default function ReviewsComponent() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading reviews
-    const timer = setTimeout(() => {
-      setReviews(mockReviews)
-      setIsLoading(false)
-    }, 1000)
-
-    return () => clearTimeout(timer)
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch('/api/reviews', { cache: 'no-store' })
+        const data = await res.json()
+        if (Array.isArray(data.reviews) && data.reviews.length > 0) {
+          setReviews(data.reviews)
+        } else {
+          setReviews(realReviews) // graceful fallback
+        }
+      } catch (e) {
+        setReviews(realReviews) // fallback on error
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchReviews()
   }, [])
 
   useEffect(() => {
@@ -99,16 +99,16 @@ export default function ReviewsComponent() {
     return (
       <div className="grid md:grid-cols-3 gap-8">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-gray-50 p-8 rounded-xl border border-gray-200 animate-pulse">
+          <div key={i} className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 animate-pulse">
             <div className="flex items-center mb-4">
-              <div className="w-16 h-4 bg-gray-200 rounded"></div>
+              <div className="w-16 h-4 bg-zinc-700 rounded"></div>
             </div>
             <div className="space-y-2 mb-4">
-              <div className="h-4 bg-gray-200 rounded"></div>
-              <div className="h-4 bg-gray-200 rounded"></div>
-              <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+              <div className="h-4 bg-zinc-700 rounded"></div>
+              <div className="h-4 bg-zinc-700 rounded"></div>
+              <div className="h-4 bg-zinc-700 rounded w-3/4"></div>
             </div>
-            <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+            <div className="h-4 bg-zinc-700 rounded w-1/2"></div>
           </div>
         ))}
       </div>
@@ -127,29 +127,29 @@ export default function ReviewsComponent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow"
+            className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex text-yellow-400 text-lg">
                 {'★'.repeat(review.rating)}
               </div>
               {review.verified && (
-                <span className="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-1 rounded-full">
+                <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
                   Verified
                 </span>
               )}
             </div>
             
-            <p className="text-gray-700 mb-4 italic leading-relaxed">
-              "{review.review}"
+            <p className="text-zinc-300 mb-4 italic leading-relaxed">
+              &#34;{review.review}&#34;
             </p>
             
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-semibold text-gray-900">{review.name}</div>
-                <div className="text-sm text-gray-500">{review.location}</div>
+                <div className="font-semibold text-zinc-100">{review.name}</div>
+                <div className="text-sm text-zinc-400">{review.location}</div>
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-zinc-400">
                 {new Date(review.date).toLocaleDateString('en-AU', {
                   month: 'short',
                   day: 'numeric',
@@ -161,23 +161,23 @@ export default function ReviewsComponent() {
         ))}
       </div>
 
-      {/* Review Stats */}
-      <div className="bg-emerald-50 rounded-xl p-8 text-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="text-3xl font-bold text-emerald-600 mb-2">4.9/5</div>
-            <div className="text-gray-600">Average Rating</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-emerald-600 mb-2">2,000+</div>
-            <div className="text-gray-600">Happy Customers</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-emerald-600 mb-2">98%</div>
-            <div className="text-gray-600">Would Recommend</div>
-          </div>
-        </div>
-      </div>
+      {/*/!* Review Stats *!/*/}
+      {/*<div className="bg-zinc-900 rounded-xl p-8 text-center border border-zinc-800">*/}
+      {/*  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
+      {/*    <div>*/}
+      {/*      <div className="text-3xl font-bold text-red-500 mb-2">5</div>*/}
+      {/*      <div className="text-gray-600">Average Rating</div>*/}
+      {/*    </div>*/}
+      {/*    <div>*/}
+      {/*      <div className="text-3xl font-bold text-red-500 mb-2"></div>*/}
+      {/*      <div className="text-gray-600">Happy Customers</div>*/}
+      {/*    </div>*/}
+      {/*    <div>*/}
+      {/*      <div className="text-3xl font-bold text-red-500 mb-2">98%</div>*/}
+      {/*      <div className="text-gray-600">Would Recommend</div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       {/* Review Indicators */}
       <div className="flex justify-center space-x-2">
@@ -187,8 +187,8 @@ export default function ReviewsComponent() {
             onClick={() => setCurrentIndex(index * 3)}
             className={`w-3 h-3 rounded-full transition-colors ${
               Math.floor(currentIndex / 3) === index
-                ? 'bg-emerald-600'
-                : 'bg-gray-300'
+                ? 'bg-red-600'
+                : 'bg-zinc-700'
             }`}
           />
         ))}

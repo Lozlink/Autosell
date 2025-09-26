@@ -30,7 +30,7 @@ export default function FloatingPhoneIcon() {
             href="tel:1800AUTOSELL"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+            className="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
             aria-label="Call 1800 AUTO SELL"
           >
             <svg 
