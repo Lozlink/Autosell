@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-zinc-200 border-t border-zinc-800">
+    <footer className="bg-gradient-to-b from-black via-zinc-900 to-zinc-900/95 text-zinc-200 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 xl:gap-24">
@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white">AutoSell.ai</h3>
-                <p className="text-sm text-zinc-400">Australia&apos;s #1 Car Buyers</p>
+                <p className="text-sm text-red-400">Australia&apos;s #1 Car Buyers</p>
               </div>
             </div>
             <p className="text-zinc-400 mb-4 max-w-md">

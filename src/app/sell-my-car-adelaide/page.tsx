@@ -76,7 +76,7 @@ export default function SellMyCarAdelaidePage() {
               Why Choose AutoSell.ai in Adelaide?
             </h2>
             <p className="text-xl text-gray-600">
-              We understand Adelaide's car market and offer competitive prices
+              We understand Adelaide&apos;s car market and offer competitive prices
             </p>
           </div>
 

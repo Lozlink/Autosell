@@ -4,11 +4,11 @@ import CarSellForm from '@/components/CarSellForm'
 import { Suspense } from 'react'
 
 interface TypePageProps {
-	params: { type: string }
+	params: Promise<{ type: string }>
 }
 
 export async function generateMetadata({ params }: TypePageProps): Promise<Metadata> {
-	const typeParam = params.type
+	const { type: typeParam } = await params
 	const titleType = typeParam.charAt(0).toUpperCase() + typeParam.slice(1)
 	return {
 		title: `Sell ${titleType} - AutoSell.ai`,
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: TypePageProps): Promise<Metad
 	}
 }
 
-export default function TypePage({ params }: TypePageProps) {
-	const typeParam = params.type
+export default async function TypePage({ params }: TypePageProps) {
+	const { type: typeParam } = await params
 	const titleType = typeParam.charAt(0).toUpperCase() + typeParam.slice(1)
 
 	return (

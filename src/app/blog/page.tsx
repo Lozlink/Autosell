@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Link from 'next/link'
+import { supabase } from '@/lib/supabaseClient'
 
 export const metadata: Metadata = {
   title: "Blog - AutoSell.ai",
@@ -64,7 +65,25 @@ const blogPosts = [
   }
 ]
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const { data, error } = await supabase
+    .from('posts')
+    .select('*')
+    .eq('published', true)
+    .order('created_at', { ascending: false });
+
+  const dbPosts = (data || []).map((p: any) => ({
+    id: p.slug || p.id,
+    title: p.title,
+    excerpt: p.excerpt || '',
+    date: p.created_at,
+    readTime: p.read_time || '',
+    category: p.category || 'General',
+    image: p.image_url || ''
+  }));
+
+  const posts = dbPosts.length ? dbPosts : blogPosts;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
       <Header />
@@ -87,7 +106,7 @@ export default function BlogPage() {
       <section className="py-12">
         <div className="px-4 sm:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <article key={post.id} className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-all duration-300">
                 <div className="h-48 bg-gray-200 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">

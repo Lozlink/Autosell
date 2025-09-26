@@ -97,7 +97,6 @@ export default function BrandPage({ params }: BrandPageProps) {
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{vehicle.model}</h3>
                 <p className="text-sm text-zinc-400 mb-1">{vehicle.year}</p>
-                <p className="text-sm font-semibold text-red-400">{vehicle.price}</p>
               </div>
             ))}
           </div>

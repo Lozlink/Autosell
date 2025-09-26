@@ -119,8 +119,7 @@ export default function Header() {
                     { type: 'Trucks', href: '/types/trucks' },
                     { type: 'Vans', href: '/types/vans' },
                     { type: 'Motorcycles', href: '/types/motorcycles' },
-                    { type: 'Boats', href: '/types/boats' },
-                    { type: 'Caravans', href: '/types/caravans' }
+                    { type: 'Damaged Cars', href: '/cash-for-damaged-cars' }
                   ].map((item) => (
                     <Link
                       key={item.type}
@@ -254,8 +253,7 @@ export default function Header() {
                     { type: 'Trucks', href: '/types/trucks' },
                     { type: 'Vans', href: '/types/vans' },
                     { type: 'Motorcycles', href: '/types/motorcycles' },
-                    { type: 'Boats', href: '/types/boats' },
-                    { type: 'Caravans', href: '/types/caravans' }
+                    { type: 'Damaged Cars', href: '/cash-for-damaged-cars' }
                   ].map((item) => (
                     <Link
                       key={item.type}

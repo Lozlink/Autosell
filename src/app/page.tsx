@@ -45,14 +45,14 @@ export default function Home() {
       <Header />
       
       {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="bg-gradient-to-br from-black via-zinc-900 to-black text-white py-12">
+      <section id="sell-form" className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
         <div className="px-4 sm:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Sell Your Car Today
-                <span className="block text-red-400">30-Min Quote, Same-Day OSKO Payment</span>
+                <span className="block text-red-300">30-Min Quote, Same-Day OSKO Payment</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-8">
                 Australia&apos;s #1 car buying service. Get a <strong>FREE valuation</strong> in 30 minutes, 
@@ -78,25 +78,25 @@ export default function Home() {
               {/* Key Benefits */}
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">⚡</span>
                   </div>
                   <span className="font-semibold">30min Quote</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">$</span>
                   </div>
                   <span className="font-semibold">Same Day OSKO</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="font-semibold">Any Condition</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">AU</span>
                   </div>
                   <span className="font-semibold">Australia Wide</span>
@@ -443,7 +443,7 @@ export default function Home() {
 
       {/* Process Details Section */}
       <section className="py-12 bg-zinc-950">
-        <div className="px-4 sm:px-8 ">
+        <div className="px-4 sm:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
               What Happens After You Submit?
@@ -453,63 +453,63 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-0 md:px-4 md:py-3">
-              <h3 className="text-xl font-semibold text-white mb-4">Immediate Response</h3>
-              <ul className="space-y-3 text-zinc-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+          <div className="  grid md:grid-cols-2 gap-4 md:gap-6">
+            <div className="p-0 md:py-3">
+              <h3 className="text-xl font-semibold text-white mb-2">Immediate Response</h3>
+              <ul className="space-y-2 text-zinc-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>Quote generated within 30 minutes</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>Phone call to discuss your offer</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>Inspection scheduled at your convenience</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>All paperwork prepared in advance</span>
                 </li>
               </ul>
             </div>
             {/* Flowing image suggestion replacing placeholder CTA */}
-            <div className="relative h96 md:h-full min-h-[220px] rounded-xl overflow-hidden">
+            <div className="relative h-96 md:h-full md:row-span-2 md:col-start-2 md:row-start-1 min-h-[220px] rounded-xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop"
                 alt="Sleek car silhouette at night, representing a fast, seamless selling journey"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vwq`"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent" />
-              <div className="absolute bottom-3 right-3">
-                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-600/90 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-700/90 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   Value my car
                 </a>
               </div>
             </div>
-            <div className="p-0 md:px-4 md:py-3">
-              <h3 className="text-xl font-semibold text-white mb-4">Same-Day Completion</h3>
-              <ul className="space-y-3 text-zinc-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+            <div className="p-0 md:py-3">
+              <h3 className="text-xl font-semibold text-white mb-2">Same-Day Completion</h3>
+              <ul className="space-y-2 text-zinc-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>Professional inspection at your location</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>Final price confirmed on-site</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>All documents signed and completed</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✓</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 text-lg">✓</span>
                   <span>OSKO payment transferred instantly</span>
                 </li>
               </ul>
