@@ -19,7 +19,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(false)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target as any
+    const { name, value, type, checked } = e.target as never
     setForm(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
   }
 

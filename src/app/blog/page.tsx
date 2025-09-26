@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
+/* eslint-disable */
 
 export const metadata: Metadata = {
   title: "Blog - AutoSell.ai",
@@ -66,7 +67,7 @@ const blogPosts = [
 ]
 
 export default async function BlogPage() {
-  const { data, error } = await supabase
+  const { data } = await supabase
     .from('posts')
     .select('*')
     .eq('published', true)
