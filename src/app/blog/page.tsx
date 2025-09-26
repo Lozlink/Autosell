@@ -66,11 +66,11 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-12">
+      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -88,31 +88,31 @@ export default function BlogPage() {
         <div className="px-4 sm:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <article key={post.id} className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-all duration-300">
                 <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
                     <span className="text-white text-4xl font-bold">{post.category.charAt(0)}</span>
                   </div>
                 </div>
                 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-1 rounded-full">
+                    <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-gray-500 text-sm">{post.readTime}</span>
+                    <span className="text-zinc-400 text-sm">{post.readTime}</span>
                   </div>
                   
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  <h2 className="text-xl font-bold text-white mb-3 line-clamp-2">
                     {post.title}
                   </h2>
                   
-                  <p className="text-gray-600 mb-4 line-clamp-3">
+                  <p className="text-zinc-400 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <time className="text-sm text-gray-500">
+                    <time className="text-sm text-zinc-400">
                       {new Date(post.date).toLocaleDateString('en-AU', {
                         year: 'numeric',
                         month: 'long',
@@ -121,7 +121,7 @@ export default function BlogPage() {
                     </time>
                     <Link
                       href={`/blog/${post.id}`}
-                      className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm"
+                      className="text-red-400 hover:text-red-300 font-semibold text-sm"
                     >
                       Read More →
                     </Link>
@@ -134,21 +134,21 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-12 bg-emerald-600">
+      <section className="py-12 bg-red-700">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Stay Updated with Car Selling Tips
           </h2>
-          <p className="text-xl text-emerald-100 mb-8">
+          <p className="text-xl text-red-100 mb-8">
             Get the latest insights and tips delivered to your inbox.
           </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600"
+              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-700"
             />
-            <button className="bg-white text-emerald-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-red-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
               Subscribe
             </button>
           </div>

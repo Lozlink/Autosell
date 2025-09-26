@@ -11,19 +11,38 @@ interface CarModel {
   brand: string
 }
 
+// Use brand logos via Clearbit for visibility; swap to local assets later if desired
+const brandLogo = (brand: string) => {
+  const map: Record<string, string> = {
+    'Toyota': 'https://logo.clearbit.com/toyota.com',
+    'Holden': 'https://logo.clearbit.com/gm.com',
+    'Ford': 'https://logo.clearbit.com/ford.com',
+    'Mazda': 'https://logo.clearbit.com/mazda.com',
+    'Hyundai': 'https://logo.clearbit.com/hyundai.com',
+    'Nissan': 'https://logo.clearbit.com/nissan-global.com',
+    'Honda': 'https://logo.clearbit.com/honda.com',
+    'Volkswagen': 'https://logo.clearbit.com/vw.com',
+    'BMW': 'https://logo.clearbit.com/bmw.com',
+    'Mercedes': 'https://logo.clearbit.com/mercedes-benz.com',
+    'Audi': 'https://logo.clearbit.com/audi.com',
+    'Kia': 'https://logo.clearbit.com/kia.com'
+  }
+  return map[brand] || 'https://logo.clearbit.com/carmax.com'
+}
+
 const carModels: CarModel[] = [
-  { id: '1', name: 'Camry', image: '/public/next.svg', brand: 'Toyota' },
-  { id: '2', name: 'Commodore', image: '/public/next.svg', brand: 'Holden' },
-  { id: '3', name: 'Focus', image: '/public/next.svg', brand: 'Ford' },
-  { id: '4', name: 'CX-5', image: '/public/next.svg', brand: 'Mazda' },
-  { id: '5', name: 'i30', image: '/public/next.svg', brand: 'Hyundai' },
-  { id: '6', name: 'X-Trail', image: '/public/next.svg', brand: 'Nissan' },
-  { id: '7', name: 'Civic', image: '/public/next.svg', brand: 'Honda' },
-  { id: '8', name: 'Golf', image: '/public/next.svg', brand: 'Volkswagen' },
-  { id: '9', name: 'Outlander', image: '/public/next.svg', brand: 'Mitsubishi' },
-  { id: '10', name: 'Forester', image: '/public/next.svg', brand: 'Subaru' },
-  { id: '11', name: '3 Series', image: '/public/next.svg', brand: 'BMW' },
-  { id: '12', name: 'C-Class', image: '/public/next.svg', brand: 'Mercedes-Benz' }
+  { id: '1', name: 'Camry', image: brandLogo('Toyota'), brand: 'Toyota' },
+  { id: '2', name: 'Commodore', image: brandLogo('Holden'), brand: 'Holden' },
+  { id: '3', name: 'Focus', image: brandLogo('Ford'), brand: 'Ford' },
+  { id: '4', name: 'CX-5', image: brandLogo('Mazda'), brand: 'Mazda' },
+  { id: '5', name: 'i30', image: brandLogo('Hyundai'), brand: 'Hyundai' },
+  { id: '6', name: 'X-Trail', image: brandLogo('Nissan'), brand: 'Nissan' },
+  { id: '7', name: 'Civic', image: brandLogo('Honda'), brand: 'Honda' },
+  { id: '8', name: 'Golf', image: brandLogo('Volkswagen'), brand: 'Volkswagen' },
+  { id: '9', name: '3 Series', image: brandLogo('BMW'), brand: 'BMW' },
+  { id: '10', name: 'C-Class', image: brandLogo('Mercedes'), brand: 'Mercedes' },
+  { id: '11', name: 'A4', image: brandLogo('Audi'), brand: 'Audi' },
+  { id: '12', name: 'Cerato', image: brandLogo('Kia'), brand: 'Kia' }
 ]
 
 export default function CarModelsRotation() {
@@ -33,18 +52,18 @@ export default function CarModelsRotation() {
   useEffect(() => {
     // Initialize with first 3 models
     setDisplayedModels(carModels.slice(0, 3))
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % carModels.length
-        const nextModels = []
-        
+        const nextModels: CarModel[] = []
+
         // Get next 3 models in rotation
         for (let i = 0; i < 3; i++) {
           const modelIndex = (nextIndex + i) % carModels.length
           nextModels.push(carModels[modelIndex])
         }
-        
+
         setDisplayedModels(nextModels)
         return nextIndex
       })
@@ -54,7 +73,7 @@ export default function CarModelsRotation() {
   }, [])
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
       <AnimatePresence mode="wait">
         {displayedModels.map((model, index) => (
           <motion.div
@@ -62,35 +81,18 @@ export default function CarModelsRotation() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ 
-              duration: 0.5, 
-              delay: index * 0.1 
-            }}
-            className="text-center group"
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="flex items-center justify-center"
           >
-            <div className="relative w-full h-32 mb-4 rounded-lg overflow-hidden bg-gray-100">
+            <a href={`/sell-${model.brand.toLowerCase()}`} className="relative block cursor-pointer group">
               <Image
                 src={model.image}
                 alt={`${model.brand} ${model.name}`}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  // Fallback to placeholder if image doesn't exist
-                  const target = e.target as HTMLImageElement
-                  target.src = `data:image/svg+xml;base64,${btoa(`
-                    <svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="150" height="100" fill="#f3f4f6"/>
-                      <text x="75" y="50" text-anchor="middle" dy=".3em" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">
-                        ${model.brand} ${model.name}
-                      </text>
-                    </svg>
-                  `)}`
-                }}
+                width={150}
+                height={150}
+                className="object-contain max-w-[150px] max-h-[150px] rounded-md shadow-sm group-hover:scale-105 transition-transform duration-300"
               />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-              {model.brand} {model.name}
-            </h3>
+            </a>
           </motion.div>
         ))}
       </AnimatePresence>

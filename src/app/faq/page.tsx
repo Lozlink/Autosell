@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
-import { useState } from 'react'
+import Accordion from '@/components/Accordion'
 
 export const metadata: Metadata = {
   title: "FAQ - AutoSell.ai",
@@ -51,24 +51,16 @@ const faqs = [
 ]
 
 export default function FAQPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white py-12">
+      <section className="bg-gradient-to-br from-black via-zinc-900 to-black text-white py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Frequently Asked Questions</h1>
+            <p className="text-xl md:text-2xl text-zinc-300 mb-8 max-w-3xl mx-auto">
               Get answers to common questions about selling your car with AutoSell.ai.
             </p>
           </div>
@@ -76,68 +68,22 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12">
-        <div className="px-4 sm:px-8 max-w-5xl">
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </h3>
-                  <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                
-                {openIndex === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+      <section className="py-12 bg-zinc-950" >
+        <div className="px-4 sm:px-8 max-w-4xl mx-auto text-center">
+          <Accordion
+            items={faqs.map((f) => ({ title: f.question, content: f.answer }))}
+          />
 
           {/* Contact CTA */}
-          <div className="mt-16 bg-emerald-600 rounded-xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
-            <p className="text-emerald-100 mb-6">
-              Our team is here to help. Contact us for personalized assistance.
-            </p>
+          <div className="mt-16 bg-gradient-to-r from-red-900/60 via-zinc-900 to-black border border-red-900/30 rounded-xl p-8 text-white text-center">
+            <h2 className="text-2xl font-bold mb-3">Still have questions?</h2>
+            <p className="text-zinc-300 mb-6">Our team is here to help. Contact us for personalised assistance.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:1800AUTOSELL"
-                className="bg-white text-emerald-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-              >
+              <a href="tel:1800AUTOSELL" className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 Call 1800 AUTO SELL
               </a>
-              <a
-                href="/contact"
-                className="bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-800 transition-colors"
-              >
-                Contact Us
-              </a>
+              <a href="/contact" className="bg-white text-red-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">Contact Us</a>
             </div>
           </div>
         </div>
