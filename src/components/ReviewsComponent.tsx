@@ -12,54 +12,54 @@ interface Review {
   date: string
   verified: boolean
 }
-
-const realReviews: Review[] = [
-  {
-    id: 0,
-    name: "Ziggy S",
-    location: "Sydney",
-    rating: 5,
-    review: "Great to deal with and an easy negotiator.\n",
-    date: "2025-09-22",
-    verified: true
-  },
-  {
-    id: 1,
-    name: "Michael S.",
-    location: "Sydney, NSW",
-    rating: 5,
-    review: "The team was very easy to deal with from start to finish. Communication was clear and straightforward, which made the whole process stress-free. They were professional yet friendly, and always willing to answer questions. The staff came across as genuine and honest, which built a lot of trust. Everything was handled smoothly without any issues. Overall, a really good experience with a nice team that I’d happily recommend.”",
-    date: "2025-09-21",
-    verified: true
-  },
-  {
-    id: 2,
-    name: "Tia",
-    location: "Sydney",
-    rating: 5,
-    review: "Very friendly and easy to deal with. Money paid instantly. Would definitely recommend Alex if you’re wanting to sell your car.",
-    date: "2025-08-25",
-    verified: true
-  },
-  {
-    id: 3,
-    name: "James G.",
-    location: "Sydney",
-    rating: 5,
-    review: "Quick easy sale, knows what they are talking about,great customer service,and gave me top dollar on my car I'll be using them every time I need to sell my car.",
-    date: "2024-08-24",
-    verified: true
-  },
-  {
-    id: 4,
-    name: "Marissa C",
-    location: "Sydney",
-    rating: 5,
-    review: "Very happy with the whole process with trading in my car. Alex is very friendly and communicates promptly. Went out of his way to accommodate me so I didn't even have to leave my house.",
-    date: "2025-08-18",
-    verified: true
-  }
-]
+//Unneeded
+// const realReviews: Review[] = [
+//   {
+//     id: 0,
+//     name: "Ziggy S",
+//     location: "Sydney",
+//     rating: 5,
+//     review: "Great to deal with and an easy negotiator.\n",
+//     date: "2025-09-22",
+//     verified: true
+//   },
+//   {
+//     id: 1,
+//     name: "Michael S.",
+//     location: "Sydney, NSW",
+//     rating: 5,
+//     review: "The team was very easy to deal with from start to finish. Communication was clear and straightforward, which made the whole process stress-free. They were professional yet friendly, and always willing to answer questions. The staff came across as genuine and honest, which built a lot of trust. Everything was handled smoothly without any issues. Overall, a really good experience with a nice team that I’d happily recommend.”",
+//     date: "2025-09-21",
+//     verified: true
+//   },
+//   {
+//     id: 2,
+//     name: "Tia",
+//     location: "Sydney",
+//     rating: 5,
+//     review: "Very friendly and easy to deal with. Money paid instantly. Would definitely recommend Alex if you’re wanting to sell your car.",
+//     date: "2025-08-25",
+//     verified: true
+//   },
+//   {
+//     id: 3,
+//     name: "James G.",
+//     location: "Sydney",
+//     rating: 5,
+//     review: "Quick easy sale, knows what they are talking about,great customer service,and gave me top dollar on my car I'll be using them every time I need to sell my car.",
+//     date: "2024-08-24",
+//     verified: true
+//   },
+//   {
+//     id: 4,
+//     name: "Marissa C",
+//     location: "Sydney",
+//     rating: 5,
+//     review: "Very happy with the whole process with trading in my car. Alex is very friendly and communicates promptly. Went out of his way to accommodate me so I didn't even have to leave my house.",
+//     date: "2025-08-18",
+//     verified: true
+//   }
+// ]
 
 export default function ReviewsComponent() {
   const [reviews, setReviews] = useState<Review[]>([])
@@ -69,17 +69,15 @@ export default function ReviewsComponent() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await fetch('/api/reviews', { cache: 'no-store' })
+        const res = await fetch('/api/google-reviews', {cache: 'no-store'})
         const data = await res.json()
         if (Array.isArray(data.reviews) && data.reviews.length > 0) {
           setReviews(data.reviews)
-        } else {
-          setReviews(realReviews) // graceful fallback
+          setIsLoading(false)
         }
-      } catch (e) {
-        setReviews(realReviews) // fallback on error
-      } finally {
-        setIsLoading(false)
+      }
+        catch (error) {
+        console.error(error)
       }
     }
     fetchReviews()
@@ -150,11 +148,12 @@ export default function ReviewsComponent() {
                 <div className="text-sm text-zinc-400">{review.location}</div>
               </div>
               <div className="text-sm text-zinc-400">
-                {new Date(review.date).toLocaleDateString('en-AU', {
+                {new Intl.DateTimeFormat('en-AU', {
                   month: 'short',
                   day: 'numeric',
-                  year: 'numeric'
-                })}
+                  year: 'numeric',
+                  timeZone: 'UTC',
+                }).format(new Date(review.date + 'T00:00:00Z'))}
               </div>
             </div>
           </motion.div>

@@ -1,47 +1,62 @@
 import { NextResponse } from 'next/server'
+/* eslint-disable */
 
+interface Review {
+  id: number
+  name: string
+  location: string
+  rating: number
+  review: string
+  date: string
+  verified: boolean
+}
 export async function GET() {
   try {
-    // In production, you would use your actual Google Places API key
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY
-    const placeId = process.env.GOOGLE_PLACE_ID // Your business's Google Place ID
-    
+
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    const placeId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_PLACE_ID
+
     if (!apiKey || !placeId) {
-      return NextResponse.json({ 
-        reviews: [], 
-        error: 'Google Places API not configured' 
+      return NextResponse.json({
+        reviews: [],
+        error: 'Google Places API not configured',
+        status: 'error',
       })
     }
 
-    // Fetch reviews from Google Places API
-    const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`
-    )
+    const url = new URL('https://maps.googleapis.com/maps/api/place/details/json')
+    url.searchParams.set('place_id', placeId)
+    url.searchParams.set('fields', 'reviews')
+    url.searchParams.set('key', apiKey)
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch Google reviews')
-    }
+    const response = await fetch(url.toString())
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
     const data = await response.json()
-    
     if (data.status !== 'OK') {
-      throw new Error(`Google Places API error: ${data.status}`)
+      return NextResponse.json({
+        reviews: [],
+        error: `Google Places API error: ${data.status}${data.error_message ? ' - ' + data.error_message : ''}`,
+        status: 'error',
+      })
     }
 
-    // Return the reviews
-    return NextResponse.json({ 
-      reviews: data.result?.reviews || [],
-      status: 'success'
-    })
+    const googleReviews: any[] = data.result?.reviews || []
 
+    // Map Google’s fields to your UI model
+    const mapped: Review[] = googleReviews.slice(0, 12).map((r, idx) => ({
+      id: idx,
+      name: r.author_name ?? 'Google User',
+      location: '',
+      rating: r.rating ?? 0,
+      review: r.text ?? '',
+      date: r.time ? new Date(r.time * 1000).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10),
+      verified: true,
+    }))
+
+    return NextResponse.json({ reviews: mapped, status: 'success' })
   } catch (error) {
     console.error('Google Reviews API Error:', error)
-    
-    // Return empty reviews on error to prevent breaking the UI
-    return NextResponse.json({ 
-      reviews: [], 
-      error: 'Failed to fetch reviews',
-      status: 'error'
-    })
+    return NextResponse.json({ reviews: [], error: 'Failed to fetch reviews', status: 'error' })
   }
 }
