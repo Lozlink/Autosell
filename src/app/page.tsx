@@ -131,128 +131,120 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Propositions Section */}
-      <section className="py-10 bg-zinc-950">
+      <section id="how-it-works" className="py-16 bg-zinc-950">
         <div className="px-4 sm:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Why Choose AutoSell.ai?
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              How does AutoSell work?
             </h2>
-            <p className="text-xl text-zinc-400">
-              The smart way to sell your car with maximum value and minimum hassle
+            <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto">
+              Sell online. We handle the rest.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "💰",
-                title: "Immediate Payment",
-                description: "Get paid instantly via OSKO transfer. No waiting, no delays.",
-                href: "/value-propositions/immediate-payment"
-              },
-              {
-                icon: "🔍",
-                title: "On-Site Inspections",
-                description: "We come to you anywhere in Australia. No need to travel.",
-                href: "/value-propositions/on-site-inspections"
-              },
-              {
-                icon: "🕒",
-                title: "Open 7 Days",
-                description: "Available when you need us, including weekends and public holidays.",
-                href: "/value-propositions/open-7-days"
-              },
-              {
-                icon: "📈",
-                title: "Best Price Guarantee",
-                description: "We beat like-for-like offers. Get the best value for your car.",
-                href: "/value-propositions/best-price-guarantee"
-              },
-              {
-                icon: "✅",
-                title: "100% Satisfaction",
-                description: "Thousands of happy customers across Australia trust us.",
-                href: "/value-propositions/satisfaction"
-              },
-              {
-                icon: "🚗",
-                title: "Smooth Sales Process",
-                description: "From quote to payment in hours, not days or weeks.",
-                href: "/value-propositions/smooth-sales-process"
-              }
-            ].map((proposition, index) => (
-              <a
-                key={index}
-                href={proposition.href}
-                className="text-center px-2 md:px-4 py-2 transition-colors group cursor-pointer"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{proposition.icon}</div>
-                <h3 className="text-xl font-semibold text-zinc-100 mb-3 group-hover:text-red-400 transition-colors">{proposition.title}</h3>
-                <p className="text-zinc-400 group-hover:text-zinc-300 transition-colors">{proposition.description}</p>
+          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black">
+            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
+              {[
+                {
+                  step: '1',
+                  title: 'You’re in control',
+                  description: 'Start online at your own pace: tell us about your car and get a firm offer fast.'
+                },
+                {
+                  step: '2',
+                  title: 'Choose your payout',
+                  description: 'Pick instant transfer or scheduled payment after inspection — whatever fits you best.'
+                },
+                {
+                  step: '3',
+                  title: 'We pick up & you get paid',
+                  description: 'Schedule pickup or drop‑off. We complete paperwork and you receive your money.'
+                }
+              ].map((step, index) => (
+                  <div key={index} className="relative p-8 md:p-10">
+                    <div className="pointer-events-none select-none absolute -top-6 left-4 md:left-6 text-7xl md:text-8xl font-extrabold text-white/5">
+                      {step.step}
+                    </div>
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-zinc-400 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center py-6">
+              <a href="#sell-form" className="inline-flex items-center gap-2 rounded-full bg-white text-black font-semibold px-6 py-3 hover:bg-zinc-200 transition-colors">
+                Get started
               </a>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-12 bg-zinc-950">
-        <div className="px-4 sm:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              How It Works
+      {/* Why Choose Section */}
+      <section id="why-choose" className="py-16 bg-zinc-950">
+        <div className="px-4 sm:px-8 max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              Benefits of Choosing AutoSell
             </h2>
-            <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-              Selling your car has never been this easy
+            <p className="text-base md:text-lg text-zinc-400">
+              Fast, transparent and convenient from start to finish
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Get Your Quote',
-                description: 'Fill out our simple form with your car details. Our AI system provides an instant valuation in just 30 minutes.',
-                icon: '📝',
-                bgColor: 'bg-blue-100',
-                stepColor: 'text-blue-700',
-                borderColor: 'border-blue-200'
-              },
-              {
-                step: '02',
-                title: 'Accept Our Offer',
-                description: 'Review your competitive offer. If you\'re happy, accept it and we\'ll arrange a convenient inspection time.',
-                icon: '✅',
-                bgColor: 'bg-emerald-100',
-                stepColor: 'text-emerald-700',
-                borderColor: 'border-emerald-200'
-              },
-              {
-                step: '03',
-                title: 'Get Paid Instantly',
-                description: 'We inspect your car, complete the paperwork, and transfer the money to your account on the same day.',
-                icon: '💰',
-                bgColor: 'bg-purple-100',
-                stepColor: 'text-purple-700',
-                borderColor: 'border-purple-200'
-              }
-            ].map((step, index) => (
-                <div key={index} className="relative">
-                  <div className="text-center px-2 md:px-4 py-2">
-                    <div className="text-6xl mb-4">{step.icon}</div>
-                    <div className={`text-4xl font-bold text-red-500 mb-4`}>{step.step}</div>
-                    <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
-                    <p className="text-zinc-400">{step.description}</p>
+          {[
+            {
+              title: "Immediate Payment",
+              description: "Get paid instantly via OSKO transfer. No waiting, no delays.",
+            },
+            {
+              title: "On-Site Inspections",
+              description: "Available when you need us, including weekends and public holidays.",
+            },
+            {
+              title: "Open 7 Days",
+              description: "Available when you need us, including weekends and public holidays.",
+            },
+            {
+              title: "Smooth Sales Process",
+              description:
+                "From quote to payment in hours, not days or weeks.",
+            },
+          ].map((item, i) => (
+            <div key={i} className= "rounded-xl md:rounded-none">
+              <div className="grid md:grid-cols-2 items-center gap-8 py-12 md:py-16">
+                {/* Left column (text or image depending on index) */}
+                {i % 2 === 0 ? (
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
+                    <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
                   </div>
-                  {index < 2 && (
-                      <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                        <div className="w-8 h-0.5 bg-gray-400"></div>
-                      </div>
-                  )}
-                </div>
-            ))}
-          </div>
+                ) : (
+                  <div className="order-2 md:order-1">
+                    <div className="w-full h-32 md:h-36 lg:h-42 rounded-lg border border-zinc-800 bg-zinc-900" />
+                  </div>
+                )}
+
+                {/* Right column (image or text depending on index) */}
+                {i % 2 === 0 ? (
+                  <div className="order-2 md:order-2">
+                    <div className="w-full h-32 md:h-36 lg:h-42 rounded-lg border border-zinc-800 bg-zinc-900" />
+                  </div>
+                ) : (
+                  <div className="order-1 md:order-2">
+                    <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
+                    <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
