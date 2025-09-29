@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-zinc-200 border-t border-gray-700">
+    <footer className="bg-gradient-to-b from-black via-zinc-900 to-zinc-900/95 text-zinc-200 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 xl:gap-24">
@@ -15,8 +15,8 @@ export default function Footer() {
                 <span className="text-white font-bold text-xl">A</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white">AutoSell.ai</h3>
-                <p className="text-sm text-zinc-400">Australia&apos;s #1 Car Buyers</p>
+                <h3 className="text-2xl font-bold text-white">auto-sell.ai</h3>
+                <p className="text-sm text-red-400">Australia&apos;s #1 Car Buyers</p>
               </div>
             </div>
             <p className="text-zinc-400 mb-4 max-w-md">
@@ -24,7 +24,7 @@ export default function Footer() {
               on-site inspections, and we come to you anywhere in Australia.
             </p>
             <div className="flex space-x-4">
-              <a href="tel:1800AUTOSELL" className="text-red-400 hover:text-red-300 font-semibold flex items-center gap-2">
+              <a href="tel:1800auto-sell" className="text-red-400 hover:text-red-300 font-semibold flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -102,7 +102,7 @@ export default function Footer() {
         <div className="border-t border-zinc-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-zinc-500 text-sm mb-4 md:mb-0">
-              <p>&copy; {new Date().getFullYear()} AutoSell.ai. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} auto-sell.ai. All rights reserved.</p>
               <p className="mt-1">ABN: [Your ABN] • Motor Dealer Licence: [Your Licence Number]</p>
             </div>
             

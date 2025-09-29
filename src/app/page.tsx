@@ -7,6 +7,7 @@ import MapComponent from '@/components/MapComponent'
 import Accordion from '@/components/Accordion'
 import Image from 'next/image'
 import SmoothSalesProcess from "@/components/SmoothSalesProcess";
+import Link from 'next/link'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
@@ -29,11 +30,11 @@ function CarSellFormFallback() {
 }
 
 export const metadata: Metadata = {
-  title: "AutoSell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
-  description: "Sell your car instantly with AutoSell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
+  title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+  description: "Sell your car instantly with auto-sell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
   keywords: "sell my car, car buyers Australia, cash for cars, sell car fast, instant car quote, same day payment, car valuation, we buy cars, car buying service",
   openGraph: {
-    title: "AutoSell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+    title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
     description: "Get an instant quote for your car. Same-day payment, no hassles, best prices guaranteed. We buy all cars in any condition across Australia.",
     type: "website",
     locale: "en_AU",
@@ -79,25 +80,25 @@ export default function Home() {
               {/* Key Benefits */}
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">⚡</span>
                   </div>
                   <span className="font-semibold">30min Quote</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">$</span>
                   </div>
                   <span className="font-semibold">Same Day OSKO</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                   <span className="font-semibold">Any Condition</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">AU</span>
                   </div>
                   <span className="font-semibold">Australia Wide</span>
@@ -132,11 +133,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="py-16 bg-zinc-950">
+      <section id="how-it-works" className="py-8 bg-zinc-950">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              How does AutoSell work?
+              How does auto-sell work?
             </h2>
             <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto">
               Sell online. We handle the rest.
@@ -192,7 +193,7 @@ export default function Home() {
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Benefits of Choosing AutoSell
+              Benefits of Choosing auto-sell
             </h2>
             <p className="text-base md:text-lg text-zinc-400">
               Fast, transparent and convenient from start to finish
@@ -207,6 +208,7 @@ export default function Home() {
                 src: "/images/branding/osko-and-payid-icon.jpg",
                 alt: "Osko payid icon",
               },
+              href: "/value-propositions/immediate-payment",
             },
             {
               title: "On-Site Inspections",
@@ -215,6 +217,8 @@ export default function Home() {
                 src: "/images/branding/on-site.jpg",
                 alt: "Instant online quote on a phone screen",
               },
+              href: "/value-propositions/on-site-inspections",
+
             },
             {
               title: "Open 7 Days",
@@ -224,16 +228,19 @@ export default function Home() {
                 alt: "Open 7 days a week",
                 fit: "contain" as const, // <— ad
               },
+              href: "/value-propositions/open-7-days",
+
             },
             {
               title: "Smooth Sales Process",
               description: "From quote to payment in hours, not days or weeks.",
               type: "component" as const,
+              href: "/value-propositions/smooth-sales-process",
 
             },
           ].map((item, i) => (
               <div key={i} className="rounded-xl md:rounded-none">
-                <div className="grid md:grid-cols-2 items-center gap-8 py-12 md:py-16">
+                <div className="grid md:grid-cols-2 items-center gap-8 py-6 md:py-6">
                   {/* Left column (text or visual depending on index) */}
                   {i % 2 === 0 ? (
                       <div>
@@ -256,19 +263,22 @@ export default function Home() {
                               <div className="relative aspect-[16/9] overflow-hidden">{/* extra overflow-hidden for safety */}
                                 {/* When containing, add slight inset padding so the image doesn’t touch edges */}
                                 <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
-                                  <Image
-                                      src={item.image!.src}
-                                      alt={item.image!.alt}
-                                      fill
-                                      className={
-                                        item.image?.fit === 'contain'
-                                            ? 'object-contain object-center'
-                                            : 'object-cover object-center'
-                                      }
-                                      sizes="(min-width: 768px) 50vw, 100vw"
-                                      priority={i === 0}
-                                      placeholder="empty"
-                                  />
+                                  <Link href={item.href}>
+                                      <Image
+                                          src={item.image!.src}
+                                          alt={item.image!.alt}
+                                          fill
+                                          className={
+                                            item.image?.fit === 'contain'
+                                                ? 'object-contain object-center'
+                                                : 'object-cover object-center'
+                                          }
+                                          sizes="(min-width: 768px) 50vw, 100vw"
+                                          priority={i === 0}
+                                          placeholder="empty"
+
+                                      />
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -292,19 +302,21 @@ export default function Home() {
                               {/* fixed aspect ratio container to prevent CLS */}
                               <div className="relative aspect-[16/9] overflow-hidden">
                                 <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
-                                  <Image
-                                      src={item.image!.src}
-                                      alt={item.image!.alt}
-                                      fill
-                                      className={
-                                        item.image?.fit === 'contain'
-                                            ? 'object-contain '
-                                            : 'object-cover object-center'
-                                      }
-                                      sizes="(min-width: 768px) 50vw, 100vw"
-                                      priority={i === 0}
-                                      placeholder="empty"
-                                  />
+                                  <Link href={item.href}>
+                                    <Image
+                                        src={item.image!.src}
+                                        alt={item.image!.alt}
+                                        fill
+                                        className={
+                                          item.image?.fit === 'contain'
+                                              ? 'object-contain '
+                                              : 'object-cover object-center'
+                                        }
+                                        sizes="(min-width: 768px) 50vw, 100vw"
+                                        priority={i === 0}
+                                        placeholder="empty"
+                                    />
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -370,6 +382,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* We Buy All Types Section */}
+      <section className="py-12 bg-zinc-950">
+        <div className="px-4 sm:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              We Buy All Types of Vehicles
+            </h2>
+            <p className="text-lg text-zinc-400">
+              From cars to trucks, we buy everything - no matter the condition
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { type: 'Cars', href: '/types/cars', img: '/images/types/bmw.jpg' , desc: 'All makes and models, any condition' },
+              { type: 'SUVs', href: '/types/suvs', img: '/images/types/SUV.jpg' , desc: '4WDs, crossovers, and family vehicles' },
+              { type: 'Utes', href: '/types/utes', img: '/images/types/ute.jpg' , desc: 'Work utes, dual cabs, and pickups' },
+              { type: 'Trucks', href: '/types/trucks', img: '/images/types/truck.jpg' , desc: 'Commercial trucks and heavy vehicles' },
+              { type: 'Vans', href: '/types/vans', img: '/images/types/van.jpg' , desc: 'Passenger vans and cargo vans' },
+              { type: 'Motorcycles', href: '/types/motorcycles', img: '/images/types/motorcycle.jpg' , desc: 'Bikes, scooters, and ATVs' },
+            ].map((t) => (
+                <a key={t.type} href={t.href} className="group overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                  <div className="relative h-40">
+                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${t.img})` }} />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                    <div className="absolute inset-0 flex items-end p-5">
+                      <div>
+                        <h3 className="text-lg font-semibold text-white mb-1">{t.type}</h3>
+                        <p className="text-sm text-zinc-200">{t.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Australia-Wide Coverage */}
       <section className="hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -384,7 +434,7 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {[
-              { city: 'Sydney', state: 'NSW', color: 'bg-blue-500' },
+              { city: 'Sydney', state: 'NSW', color: 'bg-gradient-to-br from-black via-zinc-900 to-red-900/60-500' },
               { city: 'Melbourne', state: 'VIC', color: 'bg-purple-500' },
               { city: 'Brisbane', state: 'QLD', color: 'bg-orange-500' },
               { city: 'Perth', state: 'WA', color: 'bg-cyan-500' },
@@ -409,7 +459,7 @@ export default function Home() {
             </p>
             <a 
               href="#sell-form" 
-              className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
+              className="inline-block bg-red-800 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-800 transition-colors"
             >
               Get Your Quote - We Come to You!
             </a>
@@ -469,43 +519,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* We Buy All Types Section */}
-      <section className="py-12 bg-zinc-950">
-        <div className="px-4 sm:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              We Buy All Types of Vehicles
-            </h2>
-            <p className="text-lg text-zinc-400">
-              From cars to trucks, we buy everything - no matter the condition
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { type: 'Cars', href: '/types/cars', img: '/images/types/bmw.jpg' , desc: 'All makes and models, any condition' },
-              { type: 'SUVs', href: '/types/suvs', img: '/images/types/SUV.jpg' , desc: '4WDs, crossovers, and family vehicles' },
-              { type: 'Utes', href: '/types/utes', img: '/images/types/ute.jpg' , desc: 'Work utes, dual cabs, and pickups' },
-              { type: 'Trucks', href: '/types/trucks', img: '/images/types/truck.jpg' , desc: 'Commercial trucks and heavy vehicles' },
-              { type: 'Vans', href: '/types/vans', img: '/images/types/van.jpg' , desc: 'Passenger vans and cargo vans' },
-              { type: 'Motorcycles', href: '/types/motorcycles', img: '/images/types/motorcycle.jpg' , desc: 'Bikes, scooters, and ATVs' },
-            ].map((t) => (
-              <a key={t.type} href={t.href} className="group overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                <div className="relative h-40">
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${t.img})` }} />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                  <div className="absolute inset-0 flex items-end p-5">
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-1">{t.type}</h3>
-                      <p className="text-sm text-zinc-200">{t.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Process Details Section */}
       <section className="py-12 bg-zinc-950">
@@ -553,7 +567,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent" />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
+                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   Value my car
                 </a>
@@ -603,7 +617,7 @@ export default function Home() {
             <div className="text-center">
               <p className="text-red-100">Or call us directly:</p>
               <a 
-                href="tel:1800AUTOSELL" 
+                href="tel:1800auto-sell" 
                 className="text-2xl font-bold text-white hover:text-red-200 transition-colors flex items-center justify-center gap-2"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

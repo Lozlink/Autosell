@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Truck - AutoSell.ai | Get Cash for Your Truck Vehicle",
-  description: "Sell your truck fast with AutoSell.ai. We buy all truck models including light trucks, heavy trucks, and commercial vehicles. Get instant quotes and same-day payment.",
+  title: "Sell My Truck - auto-sell.ai | Get Cash for Your Truck Vehicle",
+  description: "Sell your truck fast with auto-sell.ai. We buy all truck models including light trucks, heavy trucks, and commercial vehicles. Get instant quotes and same-day payment.",
   keywords: "sell truck, truck buyers, sell my truck, truck car buyers, cash for trucks, sell truck fast, light truck, heavy truck, commercial truck",
 }
 
@@ -73,7 +73,7 @@ export default function SellTrucksPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai for Your Truck?
+              Why Choose auto-sell.ai for Your Truck?
             </h2>
             <p className="text-xl text-gray-600">
               We understand truck values and offer competitive prices

@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - AutoSell.ai",
-  description: "Privacy policy for AutoSell.ai. Learn how we collect, use, and protect your personal information.",
+  title: "Privacy Policy - auto-sell.ai",
+  description: "Privacy policy for auto-sell.ai. Learn how we collect, use, and protect your personal information.",
 }
 
 export default function PrivacyPage() {
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Introduction</h2>
               <p className="mb-4">
-                AutoSell.ai (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. 
+                auto-sell.ai (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
                 when you use our car buying service.
               </p>
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
                 If you have questions about this Privacy Policy or our privacy practices, contact us at:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Email: privacy@autosell.ai</li>
+                <li>Email: privacy@auto-sell.ai</li>
                 <li>Phone: 1800 AUTO SELL</li>
                 <li>Address: [Your Business Address]</li>
                 <li>Privacy Officer: [Contact Name]</li>

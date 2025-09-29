@@ -4,8 +4,8 @@ import CarSellForm from '@/components/CarSellForm'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: "Sell Your Car - AutoSell.ai",
-  description: "Sell any car with AutoSell.ai. We buy all car makes and models in any condition. Get your free quote in 30 minutes and same-day payment.",
+  title: "Sell Your Car - auto-sell.ai",
+  description: "Sell any car with auto-sell.ai. We buy all car makes and models in any condition. Get your free quote in 30 minutes and same-day payment.",
 }
 
 export default function CarsPage() {
@@ -123,7 +123,7 @@ export default function CarsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Why Choose AutoSell.ai for Your Car?
+              Why Choose auto-sell.ai for Your Car?
             </h2>
             <p className="text-lg text-gray-300">
               We make selling your car simple, fast, and profitable
@@ -159,13 +159,13 @@ export default function CarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-600">
+      <section className="py-20 bg-red-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Sell Your Car?
           </h2>
           <p className="text-xl text-red-100 mb-8">
-            Get your free quote today and join thousands of satisfied car owners who chose AutoSell.ai.
+            Get your free quote today and join thousands of satisfied car owners who chose auto-sell.ai.
           </p>
           <a 
             href="#sell-form" 

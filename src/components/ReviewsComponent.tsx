@@ -193,7 +193,7 @@ export default function ReviewsComponent() {
             onClick={() => setCurrentIndex(index * 3)}
             className={`w-3 h-3 rounded-full transition-colors ${
               Math.floor(currentIndex / 3) === index
-                ? 'bg-red-600'
+                ? 'bg-red-800'
                 : 'bg-zinc-700'
             }`}
           />

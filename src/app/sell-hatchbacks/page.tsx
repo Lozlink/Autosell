@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Hatchback - AutoSell.ai | Get Cash for Your Hatchback Car",
-  description: "Sell your hatchback fast with AutoSell.ai. We buy all hatchback models including small, mid-size, and large hatchbacks. Get instant quotes and same-day payment.",
+  title: "Sell My Hatchback - auto-sell.ai | Get Cash for Your Hatchback Car",
+  description: "Sell your hatchback fast with auto-sell.ai. We buy all hatchback models including small, mid-size, and large hatchbacks. Get instant quotes and same-day payment.",
   keywords: "sell hatchback, hatchback buyers, sell my hatchback, hatchback car buyers, cash for hatchbacks, sell hatchback fast, small hatchback, large hatchback",
 }
 
@@ -73,7 +73,7 @@ export default function SellHatchbacksPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai for Your Hatchback?
+              Why Choose auto-sell.ai for Your Hatchback?
             </h2>
             <p className="text-xl text-gray-600">
               We understand hatchback values and offer competitive prices

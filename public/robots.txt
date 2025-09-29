@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://autosell.ai/sitemap.xml
+Sitemap: https://auto-sell.ai/sitemap.xml

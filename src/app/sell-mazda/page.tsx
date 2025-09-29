@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import BrandPage from '../brands/[brand]/page'
 
 export const metadata: Metadata = {
-  title: 'Sell Your Mazda - AutoSell.ai',
+  title: 'Sell Your Mazda - auto-sell.ai',
   description: 'We buy all Mazda models in any condition. Free quote in 30 minutes and same-day OSKO payment.',
 }
 

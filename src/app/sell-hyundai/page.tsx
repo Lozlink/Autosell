@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import BrandPage from '../brands/[brand]/page'
 
 export const metadata: Metadata = {
-  title: 'Sell Your Hyundai - AutoSell.ai',
+  title: 'Sell Your Hyundai - auto-sell.ai',
   description: 'We buy all Hyundai models in any condition. Free quote in 30 minutes and same-day OSKO payment.',
 }
 

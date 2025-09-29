@@ -41,7 +41,7 @@ export default function Header() {
                 <span className="text-white font-bold text-xl">A</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">AutoSell.ai</h1>
+                <h1 className="text-2xl font-bold text-white">auto-sell.ai</h1>
                 <p className="text-xs text-red-400 font-medium">Australia&apos;s #1 Car Buyers</p>
               </div>
             </Link>
@@ -184,9 +184,9 @@ export default function Header() {
             </div>
 
             <a 
-              href="tel:1800AUTOSELL" 
+              href="tel:1800auto-sell" 
               aria-label="Call 1800 AUTO SELL"
-              className="bg-red-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors flex items-center gap-2"
+              className="bg-red-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-red-800 transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -199,7 +199,7 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+              className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 cursor-pointer"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -352,8 +352,8 @@ export default function Header() {
                 </Link>
 
                 <a
-                    href="tel:1800AUTOSELL"
-                    className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors text-center flex items-center justify-center gap-2"
+                    href="tel:1800auto-sell"
+                    className="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-800 transition-colors text-center flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

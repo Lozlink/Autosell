@@ -1,7 +1,7 @@
 {
-  "name": "autosell-ai",
+  "name": "auto-sell-ai",
   "version": "0.1.0",
-  "author": "AutoSell.ai",
+  "author": "auto-sell.ai",
   "license": "custom 1",
   "private": true,
   "scripts": {

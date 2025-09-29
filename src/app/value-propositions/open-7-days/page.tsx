@@ -2,7 +2,7 @@ import Header from '@/components/Header'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Open 7 Days - AutoSell.ai',
+  title: 'Open 7 Days - auto-sell.ai',
   description: 'We operate 7 days a week so you can sell your car on your schedule.'
 }
 
