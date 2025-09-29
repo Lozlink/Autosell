@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My People Mover - AutoSell.ai | Get Cash for Your People Mover",
-  description: "Sell your people mover fast with AutoSell.ai. We buy all people mover models including 7-seat and 8-seat vehicles. Get instant quotes and same-day payment.",
+  title: "Sell My People Mover - auto-sell.ai | Get Cash for Your People Mover",
+  description: "Sell your people mover fast with auto-sell.ai. We buy all people mover models including 7-seat and 8-seat vehicles. Get instant quotes and same-day payment.",
   keywords: "sell people mover, people mover buyers, sell my people mover, people mover car buyers, cash for people movers, sell people mover fast, 7 seat car, 8 seat car",
 }
 
@@ -73,7 +73,7 @@ export default function SellPeopleMoversPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai for Your People Mover?
+              Why Choose auto-sell.ai for Your People Mover?
             </h2>
             <p className="text-xl text-gray-600">
               We understand people mover values and offer competitive prices

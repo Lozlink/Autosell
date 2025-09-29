@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
   const brand = params.brand
   const titleBrand = brand.charAt(0).toUpperCase() + brand.slice(1)
   return {
-    title: `Sell Your ${titleBrand} - AutoSell.ai`,
+    title: `Sell Your ${titleBrand} - auto-sell.ai`,
     description: `We buy all ${titleBrand} models in any condition. Free quote in 30 minutes and same-day OSKO payment.`,
   }
 }
@@ -108,7 +108,7 @@ export default function BrandPage({ params }: BrandPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-3">
-              Why Choose AutoSell.ai for Your {titleBrand}?
+              Why Choose auto-sell.ai for Your {titleBrand}?
             </h2>
             <p className="text-lg text-zinc-300">
               We understand {titleBrand} vehicles and offer the best prices in Australia
@@ -150,11 +150,11 @@ export default function BrandPage({ params }: BrandPageProps) {
             Ready to Sell Your {titleBrand}?
           </h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Get your free quote today and join thousands of satisfied owners who chose AutoSell.ai.
+            Get your free quote today and join thousands of satisfied owners who chose auto-sell.ai.
           </p>
           <a
             href="#sell-form"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold transition-colors"
+            className="inline-block bg-red-800 hover:bg-red-800 text-white px-8 py-4 rounded-lg text-xl font-bold transition-colors"
           >
             Get My {titleBrand} Quote Now
           </a>

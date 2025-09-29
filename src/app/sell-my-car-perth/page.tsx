@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Perth - AutoSell.ai | Get Cash for Your Car in Perth",
-  description: "Sell your car fast in Perth with AutoSell.ai. We buy all cars in Perth and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Perth - auto-sell.ai | Get Cash for Your Car in Perth",
+  description: "Sell your car fast in Perth with auto-sell.ai. We buy all cars in Perth and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car perth, car buyers perth, sell car perth, cash for cars perth, sell car fast perth, perth car buyers",
 }
 
@@ -73,7 +73,7 @@ export default function SellMyCarPerthPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai in Perth?
+              Why Choose auto-sell.ai in Perth?
             </h2>
             <p className="text-xl text-gray-600">
               We understand Perth&apos;s car market and offer competitive prices

@@ -2,7 +2,7 @@ import Header from '@/components/Header'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Immediate Payment - AutoSell.ai',
+  title: 'Immediate Payment - auto-sell.ai',
   description: 'Get paid instantly via OSKO once the deal is done. No waiting, no delays.'
 }
 

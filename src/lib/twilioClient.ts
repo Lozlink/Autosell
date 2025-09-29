@@ -35,14 +35,14 @@ export interface ChatbotResponse {
 const automatedResponses = {
   greeting: {
     keywords: ['hello', 'hi', 'hey', 'start', 'help'],
-    response: "Hi! I'm AutoSell.ai's assistant. I can help you with:\n\n🚗 Getting a car valuation\n💰 Understanding our pricing\n📅 Booking an inspection\n❓ General questions\n\nWhat would you like to know?",
+    response: "Hi! I'm auto-sell.ai's assistant. I can help you with:\n\n🚗 Getting a car valuation\n💰 Understanding our pricing\n📅 Booking an inspection\n❓ General questions\n\nWhat would you like to know?",
     shouldEscalate: false,
     nextStep: 'waiting_for_query'
   },
   
   valuation: {
     keywords: ['quote', 'valuation', 'price', 'value', 'worth', 'how much'],
-    response: "Great! I can help you get a free car valuation. To get started, I'll need:\n\n• Your car's make and model\n• Year and odometer reading\n• General condition\n• Your postcode\n\nWould you like to provide these details now, or would you prefer to fill out our online form at autosell.ai?",
+    response: "Great! I can help you get a free car valuation. To get started, I'll need:\n\n• Your car's make and model\n• Year and odometer reading\n• General condition\n• Your postcode\n\nWould you like to provide these details now, or would you prefer to fill out our online form at auto-sell.ai?",
     shouldEscalate: false,
     nextStep: 'collecting_car_details'
   },

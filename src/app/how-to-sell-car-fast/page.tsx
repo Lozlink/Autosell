@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "How to Sell Your Car Fast - AutoSell.ai | Expert Tips & Guide",
+  title: "How to Sell Your Car Fast - auto-sell.ai | Expert Tips & Guide",
   description: "Learn how to sell your car fast with our expert guide. Get tips on preparation, pricing, and choosing the best selling method for maximum speed and value.",
 }
 
@@ -26,7 +26,7 @@ export default function HowToSellCarFastPage() {
             </p>
             <Link 
               href="/#sell-form" 
-              className="inline-block bg-red-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="inline-block bg-red-800 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Fast Quote Now
             </Link>
@@ -118,7 +118,7 @@ export default function HowToSellCarFastPage() {
                 icon: "🏢"
               },
               {
-                method: "AutoSell.ai",
+                method: "auto-sell.ai",
                 pros: ["Fast (same day)", "Fair market price", "Safe and convenient", "No fees"],
                 cons: ["May be slightly less than private sale", "Limited to cash buyers"],
                 time: "Same day",
@@ -217,8 +217,8 @@ export default function HowToSellCarFastPage() {
         </div>
       </section>
 
-      {/* Why Choose AutoSell.ai */}
-      <section className="py-12 bg-red-600">
+      {/* Why Choose auto-sell.ai */}
+      <section className="py-12 bg-red-800">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             The Fastest Way to Sell Your Car

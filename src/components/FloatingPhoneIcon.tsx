@@ -20,10 +20,10 @@ export default function FloatingPhoneIcon() {
           className="fixed bottom-6 right-24 z-50"
         >
           <motion.a
-            href="tel:1800AUTOSELL"
+            href="tel:1800auto-sell"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-red-700 hover:bg-red-800 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+            className="bg-red-800 hover:bg-red-800 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
             aria-label="Call 1800 AUTO SELL"
           >
             <svg 

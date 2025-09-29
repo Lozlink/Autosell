@@ -1,6 +1,6 @@
 # Google Integration Setup
 
-This document explains how to set up Google Reviews and Google Maps integration for the AutoSell.ai website.
+This document explains how to set up Google Reviews and Google Maps integration for the auto-sell.ai website.
 
 ## Required API Keys
 

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Link from 'next/link'
+import MapComponent from '@/components/MapComponent'
 
 export const metadata: Metadata = {
-  title: "Contact Us - AutoSell.ai",
-  description: "Contact AutoSell.ai for your car valuation. Call, email, text, or chat with us. We're here to help you sell your car fast.",
+  title: "Contact Us - auto-sell.ai",
+  description: "Contact auto-sell.ai for your car valuation. Call, email, text, or chat with us. We're here to help you sell your car fast.",
 }
 
 export default function ContactPage() {
@@ -35,7 +36,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">Call Us</h3>
-                    <a href="tel:1800AUTOSELL" className="text-red-400 hover:text-red-300 font-bold text-lg">
+                    <a href="tel:1800auto-sell" className="text-red-400 hover:text-red-300 font-bold text-lg">
                       1800 AUTO SELL
                     </a>
                     <p className="text-sm text-zinc-400">Open 7 days • 8am-6pm AEST</p>
@@ -63,7 +64,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">Text/SMS</h3>
-                    <a href="sms:1800AUTOSELL" className="text-red-400 hover:text-red-300 font-semibold">
+                    <a href="sms:1800auto-sell" className="text-red-400 hover:text-red-300 font-semibold">
                       Send us a message
                     </a>
                     <p className="text-sm text-zinc-400">We&apos;ll respond within minutes</p>
@@ -78,8 +79,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">Email Us</h3>
-                    <a href="mailto:info@autosell.ai" className="text-red-400 hover:text-red-300 font-semibold">
-                      info@autosell.ai
+                    <a href="mailto:info@auto-sell.ai" className="text-red-400 hover:text-red-300 font-semibold">
+                      info@auto-sell.ai
                     </a>
                     <p className="text-sm text-zinc-400">Response within 2 hours</p>
                   </div>
@@ -132,7 +133,7 @@ export default function ContactPage() {
           </div>
 
           {/* Quick Action */}
-          <div className="bg-red-700 rounded-xl p-8 text-white text-center">
+          <div className="bg-red-800 rounded-xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Your FREE Valuation?</h2>
             <p className="text-red-100 mb-6">
               Don&apos;t wait - get your car valued in 30 minutes and receive same-day payment.
@@ -143,6 +144,9 @@ export default function ContactPage() {
             >
               Get My FREE Valuation Now
             </Link>
+          </div>
+          <div className="text-center mt-12">
+            <MapComponent />
           </div>
         </div>
       </section>

@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Melbourne - AutoSell.ai | Get Cash for Your Car in Melbourne",
-  description: "Sell your car fast in Melbourne with AutoSell.ai. We buy all cars in Melbourne and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Melbourne - auto-sell.ai | Get Cash for Your Car in Melbourne",
+  description: "Sell your car fast in Melbourne with auto-sell.ai. We buy all cars in Melbourne and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car melbourne, car buyers melbourne, sell car melbourne, cash for cars melbourne, sell car fast melbourne, melbourne car buyers",
 }
 
@@ -73,7 +73,7 @@ export default function SellMyCarMelbournePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai in Melbourne?
+              Why Choose auto-sell.ai in Melbourne?
             </h2>
             <p className="text-xl text-gray-600">
               We understand Melbourne&apos;s car market and offer competitive prices

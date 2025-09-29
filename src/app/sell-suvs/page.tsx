@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My SUV - AutoSell.ai | Get Cash for Your SUV Vehicle",
-  description: "Sell your SUV fast with AutoSell.ai. We buy all SUV models including compact, mid-size, and large SUVs. Get instant quotes and same-day payment.",
+  title: "Sell My SUV - auto-sell.ai | Get Cash for Your SUV Vehicle",
+  description: "Sell your SUV fast with auto-sell.ai. We buy all SUV models including compact, mid-size, and large SUVs. Get instant quotes and same-day payment.",
   keywords: "sell suv, suv buyers, sell my suv, suv car buyers, cash for suvs, sell suv fast, compact suv, large suv",
 }
 
@@ -73,7 +73,7 @@ export default function SellSUVsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai for Your SUV?
+              Why Choose auto-sell.ai for Your SUV?
             </h2>
             <p className="text-xl text-gray-600">
               We understand SUV values and offer competitive prices

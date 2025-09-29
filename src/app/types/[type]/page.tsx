@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: TypePageProps): Promise<Metad
 	const { type: typeParam } = await params
 	const titleType = typeParam.charAt(0).toUpperCase() + typeParam.slice(1)
 	return {
-		title: `Sell ${titleType} - AutoSell.ai`,
+		title: `Sell ${titleType} - auto-sell.ai`,
 		description: `We buy all ${titleType} in any condition. Free quote in 30 minutes and same-day OSKO payment.`,
 	}
 }
@@ -23,7 +23,7 @@ export default async function TypePage({ params }: TypePageProps) {
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<Header />
-			<section className="bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white py-12">
+			<section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
 				<div className="px-4 sm:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div>

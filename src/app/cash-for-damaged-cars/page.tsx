@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Cash for Damaged Cars - AutoSell.ai | We Buy Cars in Any Condition",
+  title: "Cash for Damaged Cars - auto-sell.ai | We Buy Cars in Any Condition",
   description: "Get cash for your damaged car today. We buy cars in any condition - running or not, damaged or perfect. Same-day payment, free pickup across Australia.",
 }
 
@@ -26,7 +26,7 @@ export default function CashForDamagedCarsPage() {
             </p>
             <Link
               href="/#sell-form" 
-              className="inline-block bg-red-700 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-red-600"
+              className="inline-block bg-red-800 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-red-600"
             >
               Get Cash for Your Damaged Car
             </Link>
@@ -39,7 +39,7 @@ export default function CashForDamagedCarsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Why Choose AutoSell.ai for Damaged Cars?
+              Why Choose auto-sell.ai for Damaged Cars?
             </h2>
             <p className="text-xl text-zinc-300">
               We specialize in buying cars in all conditions, no matter how damaged

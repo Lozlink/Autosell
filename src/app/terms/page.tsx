@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions - AutoSell.ai",
-  description: "Terms and conditions for AutoSell.ai car buying service. Read our service terms, payment conditions, and customer obligations.",
+  title: "Terms and Conditions - auto-sell.ai",
+  description: "Terms and conditions for auto-sell.ai car buying service. Read our service terms, payment conditions, and customer obligations.",
 }
 
 export default function TermsPage() {
@@ -24,7 +24,7 @@ export default function TermsPage() {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Service Overview</h2>
               <p className="mb-4">
-                AutoSell.ai provides car buying services across Australia. We offer instant quotes, on-site inspections, 
+                auto-sell.ai provides car buying services across Australia. We offer instant quotes, on-site inspections, 
                 and same-day payment for vehicles in any condition.
               </p>
 
@@ -119,7 +119,7 @@ export default function TermsPage() {
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Phone: 1800 AUTO SELL</li>
-                <li>Email: legal@autosell.ai</li>
+                <li>Email: legal@auto-sell.ai</li>
                 <li>Address: [Your Business Address]</li>
                 <li>ABN: [Your ABN]</li>
               </ul>

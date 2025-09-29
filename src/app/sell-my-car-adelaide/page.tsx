@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Adelaide - AutoSell.ai | Get Cash for Your Car in Adelaide",
-  description: "Sell your car fast in Adelaide with AutoSell.ai. We buy all cars in Adelaide and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Adelaide - auto-sell.ai | Get Cash for Your Car in Adelaide",
+  description: "Sell your car fast in Adelaide with auto-sell.ai. We buy all cars in Adelaide and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car adelaide, car buyers adelaide, sell car adelaide, cash for cars adelaide, sell car fast adelaide, adelaide car buyers",
 }
 
@@ -73,7 +73,7 @@ export default function SellMyCarAdelaidePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose AutoSell.ai in Adelaide?
+              Why Choose auto-sell.ai in Adelaide?
             </h2>
             <p className="text-xl text-gray-600">
               We understand Adelaide&apos;s car market and offer competitive prices

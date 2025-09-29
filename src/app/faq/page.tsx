@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Accordion from '@/components/Accordion'
 
 export const metadata: Metadata = {
-  title: "FAQ - AutoSell.ai",
-  description: "Frequently asked questions about selling your car with AutoSell.ai. Get answers to common questions about our car buying service.",
+  title: "FAQ - auto-sell.ai",
+  description: "Frequently asked questions about selling your car with auto-sell.ai. Get answers to common questions about our car buying service.",
 }
 
 const faqs = [
@@ -61,7 +61,7 @@ export default function FAQPage() {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Frequently Asked Questions</h1>
             <p className="text-xl md:text-2xl text-zinc-300 mb-8 max-w-3xl mx-auto">
-              Get answers to common questions about selling your car with AutoSell.ai.
+              Get answers to common questions about selling your car with auto-sell.ai.
             </p>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function FAQPage() {
             <h2 className="text-2xl font-bold mb-3">Still have questions?</h2>
             <p className="text-zinc-300 mb-6">Our team is here to help. Contact us for personalised assistance.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:1800AUTOSELL" className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:1800auto-sell" className="inline-flex items-center justify-center gap-2 bg-red-800 hover:bg-red-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 Call 1800 AUTO SELL
               </a>

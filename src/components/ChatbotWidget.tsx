@@ -19,7 +19,7 @@ export default function ChatbotWidget() {
   useEffect(() => {
     // Add welcome message when widget opens
     if (isOpen && messages.length === 0) {
-      addMessage("Hi! I'm AutoSell.ai's assistant. How can I help you today?", false)
+      addMessage("Hi! I'm auto-sell.ai's assistant. How can I help you today?", false)
     }
   }, [isOpen, messages.length])
 
@@ -125,7 +125,7 @@ export default function ChatbotWidget() {
       {/* Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-red-700 text-white p-4 rounded-full shadow-lg hover:bg-red-800 transition-colors"
+        className="fixed bottom-6 right-6 z-50 bg-red-800 text-white p-4 rounded-full shadow-lg hover:bg-red-800 transition-colors"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -144,9 +144,9 @@ export default function ChatbotWidget() {
             className="fixed bottom-24 right-6 z-50 w-80 h-96 bg-zinc-900 border border-zinc-700 rounded-lg shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="bg-red-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+            <div className="bg-red-800 text-white p-4 rounded-t-lg flex items-center justify-between">
               <div>
-                <h3 className="font-bold">AutoSell.ai Assistant</h3>
+                <h3 className="font-bold">auto-sell.ai Assistant</h3>
                 <p className="text-sm opacity-90">Online now</p>
               </div>
               <button
@@ -169,7 +169,7 @@ export default function ChatbotWidget() {
                   <div
                     className={`max-w-xs px-3 py-2 rounded-lg ${
                       message.isUser
-                        ? 'bg-red-700 text-white'
+                        ? 'bg-red-800 text-white'
                         : 'bg-zinc-800 text-zinc-100'
                     }`}
                   >
@@ -208,7 +208,7 @@ export default function ChatbotWidget() {
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputText.trim() || isTyping}
-                  className="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

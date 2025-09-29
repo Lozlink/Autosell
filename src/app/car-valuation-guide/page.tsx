@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Car Valuation Guide - AutoSell.ai | How to Price Your Car Right",
+  title: "Car Valuation Guide - auto-sell.ai | How to Price Your Car Right",
   description: "Learn how to value your car accurately with our comprehensive guide. Understand factors that affect car prices and get the best value when selling.",
 }
 
@@ -26,7 +26,7 @@ export default function CarValuationGuidePage() {
             </p>
             <Link 
               href="/#sell-form" 
-              className="inline-block bg-red-600 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="inline-block bg-red-800 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Free Valuation
             </Link>
@@ -125,7 +125,7 @@ export default function CarValuationGuidePage() {
                 icon: "🔍"
               },
               {
-                method: "AutoSell.ai Valuation",
+                method: "auto-sell.ai Valuation",
                 description: "Our AI-powered system combines multiple data sources for accurate, market-based valuations.",
                 pros: ["Fast and accurate", "Market-based pricing", "Free service", "Local market data"],
                 cons: ["Requires basic information", "Online only"],

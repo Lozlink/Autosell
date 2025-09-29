@@ -5,8 +5,8 @@ import { supabase } from '@/lib/supabaseClient'
 /* eslint-disable */
 
 export const metadata: Metadata = {
-  title: "Blog - AutoSell.ai",
-  description: "Read the latest tips, guides, and insights about selling your car in Australia. Expert advice from AutoSell.ai.",
+  title: "Blog - auto-sell.ai",
+  description: "Read the latest tips, guides, and insights about selling your car in Australia. Expert advice from auto-sell.ai.",
 }
 
 const blogPosts = [
@@ -94,7 +94,7 @@ export default async function BlogPage() {
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              AutoSell.ai Blog
+              auto-sell.ai Blog
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
               Expert tips, guides, and insights to help you sell your car for the best price in Australia.
@@ -154,7 +154,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-12 bg-red-700">
+      <section className="py-12 bg-red-800">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Stay Updated with Car Selling Tips

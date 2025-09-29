@@ -259,7 +259,7 @@ export default function CarSellForm() {
               // Auto-scroll to top when button is clicked
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="w-full cursor-pointer bg-red-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-red-800 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Getting Your Quote...' : 'Value My Car Now'}
           </motion.button>
@@ -293,11 +293,11 @@ export default function CarSellForm() {
     >
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+          <div className="w-6 h-6 bg-red-800 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
           <span className="text-sm text-gray-500">Lead Captured ✓</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+          <div className="w-6 h-6 bg-red-800 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
           <span className="text-sm font-medium">Complete Your Quote Request</span>
         </div>
       </div>
@@ -311,7 +311,7 @@ export default function CarSellForm() {
 
       <div ref={feedbackRef} />
       {loading && (
-        <div className="bg-blue-100 border border-blue-200 text-blue-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
+        <div className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60-100 border border-blue-200 text-blue-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
             <span><strong className="font-bold">Processing...</strong> Getting your quote ready.</span>

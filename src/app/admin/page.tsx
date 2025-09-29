@@ -91,7 +91,7 @@ export default function AdminDashboard() {
             Published
           </label>
           <div className="flex items-center gap-4">
-            <button disabled={loading} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg disabled:opacity-50">{loading ? 'Saving...' : 'Save Post'}</button>
+            <button disabled={loading} className="bg-red-800 hover:bg-red-800 text-white px-4 py-2 rounded-lg disabled:opacity-50">{loading ? 'Saving...' : 'Save Post'}</button>
             {status && <p className="text-sm text-zinc-300">{status}</p>}
           </div>
         </form>
