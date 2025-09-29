@@ -1,7 +1,8 @@
 'use client'
-/* eslint-disable */
+
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 interface Review {
   id: number
@@ -11,6 +12,7 @@ interface Review {
   review: string
   date: string
   verified: boolean
+  url: string
 }
 //Unneeded
 // const realReviews: Review[] = [
@@ -71,6 +73,7 @@ export default function ReviewsComponent() {
       try {
         const res = await fetch('/api/google-reviews', {cache: 'no-store'})
         const data = await res.json()
+        console.log(data)
         if (Array.isArray(data.reviews) && data.reviews.length > 0) {
           setReviews(data.reviews)
           setIsLoading(false)
@@ -120,43 +123,47 @@ export default function ReviewsComponent() {
       {/* Reviews Grid */}
       <div className="grid md:grid-cols-3 gap-8">
         {displayedReviews.map((review, index) => (
-          <motion.div
-            key={review.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 hover:shadow-lg transition-shadow"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex text-yellow-400 text-lg">
-                {'★'.repeat(review.rating)}
-              </div>
-              {review.verified && (
-                <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
+         <Link
+           key={review.id}
+           href={review.url}
+           className="block">
+           <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.5, delay: index * 0.1 }}
+               className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 hover:shadow-lg transition-shadow"
+           >
+             <div className="flex items-center justify-between mb-4">
+               <div className="flex text-yellow-400 text-lg">
+                 {'★'.repeat(review.rating)}
+               </div>
+               {review.verified && (
+                   <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
                   Verified
                 </span>
-              )}
-            </div>
-            
-            <p className="text-zinc-300 mb-4 italic leading-relaxed">
-              &#34;{review.review}&#34;
-            </p>
-            
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="font-semibold text-zinc-100">{review.name}</div>
-                <div className="text-sm text-zinc-400">{review.location}</div>
-              </div>
-              <div className="text-sm text-zinc-400">
-                {new Intl.DateTimeFormat('en-AU', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
-                  timeZone: 'UTC',
-                }).format(new Date(review.date + 'T00:00:00Z'))}
-              </div>
-            </div>
-          </motion.div>
+               )}
+             </div>
+
+             <p className="text-zinc-300 mb-4 italic leading-relaxed">
+               &#34;{review.review}&#34;
+             </p>
+
+             <div className="flex items-center justify-between">
+               <div>
+                 <div className="font-semibold text-zinc-100">{review.name}</div>
+                 <div className="text-sm text-zinc-400">{review.location}</div>
+               </div>
+               <div className="text-sm text-zinc-400">
+                 {new Intl.DateTimeFormat('en-AU', {
+                   month: 'short',
+                   day: 'numeric',
+                   year: 'numeric',
+                   timeZone: 'UTC',
+                 }).format(new Date(review.date + 'T00:00:00Z'))}
+               </div>
+             </div>
+           </motion.div>
+         </Link>
         ))}
       </div>
 

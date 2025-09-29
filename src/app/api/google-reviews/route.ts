@@ -9,6 +9,7 @@ interface Review {
   review: string
   date: string
   verified: boolean
+  url: string
 }
 export async function GET() {
   try {
@@ -43,6 +44,8 @@ export async function GET() {
 
     const googleReviews: any[] = data.result?.reviews || []
 
+    console.log(googleReviews)
+
     // Map Google’s fields to your UI model
     const mapped: Review[] = googleReviews.slice(0, 12).map((r, idx) => ({
       id: idx,
@@ -52,6 +55,7 @@ export async function GET() {
       review: r.text ?? '',
       date: r.time ? new Date(r.time * 1000).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10),
       verified: true,
+      url: r.author_url ?? '',
     }))
 
     return NextResponse.json({ reviews: mapped, status: 'success' })

@@ -6,6 +6,7 @@ import ReviewsComponent from '@/components/ReviewsComponent'
 import MapComponent from '@/components/MapComponent'
 import Accordion from '@/components/Accordion'
 import Image from 'next/image'
+import SmoothSalesProcess from "@/components/SmoothSalesProcess";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
@@ -148,7 +149,7 @@ export default function Home() {
                 {
                   step: '1',
                   title: 'You’re in control',
-                  description: 'Start online at your own pace: tell us about your car and get a firm offer fast.'
+                  description: 'Start online at your own pace: tell us about your car and get a firm offer fast.',
                 },
                 {
                   step: '2',
@@ -202,48 +203,121 @@ export default function Home() {
             {
               title: "Immediate Payment",
               description: "Get paid instantly via OSKO transfer. No waiting, no delays.",
+              image: {
+                src: "/images/branding/osko-and-payid-icon.jpg",
+                alt: "Osko payid icon",
+              },
             },
             {
               title: "On-Site Inspections",
               description: "Available when you need us, including weekends and public holidays.",
+              image: {
+                src: "/images/branding/on-site.jpg",
+                alt: "Instant online quote on a phone screen",
+              },
             },
             {
               title: "Open 7 Days",
               description: "Available when you need us, including weekends and public holidays.",
+              image: {
+                src: "/images/branding/7days.jpg",
+                alt: "Open 7 days a week",
+                fit: "contain" as const, // <— ad
+              },
             },
             {
               title: "Smooth Sales Process",
-              description:
-                "From quote to payment in hours, not days or weeks.",
+              description: "From quote to payment in hours, not days or weeks.",
+              type: "component" as const,
+
             },
           ].map((item, i) => (
-            <div key={i} className= "rounded-xl md:rounded-none">
-              <div className="grid md:grid-cols-2 items-center gap-8 py-12 md:py-16">
-                {/* Left column (text or image depending on index) */}
-                {i % 2 === 0 ? (
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
-                    <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
-                  </div>
-                ) : (
-                  <div className="order-2 md:order-1">
-                    <div className="w-full h-32 md:h-36 lg:h-42 rounded-lg border border-zinc-800 bg-zinc-900" />
-                  </div>
-                )}
+              <div key={i} className="rounded-xl md:rounded-none">
+                <div className="grid md:grid-cols-2 items-center gap-8 py-12 md:py-16">
+                  {/* Left column (text or visual depending on index) */}
+                  {i % 2 === 0 ? (
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
+                        <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
+                      </div>
+                  ) : (
+                      <div className="order-2 md:order-1">
+                        {item.type === "component" ? (
+                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+                              <div className="relative aspect-[16/9]">
+                                <div className="absolute inset-0 p-2 overflow-hidden">
+                                  <SmoothSalesProcess variant="compact" />
+                                </div>
+                              </div>
+                            </div>
+                        ) : (
+                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+                              {/* fixed aspect ratio container to prevent CLS */}
+                              <div className="relative aspect-[16/9] overflow-hidden">{/* extra overflow-hidden for safety */}
+                                {/* When containing, add slight inset padding so the image doesn’t touch edges */}
+                                <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
+                                  <Image
+                                      src={item.image!.src}
+                                      alt={item.image!.alt}
+                                      fill
+                                      className={
+                                        item.image?.fit === 'contain'
+                                            ? 'object-contain object-center'
+                                            : 'object-cover object-center'
+                                      }
+                                      sizes="(min-width: 768px) 50vw, 100vw"
+                                      priority={i === 0}
+                                      placeholder="empty"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                        )}
+                      </div>
+                  )}
 
-                {/* Right column (image or text depending on index) */}
-                {i % 2 === 0 ? (
-                  <div className="order-2 md:order-2">
-                    <div className="w-full h-32 md:h-36 lg:h-42 rounded-lg border border-zinc-800 bg-zinc-900" />
-                  </div>
-                ) : (
-                  <div className="order-1 md:order-2">
-                    <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
-                    <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
-                  </div>
-                )}
+                  {/* Right column (visual or text depending on index) */}
+                  {i % 2 === 0 ? (
+                      <div className="order-2 md:order-2">
+                        {item.type === "component" ? (
+                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+                              <div className="relative aspect-[16/9]">
+                                <div className="absolute inset-0 p-2 overflow-hidden">
+                                  <SmoothSalesProcess variant="compact" />
+                                </div>
+                              </div>
+                            </div>
+                        ) : (
+                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+                              {/* fixed aspect ratio container to prevent CLS */}
+                              <div className="relative aspect-[16/9] overflow-hidden">
+                                <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
+                                  <Image
+                                      src={item.image!.src}
+                                      alt={item.image!.alt}
+                                      fill
+                                      className={
+                                        item.image?.fit === 'contain'
+                                            ? 'object-contain '
+                                            : 'object-cover object-center'
+                                      }
+                                      sizes="(min-width: 768px) 50vw, 100vw"
+                                      priority={i === 0}
+                                      placeholder="empty"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                        )}
+                      </div>
+                  ) : (
+                      <div className="order-1 md:order-2">
+                        <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
+                        <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
+                      </div>
+                  )}
+                </div>
               </div>
-            </div>
           ))}
         </div>
       </section>
@@ -407,16 +481,14 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { type: 'Cars', href: '/types/cars', img: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop' , desc: 'All makes and models, any condition' },
-              { type: 'SUVs', href: '/types/suvs', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop' , desc: '4WDs, crossovers, and family vehicles' },
-              { type: 'Utes', href: '/types/utes', img: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=1200&auto=format&fit=crop' , desc: 'Work utes, dual cabs, and pickups' },
-              { type: 'Trucks', href: '/types/trucks', img: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop' , desc: 'Commercial trucks and heavy vehicles' },
-              { type: 'Vans', href: '/types/vans', img: 'https://images.unsplash.com/photo-1511919886178-ca3b14aa86ee?q=80&w=1200&auto=format&fit=crop' , desc: 'Passenger vans and cargo vans' },
-              { type: 'Motorcycles', href: '/types/motorcycles', img: 'https://images.unsplash.com/photo-1533139502658-0198f920d8ae?q=80&w=1200&auto=format&fit=crop' , desc: 'Bikes, scooters, and ATVs' },
-              { type: 'Boats', href: '/types/boats', img: 'https://images.unsplash.com/photo-1544551763-7ef4200c2700?q=80&w=1200&auto=format&fit=crop' , desc: 'Motorboats, yachts, and jet skis' },
-              { type: 'Caravans', href: '/types/caravans', img: 'https://images.unsplash.com/photo-1501436513145-30f24e19fcc8?q=80&w=1200&auto=format&fit=crop' , desc: 'Caravans, campers, and trailers' }
+              { type: 'Cars', href: '/types/cars', img: '/images/types/bmw.jpg' , desc: 'All makes and models, any condition' },
+              { type: 'SUVs', href: '/types/suvs', img: '/images/types/SUV.jpg' , desc: '4WDs, crossovers, and family vehicles' },
+              { type: 'Utes', href: '/types/utes', img: '/images/types/ute.jpg' , desc: 'Work utes, dual cabs, and pickups' },
+              { type: 'Trucks', href: '/types/trucks', img: '/images/types/truck.jpg' , desc: 'Commercial trucks and heavy vehicles' },
+              { type: 'Vans', href: '/types/vans', img: '/images/types/van.jpg' , desc: 'Passenger vans and cargo vans' },
+              { type: 'Motorcycles', href: '/types/motorcycles', img: '/images/types/motorcycle.jpg' , desc: 'Bikes, scooters, and ATVs' },
             ].map((t) => (
               <a key={t.type} href={t.href} className="group overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                 <div className="relative h-40">
@@ -481,7 +553,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent" />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-700/90 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
+                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   Value my car
                 </a>
