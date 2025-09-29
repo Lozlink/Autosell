@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -9,59 +9,25 @@ export default function Header() {
   const [isBrandsOpen, setIsBrandsOpen] = useState(false)
   const [isTypesOpen, setIsTypesOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
-  
-  const brandsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const typesTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const contactTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const [mBrandsOpen, setMBrandsOpen] = useState(false)
+  const [mTypesOpen, setMTypesOpen] = useState(false)
+  const [mContactOpen, setMContactOpen] = useState(false)
 
-  const handleBrandsMouseEnter = () => {
-    if (brandsTimeoutRef.current) {
-      clearTimeout(brandsTimeoutRef.current)
-      brandsTimeoutRef.current = null
+  // timers to avoid flicker on small gaps between trigger and panel
+  const brandsTimer = useRef<NodeJS.Timeout | null>(null)
+  const typesTimer = useRef<NodeJS.Timeout | null>(null)
+  const contactTimer = useRef<NodeJS.Timeout | null>(null)
+
+  const clearTimer = (ref: React.MutableRefObject<NodeJS.Timeout | null>) => {
+    if (ref.current) {
+      clearTimeout(ref.current)
+      ref.current = null
     }
-    setIsBrandsOpen(true)
   }
 
-  const handleBrandsMouseLeave = () => {
-    brandsTimeoutRef.current = setTimeout(() => {
-      setIsBrandsOpen(false)
-    }, 150)
-  }
-
-  const handleTypesMouseEnter = () => {
-    if (typesTimeoutRef.current) {
-      clearTimeout(typesTimeoutRef.current)
-      typesTimeoutRef.current = null
-    }
-    setIsTypesOpen(true)
-  }
-
-  const handleTypesMouseLeave = () => {
-    typesTimeoutRef.current = setTimeout(() => {
-      setIsTypesOpen(false)
-    }, 150)
-  }
-
-  const handleContactMouseEnter = () => {
-    if (contactTimeoutRef.current) {
-      clearTimeout(contactTimeoutRef.current)
-      contactTimeoutRef.current = null
-    }
-    setIsContactOpen(true)
-  }
-
-  const handleContactMouseLeave = () => {
-    contactTimeoutRef.current = setTimeout(() => {
-      setIsContactOpen(false)
-    }, 150)
-  }
-
-  useEffect(() => {
-    return () => {
-      if (brandsTimeoutRef.current) clearTimeout(brandsTimeoutRef.current)
-      if (typesTimeoutRef.current) clearTimeout(typesTimeoutRef.current)
-      if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current)
-    }
+  const scheduleClose = useCallback((setter: (v: boolean) => void, ref: React.MutableRefObject<NodeJS.Timeout | null>) => {
+    clearTimer(ref)
+    ref.current = setTimeout(() => setter(false), 100)
   }, [])
 
   return (
@@ -82,16 +48,18 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6">
             <Link href="/#how-it-works" className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm">
               How It Works
             </Link>
             
             {/* Brands Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => { clearTimer(brandsTimer); setIsBrandsOpen(true) }}
+              onMouseLeave={() => scheduleClose(setIsBrandsOpen, brandsTimer)}
+            >
               <button
-                onMouseEnter={handleBrandsMouseEnter}
-                onMouseLeave={handleBrandsMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Brands
@@ -104,14 +72,16 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={handleBrandsMouseEnter}
-                  onMouseLeave={handleBrandsMouseLeave}
-                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={() => { clearTimer(brandsTimer); setIsBrandsOpen(true) }}
+                  onMouseLeave={() => scheduleClose(setIsBrandsOpen, brandsTimer)}
                 >
+                  {/* Hover buffer to prevent gap-induced mouseleave */}
+                  <div className="absolute -top-2 left-0 right-0 h-2"></div>
                   {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
                     <Link
                       key={brand}
-                      href={`/brands/${brand.toLowerCase()}`}
+                      href={`/sell-${brand.toLowerCase()}`}
                       className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors"
                     >
                       {brand}
@@ -122,10 +92,12 @@ export default function Header() {
             </div>
 
             {/* Types Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => { clearTimer(typesTimer); setIsTypesOpen(true) }}
+              onMouseLeave={() => scheduleClose(setIsTypesOpen, typesTimer)}
+            >
               <button
-                onMouseEnter={handleTypesMouseEnter}
-                onMouseLeave={handleTypesMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Types
@@ -138,10 +110,11 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={handleTypesMouseEnter}
-                  onMouseLeave={handleTypesMouseLeave}
-                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={() => { clearTimer(typesTimer); setIsTypesOpen(true) }}
+                  onMouseLeave={() => scheduleClose(setIsTypesOpen, typesTimer)}
                 >
+                  <div className="absolute -top-2 left-0 right-0 h-2"></div>
                   {[
                     { type: 'Cars', href: '/types/cars' },
                     { type: 'SUVs', href: '/types/suvs' },
@@ -149,8 +122,7 @@ export default function Header() {
                     { type: 'Trucks', href: '/types/trucks' },
                     { type: 'Vans', href: '/types/vans' },
                     { type: 'Motorcycles', href: '/types/motorcycles' },
-                    { type: 'Boats', href: '/types/boats' },
-                    { type: 'Caravans', href: '/types/caravans' }
+                    { type: 'Damaged Cars', href: '/cash-for-damaged-cars' }
                   ].map((item) => (
                     <Link
                       key={item.type}
@@ -172,10 +144,12 @@ export default function Header() {
             </Link>
             
             {/* Contact Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => { clearTimer(contactTimer); setIsContactOpen(true) }}
+              onMouseLeave={() => scheduleClose(setIsContactOpen, contactTimer)}
+            >
               <button
-                onMouseEnter={handleContactMouseEnter}
-                onMouseLeave={handleContactMouseLeave}
                 className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Contact
@@ -188,10 +162,11 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  onMouseEnter={handleContactMouseEnter}
-                  onMouseLeave={handleContactMouseLeave}
-                  className="absolute top-full left-0 mt-1 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  onMouseEnter={() => { clearTimer(contactTimer); setIsContactOpen(true) }}
+                  onMouseLeave={() => scheduleClose(setIsContactOpen, contactTimer)}
                 >
+                  <div className="absolute -top-2 left-0 right-0 h-2"></div>
                   <Link href="/contact" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
                     Contact Us
                   </Link>
@@ -210,17 +185,18 @@ export default function Header() {
 
             <a 
               href="tel:1800AUTOSELL" 
+              aria-label="Call 1800 AUTO SELL"
               className="bg-red-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              1800 AUTO SELL
+              <span className="hidden xl:inline">1800 AUTO SELL</span>
             </a>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
@@ -238,146 +214,154 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden py-4 border-t border-gray-700"
-          >
-            <div className="flex flex-col space-y-4 text-zinc-200">
-              <Link 
-                href="/#how-it-works" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                How It Works
-              </Link>
-              
-              {/* Mobile Brands Dropdown */}
-              <div>
-                <button
-                  onClick={() => setIsBrandsOpen(!isBrandsOpen)}
-                  className="flex items-center justify-between w-full text-zinc-200 hover:text-red-400 font-medium transition-colors"
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="lg:hidden py-4 border-t border-zinc-800 bg-zinc-900"
+            >
+              <div className="flex flex-col space-y-4 text-zinc-200">
+                <Link
+                    href="/#how-it-works"
+                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                 >
-                  <span>Brands</span>
-                  <svg className={`w-4 h-4 transition-transform ${isBrandsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isBrandsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="ml-4 mt-2 grid grid-cols-2 gap-2"
-                  >
-                    {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
-                      <Link
-                        key={brand}
-                        href={`/brands/${brand.toLowerCase()}`}
-                        className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {brand}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </div>
+                  How It Works
+                </Link>
 
-              {/* Mobile Types Dropdown */}
-              <div>
-                <button
-                  onClick={() => setIsTypesOpen(!isTypesOpen)}
-                  className="flex items-center justify-between w-full text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                {/* Brands accordion */}
+                <div>
+                  <button
+                      type="button"
+                      aria-expanded={mBrandsOpen}
+                      aria-controls="m-brands-panel"
+                      onClick={() => setMBrandsOpen((v) => !v)}
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                  >
+                    <span>Brands</span>
+                    <svg className={`w-4 h-4 transition-transform ${mBrandsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <motion.div
+                      id="m-brands-panel"
+                      initial={false}
+                      animate={{ height: mBrandsOpen ? 'auto' : 0, opacity: mBrandsOpen ? 1 : 0 }}
+                      className="overflow-hidden"
+                  >
+                    <div className="ml-4 mt-2 grid grid-cols-2 gap-2">
+                      {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
+                          <Link
+                              key={brand}
+                              href={`/sell-${brand.toLowerCase()}`}
+                              className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                              onClick={() => setIsMenuOpen(false)}
+                          >
+                            {brand}
+                          </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Types accordion */}
+                <div>
+                  <button
+                      type="button"
+                      aria-expanded={mTypesOpen}
+                      aria-controls="m-types-panel"
+                      onClick={() => setMTypesOpen((v) => !v)}
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                  >
+                    <span>Types</span>
+                    <svg className={`w-4 h-4 transition-transform ${mTypesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <motion.div
+                      id="m-types-panel"
+                      initial={false}
+                      animate={{ height: mTypesOpen ? 'auto' : 0, opacity: mTypesOpen ? 1 : 0 }}
+                      className="overflow-hidden"
+                  >
+                    <div className="ml-4 mt-2 grid grid-cols-2 gap-2">
+                      {[
+                        { type: 'Cars', href: '/types/cars' },
+                        { type: 'SUVs', href: '/types/suvs' },
+                        { type: 'Utes', href: '/types/utes' },
+                        { type: 'Trucks', href: '/types/trucks' },
+                        { type: 'Vans', href: '/types/vans' },
+                        { type: 'Motorcycles', href: '/types/motorcycles' },
+                        { type: 'Damaged Cars', href: '/cash-for-damaged-cars' },
+                      ].map((item) => (
+                          <Link
+                              key={item.type}
+                              href={item.href}
+                              className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                              onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.type}
+                          </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Contact accordion (optional, to mirror desktop "Contact" dropdown) */}
+                <div>
+                  <button
+                      type="button"
+                      aria-expanded={mContactOpen}
+                      aria-controls="m-contact-panel"
+                      onClick={() => setMContactOpen((v) => !v)}
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                  >
+                    <span>Contact</span>
+                    <svg className={`w-4 h-4 transition-transform ${mContactOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <motion.div
+                      id="m-contact-panel"
+                      initial={false}
+                      animate={{ height: mContactOpen ? 'auto' : 0, opacity: mContactOpen ? 1 : 0 }}
+                      className="overflow-hidden"
+                  >
+                    <div className="ml-4 mt-2 flex flex-col gap-2">
+                      <Link href="/contact" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+                      <Link href="/blog" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+                      <Link href="/#reviews" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
+                      <Link href="/faq" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Standalone links */}
+                <Link
+                    href="/how-to-sell-car-fast"
+                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                 >
-                  <span>Types</span>
-                  <svg className={`w-4 h-4 transition-transform ${isTypesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isTypesOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="ml-4 mt-2 grid grid-cols-2 gap-2"
-                  >
-                    {[
-                      { type: 'Cars', href: '/types/cars' },
-                      { type: 'SUVs', href: '/types/suvs' },
-                      { type: 'Utes', href: '/types/utes' },
-                      { type: 'Trucks', href: '/types/trucks' },
-                      { type: 'Vans', href: '/types/vans' },
-                      { type: 'Motorcycles', href: '/types/motorcycles' },
-                      { type: 'Boats', href: '/types/boats' },
-                      { type: 'Caravans', href: '/types/caravans' }
-                    ].map((item) => (
-                      <Link
-                        key={item.type}
-                        href={item.href}
-                        className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.type}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </div>
+                  Sell Fast
+                </Link>
+                <Link
+                    href="/car-valuation-guide"
+                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                  Valuation Guide
+                </Link>
 
-              <Link 
-                href="/how-to-sell-car-fast" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sell Fast
-              </Link>
-              <Link 
-                href="/car-valuation-guide" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Valuation Guide
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact Us
-              </Link>
-              <Link 
-                href="/blog" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </Link>
-              <Link 
-                href="/#reviews" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Reviews
-              </Link>
-              <Link 
-                href="/faq" 
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                FAQ
-              </Link>
-              <a 
-                href="tel:1800AUTOSELL" 
-                className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors text-center flex items-center justify-center gap-2"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call 1800 AUTO SELL
-              </a>
-            </div>
-          </motion.div>
+                <a
+                    href="tel:1800AUTOSELL"
+                    className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors text-center flex items-center justify-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  Call 1800 AUTO SELL
+                </a>
+              </div>
+            </motion.div>
         )}
       </div>
     </header>
