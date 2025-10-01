@@ -137,8 +137,8 @@ export default function MapComponent({
 
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
-            <div class="p-2 bg-gray-800 text-white rounded">
-              <h3 class="font-semibold text-white">${city.name}</h3>
+            <div class="p-2 bg-gray-800 text-gray-800 rounded">
+              <h3 class="font-semibold text-gray-800">${city.name}</h3>
               <p class="text-sm text-gray-300">We service this area</p>
             </div>
           `
@@ -155,7 +155,7 @@ export default function MapComponent({
         const div = document.createElement('div')
         div.className = 'absolute top-4 left-4 bg-gray-800 rounded-lg shadow-lg p-4 max-w-xs border border-gray-700'
         div.innerHTML = `
-          <h3 class="font-bold text-white mb-1">Australia-Wide Service</h3>
+          <h3 class="font-bold text-gray-800 mb-1">Australia-Wide Service</h3>
           <p class="text-sm text-gray-300">We come to you anywhere in Australia</p>
         `
         this.div = div
@@ -207,10 +207,10 @@ export default function MapComponent({
             }}
           ></div>
           <div className="text-center z-10">
-            <h3 className="text-xl font-bold text-white mb-2">Australia-Wide Coverage</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Australia-Wide Coverage</h3>
             <p className="text-gray-300">We come to you anywhere in Australia</p>
             {mapError && (
-              <p className="text-sm text-red-400 mt-2">Map temporarily unavailable</p>
+              <p className="text-sm text-blue-600 mt-2">Map temporarily unavailable</p>
             )}
           </div>
         </div>

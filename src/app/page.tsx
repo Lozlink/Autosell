@@ -14,7 +14,7 @@ import type { Metadata } from 'next'
 
 function CarSellFormFallback() {
   return (
-      <div className="rounded-2xl p-8 border border-zinc-800 bg-zinc-900/30">
+      <div className="rounded-2xl p-8 border border-blue-200 bg-white/30">
         <div className="animate-pulse">
           <div className="h-8 bg-zinc-800 rounded mb-6"></div>
           <div className="space-y-4">
@@ -43,20 +43,21 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
+">
       <Header />
       
       {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+      <section id="sell-form" className="bg-gradient-to-br from-white via-blue-300 to-blue-450 text-gray-800 py-12">
         <div className="px-4 sm:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Sell Your Car Today
-                <span className="block text-red-300">30-Min Quote, Same-Day OSKO Payment</span>
+                <span className="block text-blue-500">30-Min Quote, Same-Day OSKO Payment</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8">
+              <p className="text-xl md:text-2xl text-gray-800 mb-8">
                 Australia&apos;s #1 car buying service. Get a <strong>FREE valuation</strong> in 30 minutes, 
                 same-day payment via OSKO, and skip all the hassles of private selling.
               </p>
@@ -64,15 +65,15 @@ export default function Home() {
               {/* Trust Strip */}
               <div className="flex flex-wrap gap-4 mb-8 text-sm">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-red-400">✓</span>
+                  <span className="text-blue-600">✓</span>
                   <span>We beat like-for-like offers</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-red-400">✓</span>
+                  <span className="text-blue-600">✓</span>
                   <span>We come to you AU-wide</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-red-400">✓</span>
+                  <span className="text-blue-600">✓</span>
                   <span>No fees, no fuss</span>
                 </div>
               </div>
@@ -80,26 +81,26 @@ export default function Home() {
               {/* Key Benefits */}
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">⚡</span>
+                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-gray-800 text-sm font-bold">⚡</span>
                   </div>
                   <span className="font-semibold">30min Quote</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">$</span>
+                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-gray-800 text-sm font-bold">$</span>
                   </div>
                   <span className="font-semibold">Same Day OSKO</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">✓</span>
+                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-gray-800 text-sm font-bold">✓</span>
                   </div>
                   <span className="font-semibold">Any Condition</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">AU</span>
+                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-gray-800 text-sm font-bold">AU</span>
                   </div>
                   <span className="font-semibold">Australia Wide</span>
                 </div>
@@ -119,10 +120,12 @@ export default function Home() {
       </section>
 
       {/* Customer Reviews */}
-      <section id="reviews" className="py-12 bg-zinc-950">
+      <section id="reviews" className="py-12 bg-blue-50
+
+">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               What Our Customers Say
             </h2>
             <div className="flex justify-center items-center gap-2 mb-8">
@@ -133,19 +136,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="py-8 bg-zinc-950">
+      <section id="how-it-works" className="py-8 bg-blue-50
+
+">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
               How does auto-sell work?
             </h2>
-            <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Sell online. We handle the rest.
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black">
-            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
+          <div className="relative overflow-hidden rounded-2xl border border-blue-200 bg-gradient-to-b from-white
+ to-blue-400">
+            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-blue-400">
               {[
                 {
                   step: '1',
@@ -164,14 +170,14 @@ export default function Home() {
                 }
               ].map((step, index) => (
                   <div key={index} className="relative p-8 md:p-10">
-                    <div className="pointer-events-none select-none absolute -top-6 left-4 md:left-6 text-7xl md:text-8xl font-extrabold text-white/5">
+                    <div className="pointer-events-none select-none absolute -top-6 left-4 md:left-6 text-7xl md:text-8xl font-extrabold text-gray-800/8">
                       {step.step}
                     </div>
                     <div className="relative">
-                      <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
                         {step.title}
                       </h3>
-                      <p className="text-zinc-400 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -189,13 +195,16 @@ export default function Home() {
       </section>
 
       {/* Why Choose Section */}
-      <section id="why-choose" className="py-16 bg-zinc-950">
+      <section id="why-choose" className="py-16 bg-gradient-to-b from-white
+  via-blue-50 to-blue-300
+ backdrop-blur
+">
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
               Benefits of Choosing auto-sell
             </h2>
-            <p className="text-base md:text-lg text-zinc-400">
+            <p className="text-base md:text-lg text-gray-600">
               Fast, transparent and convenient from start to finish
             </p>
           </div>
@@ -240,68 +249,34 @@ export default function Home() {
             },
           ].map((item, i) => (
               <div key={i} className="rounded-xl md:rounded-none">
-                <div className="grid md:grid-cols-2 items-center gap-8 py-6 md:py-6">
-                  {/* Left column (text or visual depending on index) */}
-                  {i % 2 === 0 ? (
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
-                        <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
-                      </div>
-                  ) : (
-                      <div className="order-2 md:order-1">
-                        {item.type === "component" ? (
-                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
-                              <div className="relative aspect-[16/9]">
-                                <div className="absolute inset-0 p-2 overflow-hidden">
-                                  <SmoothSalesProcess variant="compact" />
-                                </div>
-                              </div>
-                            </div>
-                        ) : (
-                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
-                              {/* fixed aspect ratio container to prevent CLS */}
-                              <div className="relative aspect-[16/9] overflow-hidden">{/* extra overflow-hidden for safety */}
-                                {/* When containing, add slight inset padding so the image doesn’t touch edges */}
-                                <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
-                                  <Link href={item.href}>
-                                      <Image
-                                          src={item.image!.src}
-                                          alt={item.image!.alt}
-                                          fill
-                                          className={
-                                            item.image?.fit === 'contain'
-                                                ? 'object-contain object-center'
-                                                : 'object-cover object-center'
-                                          }
-                                          sizes="(min-width: 768px) 50vw, 100vw"
-                                          priority={i === 0}
-                                          placeholder="empty"
+                <div className="grid md:grid-cols-5 items-center gap-6 py-6">
 
-                                      />
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                        )}
-                      </div>
-                  )}
-
-                  {/* Right column (visual or text depending on index) */}
+                {/* Left column (text or visual depending on index) */}
                   {i % 2 === 0 ? (
-                      <div className="order-2 md:order-2">
+                          <div className="md:col-span-2">
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-3">{item.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                            <div className="mt-4 flex items-center gap-4">
+                              <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Fast</span>
+                              <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Reliable</span>
+                            </div>
+                          </div>
+                      ) :
+                      (
+                      <div className="order-2 md:order-1 md:col-span-3">
                         {item.type === "component" ? (
-                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
-                              <div className="relative aspect-[16/9]">
-                                <div className="absolute inset-0 p-2 overflow-hidden">
+                            <div className="relative w-full overflow-hidden rounded-lg border border-blue-200 bg-white shadow-md">
+                              <div className="relative aspect-[16/10] overflow-hidden">
+                                <Link href={item.href}>
                                   <SmoothSalesProcess variant="compact" />
+                              </Link>
                                 </div>
                               </div>
-                            </div>
+
                         ) : (
-                            <div className="relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
-                              {/* fixed aspect ratio container to prevent CLS */}
-                              <div className="relative aspect-[16/9] overflow-hidden">
-                                <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
+                            <div className="relative w-full overflow-hidden rounded-lg border border-blue-200 bg-white shadow-md">
+                              <div className="relative aspect-[16/10] overflow-hidden">
+                              <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
                                   <Link href={item.href}>
                                     <Image
                                         src={item.image!.src}
@@ -309,7 +284,7 @@ export default function Home() {
                                         fill
                                         className={
                                           item.image?.fit === 'contain'
-                                              ? 'object-contain '
+                                              ? 'object-contain object-center'
                                               : 'object-cover object-center'
                                         }
                                         sizes="(min-width: 768px) 50vw, 100vw"
@@ -321,27 +296,64 @@ export default function Home() {
                               </div>
                             </div>
                         )}
+
+                      </div>
+                  )}
+
+                  {/* Right column (visual or text depending on index) */}
+                  {i % 2 === 0 ? (
+                      <div className="order-2 md:order-2 md:col-span-3">
+                        {/* Image gets 3/5 width */}
+                        <div className="relative w-full overflow-hidden rounded-lg border border-blue-200 bg-white shadow-md">
+                          <div className="relative aspect-[16/10] overflow-hidden">
+                            <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
+                                  <Link href={item.href}>
+                                    <Image
+                                        src={item.image!.src}
+                                        alt={item.image!.alt}
+                                        fill
+                                        className={
+                                          item.image?.fit === 'contain'
+                                              ? 'object-contain'
+                                              : 'object-cover object-center'
+                                        }
+                                        sizes="(min-width: 768px) 50vw, 100vw"
+                                        priority={i === 0}
+                                        placeholder="empty"
+                                    />
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                   ) : (
-                      <div className="order-1 md:order-2">
-                        <h3 className="text-2xl font-semibold text-white mb-3">{item.title}</h3>
-                        <p className="text-zinc-400 leading-relaxed max-w-xl">{item.description}</p>
+                      <div className="order-1 md:order-2 md:col-span-2">
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-3">{item.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        <div className="mt-4 flex items-center gap-4">
+                          <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Secure</span>
+                          <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Trusted</span>
+                        </div>
                       </div>
+
                   )}
                 </div>
               </div>
+
           ))}
         </div>
       </section>
 
       {/* Car Models We Buy */}
-      <section className="py-12 bg-zinc-950">
+      <section className="py-12 bg-blue-50
+
+">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Browse by Brand
             </h2>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-gray-600">
               From cars to trucks, we buy everything - no matter the condition
             </p>
           </div>
@@ -349,9 +361,9 @@ export default function Home() {
           <BrandMarquee />
           
           <div className="text-center mt-8">
-            <p className="text-zinc-400">
+            <p className="text-gray-600">
               Don&apos;t see your brand? We buy all makes and models —
-              <a href="#sell-form" className="text-red-400 hover:text-red-300 font-semibold"> get your quote anyway!</a>
+              <a href="#sell-form" className="text-blue-600 hover:text-blue-500 font-semibold"> get your quote anyway!</a>
             </p>
           </div>
         </div>
@@ -373,9 +385,9 @@ export default function Home() {
                 className="group text-center p-4 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-all duration-300 hover:border-red-300 hover:scale-[1.02]"
               >
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-red-50">
-                  <span className="text-gray-700 group-hover:text-red-500 font-bold text-lg">{brand.charAt(0)}</span>
+                  <span className="text-gray-700 group-hover:text-blue-500 font-bold text-lg">{brand.charAt(0)}</span>
                 </div>
-                <div className="text-sm font-semibold text-gray-900 group-hover:text-red-500">{brand}</div>
+                <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-500">{brand}</div>
               </a>
             ))}
           </div>
@@ -383,13 +395,15 @@ export default function Home() {
       </section>
 
       {/* We Buy All Types Section */}
-      <section className="py-12 bg-zinc-950">
+      <section className="py-12 bg-blue-50
+
+">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               We Buy All Types of Vehicles
             </h2>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-gray-600">
               From cars to trucks, we buy everything - no matter the condition
             </p>
           </div>
@@ -409,8 +423,8 @@ export default function Home() {
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
                     <div className="absolute inset-0 flex items-end p-5">
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-1">{t.type}</h3>
-                        <p className="text-sm text-zinc-200">{t.desc}</p>
+                        <h3 className="text-lg font-semibold text-zinc-50 mb-1">{t.type}</h3>
+                        <p className="text-md text-zinc-100 ">{t.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -434,7 +448,7 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {[
-              { city: 'Sydney', state: 'NSW', color: 'bg-gradient-to-br from-black via-zinc-900 to-red-900/60-500' },
+              { city: 'Sydney', state: 'NSW', color: 'bg-gradient-to-br from-white via-blue-50 to-blue-100-500' },
               { city: 'Melbourne', state: 'VIC', color: 'bg-purple-500' },
               { city: 'Brisbane', state: 'QLD', color: 'bg-orange-500' },
               { city: 'Perth', state: 'WA', color: 'bg-cyan-500' },
@@ -445,7 +459,7 @@ export default function Home() {
             ].map((location) => (
               <div key={location.city} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105 group">
                 <div className={`w-12 h-12 mx-auto mb-3 rounded-full ${location.color} flex items-center justify-center`}>
-                  <span className="text-white font-bold text-lg">{location.city.charAt(0)}</span>
+                  <span className="text-gray-800 font-bold text-lg">{location.city.charAt(0)}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">{location.city}</h3>
                 <p className="text-sm text-gray-600">{location.state}</p>
@@ -459,7 +473,7 @@ export default function Home() {
             </p>
             <a 
               href="#sell-form" 
-              className="inline-block bg-red-800 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-800 transition-colors"
+              className="inline-block bg-blue-600 text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-blue-600 transition-colors"
             >
               Get Your Quote - We Come to You!
             </a>
@@ -475,13 +489,16 @@ export default function Home() {
 
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 bg-zinc-950">
+      <section id="faq" className="py-12 bg-gradient-to-b from-white
+  via-blue-50 to-blue-300
+ backdrop-blur
+">
         <div className="px-4 sm:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-gray-600">
               Get answers to common questions about selling your car
             </p>
           </div>
@@ -522,35 +539,37 @@ export default function Home() {
 
 
       {/* Process Details Section */}
-      <section className="py-12 bg-zinc-950">
+      <section className="py-12 bg-blue-50
+
+">
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               What Happens After You Submit?
             </h2>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-gray-600">
               Our streamlined process gets you paid quickly and safely
             </p>
           </div>
           
           <div className="  grid md:grid-cols-2 gap-4 md:gap-6">
             <div className="p-0 md:py-3">
-              <h3 className="text-xl font-semibold text-white mb-2">Immediate Response</h3>
-              <ul className="space-y-2 text-zinc-300">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Immediate Response</h3>
+              <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Quote generated within 30 minutes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Phone call to discuss your offer</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Inspection scheduled at your convenience</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>All paperwork prepared in advance</span>
                 </li>
               </ul>
@@ -567,29 +586,29 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent" />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <a href="#sell-form" className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-semibold transition-colors shadow">
+                <a href="#sell-form" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-600 text-gray-800 px-4 py-2 rounded-lg font-semibold transition-colors shadow">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   Value my car
                 </a>
               </div>
             </div>
             <div className="p-0 md:py-3">
-              <h3 className="text-xl font-semibold text-white mb-2">Same-Day Completion</h3>
-              <ul className="space-y-2 text-zinc-300">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Same-Day Completion</h3>
+              <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Professional inspection at your location</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Final price confirmed on-site</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>All documents signed and completed</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>OSKO payment transferred instantly</span>
                 </li>
               </ul>
@@ -599,7 +618,9 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-12 bg-gradient-to-br from-black via-zinc-900 to-black text-white">
+      <section className="py-12 bg-gradient-to-br from-white
+ via-blue-100 to-blue-400
+  text-gray-800">
         <div className="px-4 sm:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Get Your FREE Car Valuation?
@@ -610,22 +631,22 @@ export default function Home() {
           <div className="space-y-4">
             <a 
               href="#sell-form" 
-              className="inline-block bg-white text-red-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-block bg-white text-blue-400 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My FREE Valuation Now
             </a>
             <div className="text-center">
-              <p className="text-red-100">Or call us directly:</p>
+              <p className="text-gray-500">Or call us directly:</p>
               <a 
                 href="tel:1800auto-sell" 
-                className="text-2xl font-bold text-white hover:text-red-200 transition-colors flex items-center justify-center gap-2"
+                className="text-2xl font-bold text-gray-800 hover:text-blue-300 transition-colors flex items-center justify-center gap-2"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <span className="hidden sm:inline">1800 AUTO SELL</span>
               </a>
-              <p className="text-emerald-100 text-sm mt-2">Open 7 days a week • 8am-6pm AEST</p>
+              <p className="text-gray-500 text-sm mt-2">Open 7 days a week • 8am-6pm AEST</p>
             </div>
           </div>
         </div>

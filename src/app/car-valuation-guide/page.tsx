@@ -9,24 +9,25 @@ export const metadata: Metadata = {
 
 export default function CarValuationGuidePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
+">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-20">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Car Valuation Guide
-              <span className="block text-red-300">How to Price Your Car Right</span>
+              <span className="block text-blue-500">How to Price Your Car Right</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
               Understanding your car&apos;s true value is crucial for getting the best price. 
               Learn what factors affect car values and how to maximize your return.
             </p>
             <Link 
               href="/#sell-form" 
-              className="inline-block bg-red-800 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Free Valuation
             </Link>
@@ -35,13 +36,15 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Key Factors Section */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Key Factors That Affect Car Value
             </h2>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-gray-600">
               Understanding these factors helps you price your car competitively
             </p>
           </div>
@@ -82,7 +85,7 @@ export default function CarValuationGuidePage() {
               <div key={index} className="text-center px-2 md:px-4 py-2 transition-colors">
                 <div className="text-4xl mb-4">{factor.icon}</div>
                 <h3 className="text-xl font-semibold text-zinc-100 mb-3">{factor.title}</h3>
-                <p className="text-zinc-400">{factor.description}</p>
+                <p className="text-gray-600">{factor.description}</p>
               </div>
             ))}
           </div>
@@ -90,13 +93,15 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Valuation Methods */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Car Valuation Methods
             </h2>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-gray-600">
               Different approaches to determining your car&apos;s worth
             </p>
           </div>
@@ -132,18 +137,18 @@ export default function CarValuationGuidePage() {
                 icon: "🤖"
               }
             ].map((method, index) => (
-              <div key={index} className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+              <div key={index} className="bg-white p-8 rounded-xl border border-blue-200">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{method.icon}</div>
                   <div>
                     <h3 className="text-xl font-semibold text-zinc-100">{method.method}</h3>
-                    <p className="text-zinc-400 text-sm">{method.description}</p>
+                    <p className="text-gray-600 text-sm">{method.description}</p>
                   </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-red-400">✓ Pros</h4>
+                    <h4 className="font-semibold mb-2 text-blue-600">✓ Pros</h4>
                     <ul className="space-y-1 text-sm">
                       {method.pros.map((pro, i) => (
                         <li key={i} className="flex items-start gap-2">
@@ -173,13 +178,15 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Tips for Better Value */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Tips to Maximize Your Car&apos;s Value
             </h2>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-gray-600">
               Simple steps that can significantly increase what you get for your car
             </p>
           </div>
@@ -216,7 +223,7 @@ export default function CarValuationGuidePage() {
                 <div className="text-3xl">{tip.icon}</div>
                 <div>
                   <h3 className="text-lg font-semibold text-zinc-100 mb-2">{tip.tip}</h3>
-                  <p className="text-zinc-400">{tip.description}</p>
+                  <p className="text-gray-600">{tip.description}</p>
                 </div>
               </div>
             ))}
@@ -225,21 +232,23 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Common Valuation Mistakes */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Common Valuation Mistakes to Avoid
             </h2>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-gray-600">
               Don&apos;t let these errors cost you money when selling your car
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+            <div className="bg-white p-8 rounded-xl border border-blue-200">
               <h3 className="text-xl font-semibold mb-4 text-red-600">❌ What Not to Do</h3>
-              <ul className="space-y-3 text-zinc-400">
+              <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
                   <span className="text-red-500 text-lg">•</span>
                   <span>Overpricing based on emotional attachment</span>
@@ -295,7 +304,7 @@ export default function CarValuationGuidePage() {
       {/* CTA Section */}
       <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Get Your Accurate Car Valuation Today
           </h2>
           <p className="text-xl mb-8 text-emerald-100">

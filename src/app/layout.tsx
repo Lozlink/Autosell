@@ -85,7 +85,7 @@ export default function RootLayout({
       <meta name="theme-color" content="#7f1d1d" />
     </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-black via-zinc-900 to-red-900/60`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100`}
       >
       <noscript>
         <iframe

@@ -31,25 +31,27 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="bg-gradient-to-b from-black via-zinc-900 to-zinc-900/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/80 shadow-lg sticky top-0 z-50 text-zinc-200">
+    <header className="bg-gradient-to-b from-white
+  via-blue-50 to-blue-300
+ backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-lg sticky top-0 z-50 text-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
+                <span className="text-gray-800 font-bold text-xl">A</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">auto-sell.ai</h1>
-                <p className="text-xs text-red-400 font-medium">Australia&apos;s #1 Car Buyers</p>
+                <h1 className="text-2xl font-bold text-gray-800">auto-sell.ai</h1>
+                <p className="text-xs text-blue-600 font-medium">Australia&apos;s #1 Car Buyers</p>
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link href="/#how-it-works" className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm">
+            <Link href="/#how-it-works" className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">
               How It Works
             </Link>
             
@@ -60,7 +62,7 @@ export default function Header() {
               onMouseLeave={() => scheduleClose(setIsBrandsOpen, brandsTimer)}
             >
               <button
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Brands
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,7 +74,7 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-white text-zinc-100 rounded-lg shadow-2xl border border-blue-300/60 py-2 z-50"
                   onMouseEnter={() => { clearTimer(brandsTimer); setIsBrandsOpen(true) }}
                   onMouseLeave={() => scheduleClose(setIsBrandsOpen, brandsTimer)}
                 >
@@ -82,7 +84,7 @@ export default function Header() {
                     <Link
                       key={brand}
                       href={`/sell-${brand.toLowerCase()}`}
-                      className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors"
                     >
                       {brand}
                     </Link>
@@ -98,7 +100,7 @@ export default function Header() {
               onMouseLeave={() => scheduleClose(setIsTypesOpen, typesTimer)}
             >
               <button
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Types
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +112,7 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-white text-zinc-100 rounded-lg shadow-2xl border border-blue-300/60 py-2 z-50"
                   onMouseEnter={() => { clearTimer(typesTimer); setIsTypesOpen(true) }}
                   onMouseLeave={() => scheduleClose(setIsTypesOpen, typesTimer)}
                 >
@@ -127,7 +129,7 @@ export default function Header() {
                     <Link
                       key={item.type}
                       href={item.href}
-                      className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors"
                     >
                       {item.type}
                     </Link>
@@ -136,10 +138,10 @@ export default function Header() {
               )}
             </div>
 
-            <Link href='/how-to-sell-car-fast' className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm">
+            <Link href='/how-to-sell-car-fast' className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">
               Sell Fast
             </Link>
-            <Link href='/car-valuation-guide' className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm">
+            <Link href='/car-valuation-guide' className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">
               Valuation Guide
             </Link>
             
@@ -150,7 +152,7 @@ export default function Header() {
               onMouseLeave={() => scheduleClose(setIsContactOpen, contactTimer)}
             >
               <button
-                className="text-zinc-200 hover:text-red-400 font-medium transition-colors text-sm flex items-center gap-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm flex items-center gap-1"
               >
                 Contact
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,21 +164,21 @@ export default function Header() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 w-56 bg-zinc-900 text-zinc-100 rounded-lg shadow-2xl border border-zinc-700/60 py-2 z-50"
+                  className="absolute top-full left-0 w-56 bg-white text-zinc-100 rounded-lg shadow-2xl border border-blue-300/60 py-2 z-50"
                   onMouseEnter={() => { clearTimer(contactTimer); setIsContactOpen(true) }}
                   onMouseLeave={() => scheduleClose(setIsContactOpen, contactTimer)}
                 >
                   <div className="absolute -top-2 left-0 right-0 h-2"></div>
-                  <Link href="/contact" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
+                  <Link href="/contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
                     Contact Us
                   </Link>
-                  <Link href="/blog" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
+                  <Link href="/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
                     Blog
                   </Link>
-                  <Link href="/#reviews" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
+                  <Link href="/#reviews" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
                     Reviews
                   </Link>
-                  <Link href="/faq" className="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-800 hover:text-red-400 transition-colors">
+                  <Link href="/faq" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
                     FAQ
                   </Link>
                 </motion.div>
@@ -186,7 +188,7 @@ export default function Header() {
             <a 
               href="tel:1800auto-sell" 
               aria-label="Call 1800 AUTO SELL"
-              className="bg-red-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-red-800 transition-colors flex items-center gap-2"
+              className="bg-blue-600 text-gray-800 px-6 py-2 rounded-lg font-bold hover:bg-blue-600 transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -217,12 +219,12 @@ export default function Header() {
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="lg:hidden py-4 border-t border-zinc-800 bg-zinc-900"
+                className="lg:hidden py-4 border-t border-blue-200 bg-white"
             >
-              <div className="flex flex-col space-y-4 text-zinc-200">
+              <div className="flex flex-col space-y-4 text-gray-700">
                 <Link
                     href="/#how-it-works"
-                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                 >
                   How It Works
@@ -235,7 +237,7 @@ export default function Header() {
                       aria-expanded={mBrandsOpen}
                       aria-controls="m-brands-panel"
                       onClick={() => setMBrandsOpen((v) => !v)}
-                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-gray-700 hover:text-blue-600"
                   >
                     <span>Brands</span>
                     <svg className={`w-4 h-4 transition-transform ${mBrandsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +255,7 @@ export default function Header() {
                           <Link
                               key={brand}
                               href={`/sell-${brand.toLowerCase()}`}
-                              className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                              className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
                               onClick={() => setIsMenuOpen(false)}
                           >
                             {brand}
@@ -270,7 +272,7 @@ export default function Header() {
                       aria-expanded={mTypesOpen}
                       aria-controls="m-types-panel"
                       onClick={() => setMTypesOpen((v) => !v)}
-                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-gray-700 hover:text-blue-600"
                   >
                     <span>Types</span>
                     <svg className={`w-4 h-4 transition-transform ${mTypesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,7 +298,7 @@ export default function Header() {
                           <Link
                               key={item.type}
                               href={item.href}
-                              className="text-sm text-zinc-300 hover:text-red-400 transition-colors"
+                              className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
                               onClick={() => setIsMenuOpen(false)}
                           >
                             {item.type}
@@ -313,7 +315,7 @@ export default function Header() {
                       aria-expanded={mContactOpen}
                       aria-controls="m-contact-panel"
                       onClick={() => setMContactOpen((v) => !v)}
-                      className="w-full flex items-center justify-between py-2 text-left font-medium text-zinc-200 hover:text-red-400"
+                      className="w-full flex items-center justify-between py-2 text-left font-medium text-gray-700 hover:text-blue-600"
                   >
                     <span>Contact</span>
                     <svg className={`w-4 h-4 transition-transform ${mContactOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -327,10 +329,10 @@ export default function Header() {
                       className="overflow-hidden"
                   >
                     <div className="ml-4 mt-2 flex flex-col gap-2">
-                      <Link href="/contact" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-                      <Link href="/blog" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-                      <Link href="/#reviews" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
-                      <Link href="/faq" className="text-sm text-zinc-300 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
+                      <Link href="/contact" className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+                      <Link href="/blog" className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+                      <Link href="/#reviews" className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
+                      <Link href="/faq" className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
                     </div>
                   </motion.div>
                 </div>
@@ -338,14 +340,14 @@ export default function Header() {
                 {/* Standalone links */}
                 <Link
                     href="/how-to-sell-car-fast"
-                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                 >
                   Sell Fast
                 </Link>
                 <Link
                     href="/car-valuation-guide"
-                    className="text-zinc-200 hover:text-red-400 font-medium transition-colors"
+                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                 >
                   Valuation Guide
@@ -353,7 +355,7 @@ export default function Header() {
 
                 <a
                     href="tel:1800auto-sell"
-                    className="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-800 transition-colors text-center flex items-center justify-center gap-2"
+                    className="bg-blue-600 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition-colors text-center flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

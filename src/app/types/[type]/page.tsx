@@ -23,7 +23,7 @@ export default async function TypePage({ params }: TypePageProps) {
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<Header />
-			<section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+			<section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
 				<div className="px-4 sm:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div>

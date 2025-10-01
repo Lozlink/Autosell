@@ -41,8 +41,8 @@ export default function BrandMarquee() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-zinc-950 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-zinc-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-blue-50 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-50 to-transparent" />
 
       <div className="marquee flex items-center gap-10 will-change-transform">
         {items.map((brand, idx) => (

@@ -86,6 +86,18 @@ export default function ReviewsComponent() {
     fetchReviews()
   }, [])
 
+  const getDisplayedReviews = () => {
+    if (reviews.length === 0) return []
+    if (reviews.length <= 3) return reviews
+
+    const displayed = []
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % reviews.length
+      displayed.push(reviews[index])
+    }
+    return displayed
+  }
+
   useEffect(() => {
     if (reviews.length === 0) return
 
@@ -100,7 +112,7 @@ export default function ReviewsComponent() {
     return (
       <div className="grid md:grid-cols-3 gap-8">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 animate-pulse">
+          <div key={i} className="bg-white p-8 rounded-xl border border-blue-200 animate-pulse">
             <div className="flex items-center mb-4">
               <div className="w-16 h-4 bg-zinc-700 rounded"></div>
             </div>
@@ -116,7 +128,8 @@ export default function ReviewsComponent() {
     )
   }
 
-  const displayedReviews = reviews.slice(currentIndex, currentIndex + 3)
+  const displayedReviews = getDisplayedReviews()
+
 
   return (
     <div className="space-y-8">
@@ -131,7 +144,7 @@ export default function ReviewsComponent() {
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.5, delay: index * 0.1 }}
-               className="bg-zinc-900 p-8 rounded-xl border border-zinc-800 hover:shadow-lg transition-shadow"
+               className="bg-white p-8 rounded-xl border border-blue-200 hover:shadow-lg transition-shadow"
            >
              <div className="flex items-center justify-between mb-4">
                <div className="flex text-yellow-400 text-lg">
@@ -144,16 +157,16 @@ export default function ReviewsComponent() {
                )}
              </div>
 
-             <p className="text-zinc-300 mb-4 italic leading-relaxed">
+             <p className="text-gray-600 mb-4 italic leading-relaxed">
                &#34;{review.review}&#34;
              </p>
 
              <div className="flex items-center justify-between">
                <div>
-                 <div className="font-semibold text-zinc-100">{review.name}</div>
-                 <div className="text-sm text-zinc-400">{review.location}</div>
+                 <div className="font-semibold text-gray-600">{review.name}</div>
+                 <div className="text-sm text-gray-600">{review.location}</div>
                </div>
-               <div className="text-sm text-zinc-400">
+               <div className="text-sm text-gray-600">
                  {new Intl.DateTimeFormat('en-AU', {
                    month: 'short',
                    day: 'numeric',
@@ -168,7 +181,7 @@ export default function ReviewsComponent() {
       </div>
 
       {/*/!* Review Stats *!/*/}
-      {/*<div className="bg-zinc-900 rounded-xl p-8 text-center border border-zinc-800">*/}
+      {/*<div className="bg-white rounded-xl p-8 text-center border border-blue-200">*/}
       {/*  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
       {/*    <div>*/}
       {/*      <div className="text-3xl font-bold text-red-500 mb-2">5</div>*/}
@@ -193,7 +206,7 @@ export default function ReviewsComponent() {
             onClick={() => setCurrentIndex(index * 3)}
             className={`w-3 h-3 rounded-full transition-colors ${
               Math.floor(currentIndex / 3) === index
-                ? 'bg-red-800'
+                ? 'bg-blue-600'
                 : 'bg-zinc-700'
             }`}
           />

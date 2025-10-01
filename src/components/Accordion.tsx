@@ -38,11 +38,11 @@ export default function Accordion({ items, allowMultiple = false, className = ""
               aria-controls={panelId}
               aria-expanded={isOpen}
               onClick={() => toggle(idx)}
-              className="w-full text-left py-4 md:py-5 px-0 md:px-4 flex items-center justify-between gap-4 group"
+              className="w-full text-left py-4 md:py-5 px-0 md:px-4 flex items-center justify-between gap-4 group cursor-pointer"
             >
-              <span className="text-lg font-semibold text-zinc-100 group-hover:text-red-400 transition-colors">{item.title}</span>
+              <span className="text-lg font-semibold text-gray-500 group-hover:text-blue-600 transition-colors">{item.title}</span>
               <svg
-                className={`w-5 h-5 flex-shrink-0 text-zinc-400 transition-transform ${isOpen ? "rotate-180 text-red-400" : "group-hover:text-red-300"}`}
+                className={`w-5 h-5 flex-shrink-0 text-gray-600 transition-transform ${isOpen ? "rotate-180 text-blue-600" : "group-hover:text-blue-500"}`}
                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -54,7 +54,7 @@ export default function Accordion({ items, allowMultiple = false, className = ""
               aria-labelledby={buttonId}
               className={`pl-0 md:pl-4 pr-0 md:pr-4 overflow-hidden transition-[max-height] duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
             >
-              <div className="pb-4 text-zinc-400">{item.content}</div>
+              <div className="pb-4 text-gray-600">{item.content}</div>
             </div>
           </div>
         )

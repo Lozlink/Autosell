@@ -14,14 +14,14 @@ export default function SellMyCarSydneyPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white py-20">
+      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Sell My Car Sydney
-              <span className="block text-red-200">Get Cash for Your Car in Sydney</span>
+              <span className="block text-blue-300">Get Cash for Your Car in Sydney</span>
             </h1>
-            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
               We buy all cars in Sydney and surrounding areas. Get an instant quote and same-day payment. 
               Free pickup service across Greater Sydney.
             </p>
@@ -39,7 +39,7 @@ export default function SellMyCarSydneyPage() {
       <section className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Sydney Service Areas
             </h2>
             <p className="text-xl text-gray-300">
@@ -60,7 +60,7 @@ export default function SellMyCarSydneyPage() {
               { area: "Blue Mountains", description: "Katoomba, Springwood, Wentworth Falls" }
             ].map((area, index) => (
               <div key={index} className="text-center p-6  hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold text-white mb-3">{area.area}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{area.area}</h3>
                 <p className="text-gray-300">{area.description}</p>
               </div>
             ))}
@@ -72,7 +72,7 @@ export default function SellMyCarSydneyPage() {
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Why Choose auto-sell.ai in Sydney?
             </h2>
             <p className="text-xl text-gray-300">
@@ -115,7 +115,7 @@ export default function SellMyCarSydneyPage() {
             ].map((benefit, index) => (
               <div key={index} className="text-center p-6  hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
                 <p className="text-gray-300">{benefit.description}</p>
               </div>
             ))}
@@ -124,12 +124,12 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-800">
+      <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Sell Your Car in Sydney?
           </h2>
-          <p className="text-xl mb-8 text-red-100">
+          <p className="text-xl mb-8 text-blue-100">
             Get your free Sydney car valuation in 30 minutes and receive same-day payment.
           </p>
           <Link 
