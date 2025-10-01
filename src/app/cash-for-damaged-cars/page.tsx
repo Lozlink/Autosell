@@ -9,24 +9,25 @@ export const metadata: Metadata = {
 
 export default function CashForDamagedCarsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
+">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-20">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Cash for Damaged Cars
-              <span className="block text-red-300">We Buy Cars in Any Condition</span>
+              <span className="block text-blue-500">We Buy Cars in Any Condition</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
               Running or not, damaged or perfect - we buy all cars and pay cash on the same day. 
               No matter the condition, we&apos;ll give you a fair price.
             </p>
             <Link
               href="/#sell-form" 
-              className="inline-block bg-red-800 text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-red-600"
+              className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Get Cash for Your Damaged Car
             </Link>
@@ -35,13 +36,15 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Why Choose Us for Damaged Cars */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Why Choose auto-sell.ai for Damaged Cars?
             </h2>
-            <p className="text-xl text-zinc-300">
+            <p className="text-xl text-gray-600">
               We specialize in buying cars in all conditions, no matter how damaged
             </p>
           </div>
@@ -79,10 +82,10 @@ export default function CashForDamagedCarsPage() {
                 description: "We take care of all the legal paperwork and transfer processes for you."
               }
             ].map((benefit, index) => (
-              <div key={index} className="text-center p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 transition-colors">
+              <div key={index} className="text-center p-6 rounded-xl border border-blue-200 bg-white/40 hover:bg-white/60 transition-colors">
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
-                <p className="text-zinc-300">{benefit.description}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -90,57 +93,59 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Types of Damage We Accept */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Types of Damage We Accept
             </h2>
-            <p className="text-xl text-zinc-300">
+            <p className="text-xl text-gray-600">
               From minor dents to major accidents - we buy them all
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-zinc-900/40 p-8 rounded-xl border border-zinc-800">
-              <h3 className="text-xl font-semibold text-white mb-4">Minor Damage</h3>
-              <ul className="space-y-3 text-zinc-300">
+            <div className="bg-white/40 p-8 rounded-xl border border-blue-200">
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Minor Damage</h3>
+              <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Dents and scratches</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Broken mirrors and lights</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Interior damage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Worn tires and brakes</span>
                 </li>
               </ul>
             </div>
             
-            <div className="bg-zinc-900/40 p-8 rounded-xl border border-zinc-800">
-              <h3 className="text-xl font-semibold text-white mb-4">Major Damage</h3>
-              <ul className="space-y-3 text-zinc-300">
+            <div className="bg-white/40 p-8 rounded-xl border border-blue-200">
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Major Damage</h3>
+              <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Accident damage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Engine problems</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Transmission issues</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-400 text-lg">✓</span>
+                  <span className="text-blue-600 text-lg">✓</span>
                   <span>Flood damage</span>
                 </li>
               </ul>
@@ -150,13 +155,15 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-blue-50
+
+">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-zinc-300">
+            <p className="text-xl text-gray-600">
               Get cash for your damaged car in just 3 simple steps
             </p>
           </div>
@@ -183,11 +190,11 @@ export default function CashForDamagedCarsPage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center">
-                <div className="bg-zinc-900/40 p-8 rounded-xl border border-zinc-800 hover:bg-zinc-900/60 transition-colors">
+                <div className="bg-white/40 p-8 rounded-xl border border-blue-200 hover:bg-white/60 transition-colors">
                   <div className="text-6xl mb-4">{step.icon}</div>
-                  <div className="text-4xl font-bold text-red-300 mb-4">{step.step}</div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
-                  <p className="text-zinc-300">{step.description}</p>
+                  <div className="text-4xl font-bold text-blue-500 mb-4">{step.step}</div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -196,12 +203,12 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-black via-zinc-900 to-red-900/60">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Get Cash for Your Damaged Car?
           </h2>
-          <p className="text-xl mb-8 text-red-100">
+          <p className="text-xl mb-8 text-blue-100">
             Don&apos;t let a damaged car sit in your driveway. Get cash today and free up space.
           </p>
           <Link 

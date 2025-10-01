@@ -14,15 +14,15 @@ export default function CarsPage() {
       <Header />
       
       {/* Hero Section with Form */}
-      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white py-20">
+      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Sell Your Car
-                <span className="block text-red-200">Any Make, Any Model</span>
+                <span className="block text-blue-300">Any Make, Any Model</span>
               </h1>
-              <p className="text-xl md:text-2xl text-red-100 mb-8">
+              <p className="text-xl md:text-2xl text-blue-100 mb-8">
                 We buy all car makes and models - Toyota, Ford, Holden, BMW, Mercedes, and more. 
                 Any condition, any age. Get your free quote in 30 minutes.
               </p>
@@ -30,19 +30,19 @@ export default function CarsPage() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-red-200">✓</span>
+                    <span className="text-blue-300">✓</span>
                   </div>
                   <span>All car makes and models</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-red-200">✓</span>
+                    <span className="text-blue-300">✓</span>
                   </div>
                   <span>Any condition - running or not</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-red-200">✓</span>
+                    <span className="text-blue-300">✓</span>
                   </div>
                   <span>Same-day payment guaranteed</span>
                 </div>
@@ -62,7 +62,7 @@ export default function CarsPage() {
       <section className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               We Buy All Types of Cars
             </h2>
             <p className="text-lg text-gray-300">
@@ -85,7 +85,7 @@ export default function CarsPage() {
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors">
                   <span className="text-red-600 text-2xl">{category.icon}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-400 transition-colors">{category.type}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{category.type}</h3>
                 <p className="text-sm text-gray-300">{category.description}</p>
               </div>
             ))}
@@ -97,7 +97,7 @@ export default function CarsPage() {
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Popular Car Brands We Buy
             </h2>
             <p className="text-lg text-gray-300">
@@ -111,7 +111,7 @@ export default function CarsPage() {
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors">
                   <span className="text-red-600 font-bold text-lg">{brand.charAt(0)}</span>
                 </div>
-                <h3 className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">{brand}</h3>
+                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">{brand}</h3>
               </div>
             ))}
           </div>
@@ -122,7 +122,7 @@ export default function CarsPage() {
       <section className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Why Choose auto-sell.ai for Your Car?
             </h2>
             <p className="text-lg text-gray-300">
@@ -135,7 +135,7 @@ export default function CarsPage() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
                 <span className="text-red-600 text-2xl font-bold">$</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Best Prices</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Best Prices</h3>
               <p className="text-gray-300">We guarantee the best price for your car using real-time market data.</p>
             </div>
             
@@ -143,7 +143,7 @@ export default function CarsPage() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
                 <span className="text-red-600 text-2xl font-bold">⚡</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Fast Service</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Fast Service</h3>
               <p className="text-gray-300">Get your quote in 30 minutes and receive payment the same day.</p>
             </div>
             
@@ -151,7 +151,7 @@ export default function CarsPage() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
                 <span className="text-red-600 text-2xl font-bold">✓</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">No Hassle</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">No Hassle</h3>
               <p className="text-gray-300">We handle all the paperwork and come to you for inspection.</p>
             </div>
           </div>
@@ -159,12 +159,12 @@ export default function CarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-800">
+      <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Ready to Sell Your Car?
           </h2>
-          <p className="text-xl text-red-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             Get your free quote today and join thousands of satisfied car owners who chose auto-sell.ai.
           </p>
           <a 

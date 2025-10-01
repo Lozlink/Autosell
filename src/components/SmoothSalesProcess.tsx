@@ -33,10 +33,10 @@ export default function SmoothSalesProcess({
             )}
         >
             <div className={clsx("text-center mb-10", compact && "mb-4") }>
-                <h3 className={clsx("font-semibold text-zinc-100", compact ? "text-base" : "text-2xl md:text-3xl") }>
+                <h3 className={clsx("font-semibold text-gray-600", compact ? "text-base" : "text-2xl md:text-3xl") }>
                     A Smooth, Transparent Sales Process
                 </h3>
-                <p className={clsx("text-zinc-400", compact ? "mt-1 text-xs" : "mt-2") }>
+                <p className={clsx("text-gray-600", compact ? "mt-1 text-xs" : "mt-2") }>
                     From first chat to keys handed over — simple steps, no surprises.
                 </p>
             </div>
@@ -55,7 +55,7 @@ export default function SmoothSalesProcess({
 
                 <div className="col-span-1 md:col-span-1 lg:col-span-3 relative w-full flex items-center justify-center">
                     <div className={clsx("hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2", compact && "hidden") }>
-                        <div className="mx-8 border-t border-dashed border-zinc-700" />
+                        <div className="mx-8 border-t border-dashed border-blue-300" />
                     </div>
 
                     <motion.div
@@ -67,7 +67,7 @@ export default function SmoothSalesProcess({
                         aria-label="Keys handed over"
                     >
                         <div className={clsx(
-                            "flex items-center gap-2 md:gap-3 bg-zinc-900/70 border border-zinc-800 rounded-2xl shadow-sm",
+                            "flex items-center gap-2 md:gap-3 bg-white/70 border border-blue-200 rounded-2xl shadow-sm",
                             compact ? "px-3 py-2" : "px-6 py-5"
                         )}>
                             <Handshake className={clsx("text-yellow-400", compact ? "w-5 h-5" : "w-8 h-8")} />
@@ -104,10 +104,10 @@ function ProcessPill({ i, icon, label, compact }: { i: number; icon: React.React
             )}
             role="listitem"
         >
-            <div className={clsx("flex items-center justify-center rounded-full bg-emerald-600 text-white", compact ? "w-7 h-7" : "w-9 h-9") }>
+            <div className={clsx("flex items-center justify-center rounded-full bg-emerald-600 text-gray-800", compact ? "w-7 h-7" : "w-9 h-9") }>
                 {icon}
             </div>
-            <span className={clsx("text-zinc-200", compact ? "text-xs"  : "text-sm md:text-base") }>{label}</span>
+            <span className={clsx("text-gray-700", compact ? "text-xs"  : "text-sm md:text-base") }>{label}</span>
         </motion.div>
     );
 }

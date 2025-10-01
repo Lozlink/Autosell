@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 
 export default function ImmediatePaymentPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
+">
       <Header />
-      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Immediate Payment</h1>
-          <p className="text-lg text-zinc-300 max-w-3xl">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Once you accept our offer and the inspection is complete, we transfer the funds via OSKO immediately. Most customers see the money in their account within minutes.
           </p>
         </div>
@@ -25,9 +26,9 @@ export default function ImmediatePaymentPage() {
             { title: 'No Waiting', desc: 'No bank cheques or processing delays.' },
             { title: 'Secure & Verified', desc: 'Payments made to your nominated account, verified on-site.' },
           ].map((item) => (
-            <div key={item.title} className="bg-zinc-900 rounded-xl p-8 border border-zinc-800 shadow-sm">
+            <div key={item.title} className="bg-white rounded-xl p-8 border border-blue-200 shadow-sm">
               <h2 className="text-xl font-semibold mb-2 text-zinc-100">{item.title}</h2>
-              <p className="text-zinc-400">{item.desc}</p>
+              <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>

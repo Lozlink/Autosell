@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 
 export default function OnSiteInspectionsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
+">
       <Header />
-      <section className="bg-gradient-to-br from-black via-zinc-900 to-red-900/60 text-white py-12">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">On-Site Inspections</h1>
-          <p className="text-lg text-zinc-300 max-w-3xl">
+          <p className="text-lg text-gray-600 max-w-3xl">
             We make it easy by coming to you—home or workplace—anywhere in Australia. Our assessor verifies your car, and we complete the paperwork on the spot.
           </p>
         </div>
@@ -25,9 +26,9 @@ export default function OnSiteInspectionsPage() {
             { title: 'Fast Appointment', desc: 'Inspections scheduled at a time that suits you.' },
             { title: 'Paperwork Sorted', desc: 'We handle all documents—no stress, no surprises.' },
           ].map((item) => (
-            <div key={item.title} className="bg-zinc-900 rounded-xl p-8 border border-zinc-800 shadow-sm">
+            <div key={item.title} className="bg-white rounded-xl p-8 border border-blue-200 shadow-sm">
               <h2 className="text-xl font-semibold mb-2 text-zinc-100">{item.title}</h2>
-              <p className="text-zinc-400">{item.desc}</p>
+              <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>

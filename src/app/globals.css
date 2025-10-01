@@ -1,35 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-red-50: #fef2f2;
-  --color-red-100: #fee2e2;
-  --color-red-200: #fecaca;
-  --color-red-300: #fca5a5;
-  --color-red-400: #f87171;
-  --color-red-500: #ef4444;
-  --color-red-600: #dc2626;
-  --color-red-700: #b91c1c;
-  --color-red-800: #991b1b;
-  --color-red-900: #7f1d1d;
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
   
   --font-family-sans: "var(--font-geist-sans)", sans-serif;
   --font-family-mono: "var(--font-geist-mono)", monospace;
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255; /* white */
-  --background-start-rgb: 17, 24, 39; /* gray-900 */
-  --background-end-rgb: 0, 0, 0; /* black */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      rgb(var(--background-start-rgb)),
+      transparent,
       rgb(var(--background-end-rgb))
-    );
-  min-height: 100vh;
+    )
+    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -44,16 +52,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f1f1f;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dc2626;
+  background: #155dfc;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b91c1c;
+  background: #155dfc;
 }
 
 /* Smooth scrolling */
@@ -63,16 +71,7 @@ html {
 
 /* Custom gradient class for brand colors */
 .gradient-brand {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-}
-
-/* Dark theme gradient backgrounds */
-.bg-gradient-dark {
-  background: linear-gradient(135deg, #000000 0%, #1f1f1f 100%);
-}
-
-.bg-gradient-red {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, #0b0b0b 0%, #111111 40%, #7f1d1d 100%);
 }
 
 /* Animation for loading states */
@@ -87,4 +86,35 @@ html {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* Emerald-to-Red overrides to enforce cohesive brand theme without touching every file */
+.text-emerald-500 { color: #ef4444 !important; }
+.text-emerald-700 { color: #b91c1c !important; }
+.text-emerald-100 { color: #fee2e2 !important; }
+.text-emerald-200 { color: #fecaca !important; }
+.hover\:text-emerald-200:hover { color: #fecaca !important; }
+.hover\:text-emerald-700:hover { color: #991b1b !important; }
+
+.bg-emerald-600 { background-color: #dc2626 !important; }
+.bg-emerald-700 { background-color: #b91c1c !important; }
+.hover\:bg-emerald-700:hover { background-color: #b91c1c !important; }
+
+.border-emerald-300 { border-color: #fca5a5 !important; }
+.group-hover\:bg-emerald-50 { background-color: #fee2e2 !important; }
+.group-hover\:text-emerald-600 { color: #ef4444 !important; }
+
+/* Marquee animation for brand strip */
+@keyframes marquee-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
 }
