@@ -16,8 +16,8 @@ export default function HowToSellCarFastPage() {
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-white
- via-white
- to-black text-gray-800 py-12">
+ via-blue-200
+ to-blue-400 text-gray-800 py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -96,7 +96,7 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Selling Methods Comparison */}
-      <section className="py-12 bg-blue-50
+      <section className="py-12 bg-gradient-to-tl from-white via-blue-200 to-blue-400
 
 ">
         <div className="px-4 sm:px-8">
@@ -130,22 +130,23 @@ export default function HowToSellCarFastPage() {
                 pros: ["Fast (same day)", "Fair market price", "Safe and convenient", "No fees"],
                 cons: ["May be slightly less than private sale", "Limited to cash buyers"],
                 time: "Same day",
-                icon: "⚡"
+                icon: "⚡",
+                brand: "brand" as const
               }
             ].map((option, index) => (
               <div key={index} className="bg-white p-8 rounded-xl border border-blue-200">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-3">{option.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{option.method}</h3>
-                  <div className="text-2xl font-bold text-red-500">{option.time}</div>
+                  <div className={option?.brand ? "text-2xl font-bold text-blue-500" : "text-2xl font-bold text-red-500"}>{option.time}</div>
                 </div>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 mb-3 text-green-400">✓ Pros</h4>
-                  <ul className="space-y-2 text-sm">
+                  <h4 className="font-semibold text-blue-600 mb-3 ">✓ Pros</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
                     {option.pros.map((pro, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-green-400">•</span>
+                        <span className="text-blue-600">•</span>
                         <span>{pro}</span>
                       </li>
                     ))}
@@ -153,11 +154,11 @@ export default function HowToSellCarFastPage() {
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3 text-blue-600">✗ Cons</h4>
+                  <h4 className="font-semibold text-red-600 mb-3">✗ Cons</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     {option.cons.map((con, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span className="text-red-600">•</span>
                         <span>{con}</span>
                       </li>
                     ))}
@@ -228,7 +229,7 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Why Choose auto-sell.ai */}
-      <section className="py-12 bg-blue-600">
+      <section className="py-12 bg-blue-400">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             The Fastest Way to Sell Your Car
@@ -240,7 +241,7 @@ export default function HowToSellCarFastPage() {
           <div className="space-y-4">
             <Link
               href="/#sell-form" 
-              className="inline-block bg-white text-red-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-block bg-white text-blue-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Fast Quote Now
             </Link>

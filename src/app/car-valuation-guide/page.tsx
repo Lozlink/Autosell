@@ -14,7 +14,7 @@ export default function CarValuationGuidePage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-20">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-500 text-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -84,7 +84,7 @@ export default function CarValuationGuidePage() {
             ].map((factor, index) => (
               <div key={index} className="text-center px-2 md:px-4 py-2 transition-colors">
                 <div className="text-4xl mb-4">{factor.icon}</div>
-                <h3 className="text-xl font-semibold text-zinc-100 mb-3">{factor.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-600 mb-3">{factor.title}</h3>
                 <p className="text-gray-600">{factor.description}</p>
               </div>
             ))}
@@ -93,7 +93,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Valuation Methods */}
-      <section className="py-20 bg-blue-50
+      <section className="py-8 bg-blue-50
 
 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,7 +141,7 @@ export default function CarValuationGuidePage() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{method.icon}</div>
                   <div>
-                    <h3 className="text-xl font-semibold text-zinc-100">{method.method}</h3>
+                    <h3 className="text-xl font-semibold text-gray-600">{method.method}</h3>
                     <p className="text-gray-600 text-sm">{method.description}</p>
                   </div>
                 </div>
@@ -152,8 +152,8 @@ export default function CarValuationGuidePage() {
                     <ul className="space-y-1 text-sm">
                       {method.pros.map((pro, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-red-500">•</span>
-                          <span>{pro}</span>
+                          <span className="text-blue-600">•</span>
+                          <span className="text-blue-600">{pro}</span>
                         </li>
                       ))}
                     </ul>
@@ -165,7 +165,7 @@ export default function CarValuationGuidePage() {
                       {method.cons.map((con, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="text-red-500">•</span>
-                          <span>{con}</span>
+                          <span className="text-red-500">{con}</span>
                         </li>
                       ))}
                     </ul>
@@ -178,7 +178,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Tips for Better Value */}
-      <section className="py-20 bg-blue-50
+      <section className="py-8 bg-gradient-to-tr from-white via-blue-200 to-blue-500
 
 ">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,10 +219,10 @@ export default function CarValuationGuidePage() {
                 icon: "✅"
               }
             ].map((tip, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-transparent border-l-2 border-red-800/40">
+              <div key={index} className="flex items-start gap-4 p-6 bg-transparent border-l-2 border-blue-700/40">
                 <div className="text-3xl">{tip.icon}</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-zinc-100 mb-2">{tip.tip}</h3>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">{tip.tip}</h3>
                   <p className="text-gray-600">{tip.description}</p>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Common Valuation Mistakes */}
-      <section className="py-20 bg-blue-50
+      <section className="py-6 bg-blue-50
 
 ">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,23 +302,23 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-emerald-600">
+      <section className="py-20 bg-gradient-to-b from-white via-blue-200 to-blue-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Get Your Accurate Car Valuation Today
           </h2>
-          <p className="text-xl mb-8 text-emerald-100">
+          <p className="text-xl mb-8 text-gray-600">
             Our AI-powered system provides market-accurate valuations in minutes. 
             No guesswork, just real market data and expert analysis.
           </p>
           <div className="space-y-4">
             <Link
               href="/#sell-form" 
-              className="inline-block bg-white text-emerald-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-block bg-blue-50 text-blue-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Free Valuation
             </Link>
-            <p className="text-emerald-200 text-sm">
+            <p className="text-gray-600 text-sm">
               ⚡ 30-minute response • 📊 Market-based pricing • 💰 No obligations
             </p>
           </div>

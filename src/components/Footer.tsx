@@ -77,23 +77,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#sell-form" className="text-gray-600 hover:text-gray-800 transition-colors">
+                <Link href="/value-propositions/immediate-payment" className="text-gray-600 hover:text-gray-800 transition-colors">
                   Same-Day Payment
                 </Link>
               </li>
               <li>
-                <Link href="/#sell-form" className="text-gray-600 hover:text-gray-800 transition-colors">
+                <Link href="/value-propositions/on-site-inspections" className="text-gray-600 hover:text-gray-800 transition-colors">
                   On-Site Inspections
                 </Link>
               </li>
               <li>
-                <Link href="/#sell-form" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Australia-Wide Service
+                <Link href="/car-valuation-guide" className="text-gray-600 hover:text-gray-800 transition-colors">
+                  Car Valuation Guide
                 </Link>
               </li>
               <li>
-                <Link href="/#sell-form" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Best Price Guarantee
+                <Link href="/value-propositions/smooth-sales-process" className="text-gray-600 hover:text-gray-800 transition-colors">
+                  Smooth Sales Process
                 </Link>
               </li>
             </ul>

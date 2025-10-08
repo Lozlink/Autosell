@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Link from 'next/link'
+import Image from 'next/image'
+
 
 export const metadata: Metadata = {
   title: "Cash for Damaged Cars - auto-sell.ai | We Buy Cars in Any Condition",
@@ -14,24 +16,39 @@ export default function CashForDamagedCarsPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 ">
+        <div className="relative aspect-[16/10] overflow-hidden">
+
+            <Image
+            alt="damaged-car"
+            src='/images/damaged-car.jpg'
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover z-0"
+            />
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
+
+          <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 ">
+            <div className="text-center">
+             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
+
               Cash for Damaged Cars
-              <span className="block text-blue-500">We Buy Cars in Any Condition</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Running or not, damaged or perfect - we buy all cars and pay cash on the same day. 
-              No matter the condition, we&apos;ll give you a fair price.
-            </p>
-            <Link
-              href="/#sell-form" 
-              className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Get Cash for Your Damaged Car
-            </Link>
+                <span className="block text-blue-500">We Buy Cars in Any Condition</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 drop-shadow-md">
+                Running or not, damaged or perfect - we buy all cars and pay cash on the same day.
+                No matter the condition, we&apos;ll give you a fair price.
+              </p>
+              <Link
+                href="/#sell-form"
+                className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Get Cash for Your Damaged Car
+              </Link>
+            </div>
           </div>
+        </div>
+        <div className="absolute inset-0 bg-black opacity-40 z-5"></div>
         </div>
       </section>
 
@@ -93,7 +110,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Types of Damage We Accept */}
-      <section className="py-20 bg-blue-50
+      <section className="py-20 bg-gradient-to-br from-white via-blue-200 to-blue-400 text-gray-800
 
 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -155,7 +172,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-blue-50
+      <section className="py-20  bg-gradient-to-tr from-white via-blue-200 to-blue-400
 
 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,17 +220,17 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-100">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Get Cash for Your Damaged Car?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8 text-gray-400">
             Don&apos;t let a damaged car sit in your driveway. Get cash today and free up space.
           </p>
           <Link 
             href="/#sell-form" 
-            className="inline-block bg-white text-red-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-block bg-white text-blue-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get My Quote Now
           </Link>
