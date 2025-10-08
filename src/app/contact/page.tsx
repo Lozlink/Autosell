@@ -36,11 +36,11 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
+                    <Link href="tel:1800auto-sell" className="text-blue-600 hover:text-blue-500 font-bold text-lg">
                     <h3 className="font-semibold text-gray-800">Call Us</h3>
-                    <a href="tel:1800auto-sell" className="text-blue-600 hover:text-blue-500 font-bold text-lg">
-                      1800 AUTO SELL
-                    </a>
+                      <h4>1800 AUTO SELL</h4>
                     <p className="text-sm text-gray-600">Open 7 days • 8am-6pm AEST</p>
+                    </Link>
                   </div>
                 </div>
 
@@ -63,13 +63,13 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
+                  <Link href="sms:1800auto-sell" className="text-blue-600 hover:text-blue-500 font-semibold">
                   <div>
                     <h3 className="font-semibold text-gray-800">Text/SMS</h3>
-                    <a href="sms:1800auto-sell" className="text-blue-600 hover:text-blue-500 font-semibold">
                       Send us a message
-                    </a>
                     <p className="text-sm text-gray-600">We&apos;ll respond within minutes</p>
                   </div>
+                  </Link>
                 </div>
 
                 <div className="flex items-center space-x-4">
@@ -78,13 +78,15 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
+                  <Link href="mailto:info@auto-sell.ai" className="text-blue-600 hover:text-blue-500 font-semibold">
                   <div>
                     <h3 className="font-semibold text-gray-800">Email Us</h3>
-                    <a href="mailto:info@auto-sell.ai" className="text-blue-600 hover:text-blue-500 font-semibold">
+
                       info@auto-sell.ai
-                    </a>
+
                     <p className="text-sm text-gray-600">Response within 2 hours</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -96,7 +98,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-3">Business Hours</h3>
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-2 text-sm text-gray-800">
                     <div className="flex justify-between">
                       <span>Monday - Friday:</span>
                       <span className="font-semibold">8:00 AM - 6:00 PM</span>
@@ -134,14 +136,14 @@ export default function ContactPage() {
           </div>
 
           {/* Quick Action */}
-          <div className="bg-blue-600 rounded-xl p-8 text-gray-800 text-center">
+          <div className="bg-blue-400 rounded-xl p-8 text-gray-800 text-center">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Your FREE Valuation?</h2>
             <p className="text-blue-100 mb-6">
               Don&apos;t wait - get your car valued in 30 minutes and receive same-day payment.
             </p>
             <Link
               href="/#sell-form" 
-              className="inline-block bg-white text-red-700 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-blue-700 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
             >
               Get My FREE Valuation Now
             </Link>
