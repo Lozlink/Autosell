@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 
 export default function SmoothSalesProcessPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
       <Header />
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
+      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Smooth Sales Process</h1>
           <p className="text-lg text-gray-600 max-w-3xl">

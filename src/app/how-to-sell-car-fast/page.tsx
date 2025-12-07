@@ -9,28 +9,27 @@ export const metadata: Metadata = {
 
 export default function HowToSellCarFastPage() {
   return (
-    <div className="min-h-screen bg-blue-50
+    <div className="min-h-screen bg-gray-50
 
  text-zinc-100">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white
- via-blue-200
- to-blue-400 text-gray-800 py-12">
+      <section style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }} className="text-gray-800 py-12">
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               How to Sell Your Car Fast
-              <span className="block text-blue-600">Expert Tips & Complete Guide</span>
+              <span className="block" style={{ color: '#FFC325' }}>Expert Tips & Complete Guide</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Want to sell your car quickly? Learn the best strategies, avoid common mistakes, 
               and discover the fastest way to get cash for your vehicle.
             </p>
-            <Link 
-              href="/#sell-form" 
-              className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            <Link
+              href="/#sell-form"
+              style={{ backgroundColor: '#FFC325', color: '#000' }}
+              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get Your Fast Quote Now
             </Link>
@@ -39,7 +38,7 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Quick Tips Section */}
-      <section className="py-12 bg-blue-50
+      <section className="py-12 bg-gray-50
 
 ">
         <div className="px-4 sm:px-8">
@@ -85,7 +84,7 @@ export default function HowToSellCarFastPage() {
                 description: "Respond quickly to inquiries and be flexible with viewing times to close deals faster."
               }
             ].map((tip, index) => (
-              <div key={index} className="text-center p-6 rounded-xl border border-blue-200 bg-white hover:shadow-lg transition-shadow">
+              <div key={index} className="text-center p-6 rounded-xl border border-yellow-200 bg-white hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{tip.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{tip.title}</h3>
                 <p className="text-gray-600">{tip.description}</p>
@@ -96,7 +95,7 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Selling Methods Comparison */}
-      <section className="py-12 bg-gradient-to-tl from-white via-blue-200 to-blue-400
+      <section style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }} className="py-12
 
 ">
         <div className="px-4 sm:px-8">
@@ -134,19 +133,19 @@ export default function HowToSellCarFastPage() {
                 brand: "brand" as const
               }
             ].map((option, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-blue-200">
+              <div key={index} className="bg-white p-8 rounded-xl border border-yellow-200">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-3">{option.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{option.method}</h3>
-                  <div className={option?.brand ? "text-2xl font-bold text-blue-500" : "text-2xl font-bold text-red-500"}>{option.time}</div>
+                  <div className={option?.brand ? "text-2xl font-bold" : "text-2xl font-bold text-red-500"} style={option?.brand ? { color: '#FFC325' } : {}}>{option.time}</div>
                 </div>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-blue-600 mb-3 ">✓ Pros</h4>
+                  <h4 className="font-semibold mb-3" style={{ color: '#FFC325' }}>✓ Pros</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     {option.pros.map((pro, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span style={{ color: '#FFC325' }}>•</span>
                         <span>{pro}</span>
                       </li>
                     ))}
@@ -171,7 +170,7 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Preparation Checklist */}
-      <section className="py-12 bg-blue-50
+      <section className="py-12 bg-gray-50
 
 ">
         <div className="px-4 sm:px-8 max-w-5xl">
@@ -184,7 +183,7 @@ export default function HowToSellCarFastPage() {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl border border-blue-200">
+          <div className="bg-white p-8 rounded-xl border border-yellow-200">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">Exterior Preparation</h3>
@@ -229,23 +228,24 @@ export default function HowToSellCarFastPage() {
       </section>
 
       {/* Why Choose auto-sell.ai */}
-      <section className="py-12 bg-blue-400">
+      <section style={{ backgroundColor: '#FFD14D' }} className="py-12">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             The Fastest Way to Sell Your Car
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8 text-gray-700">
             Skip the hassle of private sales and get cash for your car today. 
             Our service is designed for speed, convenience, and fair pricing.
           </p>
           <div className="space-y-4">
             <Link
-              href="/#sell-form" 
-              className="inline-block bg-white text-blue-700 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              href="/#sell-form"
+              style={{ backgroundColor: '#000', color: '#FFC325' }}
+              className="inline-block px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get My Fast Quote Now
             </Link>
-            <p className="text-blue-100 text-sm">
+            <p className="text-gray-700 text-sm">
               ⚡ Same-day payment • 🚗 We come to you • 💰 No fees or commissions
             </p>
           </div>

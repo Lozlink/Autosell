@@ -425,7 +425,7 @@ export default function CarSellForm() {
               required
               value={formData.vehicleCondition}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors"
             >
               <option value="">Select condition</option>
               <option value="excellent">Excellent - Like new, no issues</option>
@@ -446,7 +446,7 @@ export default function CarSellForm() {
               rows={3}
               value={formData.vehicleDescription}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-vertical"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors resize-vertical"
               placeholder="Any damage, modifications, service history, or other details that might affect the value..."
             />
           </div>
@@ -485,7 +485,7 @@ export default function CarSellForm() {
                 rows={3}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-vertical"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors resize-vertical"
                 placeholder="Any questions or special requirements..."
               />
             </div>

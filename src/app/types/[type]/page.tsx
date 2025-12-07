@@ -23,15 +23,15 @@ export default async function TypePage({ params }: TypePageProps) {
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<Header />
-			<section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
+			<section className="text-gray-800 py-12" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 100%)' }}>
 				<div className="px-4 sm:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div>
 							<h1 className="text-4xl md:text-6xl font-bold mb-6">
 								Sell {titleType}
-								<span className="block text-blue-200">Fast, Easy, Same-Day Payment</span>
+								<span className="block" style={{ color: '#FFC325' }}>Fast, Easy, Same-Day Payment</span>
 							</h1>
-							<p className="text-xl md:text-2xl text-blue-100 mb-8">
+							<p className="text-xl md:text-2xl text-gray-700 mb-8">
 								We buy all {titleType} in any condition. Get your free quote in 30 minutes and same-day payment.
 							</p>
 						</div>

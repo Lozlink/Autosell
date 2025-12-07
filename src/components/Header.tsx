@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,21 +32,18 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="bg-gradient-to-b from-white
-  via-blue-50 to-blue-300
- backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-lg sticky top-0 z-50 text-gray-700">
+    <header className="bg-white shadow-md sticky top-0 z-50 text-gray-700 border-b-2 border-brand-yellow" style={{ borderColor: '#FFC325' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-800 font-bold text-xl">A</span>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">auto-sell.ai</h1>
-                <p className="text-xs text-blue-600 font-medium">Australia&apos;s #1 Car Buyers</p>
-              </div>
+            <Link href="/" >
+              <Image
+               src='/brand-guideline/autosell-logo/PNG/1 (1).png'
+               alt='Autosell.ai, The smart way to sell cars'
+               width={200}
+               height={100}
+              />
             </Link>
           </div>
 
@@ -185,10 +183,13 @@ export default function Header() {
               )}
             </div>
 
-            <a 
-              href="tel:1800auto-sell" 
+            <a
+              href="tel:1800auto-sell"
               aria-label="Call 1800 AUTO SELL"
-              className="bg-blue-600 text-gray-800 px-6 py-2 rounded-lg font-bold hover:bg-blue-600 transition-colors flex items-center gap-2"
+              className="px-6 py-2 rounded-lg font-bold transition-colors flex items-center gap-2"
+              style={{ backgroundColor: '#FFC325', color: '#000000' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6af1f'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFC325'}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -355,7 +356,8 @@ export default function Header() {
 
                 <a
                     href="tel:1800auto-sell"
-                    className="bg-blue-600 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition-colors text-center flex items-center justify-center gap-2"
+                    className="px-6 py-3 rounded-lg font-bold transition-colors text-center flex items-center justify-center gap-2"
+                    style={{ backgroundColor: '#FFC325', color: '#000000' }}
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

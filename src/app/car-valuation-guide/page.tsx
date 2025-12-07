@@ -9,25 +9,25 @@ export const metadata: Metadata = {
 
 export default function CarValuationGuidePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-500 text-gray-800 py-20">
+      <section className="text-gray-800 py-20" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Car Valuation Guide
-              <span className="block text-blue-500">How to Price Your Car Right</span>
+              <span className="block" style={{ color: '#FFC325' }}>How to Price Your Car Right</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
               Understanding your car&apos;s true value is crucial for getting the best price. 
               Learn what factors affect car values and how to maximize your return.
             </p>
-            <Link 
-              href="/#sell-form" 
-              className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            <Link
+              href="/#sell-form"
+              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              style={{ backgroundColor: '#FFC325', color: '#000' }}
             >
               Get Your Free Valuation
             </Link>
@@ -36,9 +36,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Key Factors Section */}
-      <section className="py-20 bg-blue-50
-
-">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -93,9 +91,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Valuation Methods */}
-      <section className="py-8 bg-blue-50
-
-">
+      <section className="py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -137,7 +133,7 @@ export default function CarValuationGuidePage() {
                 icon: "🤖"
               }
             ].map((method, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-blue-200">
+              <div key={index} className="bg-white p-8 rounded-xl border border-yellow-200">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{method.icon}</div>
                   <div>
@@ -148,12 +144,12 @@ export default function CarValuationGuidePage() {
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-blue-600">✓ Pros</h4>
+                    <h4 className="font-semibold mb-2 text-yellow-600">✓ Pros</h4>
                     <ul className="space-y-1 text-sm">
                       {method.pros.map((pro, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-blue-600">•</span>
-                          <span className="text-blue-600">{pro}</span>
+                          <span className="text-yellow-600">•</span>
+                          <span className="text-yellow-600">{pro}</span>
                         </li>
                       ))}
                     </ul>
@@ -178,9 +174,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Tips for Better Value */}
-      <section className="py-8 bg-gradient-to-tr from-white via-blue-200 to-blue-500
-
-">
+      <section className="py-8" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -219,7 +213,7 @@ export default function CarValuationGuidePage() {
                 icon: "✅"
               }
             ].map((tip, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-transparent border-l-2 border-blue-700/40">
+              <div key={index} className="flex items-start gap-4 p-6 bg-transparent border-l-2 border-yellow-400/40">
                 <div className="text-3xl">{tip.icon}</div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-700 mb-2">{tip.tip}</h3>
@@ -232,9 +226,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* Common Valuation Mistakes */}
-      <section className="py-6 bg-blue-50
-
-">
+      <section className="py-6 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -246,7 +238,7 @@ export default function CarValuationGuidePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl border border-blue-200">
+            <div className="bg-white p-8 rounded-xl border border-yellow-200">
               <h3 className="text-xl font-semibold mb-4 text-red-600">❌ What Not to Do</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
@@ -302,7 +294,7 @@ export default function CarValuationGuidePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-white via-blue-200 to-blue-300">
+      <section className="py-20" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 50%, #FFE680 100%)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Get Your Accurate Car Valuation Today
@@ -313,8 +305,9 @@ export default function CarValuationGuidePage() {
           </p>
           <div className="space-y-4">
             <Link
-              href="/#sell-form" 
-              className="inline-block bg-blue-50 text-blue-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              href="/#sell-form"
+              className="inline-block px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              style={{ backgroundColor: '#FFF9E6', color: '#FFC325' }}
             >
               Get My Free Valuation
             </Link>

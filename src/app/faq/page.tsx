@@ -52,14 +52,12 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white
- via-blue-200
- to-blue-500 text-gray-800 py-12">
+      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }}>
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Frequently Asked Questions</h1>
@@ -71,9 +69,8 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 bg-blue-50
+      <section className="py-12" style={{ backgroundColor: '#FFF9E6' }}>
 
-" >
         <div className="px-4 sm:px-8 max-w-4xl mx-auto text-center">
           <Accordion
             items={faqs.map((f) => ({ title: f.question, content: f.answer }))}

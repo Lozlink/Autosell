@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 
 export default function CashForDamagedCarsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 ">
+      <section className="text-gray-800" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 100%)' }}>
         <div className="relative aspect-[16/10] overflow-hidden">
 
             <Image
@@ -33,7 +32,7 @@ export default function CashForDamagedCarsPage() {
              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
 
               Cash for Damaged Cars
-                <span className="block text-blue-500">We Buy Cars in Any Condition</span>
+                <span className="block" style={{ color: '#FFC325' }}>We Buy Cars in Any Condition</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 drop-shadow-md">
                 Running or not, damaged or perfect - we buy all cars and pay cash on the same day.
@@ -41,7 +40,8 @@ export default function CashForDamagedCarsPage() {
               </p>
               <Link
                 href="/#sell-form"
-                className="inline-block bg-blue-600 text-gray-800 px-12 py-4 rounded-lg text-xl font-bold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2"
+                style={{ backgroundColor: '#FFC325', color: '#000', '--tw-ring-color': '#FFC325' } as React.CSSProperties}
               >
                 Get Cash for Your Damaged Car
               </Link>
@@ -53,9 +53,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Why Choose Us for Damaged Cars */}
-      <section className="py-20 bg-blue-50
-
-">
+      <section className="py-20" style={{ backgroundColor: '#FFF9E6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -99,7 +97,7 @@ export default function CashForDamagedCarsPage() {
                 description: "We take care of all the legal paperwork and transfer processes for you."
               }
             ].map((benefit, index) => (
-              <div key={index} className="text-center p-6 rounded-xl border border-blue-200 bg-white/40 hover:bg-white/60 transition-colors">
+              <div key={index} className="text-center p-6 rounded-xl bg-white/40 hover:bg-white/60 transition-colors" style={{ borderColor: '#FFE9C0', borderWidth: '1px' }}>
                 <div className="text-4xl mb-4">{benefit.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
@@ -110,9 +108,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Types of Damage We Accept */}
-      <section className="py-20 bg-gradient-to-br from-white via-blue-200 to-blue-400 text-gray-800
-
-">
+      <section className="py-20 text-gray-800" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF3D4 50%, #FFE9C0 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -124,45 +120,45 @@ export default function CashForDamagedCarsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/40 p-8 rounded-xl border border-blue-200">
+            <div className="bg-white/40 p-8 rounded-xl" style={{ borderColor: '#FFE9C0', borderWidth: '1px' }}>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Minor Damage</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Dents and scratches</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Broken mirrors and lights</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Interior damage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Worn tires and brakes</span>
                 </li>
               </ul>
             </div>
             
-            <div className="bg-white/40 p-8 rounded-xl border border-blue-200">
+            <div className="bg-white/40 p-8 rounded-xl" style={{ borderColor: '#FFE9C0', borderWidth: '1px' }}>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Major Damage</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Accident damage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Engine problems</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Transmission issues</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 text-lg">✓</span>
+                  <span className="text-lg" style={{ color: '#FFC325' }}>✓</span>
                   <span>Flood damage</span>
                 </li>
               </ul>
@@ -172,9 +168,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20  bg-gradient-to-tr from-white via-blue-200 to-blue-400
-
-">
+      <section className="py-20" style={{ background: 'linear-gradient(45deg, #ffffff 0%, #FFF3D4 50%, #FFE9C0 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -207,9 +201,9 @@ export default function CashForDamagedCarsPage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center">
-                <div className="bg-white/40 p-8 rounded-xl border border-blue-200 hover:bg-white/60 transition-colors">
+                <div className="bg-white/40 p-8 rounded-xl hover:bg-white/60 transition-colors" style={{ borderColor: '#FFE9C0', borderWidth: '1px' }}>
                   <div className="text-6xl mb-4">{step.icon}</div>
-                  <div className="text-4xl font-bold text-blue-500 mb-4">{step.step}</div>
+                  <div className="text-4xl font-bold mb-4" style={{ color: '#FFC325' }}>{step.step}</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
                 </div>
@@ -220,7 +214,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-300">
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFE9C0 100%)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Get Cash for Your Damaged Car?
@@ -228,9 +222,10 @@ export default function CashForDamagedCarsPage() {
           <p className="text-xl mb-8 text-gray-400">
             Don&apos;t let a damaged car sit in your driveway. Get cash today and free up space.
           </p>
-          <Link 
-            href="/#sell-form" 
-            className="inline-block bg-white text-blue-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          <Link
+            href="/#sell-form"
+            className="inline-block px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            style={{ backgroundColor: '#FFF9E6', color: '#FFC325' }}
           >
             Get My Quote Now
           </Link>

@@ -132,7 +132,7 @@ export default function ReviewsComponent() {
 
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-7xl mx-auto">
       {/* Reviews Grid */}
       <div className="grid md:grid-cols-3 gap-8">
         {displayedReviews.map((review, index) => (
@@ -151,7 +151,7 @@ export default function ReviewsComponent() {
                  {'★'.repeat(review.rating)}
                </div>
                {review.verified && (
-                   <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-full">
+                   <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: '#FFC325', color: '#000000' }}>
                   Verified
                 </span>
                )}
