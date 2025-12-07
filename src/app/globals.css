@@ -11,7 +11,15 @@
   --color-emerald-700: #047857;
   --color-emerald-800: #065f46;
   --color-emerald-900: #064e3b;
-  
+
+  /* Brand Colors - Auto-Sell.ai */
+  --color-brand-yellow: #FFC325;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #8B8987;
+
+  --font-family-brand: "var(--font-all-round-gothic)", sans-serif;
+  --font-family-secondary: "var(--font-montserrat)", sans-serif;
   --font-family-sans: "var(--font-geist-sans)", sans-serif;
   --font-family-mono: "var(--font-geist-mono)", monospace;
 }
@@ -38,6 +46,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: var(--font-family-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-brand);
 }
 
 @layer utilities {
@@ -56,12 +69,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #155dfc;
+  background: #FFC325;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #155dfc;
+  background: #e6af1f;
 }
 
 /* Smooth scrolling */
@@ -71,7 +84,11 @@ html {
 
 /* Custom gradient class for brand colors */
 .gradient-brand {
-  background: linear-gradient(135deg, #0b0b0b 0%, #111111 40%, #7f1d1d 100%);
+  background: linear-gradient(135deg, #FFC325 0%, #c4a83e 50%, #FFC325 100%);
+}
+
+.gradient-brand-dark {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
 }
 
 /* Animation for loading states */
@@ -87,21 +104,61 @@ html {
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-/* Emerald-to-Red overrides to enforce cohesive brand theme without touching every file */
-.text-emerald-500 { color: #ef4444 !important; }
-.text-emerald-700 { color: #b91c1c !important; }
-.text-emerald-100 { color: #fee2e2 !important; }
-.text-emerald-200 { color: #fecaca !important; }
-.hover\:text-emerald-200:hover { color: #fecaca !important; }
-.hover\:text-emerald-700:hover { color: #991b1b !important; }
+/* Brand color overrides - Yellow theme */
+.text-emerald-500 { color: #FFC325 !important; }
+.text-emerald-700 { color: #e6af1f !important; }
+.text-emerald-100 { color: #fff9e6 !important; }
+.text-emerald-200 { color: #fff4cc !important; }
+.hover\:text-emerald-200:hover { color: #fff4cc !important; }
+.hover\:text-emerald-700:hover { color: #cc9b1a !important; }
 
-.bg-emerald-600 { background-color: #dc2626 !important; }
-.bg-emerald-700 { background-color: #b91c1c !important; }
-.hover\:bg-emerald-700:hover { background-color: #b91c1c !important; }
+.bg-emerald-600 { background-color: #FFC325 !important; }
+.bg-emerald-700 { background-color: #e6af1f !important; }
+.hover\:bg-emerald-700:hover { background-color: #e6af1f !important; }
 
-.border-emerald-300 { border-color: #fca5a5 !important; }
-.group-hover\:bg-emerald-50 { background-color: #fee2e2 !important; }
-.group-hover\:text-emerald-600 { color: #ef4444 !important; }
+.border-emerald-300 { border-color: #ffe680 !important; }
+.group-hover\:bg-emerald-50 { background-color: #fff9e6 !important; }
+.group-hover\:text-emerald-600 { color: #FFC325 !important; }
+
+/* Blue to Yellow conversions for brand consistency */
+.bg-blue-600 { background-color: #FFC325 !important; }
+.bg-blue-500 { background-color: #FFC325 !important; }
+.bg-blue-400 { background-color: #FFD14D !important; }
+.bg-blue-300 { background-color: #FFD969 !important; }
+.bg-blue-200 { background-color: #FFE699 !important; }
+.bg-blue-100 { background-color: #FFF2CC !important; }
+.bg-blue-50 { background-color: #FFF9E6 !important; }
+.bg-blue-450 { background-color: #FFD969 !important; }
+
+.text-blue-600 { color: #FFC325 !important; }
+.text-blue-500 { color: #FFC325 !important; }
+.text-blue-400 { color: #000000 !important; }
+.text-blue-700 { color: #e6af1f !important; }
+
+.hover\:bg-blue-600:hover { background-color: #e6af1f !important; }
+.hover\:text-blue-600:hover { color: #FFC325 !important; }
+.hover\:text-blue-500:hover { color: #FFC325 !important; }
+.group-hover\:text-blue-600:hover { color: #FFC325 !important; }
+.group-hover\:text-blue-500:hover { color: #FFC325 !important; }
+
+
+.border-blue-200 { border-color: #FFE699 !important; }
+.border-blue-300 { border-color: #FFD969 !important; }
+
+/* Gradient conversions */
+.from-blue-50 { --tw-gradient-from: #FFF9E6 !important; }
+.from-blue-100 { --tw-gradient-from: #FFF2CC !important; }
+.from-blue-300 { --tw-gradient-from: #FFD969 !important; }
+.from-blue-400 { --tw-gradient-from: #FFD969 !important; }
+.from-blue-500 { --tw-gradient-from: #FFD969 !important; }
+
+.via-blue-50 { --tw-gradient-via: #FFF9E6 !important; }
+.via-blue-100 { --tw-gradient-via: #FFF2CC !important; }
+.via-blue-300 { --tw-gradient-via: #FFD969 !important; }
+.to-blue-100 { --tw-gradient-to: #FFF2CC !important; }
+.to-blue-300 { --tw-gradient-to: #FFD969 !important; }
+.to-blue-400 { --tw-gradient-to: #FFD14D !important; }
+.to-blue-450 { --tw-gradient-to: #FFD969 !important; }
 
 /* Marquee animation for brand strip */
 @keyframes marquee-x {

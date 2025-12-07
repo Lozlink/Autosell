@@ -32,7 +32,7 @@ export default function Accordion({ items, allowMultiple = false, className = ""
         const buttonId = `${baseId}-button-${idx}`
         const isOpen = openIndexes.includes(idx)
         return (
-          <div key={idx} className="border-l-2 border-red-800/40">
+          <div key={idx} className="border-l-2" style={{ borderColor: '#FFC325' }}>
             <button
               id={buttonId}
               aria-controls={panelId}
@@ -40,9 +40,9 @@ export default function Accordion({ items, allowMultiple = false, className = ""
               onClick={() => toggle(idx)}
               className="w-full text-left py-4 md:py-5 px-0 md:px-4 flex items-center justify-between gap-4 group cursor-pointer"
             >
-              <span className="text-lg font-semibold text-gray-500 group-hover:text-blue-600 transition-colors">{item.title}</span>
+              <span className="text-lg font-semibold text-gray-500 group-hover:text-yellow-600 transition-colors">{item.title}</span>
               <svg
-                className={`w-5 h-5 flex-shrink-0 text-gray-600 transition-transform ${isOpen ? "rotate-180 text-blue-600" : "group-hover:text-blue-500"}`}
+                className={`w-5 h-5 flex-shrink-0 text-gray-600 transition-transform ${isOpen ? "rotate-180 text-yellow-600" : "group-hover:text-yellow-500"}`}
                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

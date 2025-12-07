@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 
 export default function ImmediatePaymentPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
       <Header />
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
+      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Immediate Payment</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
@@ -26,8 +25,8 @@ export default function ImmediatePaymentPage() {
             { title: 'No Waiting', desc: 'No bank cheques or processing delays.' },
             { title: 'Secure & Verified', desc: 'Payments made to your nominated account, verified on-site.' },
           ].map((item) => (
-            <div key={item.title} className="bg-white rounded-xl p-8 border border-blue-200 shadow-sm">
-              <h2 className="text-xl font-semibold mb-2 text-zinc-100">{item.title}</h2>
+            <div key={item.title} className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+              <h2 className="text-xl font-semibold mb-2 text-gray-900">{item.title}</h2>
               <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}

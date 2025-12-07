@@ -128,7 +128,7 @@ export default function MapComponent({
           icon: {
             path: window.google.maps.SymbolPath.CIRCLE,
             scale: 8,
-            fillColor: '#dc2626',
+            fillColor: '#FFC325',
             fillOpacity: 1,
             strokeColor: '#ffffff',
             strokeWeight: 2
@@ -195,10 +195,10 @@ export default function MapComponent({
                   </defs>
                   <rect width="100%" height="100%" fill="url(#grid)"/>
                   <g transform="translate(400,300)">
-                    <circle cx="0" cy="0" r="200" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
-                    <circle cx="0" cy="0" r="100" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
-                    <circle cx="0" cy="0" r="50" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.7"/>
-                    <circle cx="0" cy="0" r="10" fill="#3b82f6"/>
+                    <circle cx="0" cy="0" r="200" fill="none" stroke="#FFC325" stroke-width="2" opacity="0.3"/>
+                    <circle cx="0" cy="0" r="100" fill="none" stroke="#FFC325" stroke-width="2" opacity="0.5"/>
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="#FFC325" stroke-width="2" opacity="0.7"/>
+                    <circle cx="0" cy="0" r="10" fill="#FFC325"/>
                     <text x="0" y="-30" text-anchor="middle" class="text-lg font-bold text-blue-800">Australia</text>
                     <text x="0" y="10" text-anchor="middle" class="text-sm text-blue-600">We Service All Areas</text>
                   </g>

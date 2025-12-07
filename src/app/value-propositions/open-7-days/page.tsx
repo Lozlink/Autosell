@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 
 export default function OpenSevenDaysPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100
-">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
       <Header />
-      <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 py-12">
+      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Open 7 Days</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
@@ -21,12 +20,12 @@ export default function OpenSevenDaysPage() {
       </section>
       <section className="py-12">
         <div className="px-4 sm:px-8 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl p-8 border border-blue-200 shadow-sm">
-            <h2 className="text-2xl font-semibold mb-3 text-zinc-100">Weekend Availability</h2>
+          <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900">Weekend Availability</h2>
             <p className="text-gray-600">Schedule inspections and payments on Saturdays and Sundays—same fast service, same-day OSKO payment.</p>
           </div>
-          <div className="bg-white rounded-xl p-8 border border-blue-200 shadow-sm">
-            <h2 className="text-2xl font-semibold mb-3 text-zinc-100">Flexible Times</h2>
+          <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900">Flexible Times</h2>
             <p className="text-gray-600">Choose the time that suits you. We come to you anywhere in Australia.</p>
           </div>
         </div>

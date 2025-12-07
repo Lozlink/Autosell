@@ -2,21 +2,43 @@ import type { Metadata } from "next";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights} from "@vercel/speed-insights/next";
 import Script from 'next/script';
-import { Geist, Geist_Mono } from "next/font/google";
+import {Montserrat } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 import Footer from "@/components/Footer";
 import FloatingPhoneIcon from "@/components/FloatingPhoneIcon";
 import ChatbotWidget from "@/components/ChatbotWidget";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// Brand font: All Round Gothic Demi
+const allRoundGothic = localFont({
+  src: [
+    {
+      path: '../../public/brand-guideline/Fonts/AllRoundGothic-Demi.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/brand-guideline/Fonts/AllRoundGothic-DemiOblique.ttf',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: '../../public/brand-guideline/Fonts/AllRoundGothic-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-all-round-gothic',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Secondary brand font: Montserrat
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
 });
+
+
 
 export const metadata: Metadata = {
   title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
@@ -82,10 +104,10 @@ export default function RootLayout({
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#7f1d1d" />
+      <meta name="theme-color" content="#FFC325" />
     </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100`}
+        className={`${allRoundGothic.variable} ${montserrat.variable} md:mx-auto antialiased min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100`}
       >
       <noscript>
         <iframe

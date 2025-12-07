@@ -10,39 +10,39 @@ export const metadata: Metadata = {
 
 export default function CarsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
       {/* Hero Section with Form */}
-      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-gray-800 py-20">
+      <section className="text-gray-800 py-20" style={{ background: 'linear-gradient(to bottom right, #FFC325, #e6af1f, #d09a19)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Sell Your Car
-                <span className="block text-blue-300">Any Make, Any Model</span>
+                <span className="block" style={{ color: '#FFC325' }}>Any Make, Any Model</span>
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 mb-8">
-                We buy all car makes and models - Toyota, Ford, Holden, BMW, Mercedes, and more. 
+              <p className="text-xl md:text-2xl text-gray-700 mb-8">
+                We buy all car makes and models - Toyota, Ford, Holden, BMW, Mercedes, and more.
                 Any condition, any age. Get your free quote in 30 minutes.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-300">✓</span>
+                    <span style={{ color: '#FFC325' }}>✓</span>
                   </div>
                   <span>All car makes and models</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-300">✓</span>
+                    <span style={{ color: '#FFC325' }}>✓</span>
                   </div>
                   <span>Any condition - running or not</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-300">✓</span>
+                    <span style={{ color: '#FFC325' }}>✓</span>
                   </div>
                   <span>Same-day payment guaranteed</span>
                 </div>
@@ -82,8 +82,8 @@ export default function CarsPage() {
               { type: 'Classic Cars', description: 'Vintage and classic vehicles', icon: '🕰️' }
             ].map((category) => (
               <div key={category.type} className="text-center p-6 transition-all duration-300 hover:scale-105 group">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors">
-                  <span className="text-red-600 text-2xl">{category.icon}</span>
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: '#FFC325' }}>
+                  <span className="text-2xl" style={{ color: '#000000' }}>{category.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{category.type}</h3>
                 <p className="text-sm text-gray-300">{category.description}</p>
@@ -108,8 +108,8 @@ export default function CarsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
               <div key={brand} className="text-center p-4 transition-all duration-300 hover:scale-105 group">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors">
-                  <span className="text-red-600 font-bold text-lg">{brand.charAt(0)}</span>
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: '#FFC325' }}>
+                  <span className="font-bold text-lg" style={{ color: '#000000' }}>{brand.charAt(0)}</span>
                 </div>
                 <h3 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">{brand}</h3>
               </div>
@@ -132,24 +132,24 @@ export default function CarsPage() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6  hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-2xl font-bold">$</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFC325' }}>
+                <span className="text-2xl font-bold" style={{ color: '#000000' }}>$</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Best Prices</h3>
               <p className="text-gray-300">We guarantee the best price for your car using real-time market data.</p>
             </div>
             
             <div className="text-center p-6  hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-2xl font-bold">⚡</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFC325' }}>
+                <span className="text-2xl font-bold" style={{ color: '#000000' }}>⚡</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Fast Service</h3>
               <p className="text-gray-300">Get your quote in 30 minutes and receive payment the same day.</p>
             </div>
             
             <div className="text-center p-6  hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-2xl font-bold">✓</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFC325' }}>
+                <span className="text-2xl font-bold" style={{ color: '#000000' }}>✓</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">No Hassle</h3>
               <p className="text-gray-300">We handle all the paperwork and come to you for inspection.</p>
@@ -167,9 +167,10 @@ export default function CarsPage() {
           <p className="text-xl text-blue-100 mb-8">
             Get your free quote today and join thousands of satisfied car owners who chose auto-sell.ai.
           </p>
-          <a 
-            href="#sell-form" 
-            className="inline-block bg-white text-red-600 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors"
+          <a
+            href="#sell-form"
+            className="inline-block bg-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors"
+            style={{ color: '#FFC325' }}
           >
             Get My Car Quote Now
           </a>

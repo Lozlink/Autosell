@@ -10,24 +10,25 @@ export const metadata: Metadata = {
 
 export default function SellMyCarSydneyPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-gray-800 py-20">
+      <section className="text-white py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: '#000' }}>
               Sell My Car Sydney
-              <span className="block text-blue-300">Get Cash for Your Car in Sydney</span>
+              <span className="block" style={{ color: '#000' }}>Get Cash for Your Car in Sydney</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
-              We buy all cars in Sydney and surrounding areas. Get an instant quote and same-day payment. 
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8" style={{ color: '#1f2937' }}>
+              We buy all cars in Sydney and surrounding areas. Get an instant quote and same-day payment.
               Free pickup service across Greater Sydney.
             </p>
-            <Link 
-              href="/#sell-form" 
-              className="inline-block bg-white text-red-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            <Link
+              href="/#sell-form"
+              className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              style={{ backgroundColor: '#000', color: '#FFC325' }}
             >
               Get My Sydney Car Quote Now
             </Link>
@@ -36,13 +37,13 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* Sydney Service Areas */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Sydney Service Areas
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               We service all of Greater Sydney and surrounding areas
             </p>
           </div>
@@ -59,9 +60,9 @@ export default function SellMyCarSydneyPage() {
               { area: "Hills District", description: "Castle Hill, Baulkham Hills, Rouse Hill" },
               { area: "Blue Mountains", description: "Katoomba, Springwood, Wentworth Falls" }
             ].map((area, index) => (
-              <div key={index} className="text-center p-6  hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{area.area}</h3>
-                <p className="text-gray-300">{area.description}</p>
+              <div key={index} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{area.area}</h3>
+                <p className="text-gray-600">{area.description}</p>
               </div>
             ))}
           </div>
@@ -69,13 +70,13 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* Why Choose Us in Sydney */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Why Choose auto-sell.ai in Sydney?
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               We understand Sydney&apos;s car market and offer competitive prices
             </p>
           </div>
@@ -113,10 +114,10 @@ export default function SellMyCarSydneyPage() {
                 description: "We service from the CBD to the Blue Mountains and everywhere in between."
               }
             ].map((benefit, index) => (
-              <div key={index} className="text-center p-6  hover:shadow-lg transition-shadow">
+              <div key={index} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
-                <p className="text-gray-300">{benefit.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -124,17 +125,18 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#000' }}>
             Ready to Sell Your Car in Sydney?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8" style={{ color: '#1f2937' }}>
             Get your free Sydney car valuation in 30 minutes and receive same-day payment.
           </p>
-          <Link 
-            href="/#sell-form" 
-            className="inline-block bg-white text-red-600 px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          <Link
+            href="/#sell-form"
+            className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            style={{ backgroundColor: '#000', color: '#FFC325' }}
           >
             Get My Sydney Car Quote Now
           </Link>
