@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 
 export const metadata: Metadata = {
-  title: "Cash for Damaged Cars - auto-sell.ai | We Buy Cars in Any Condition",
+  title: "Cash for Damaged Cars - Auto-Sell.ai | We Buy Cars in Any Condition",
   description: "Get cash for your damaged car today. We buy cars in any condition - running or not, damaged or perfect. Same-day payment, free pickup across Australia.",
 }
 
@@ -57,7 +57,7 @@ export default function CashForDamagedCarsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Why Choose auto-sell.ai for Damaged Cars?
+              Why Choose Auto-Sell.ai for Damaged Cars?
             </h2>
             <p className="text-xl text-gray-600">
               We specialize in buying cars in all conditions, no matter how damaged

@@ -41,12 +41,12 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
-  title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
-  description: "Sell your car instantly with auto-sell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
+  title: "Auto-Sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+  description: "Sell your car instantly with Auto-Sell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
   keywords: "sell my car, car buyers Australia, cash for cars, sell car fast, instant car quote, same day payment, car valuation, we buy cars",
-  authors: [{ name: "auto-sell.ai" }],
+  authors: [{ name: "Auto-Sell.ai" }],
   openGraph: {
-    title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+    title: "Auto-Sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
     description: "Get an instant quote for your car. Same-day payment, no hassles, best prices guaranteed. We buy all cars in any condition across Australia.",
     type: "website",
     locale: "en_AU",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://auto-sell.ai',
+    canonical: 'https://Auto-Sell.ai',
   },
 };
 

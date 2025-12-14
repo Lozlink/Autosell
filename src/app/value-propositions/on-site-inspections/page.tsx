@@ -2,7 +2,7 @@ import Header from '@/components/Header'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'On-Site Inspections - auto-sell.ai',
+  title: 'On-Site Inspections - Auto-Sell.ai',
   description: 'We come to you anywhere in Australia for convenient on-site inspections.'
 }
 

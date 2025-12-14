@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Brisbane - auto-sell.ai | Get Cash for Your Car in Brisbane",
-  description: "Sell your car fast in Brisbane with auto-sell.ai. We buy all cars in Brisbane and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Brisbane - Auto-Sell.ai | Get Cash for Your Car in Brisbane",
+  description: "Sell your car fast in Brisbane with Auto-Sell.ai. We buy all cars in Brisbane and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car brisbane, car buyers brisbane, sell car brisbane, cash for cars brisbane, sell car fast brisbane, brisbane car buyers",
 }
 
@@ -74,7 +74,7 @@ export default function SellMyCarBrisbanePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose auto-sell.ai in Brisbane?
+              Why Choose Auto-Sell.ai in Brisbane?
             </h2>
             <p className="text-xl text-gray-600">
               We understand Brisbane&apos;s car market and offer competitive prices

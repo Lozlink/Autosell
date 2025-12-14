@@ -30,11 +30,11 @@ function CarSellFormFallback() {
 }
 
 export const metadata: Metadata = {
-  title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
-  description: "Sell your car instantly with auto-sell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
+  title: "Auto-Sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+  description: "Sell your car instantly with Auto-Sell.ai. Get free quotes in 30 minutes, same-day payment, and hassle-free car selling across Australia. We buy all cars in any condition!",
   keywords: "sell my car, car buyers Australia, cash for cars, sell car fast, instant car quote, same day payment, car valuation, we buy cars, car buying service",
   openGraph: {
-    title: "auto-sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
+    title: "Auto-Sell.ai - Sell Your Car Fast for Cash | Australia's #1 Car Buyers",
     description: "Get an instant quote for your car. Same-day payment, no hassles, best prices guaranteed. We buy all cars in any condition across Australia.",
     type: "website",
     locale: "en_AU",
@@ -622,14 +622,14 @@ export default function Home() {
           <div className="space-y-8">
             <a
               href="#sell-form"
-              className="inline-block bg-gray-900 text-white px-12 py-5 rounded-full text-xl md:text-2xl font-bold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="inline-block bg-yellow-500 text-white px-12 py-5 rounded-full text-xl md:text-2xl font-bold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Get My Instant Quote Now
             </a>
             <div className="text-center">
               <p className="text-gray-700 font-semibold text-lg mb-3">Or call us directly:</p>
               <a
-                href="tel:1800auto-sell"
+                href="tel:1800Auto-Sell"
                 className="text-3xl md:text-4xl font-bold text-gray-900 hover:text-gray-700 transition-colors flex items-center justify-center gap-3"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
