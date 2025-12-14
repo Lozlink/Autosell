@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Used Car - auto-sell.ai | Get Cash for Your Used Vehicle",
-  description: "Sell your used car fast with auto-sell.ai. We buy all used cars in any condition. Get instant quotes and same-day payment for your used vehicle.",
+  title: "Sell My Used Car - Auto-Sell.ai | Get Cash for Your Used Vehicle",
+  description: "Sell your used car fast with Auto-Sell.ai. We buy all used cars in any condition. Get instant quotes and same-day payment for your used vehicle.",
   keywords: "sell used car, used car buyers, sell my car, used vehicle buyers, cash for used cars, sell car fast",
 }
 
@@ -74,7 +74,7 @@ export default function SellUsedCarsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose auto-sell.ai for Your Used Car?
+              Why Choose Auto-Sell.ai for Your Used Car?
             </h2>
             <p className="text-xl text-gray-600">
               We understand used car values and offer competitive prices

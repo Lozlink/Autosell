@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sell My Car Sydney - auto-sell.ai | Get Cash for Your Car in Sydney",
-  description: "Sell your car fast in Sydney with auto-sell.ai. We buy all cars in Sydney and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
+  title: "Sell My Car Sydney - Auto-Sell.ai | Get Cash for Your Car in Sydney",
+  description: "Sell your car fast in Sydney with Auto-Sell.ai. We buy all cars in Sydney and surrounding areas. Get instant quotes and same-day payment. Free pickup service.",
   keywords: "sell my car sydney, car buyers sydney, sell car sydney, cash for cars sydney, sell car fast sydney, sydney car buyers",
 }
 
@@ -74,7 +74,7 @@ export default function SellMyCarSydneyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose auto-sell.ai in Sydney?
+              Why Choose Auto-Sell.ai in Sydney?
             </h2>
             <p className="text-xl text-gray-600">
               We understand Sydney&apos;s car market and offer competitive prices

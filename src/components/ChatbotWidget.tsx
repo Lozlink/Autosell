@@ -19,7 +19,7 @@ export default function ChatbotWidget() {
   useEffect(() => {
     // Add welcome message when widget opens
     if (isOpen && messages.length === 0) {
-      addMessage("Hi! I'm auto-sell.ai's assistant. How can I help you today?", false)
+      addMessage("Hi! I'm Auto-Sell.ai's assistant. How can I help you today?", false)
     }
   }, [isOpen, messages.length])
 
@@ -149,7 +149,7 @@ export default function ChatbotWidget() {
             {/* Header */}
             <div className="bg-blue-400 text-gray-800 p-4 rounded-t-lg flex items-center justify-between">
               <div>
-                <h3 className="font-bold">auto-sell.ai Assistant</h3>
+                <h3 className="font-bold">Auto-Sell.ai Assistant</h3>
                 <p className="text-sm opacity-90">Online now</p>
               </div>
               <button

@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "How to Sell Your Car Fast - auto-sell.ai | Expert Tips & Guide",
+  title: "How to Sell Your Car Fast - Auto-Sell.ai | Expert Tips & Guide",
   description: "Learn how to sell your car fast with our expert guide. Get tips on preparation, pricing, and choosing the best selling method for maximum speed and value.",
 }
 
@@ -125,7 +125,7 @@ export default function HowToSellCarFastPage() {
                 icon: "🏢"
               },
               {
-                method: "auto-sell.ai",
+                method: "Auto-Sell.ai",
                 pros: ["Fast (same day)", "Fair market price", "Safe and convenient", "No fees"],
                 cons: ["May be slightly less than private sale", "Limited to cash buyers"],
                 time: "Same day",
@@ -227,7 +227,7 @@ export default function HowToSellCarFastPage() {
         </div>
       </section>
 
-      {/* Why Choose auto-sell.ai */}
+      {/* Why Choose Auto-Sell.ai */}
       <section style={{ backgroundColor: '#FFD14D' }} className="py-12">
         <div className="px-4 sm:px-8 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">

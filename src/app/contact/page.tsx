@@ -4,8 +4,8 @@ import Link from 'next/link'
 import MapComponent from '@/components/MapComponent'
 
 export const metadata: Metadata = {
-  title: "Contact Us - auto-sell.ai",
-  description: "Contact auto-sell.ai for your car valuation. Call, email, text, or chat with us. We're here to help you sell your car fast.",
+  title: "Contact Us - Auto-Sell.ai",
+  description: "Contact Auto-Sell.ai for your car valuation. Call, email, text, or chat with us. We're here to help you sell your car fast.",
 }
 
 export default function ContactPage() {
@@ -35,7 +35,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <Link href="tel:1800auto-sell" className="font-bold text-lg" style={{ color: '#FFC325' }}>
+                    <Link href="tel:1800Auto-Sell" className="font-bold text-lg" style={{ color: '#FFC325' }}>
                     <h3 className="font-semibold text-gray-800">Call Us</h3>
                       <h4>1800 AUTO SELL</h4>
                     <p className="text-sm text-gray-600">Open 7 days • 8am-6pm AEST</p>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <Link href="sms:1800auto-sell" className="font-semibold" style={{ color: '#FFC325' }}>
+                  <Link href="sms:1800Auto-Sell" className="font-semibold" style={{ color: '#FFC325' }}>
                   <div>
                     <h3 className="font-semibold text-gray-800">Text/SMS</h3>
                       Send us a message
@@ -77,11 +77,11 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <Link href="mailto:info@auto-sell.ai" className="font-semibold" style={{ color: '#FFC325' }}>
+                  <Link href="mailto:info@Auto-Sell.ai" className="font-semibold" style={{ color: '#FFC325' }}>
                   <div>
                     <h3 className="font-semibold text-gray-800">Email Us</h3>
 
-                      info@auto-sell.ai
+                      info@Auto-Sell.ai
 
                     <p className="text-sm text-gray-600">Response within 2 hours</p>
                   </div>

@@ -184,7 +184,7 @@ export default function Header() {
             </div>
 
             <a
-              href="tel:1800auto-sell"
+              href="tel:1800Auto-Sell"
               aria-label="Call 1800 AUTO SELL"
               className="px-6 py-2 rounded-lg font-bold transition-colors flex items-center gap-2"
               style={{ backgroundColor: '#FFC325', color: '#000000' }}
@@ -355,7 +355,7 @@ export default function Header() {
                 </Link>
 
                 <a
-                    href="tel:1800auto-sell"
+                    href="tel:1800Auto-Sell"
                     className="px-6 py-3 rounded-lg font-bold transition-colors text-center flex items-center justify-center gap-2"
                     style={{ backgroundColor: '#FFC325', color: '#000000' }}
                 >

@@ -20,7 +20,7 @@ export default function FloatingPhoneIcon() {
           className="fixed bottom-6 right-24 z-50"
         >
           <motion.a
-            href="tel:1800auto-sell"
+            href="tel:1800Auto-Sell"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-600 hover:bg-blue-600 text-gray-800 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"

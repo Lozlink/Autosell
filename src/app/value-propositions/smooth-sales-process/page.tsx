@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import SmoothSalesProcess from "@/components/SmoothSalesProcess";
 
 export const metadata: Metadata = {
-  title: 'Smooth Sales Process - auto-sell.ai',
+  title: 'Smooth Sales Process - Auto-Sell.ai',
   description: 'From quote to cash, our process is streamlined for speed and simplicity.'
 }
 

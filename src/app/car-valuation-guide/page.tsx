@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Car Valuation Guide - auto-sell.ai | How to Price Your Car Right",
+  title: "Car Valuation Guide - Auto-Sell.ai | How to Price Your Car Right",
   description: "Learn how to value your car accurately with our comprehensive guide. Understand factors that affect car prices and get the best value when selling.",
 }
 
@@ -126,7 +126,7 @@ export default function CarValuationGuidePage() {
                 icon: "🔍"
               },
               {
-                method: "auto-sell.ai Valuation",
+                method: "Auto-Sell.ai Valuation",
                 description: "Our AI-powered system combines multiple data sources for accurate, market-based valuations.",
                 pros: ["Fast and accurate", "Market-based pricing", "Free service", "Local market data"],
                 cons: ["Requires basic information", "Online only"],
