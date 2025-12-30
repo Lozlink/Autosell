@@ -5,6 +5,7 @@ import BrandMarquee from '@/components/BrandMarquee'
 import ReviewsComponent from '@/components/ReviewsComponent'
 import MapComponent from '@/components/MapComponent'
 import Accordion from '@/components/Accordion'
+import WaveDivider, { WaveTop } from '@/components/WaveDivider'
 import Image from 'next/image'
 import SmoothSalesProcess from "@/components/SmoothSalesProcess"
 import Link from 'next/link'
@@ -47,15 +48,15 @@ export default function Home() {
       <Header />
 
       {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="relative bg-gradient-to-br from-yellow-50 via-white to-blue-50 text-gray-900 py-20 overflow-hidden">
-        {/* Logo Underlay - Top Right */}
-        <div className="absolute top-20 right-0 md:right-20 lg:right-40 opacity-[0.12] pointer-events-none z-0">
+      <section id="sell-form" className="relative bg-[#FFF9E6] text-gray-900 pt-12 pb-8 overflow-hidden">
+        {/* Logo Underlay - Right side, partially off-screen */}
+        <div className="absolute top-1/2 -translate-y-1/2 -right-20 md:-right-10 lg:right-0 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
             src='/brand-guideline/autosell-logo/PNG/1 (1).png'
             alt=''
-            width={700}
-            height={350}
-            className='object-contain rotate-12'
+            width={600}
+            height={300}
+            className='object-contain'
             aria-hidden="true"
           />
         </div>
@@ -103,17 +104,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3-Step Process - moved up for better flow */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+      {/* Wave divider: Hero to How It Works */}
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+
+      {/* 3-Step Process */}
+      <section id="how-it-works" className="py-12 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               How It Works
             </h2>
             <p className="text-xl text-gray-600">Three simple steps to get cash for your car</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
             <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-3xl font-bold text-gray-900">1</div>
               <h3 className="text-2xl font-bold mb-3 text-gray-900">Get Your Quote</h3>
@@ -139,11 +143,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Wave divider: How It Works to Reviews - inverted wave */}
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+
       {/* Customer Reviews - Moved higher for social proof */}
-      <section id="reviews" className="py-20 bg-white">
+      <section id="reviews" className="py-12 bg-[#FFF9E6]">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               Thousands Sold in Seconds
             </h2>
             <p className="text-xl text-gray-600">
@@ -153,7 +160,7 @@ export default function Home() {
 
           <ReviewsComponent />
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
               Sell Your Car The Smarter Way
             </a>
@@ -161,164 +168,120 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Wave divider: Reviews to Why Choose - layered wave */}
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" />
 
       {/* Why Choose Section */}
-      <section id="why-choose" className="relative py-20 bg-gray-50 overflow-hidden">
-        {/* Logo Underlay - Left Side */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 opacity-[0.1] pointer-events-none z-0">
+      <section id="why-choose" className="relative py-12 bg-gray-50 overflow-hidden">
+        {/* Logo Underlay - Left side, partially off-screen */}
+        <div className="absolute top-1/2 -translate-y-1/2 -left-32 lg:-left-16 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
             src='/brand-guideline/autosell-logo/PNG/1 (1).png'
             alt=''
-            width={700}
-            height={350}
-            className='object-contain -rotate-12'
+            width={600}
+            height={300}
+            className='object-contain'
             aria-hidden="true"
           />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Why Choose The Smarter Way?
             </h2>
-            <p className="text-xl text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
+            <p className="text-lg text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
           </div>
 
-          {[
-            {
-              title: "Instant Payment",
-              description: "AI-powered valuation and same-day OSKO transfer. Get paid in seconds.",
-              image: {
-                src: "/images/branding/osko-and-payid-icon.jpg",
-                alt: "Osko payid icon",
+          <div className="space-y-6">
+            {[
+              {
+                title: "Instant Payment",
+                description: "AI-powered valuation and same-day OSKO transfer. Get paid in seconds.",
+                image: {
+                  src: "/images/branding/osko-and-payid-icon.jpg",
+                  alt: "Osko payid icon",
+                },
+                href: "/value-propositions/immediate-payment",
               },
-              href: "/value-propositions/immediate-payment",
-            },
-            {
-              title: "We Come To You",
-              description: "On-site inspection at your convenience. Sell from your driveway.",
-              image: {
-                src: "/images/branding/on-site.jpg",
-                alt: "On-site car inspection service",
+              {
+                title: "We Come To You",
+                description: "On-site inspection at your convenience. Sell from your driveway.",
+                image: {
+                  src: "/images/branding/on-site.jpg",
+                  alt: "On-site car inspection service",
+                },
+                href: "/value-propositions/on-site-inspections",
               },
-              href: "/value-propositions/on-site-inspections",
-
-            },
-            {
-              title: "Open 7 Days",
-              description: "Sell any day of the week. Our AI works 24/7 to get you the best offer.",
-              image: {
-                src: "/images/branding/7days.jpg",
-                alt: "Open 7 days a week",
-                fit: "contain" as const,
+              {
+                title: "Open 7 Days",
+                description: "Sell any day of the week. Our AI works 24/7 to get you the best offer.",
+                image: {
+                  src: "/images/branding/7days.jpg",
+                  alt: "Open 7 days a week",
+                  fit: "contain" as const,
+                },
+                href: "/value-propositions/open-7-days",
               },
-              href: "/value-propositions/open-7-days",
+              {
+                title: "Smart & Simple",
+                description: "AI technology handles everything. From quote to cash in record time.",
+                type: "component" as const,
+                href: "/value-propositions/smooth-sales-process",
+              },
+            ].map((item, i) => (
+              <div key={i} className="group">
+                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8`}>
 
-            },
-            {
-              title: "Smart & Simple",
-              description: "AI technology handles everything. From quote to cash in record time.",
-              type: "component" as const,
-              href: "/value-propositions/smooth-sales-process",
-            },
-          ].map((item, i) => (
-              <div key={i} className="rounded-xl md:rounded-none relative z-20">
-                <div className="grid md:grid-cols-5 items-center gap-6 py-6">
+                  {/* Text Content */}
+                  <div className="flex-1 flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-gray-900 font-bold text-lg shadow-md">
+                      {i + 1}
+                    </div>
+                    <div className="border-l-2 border-yellow-400 pl-4">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
 
-                {/* Left column (text or visual depending on index) */}
-                  {i % 2 === 0 ? (
-                          <div className="md:col-span-2">
-                            <h3 className="text-2xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                            <div className="mt-4 flex items-center gap-4">
-                              <span className="text-sm bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Fast</span>
-                              <span className="text-sm bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Reliable</span>
+                  {/* Image */}
+                  <div className="w-full md:w-2/5 flex-shrink-0">
+                    <Link href={item.href} className="block">
+                      <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md group-hover:shadow-lg transition-shadow">
+                        <div className={item.type === "component" ? "relative md:aspect-[16/10]" : "relative aspect-[16/10]"}>
+                          {item.type === "component" ? (
+                            <div className="md:absolute md:inset-0 flex items-center justify-center">
+                              <SmoothSalesProcess variant="compact" />
                             </div>
-                          </div>
-                      ) :
-                      (
-                      <div className="order-2 md:order-1 md:col-span-3">
-                        <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-xl transition-shadow">
-                          <div className={item.type === "component" ? "relative md:aspect-[16/10] overflow-hidden" : "relative aspect-[16/10] overflow-hidden"}>
-                            {item.type === "component" ? (
-                              <div className="md:absolute md:inset-0 flex items-center justify-center">
-                                <Link href={item.href} className="w-full h-full">
-                                  <SmoothSalesProcess variant="compact" />
-                                </Link>
-                              </div>
-                            ) : (
-                              <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
-                                <Link href={item.href}>
-                                  <Image
-                                    src={item.image!.src}
-                                    alt={item.image!.alt}
-                                    fill
-                                    className={
-                                      item.image?.fit === 'contain'
-                                        ? 'object-contain object-center'
-                                        : 'object-cover object-center'
-                                    }
-                                    sizes="(min-width: 768px) 50vw, 100vw"
-                                    priority={i === 0}
-                                    placeholder="empty"
-                                  />
-                                </Link>
-                              </div>
-                            )}
-                          </div>
+                          ) : (
+                            <Image
+                              src={item.image!.src}
+                              alt={item.image!.alt}
+                              fill
+                              className={item.image?.fit === 'contain' ? 'object-contain p-2' : 'object-cover'}
+                              sizes="(min-width: 768px) 40vw, 100vw"
+                            />
+                          )}
                         </div>
                       </div>
-                  )}
+                    </Link>
+                  </div>
 
-                  {/* Right column (visual or text depending on index) */}
-                  {i % 2 === 0 ? (
-                      <div className="order-2 md:order-2 md:col-span-3">
-                        {/* Image gets 3/5 width */}
-                        <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-xl transition-shadow">
-                          <div className="relative aspect-[16/10] overflow-hidden">
-                            <div className={item.image?.fit === 'contain' ? 'absolute inset-0 p-2' : 'absolute inset-0'}>
-                                  <Link href={item.href}>
-                                    <Image
-                                        src={item.image!.src}
-                                        alt={item.image!.alt}
-                                        fill
-                                        className={
-                                          item.image?.fit === 'contain'
-                                              ? 'object-contain'
-                                              : 'object-cover object-center'
-                                        }
-                                        sizes="(min-width: 768px) 50vw, 100vw"
-                                        priority={i === 0}
-                                        placeholder="empty"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                      </div>
-                  ) : (
-                      <div className="order-1 md:order-2 md:col-span-2">
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                        <div className="mt-4 flex items-center gap-4">
-                          <span className="text-sm bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Secure</span>
-                          <span className="text-sm bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Trusted</span>
-                        </div>
-                      </div>
-
-                  )}
                 </div>
               </div>
-
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* Wave divider: Why Choose to Car Models */}
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+
       {/* Car Models We Buy */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-[#FFF9E6]">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               We Buy All Car Brands
             </h2>
             <p className="text-xl text-gray-600">
@@ -328,8 +291,8 @@ export default function Home() {
 
           <BrandMarquee />
 
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-700 mb-6">
+          <div className="text-center mt-8">
+            <p className="text-lg text-gray-700 mb-4">
               Don&apos;t see your brand? We buy all makes and models!
             </p>
             <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
@@ -365,10 +328,10 @@ export default function Home() {
       </section>
 
       {/* We Buy All Types Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-12 bg-white">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               We Buy All Types of Vehicles
             </h2>
             <p className="text-xl text-gray-600">
@@ -454,25 +417,26 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Wave divider: Vehicle Types to FAQ - inverted wave */}
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
 
       {/* FAQ Section */}
-      <section id="faq" className="relative py-20 bg-white overflow-hidden">
-        {/* Logo Underlay - Top Right */}
-        <div className="absolute top-10 right-0 md:right-10 lg:right-32 opacity-[0.08] pointer-events-none z-0">
+      <section id="faq" className="relative py-12 bg-[#FFF9E6] overflow-hidden">
+        {/* Logo Underlay - Right side, partially off-screen */}
+        <div className="absolute top-1/2 -translate-y-1/2 -right-24 lg:-right-10 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
             src='/brand-guideline/autosell-logo/PNG/1 (1).png'
             alt=''
-            width={700}
-            height={350}
-            className='object-contain rotate-6'
+            width={600}
+            height={300}
+            className='object-contain'
             aria-hidden="true"
           />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               How Does The Smarter Way Work?
             </h2>
             <p className="text-xl text-gray-600">
@@ -511,7 +475,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
               Try The Smarter Way Now
             </a>
@@ -522,10 +486,10 @@ export default function Home() {
 
 
       {/* Process Details Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-gray-50">
+      <section className="py-12 bg-gradient-to-br from-blue-50 via-white to-gray-50">
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               What Happens After You Submit?
             </h2>
             <p className="text-xl text-gray-600">
@@ -599,15 +563,15 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-24 bg-gradient-to-br from-yellow-100 via-yellow-50 to-white overflow-hidden">
-        {/* Logo Underlay - Center Right */}
-        <div className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-20 lg:-right-5 opacity-[0.15] pointer-events-none z-0">
+      <section className="relative py-16 bg-gradient-to-br from-yellow-100 via-yellow-50 to-white overflow-hidden">
+        {/* Logo Underlay - Left side, partially off-screen */}
+        <div className="absolute top-1/2 -translate-y-1/2 -left-28 lg:-left-12 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
             src='/brand-guideline/autosell-logo/PNG/1 (1).png'
             alt=''
-            width={800}
-            height={400}
-            className='object-contain rotate-12'
+            width={600}
+            height={300}
+            className='object-contain'
             aria-hidden="true"
           />
         </div>
@@ -616,7 +580,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             Ready to Sell Your Car in Seconds?
           </h2>
-          <p className="text-xl md:text-2xl mb-12 text-gray-700">
+          <p className="text-xl md:text-2xl mb-8 text-gray-700">
             Join thousands who chose the smarter way. Get your AI-powered quote now and get paid today!
           </p>
           <div className="space-y-8">
