@@ -29,7 +29,7 @@ export default function SmoothSalesProcess({
         <section
             className={clsx(
                 "relative mx-auto w-full",
-                compact ? "px-2 py-4" : "max-w-5xl px-4 py-16"
+                compact ? "px-1 py-3" : "max-w-5xl px-4 py-16"
             )}
         >
             <div className={clsx("text-center mb-10", compact && "mb-4") }>
@@ -42,13 +42,13 @@ export default function SmoothSalesProcess({
             </div>
 
             {/* Mobile: Vertical flowchart layout */}
-            <div className="flex flex-col items-center gap-3 md:hidden">
+            <div className={clsx("flex flex-col items-center md:hidden", compact ? "gap-2" : "gap-3")}>
                 <motion.div
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={0} icon={<Heart className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Friendly support" compact={compact} />
+                    <ProcessPill i={0} icon={<Heart className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Friendly support" compact={compact} />
                 </motion.div>
                 <Connector compact={compact} vertical />
 
@@ -57,7 +57,7 @@ export default function SmoothSalesProcess({
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={1} icon={<MessageCircle className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Clear communication" compact={compact} />
+                    <ProcessPill i={1} icon={<MessageCircle className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Clear communication" compact={compact} />
                 </motion.div>
                 <Connector compact={compact} vertical />
 
@@ -71,11 +71,11 @@ export default function SmoothSalesProcess({
                     aria-label="Keys handed over"
                 >
                     <div className={clsx(
-                        "flex items-center gap-2 md:gap-3 bg-white border border-yellow-400 rounded-2xl shadow-md",
-                        compact ? "px-3 py-2" : "px-6 py-5"
+                        "flex items-center bg-white border border-yellow-400 rounded-2xl shadow-md",
+                        compact ? "gap-1.5 px-2 py-1.5" : "gap-2 md:gap-3 px-6 py-5"
                     )}>
-                        <Handshake className={clsx("text-yellow-500", compact ? "w-5 h-5" : "w-8 h-8")} />
-                        <KeyRound className={clsx("text-yellow-500", compact ? "w-5 h-5" : "w-8 h-8")} />
+                        <Handshake className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
+                        <KeyRound className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
                     </div>
                 </motion.div>
 
@@ -86,7 +86,7 @@ export default function SmoothSalesProcess({
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={2} icon={<Cog className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Streamlined steps" compact={compact} />
+                    <ProcessPill i={2} icon={<Cog className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Streamlined steps" compact={compact} />
                 </motion.div>
                 <Connector compact={compact} vertical />
 
@@ -95,21 +95,24 @@ export default function SmoothSalesProcess({
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={3} icon={<Search className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="No hidden gotchas" compact={compact} />
+                    <ProcessPill i={3} icon={<Search className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="No hidden gotchas" compact={compact} />
                 </motion.div>
             </div>
 
             {/* Desktop: Horizontal flowchart layout */}
-            <div className="hidden md:grid relative grid-cols-3 lg:grid-cols-5 items-center justify-items-center gap-4 md:gap-6">
+            <div className={clsx(
+                "hidden md:flex relative items-center",
+                compact ? "justify-center gap-2" : "justify-between gap-4 md:gap-6"
+            )}>
                 <motion.div
-                    className="col-span-1 flex flex-col gap-3 md:gap-4"
+                    className={clsx("col-span-1 flex flex-col", compact ? "gap-2" : "gap-3 md:gap-4")}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={0} icon={<Heart className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Friendly support" compact={compact} />
+                    <ProcessPill i={0} icon={<Heart className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Friendly support" compact={compact} />
                     <Connector compact={compact} />
-                    <ProcessPill i={1} icon={<MessageCircle className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Clear communication" compact={compact} />
+                    <ProcessPill i={1} icon={<MessageCircle className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Clear communication" compact={compact} />
                 </motion.div>
 
                 <div className="col-span-1 lg:col-span-3 relative w-full flex items-center justify-center">
@@ -126,24 +129,24 @@ export default function SmoothSalesProcess({
                         aria-label="Keys handed over"
                     >
                         <div className={clsx(
-                            "flex items-center gap-2 md:gap-3 bg-white border border-yellow-400 rounded-2xl shadow-md",
-                            compact ? "px-3 py-2" : "px-6 py-5"
+                            "flex items-center bg-white border border-yellow-400 rounded-2xl shadow-md",
+                            compact ? "gap-1.5 px-2 py-1.5" : "gap-2 md:gap-3 px-6 py-5"
                         )}>
-                            <Handshake className={clsx("text-yellow-500", compact ? "w-5 h-5" : "w-8 h-8")} />
-                            <KeyRound className={clsx("text-yellow-500", compact ? "w-5 h-5" : "w-8 h-8")} />
+                            <Handshake className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
+                            <KeyRound className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
                         </div>
                     </motion.div>
                 </div>
 
                 <motion.div
-                    className="col-span-1 flex flex-col gap-3 md:gap-4"
+                    className={clsx("col-span-1 flex flex-col", compact ? "gap-2" : "gap-3 md:gap-4")}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <ProcessPill i={2} icon={<Cog className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="Streamlined steps" compact={compact} />
+                    <ProcessPill i={2} icon={<Cog className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="Streamlined steps" compact={compact} />
                     <Connector compact={compact} />
-                    <ProcessPill i={3} icon={<Search className={clsx(compact ? "w-4 h-4" : "w-6 h-6")} />} label="No hidden gotchas" compact={compact} />
+                    <ProcessPill i={3} icon={<Search className={clsx(compact ? "w-3 h-3" : "w-6 h-6")} />} label="No hidden gotchas" compact={compact} />
                 </motion.div>
             </div>
         </section>
@@ -156,17 +159,17 @@ function ProcessPill({ i, icon, label, compact }: { i: number; icon: React.React
             custom={i}
             variants={itemVariants}
             className={clsx(
-                "flex items-center gap-2 border rounded-full bg-white shadow-sm",
+                "flex items-center gap-1.5 border rounded-full bg-white shadow-sm",
                 compact
-                    ? "px-3 py-1.5 border-gray-200"
+                    ? "px-2 py-1 border-gray-200"
                     : "px-4 py-2 border-gray-300"
             )}
             role="listitem"
         >
-            <div className={clsx("flex items-center justify-center rounded-full bg-yellow-500 text-gray-900", compact ? "w-7 h-7" : "w-9 h-9") }>
+            <div className={clsx("flex items-center justify-center rounded-full bg-yellow-500 text-gray-900", compact ? "w-5 h-5" : "w-9 h-9") }>
                 {icon}
             </div>
-            <span className={clsx("text-gray-900 font-medium", compact ? "text-xs"  : "text-sm md:text-base") }>{label}</span>
+            <span className={clsx("text-gray-900 font-medium whitespace-nowrap", compact ? "text-[10px]" : "text-sm md:text-base") }>{label}</span>
         </motion.div>
     );
 }

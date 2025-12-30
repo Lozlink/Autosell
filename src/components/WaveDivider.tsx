@@ -10,20 +10,22 @@ interface WaveDividerProps {
   showDashedLine?: boolean
   /** Size variant */
   size?: 'sm' | 'md' | 'lg'
+  /** Optional text to display along the wave */
+  text?: string
+  /** Text color (default: gray-700) */
+  textColor?: string
 }
 
-/**
- * CarBuyers-style layered wave divider
- * Features two overlapping wave shapes with dashed line accent
- * Gentle, natural flowing curves (downward flow)
- */
+
 export default function WaveDivider({
   fillColor = '#FFC325',
   fillColorAlt = '#FFD966',
   bgColor = 'white',
   className = '',
   showDashedLine = true,
-  size = 'md'
+  size = 'md',
+  text,
+  textColor = '#E0D090'
 }: WaveDividerProps) {
   const sizeClasses = {
     sm: 'h-[80px] md:h-[120px] lg:h-[150px]',
@@ -63,6 +65,30 @@ export default function WaveDivider({
             opacity="0.7"
           />
         )}
+        {/* Optional text that follows the wave curve - positioned inside the darker wave band */}
+        {text && (
+          <>
+            <defs>
+              <path
+                id="waveDividerTextPath"
+                d="M50,105 C200,170 500,255 800,280 C1100,300 1300,265 1390,200"
+              />
+            </defs>
+            <text
+              fill={textColor}
+              fontSize="36"
+              fontWeight="500"
+              fontFamily="var(--font-all-round-gothic), system-ui, sans-serif"
+              letterSpacing="0.08em"
+              textRendering="optimizeLegibility"
+              opacity="0.7"
+            >
+              <textPath href="#waveDividerTextPath" startOffset="50%" textAnchor="middle" textLength="1000" lengthAdjust="spacing">
+                {text}
+              </textPath>
+            </text>
+          </>
+        )}
       </svg>
     </div>
   )
@@ -78,7 +104,9 @@ export function WaveTop({
   bgColor = 'white',
   className = '',
   showDashedLine = true,
-  size = 'md'
+  size = 'md',
+  text,
+  textColor = '#E0D090'
 }: WaveDividerProps) {
   const sizeClasses = {
     sm: 'h-[80px] md:h-[120px] lg:h-[150px]',
@@ -117,6 +145,30 @@ export function WaveTop({
             strokeDasharray="12,8"
             opacity="0.7"
           />
+        )}
+        {/* Optional text that follows the wave curve - positioned inside the darker wave band */}
+        {text && (
+          <>
+            <defs>
+              <path
+                id="waveTopTextPath"
+                d="M50,350 C150,315 300,267 500,207 C700,147 900,97 1100,77 C1250,72 1350,87 1400,127"
+              />
+            </defs>
+            <text
+              fill={textColor}
+              fontSize="36"
+              fontWeight="500"
+              fontFamily="var(--font-all-round-gothic), system-ui, sans-serif"
+              letterSpacing="0.08em"
+              textRendering="optimizeLegibility"
+              opacity="0.7"
+            >
+              <textPath href="#waveTopTextPath" startOffset="50%" textAnchor="middle" textLength="1000" lengthAdjust="spacing">
+                {text}
+              </textPath>
+            </text>
+          </>
         )}
       </svg>
     </div>
