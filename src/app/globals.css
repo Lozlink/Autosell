@@ -17,17 +17,16 @@
   --color-brand-black: #000000;
   --color-brand-white: #FFFFFF;
   --color-brand-gray: #8B8987;
-
-  --font-family-brand: "var(--font-all-round-gothic)", sans-serif;
-  --font-family-secondary: "var(--font-montserrat)", sans-serif;
-  --font-family-sans: "var(--font-geist-sans)", sans-serif;
-  --font-family-mono: "var(--font-geist-mono)", monospace;
 }
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  /* Font families - must be in :root, not @theme (runtime vs build time) */
+  --font-family-brand: var(--font-all-round-gothic), system-ui, sans-serif;
+  --font-family-secondary: var(--font-montserrat), system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,11 +45,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-family: var(--font-family-secondary);
+  font-family: var(--font-montserrat), system-ui, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-brand);
+  font-family: var(--font-all-round-gothic), system-ui, sans-serif !important;
 }
 
 @layer utilities {
