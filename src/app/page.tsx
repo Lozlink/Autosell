@@ -258,7 +258,7 @@ export default function Home() {
                               src={item.image!.src}
                               alt={item.image!.alt}
                               fill
-                              className={item.image?.fit === 'contain' ? 'object-contain p-2' : item.image?.fit === 'fill' ? 'object-fill' : 'object-cover'}
+                              className={item.image?.fit === 'fill' ? 'object-fill' : 'object-cover'}
                               sizes="(min-width: 768px) 40vw, 100vw"
                             />
                           )}
