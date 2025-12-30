@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Hero to How It Works */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" />
 
       {/* 3-Step Process */}
       <section id="how-it-works" className="py-12 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Reviews to Why Choose - layered wave */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" />
 
       {/* Why Choose Section */}
       <section id="why-choose" className="relative py-12 bg-gray-50 overflow-hidden">
@@ -219,7 +219,7 @@ export default function Home() {
                 image: {
                   src: "/images/branding/7days.jpg",
                   alt: "Open 7 days a week",
-                  fit: "contain" as const,
+                  fit: "fill" as const,
                 },
                 href: "/value-propositions/open-7-days",
               },
@@ -258,7 +258,7 @@ export default function Home() {
                               src={item.image!.src}
                               alt={item.image!.alt}
                               fill
-                              className={item.image?.fit === 'contain' ? 'object-contain p-2' : 'object-cover'}
+                              className={item.image?.fit === 'fill' ? 'object-fill' : 'object-cover'}
                               sizes="(min-width: 768px) 40vw, 100vw"
                             />
                           )}
