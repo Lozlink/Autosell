@@ -38,7 +38,7 @@ export default function Accordion({ items, allowMultiple = false, className = ""
               aria-controls={panelId}
               aria-expanded={isOpen}
               onClick={() => toggle(idx)}
-              className="w-full text-left py-4 md:py-5 px-0 md:px-4 flex items-center justify-between gap-4 group cursor-pointer"
+              className="w-full text-left py-4 md:py-5 px-3 md:px-4 flex items-center justify-between gap-4 group cursor-pointer"
             >
               <span className="text-lg font-semibold text-gray-500 group-hover:text-yellow-600 transition-colors">{item.title}</span>
               <svg
@@ -52,9 +52,9 @@ export default function Accordion({ items, allowMultiple = false, className = ""
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={`pl-0 md:pl-4 pr-0 md:pr-4 overflow-hidden transition-[max-height] duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
+              className={`pl-3 md:pl-4 pr-3 md:pr-4 overflow-hidden transition-[max-height] duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
             >
-              <div className="pb-4 text-gray-600">{item.content}</div>
+              <div className="pb-4 pl-2 text-gray-600">{item.content}</div>
             </div>
           </div>
         )

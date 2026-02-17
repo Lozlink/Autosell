@@ -65,28 +65,34 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
                 Sell Your Car Today
                 <span className="block mt-2 text-yellow-500">Get The Best Price Guaranteed</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700 mb-8">
+              <p className="text-lg md:text-xl text-gray-700 mb-8">
                 Get a <strong>FREE valuation</strong> in 30 minutes, same-day OSKO payment, and we come to you Australia-wide. No hassles, no fees.
               </p>
 
               {/* Trust Strip - 3 Key Differentiators */}
               <div className="grid md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
-                  <div className="text-3xl mb-2">⚡</div>
+                  <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center mb-2">
+                    <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
                   <h3 className="font-bold text-lg mb-1 text-gray-900">Fast</h3>
                   <p className="text-sm text-gray-600">Quote in 30 minutes, payment same day</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
-                  <div className="text-3xl mb-2">🤝</div>
+                  <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center mb-2">
+                    <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  </div>
                   <h3 className="font-bold text-lg mb-1 text-gray-900">Easy</h3>
                   <p className="text-sm text-gray-600">We come to you, handle all paperwork</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
-                  <div className="text-3xl mb-2">💰</div>
+                  <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center mb-2">
+                    <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </div>
                   <h3 className="font-bold text-lg mb-1 text-gray-900">Best Price</h3>
                   <p className="text-sm text-gray-600">We beat like-for-like offers, guaranteed</p>
                 </div>
@@ -105,16 +111,16 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Hero to How It Works */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="sm" />
 
       {/* 3-Step Process */}
       <section id="how-it-works" className="py-12 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600">Three simple steps to get cash for your car</p>
+            <p className="text-lg text-gray-600">Three simple steps to get cash for your car</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
@@ -144,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: How It Works to Reviews - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
 
       {/* Customer Reviews - Moved higher for social proof */}
       <section id="reviews" className="py-12 bg-[#FFF9E6]">
@@ -169,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Reviews to Why Choose - layered wave */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" size="sm" />
 
       {/* Why Choose Section */}
       <section id="why-choose" className="relative py-12 bg-gray-50 overflow-hidden">
@@ -219,7 +225,7 @@ export default function Home() {
                 image: {
                   src: "/images/branding/7days.jpg",
                   alt: "Open 7 days a week",
-                  fit: "fill" as const,
+                  fit: "contain" as const,
                 },
                 href: "/value-propositions/open-7-days",
               },
@@ -247,7 +253,7 @@ export default function Home() {
                   {/* Image */}
                   <div className="w-full md:w-2/5 flex-shrink-0">
                     <Link href={item.href} className="block">
-                      <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md group-hover:shadow-lg transition-shadow">
+                      <div className={`relative overflow-hidden rounded-xl border border-gray-200 shadow-md group-hover:shadow-lg transition-shadow ${item.image?.fit === 'contain' ? 'bg-gray-900' : 'bg-white'}`}>
                         <div className={item.type === "component" ? "relative md:aspect-[16/10]" : "relative aspect-[16/10]"}>
                           {item.type === "component" ? (
                             <div className="md:absolute md:inset-0 flex items-center justify-center">
@@ -258,7 +264,7 @@ export default function Home() {
                               src={item.image!.src}
                               alt={item.image!.alt}
                               fill
-                              className={item.image?.fit === 'fill' ? 'object-fill' : 'object-cover'}
+                              className={item.image?.fit === 'contain' ? 'object-contain' : 'object-cover'}
                               sizes="(min-width: 768px) 40vw, 100vw"
                             />
                           )}
@@ -275,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Why Choose to Car Models */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
 
       {/* Car Models We Buy */}
       <section className="py-12 bg-[#FFF9E6]">
@@ -348,7 +354,7 @@ export default function Home() {
               { type: 'Vans', href: '/types/vans', img: '/images/types/van.jpg' , desc: 'Passenger vans and cargo vans' },
               { type: 'Motorcycles', href: '/types/motorcycles', img: '/images/types/motorcycle.jpg' , desc: 'Bikes, scooters, and ATVs' },
             ].map((t) => (
-                <a key={t.type} href={t.href} className="group overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                <a key={t.type} href={t.href} className="group rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                   <div className="relative h-40">
                     <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${t.img})` }} />
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
@@ -418,7 +424,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Vehicle Types to FAQ - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
 
       {/* FAQ Section */}
       <section id="faq" className="relative py-12 bg-[#FFF9E6] overflow-hidden">
@@ -593,7 +599,7 @@ export default function Home() {
             <div className="text-center">
               <p className="text-gray-700 font-semibold text-lg mb-3">Or call us directly:</p>
               <a
-                href="tel:1800Auto-Sell"
+                href="tel:1800288673"
                 className="text-3xl md:text-4xl font-bold text-gray-900 hover:text-gray-700 transition-colors flex items-center justify-center gap-3"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

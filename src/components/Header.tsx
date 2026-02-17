@@ -34,21 +34,21 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 text-gray-700 border-b-2 border-brand-yellow" style={{ borderColor: '#FFC325' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex items-center py-5 gap-8">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" >
               <Image
                src='/brand-guideline/autosell-logo/PNG/1 (1).png'
                alt='Autosell.ai, The smart way to sell cars'
-               width={200}
-               height={100}
+               width={260}
+               height={130}
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex flex-1 items-center space-x-5">
             <Link href="/#how-it-works" className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">
               How It Works
             </Link>
@@ -82,7 +82,7 @@ export default function Header() {
                     <Link
                       key={brand}
                       href={`/sell-${brand.toLowerCase()}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                     >
                       {brand}
                     </Link>
@@ -127,7 +127,7 @@ export default function Header() {
                     <Link
                       key={item.type}
                       href={item.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                     >
                       {item.type}
                     </Link>
@@ -167,16 +167,16 @@ export default function Header() {
                   onMouseLeave={() => scheduleClose(setIsContactOpen, contactTimer)}
                 >
                   <div className="absolute -top-2 left-0 right-0 h-2"></div>
-                  <Link href="/contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
+                  <Link href="/contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                     Contact Us
                   </Link>
-                  <Link href="/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
+                  <Link href="/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                     Blog
                   </Link>
-                  <Link href="/#reviews" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
+                  <Link href="/#reviews" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                     Reviews
                   </Link>
-                  <Link href="/faq" className="block px-4 py-2 text-sm text-gray-700 hover:bg-zinc-800 hover:text-blue-600 transition-colors">
+                  <Link href="/faq" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                     FAQ
                   </Link>
                 </motion.div>
@@ -184,9 +184,9 @@ export default function Header() {
             </div>
 
             <a
-              href="tel:1800Auto-Sell"
+              href="tel:1800288673"
               aria-label="Call 1800 AUTO SELL"
-              className="px-6 py-2 rounded-lg font-bold transition-colors flex items-center gap-2"
+              className="ml-auto px-5 py-2 rounded-lg font-bold transition-colors flex items-center gap-2 text-sm"
               style={{ backgroundColor: '#FFC325', color: '#000000' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6af1f'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFC325'}
@@ -199,7 +199,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden ml-auto">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 cursor-pointer"
@@ -355,7 +355,7 @@ export default function Header() {
                 </Link>
 
                 <a
-                    href="tel:1800Auto-Sell"
+                    href="tel:1800288673"
                     className="px-6 py-3 rounded-lg font-bold transition-colors text-center flex items-center justify-center gap-2"
                     style={{ backgroundColor: '#FFC325', color: '#000000' }}
                 >
