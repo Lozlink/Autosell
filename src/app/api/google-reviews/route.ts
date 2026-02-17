@@ -47,7 +47,7 @@ export async function GET() {
     console.log(googleReviews)
 
     // Map Google’s fields to your UI model
-    const mapped: Review[] = googleReviews.slice(0, 12).map((r, idx) => ({
+    const mapped: Review[] = googleReviews.map((r, idx) => ({
       id: idx,
       name: r.author_name ?? 'Google User',
       location: '',
@@ -58,7 +58,10 @@ export async function GET() {
       url: r.author_url ?? '',
     }))
 
-    return NextResponse.json({ reviews: mapped, status: 'success' })
+    // Only show 5-star reviews
+    const fiveStarReviews = mapped.filter(r => r.rating === 5)
+
+    return NextResponse.json({ reviews: fiveStarReviews, status: 'success' })
   } catch (error) {
     console.error('Google Reviews API Error:', error)
     return NextResponse.json({ reviews: [], error: 'Failed to fetch reviews', status: 'error' })
