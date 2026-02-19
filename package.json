@@ -11,8 +11,8 @@
     "lint": "dotenvx run -- next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.991.0",
     "@dotenvx/dotenvx": "^1.44.2",
-    "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.2.4",
     "@hookform/resolvers": "^5.1.1",
     "@supabase/supabase-js": "^2.50.0",
@@ -20,7 +20,6 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
-    "emailjs": "^4.0.3",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
     "next": "^16.1.1",

@@ -2,36 +2,20 @@ import type { Metadata } from "next";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights} from "@vercel/speed-insights/next";
 import Script from 'next/script';
-import {Montserrat } from "next/font/google";
-import localFont from 'next/font/local';
+import { Montserrat, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import FloatingPhoneIcon from "@/components/FloatingPhoneIcon";
 import ChatbotWidget from "@/components/ChatbotWidget";
 
-// Brand font: All Round Gothic Demi
-const allRoundGothic = localFont({
-  src: [
-    {
-      path: '../../public/brand-guideline/Fonts/AllRoundGothic-Demi.ttf',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../../public/brand-guideline/Fonts/AllRoundGothic-DemiOblique.ttf',
-      weight: '600',
-      style: 'italic',
-    },
-    {
-      path: '../../public/brand-guideline/Fonts/AllRoundGothic-Medium.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-all-round-gothic',
+// Heading font: Nunito Sans (replacing All Round Gothic)
+const nunitoSans = Nunito_Sans({
+  variable: '--font-nunito-sans',
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
-// Secondary brand font: Montserrat
+// Body font: Montserrat
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -107,7 +91,7 @@ export default function RootLayout({
       <meta name="theme-color" content="#FFC325" />
     </head>
       <body
-        className={`${allRoundGothic.variable} ${montserrat.variable} md:mx-auto antialiased min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100`}
+        className={`${nunitoSans.variable} ${montserrat.variable} md:mx-auto antialiased min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100`}
       >
       <noscript>
         <iframe

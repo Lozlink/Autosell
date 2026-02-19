@@ -78,7 +78,7 @@ export default function WaveDivider({
               fill={textColor}
               fontSize="36"
               fontWeight="500"
-              fontFamily="var(--font-all-round-gothic), system-ui, sans-serif"
+              fontFamily="var(--font-nunito-sans), system-ui, sans-serif"
               letterSpacing="0.08em"
               textRendering="optimizeLegibility"
               opacity="0.7"
@@ -159,7 +159,7 @@ export function WaveTop({
               fill={textColor}
               fontSize="36"
               fontWeight="500"
-              fontFamily="var(--font-all-round-gothic), system-ui, sans-serif"
+              fontFamily="var(--font-nunito-sans), system-ui, sans-serif"
               letterSpacing="0.08em"
               textRendering="optimizeLegibility"
               opacity="0.7"

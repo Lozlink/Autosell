@@ -73,7 +73,6 @@ export default function ReviewsComponent() {
       try {
         const res = await fetch('/api/google-reviews', {cache: 'no-store'})
         const data = await res.json()
-        console.log(data)
         if (Array.isArray(data.reviews) && data.reviews.length > 0) {
           setReviews(data.reviews)
           setIsLoading(false)
