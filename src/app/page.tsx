@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Hero to How It Works */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="sm" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="md" />
 
       {/* 3-Step Process */}
       <section id="how-it-works" className="py-12 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: How It Works to Reviews - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
 
       {/* Customer Reviews - Moved higher for social proof */}
       <section id="reviews" className="py-12 bg-[#FFF9E6]">
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Reviews to Why Choose - layered wave */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" size="sm" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" size="md" />
 
       {/* Why Choose Section */}
       <section id="why-choose" className="relative py-12 bg-gray-50 overflow-hidden">
@@ -281,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Why Choose to Car Models */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
 
       {/* Car Models We Buy */}
       <section className="py-12 bg-[#FFF9E6]">
@@ -424,7 +424,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Vehicle Types to FAQ - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="sm" />
+      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
 
       {/* FAQ Section */}
       <section id="faq" className="relative py-12 bg-[#FFF9E6] overflow-hidden">
