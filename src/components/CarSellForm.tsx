@@ -16,13 +16,6 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
-const carMakes = [
-  'Toyota', 'Holden', 'Ford', 'Mazda', 'Hyundai', 'Nissan', 'Honda',
-  'Volkswagen', 'Mitsubishi', 'Subaru', 'BMW', 'Mercedes-Benz', 'Audi',
-  'Kia', 'Isuzu', 'Jeep', 'Land Rover', 'Volvo', 'Peugeot', 'Lexus',
-  'Infiniti', 'Jaguar', 'Porsche', 'Tesla', 'MG', 'Other'
-];
-
 export default function CarSellForm() {
   const [step, setStep] = useState(1);
   const [manualEntry, setManualEntry] = useState(false);
@@ -45,10 +38,19 @@ export default function CarSellForm() {
   const [error, setError] = useState<string | null>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
 
-  const currentYear = new Date().getFullYear();
-  const years = Array.from({length: 30}, (_, i) => currentYear - i);
+  // TODO: Will be populated by AutoGrab API response
+  const [regoLookupResult, setRegoLookupResult] = useState<{
+    make?: string;
+    model?: string;
+    year?: string;
+    badge?: string;
+    colour?: string;
+    bodyType?: string;
+    transmission?: string;
+    engineSize?: string;
+  } | null>(null);
 
-  const handleLeadSubmit = async (e: React.FormEvent) => {
+  const handleRegoLookup = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -59,7 +61,7 @@ export default function CarSellForm() {
       return;
     }
 
-    if (!manualEntry && (!formData.vinOrReg || !formData.state)) {
+    if (!formData.vinOrReg || !formData.state) {
       setError('Please enter your registration/VIN and select your state.');
       setLoading(false);
       return;
@@ -70,7 +72,7 @@ export default function CarSellForm() {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
-      vin_or_reg: formData.vinOrReg || 'manual_entry',
+      vin_or_reg: formData.vinOrReg,
       enquiry_type: 'lead_capture',
       created_at: new Date().toISOString(),
     };
@@ -79,6 +81,11 @@ export default function CarSellForm() {
     if (supabaseError) {
       console.error('Lead save error:', supabaseError);
     }
+
+    // TODO: Call AutoGrab API here with formData.vinOrReg and formData.state
+    // Then populate regoLookupResult with the response
+    // For now, show placeholder
+    setRegoLookupResult(null); // Will be set from API response
 
     // Move to step 2
     setStep(2);
@@ -90,11 +97,29 @@ export default function CarSellForm() {
     }, 100);
   };
 
-  const handleFullSubmit = async (e: React.FormEvent) => {
+  const handleManualSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setSuccess(false);
+
+    if (!formData.name || !formData.email || !formData.phone) {
+      setError('Please fill in all required fields.');
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.vehicleMake || !formData.vehicleModel || !formData.vehicleYear) {
+      setError('Please fill in Make, Model, and Year.');
+      setLoading(false);
+      return;
+    }
+
+    if (!/^\d{4}$/.test(formData.vehicleYear)) {
+      setError('Please enter a valid 4-digit year.');
+      setLoading(false);
+      return;
+    }
 
     const supabaseData = {
       name: formData.name,
@@ -109,6 +134,76 @@ export default function CarSellForm() {
       vehicle_condition: '',
       vehicle_description: formData.vehicleDescription || `${formData.vehicleBadge ? 'Badge: ' + formData.vehicleBadge : ''}`,
       message: formData.message || `Quote request for ${formData.vehicleYear} ${formData.vehicleMake} ${formData.vehicleModel}${formData.vehicleBadge ? ' ' + formData.vehicleBadge : ''}`,
+      budget: "",
+      preferred_location: formData.postcode,
+      vin_or_reg: 'manual_entry',
+    };
+
+    const { error: supabaseError } = await supabase.from('inquiries').insert([supabaseData]);
+    if (supabaseError) {
+      setError('Failed to save your quote request. Please try again.');
+      setLoading(false);
+      setTimeout(() => {
+        if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(supabaseData),
+      });
+      if (!res.ok) throw new Error('Email send failed');
+      setSuccess(true);
+      setLoading(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        vinOrReg: '',
+        state: '',
+        postcode: '',
+        vehicleMake: '',
+        vehicleModel: '',
+        vehicleBadge: '',
+        vehicleYear: '',
+        vehicleDescription: '',
+        message: ''
+      });
+      setManualEntry(false);
+      setTimeout(() => {
+        if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    } catch {
+      setError('Your quote request was saved, but email notification failed.');
+      setLoading(false);
+      setTimeout(() => {
+        if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  };
+
+  const handleRegoConfirmSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    const supabaseData = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      postcode: formData.postcode,
+      enquiry_type: 'sell',
+      vehicle_make: regoLookupResult?.make || formData.vehicleMake,
+      vehicle_model: regoLookupResult?.model || formData.vehicleModel,
+      vehicle_year: regoLookupResult?.year || formData.vehicleYear,
+      vehicle_odometer: '',
+      vehicle_condition: '',
+      vehicle_description: formData.vehicleDescription || '',
+      message: formData.message || `Quote request via rego lookup: ${formData.vinOrReg} (${formData.state})`,
       budget: "",
       preferred_location: formData.postcode,
       vin_or_reg: formData.vinOrReg,
@@ -147,7 +242,7 @@ export default function CarSellForm() {
         vehicleDescription: '',
         message: ''
       });
-      setManualEntry(false);
+      setRegoLookupResult(null);
       setStep(1);
       setTimeout(() => {
         if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -159,16 +254,25 @@ export default function CarSellForm() {
         if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 100);
     }
-  }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    // Restrict vehicleYear to digits only, max 4 characters
+    if (name === 'vehicleYear') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 4);
+      setFormData({ ...formData, [name]: digitsOnly });
+      return;
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
   }
 
-  // Step 1: Contact info + Rego/VIN or Manual entry option
+  // Step 1: Contact info + Rego/VIN or Manual entry
   if (step === 1) {
     return (
       <motion.div
@@ -204,7 +308,7 @@ export default function CarSellForm() {
           </div>
         )}
 
-        <form onSubmit={handleLeadSubmit} className="space-y-6">
+        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-6">
           {/* Contact Details */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
@@ -272,7 +376,7 @@ export default function CarSellForm() {
                       type="text"
                       id="vinOrReg"
                       name="vinOrReg"
-                      required={!manualEntry}
+                      required
                       value={formData.vinOrReg}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
@@ -286,7 +390,7 @@ export default function CarSellForm() {
                     <select
                       id="state"
                       name="state"
-                      required={!manualEntry}
+                      required
                       value={formData.state}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
@@ -309,25 +413,22 @@ export default function CarSellForm() {
               </>
             ) : (
               <>
-                {/* Manual Entry: Make, Model, Badge, Year */}
+                {/* Manual Entry: All free text fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="vehicleMake" className="block text-sm font-medium text-gray-700 mb-2">
                       Make *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="vehicleMake"
                       name="vehicleMake"
                       required
                       value={formData.vehicleMake}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="">Select Make</option>
-                      {carMakes.map(make => (
-                        <option key={make} value={make}>{make}</option>
-                      ))}
-                    </select>
+                      placeholder="e.g. Toyota, Ford, BMW"
+                    />
                   </div>
 
                   <div>
@@ -365,19 +466,51 @@ export default function CarSellForm() {
                     <label htmlFor="vehicleYear" className="block text-sm font-medium text-gray-700 mb-2">
                       Year *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="vehicleYear"
                       name="vehicleYear"
                       required
+                      inputMode="numeric"
+                      maxLength={4}
                       value={formData.vehicleYear}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="">Select Year</option>
-                      {years.map(year => (
-                        <option key={year} value={year.toString()}>{year}</option>
-                      ))}
-                    </select>
+                      placeholder="e.g. 2019"
+                    />
+                  </div>
+                </div>
+
+                {/* Postcode & Message for manual entry */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div>
+                    <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
+                      Postcode
+                    </label>
+                    <input
+                      type="text"
+                      id="postcode"
+                      name="postcode"
+                      value={formData.postcode}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                      placeholder="2000"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Additional Info
+                    </label>
+                    <input
+                      type="text"
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                      placeholder="Any additional details..."
+                    />
                   </div>
                 </div>
 
@@ -399,7 +532,7 @@ export default function CarSellForm() {
             whileTap={{ scale: 0.98 }}
             className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Finding Your Car...' : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
+            {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
           </motion.button>
         </form>
 
@@ -421,7 +554,7 @@ export default function CarSellForm() {
     );
   }
 
-  // Step 2: Confirm car or enter details manually
+  // Step 2: Rego lookup confirmation only (not shown for manual entry)
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -443,7 +576,7 @@ export default function CarSellForm() {
           </button>
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-            <span className="text-sm font-medium text-gray-700">Vehicle Details</span>
+            <span className="text-sm font-medium text-gray-700">Confirm Vehicle</span>
           </div>
         </div>
       </div>
@@ -467,221 +600,108 @@ export default function CarSellForm() {
           <button onClick={() => setError(null)} className="ml-4 text-red-800 hover:text-red-900 font-bold text-xl leading-none">&times;</button>
         </div>
       )}
-
-      {/* If user came via Rego/VIN lookup (not manual), show confirmation prompt */}
-      {!manualEntry && formData.vinOrReg && !formData.vehicleMake ? (
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Tell us about your car
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Enter your vehicle details below so we can give you the most accurate quote for <strong>{formData.vinOrReg}</strong> ({formData.state}).
-          </p>
-
-          <form onSubmit={handleFullSubmit} className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Enter Your Vehicle Details</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="vehicleMake" className="block text-sm font-medium text-gray-700 mb-2">
-                    Make *
-                  </label>
-                  <select
-                    id="vehicleMake"
-                    name="vehicleMake"
-                    required
-                    value={formData.vehicleMake}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                  >
-                    <option value="">Select Make</option>
-                    {carMakes.map(make => (
-                      <option key={make} value={make}>{make}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="vehicleModel" className="block text-sm font-medium text-gray-700 mb-2">
-                    Model *
-                  </label>
-                  <input
-                    type="text"
-                    id="vehicleModel"
-                    name="vehicleModel"
-                    required
-                    value={formData.vehicleModel}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    placeholder="e.g. Camry, Commodore"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="vehicleBadge" className="block text-sm font-medium text-gray-700 mb-2">
-                    Badge
-                  </label>
-                  <input
-                    type="text"
-                    id="vehicleBadge"
-                    name="vehicleBadge"
-                    value={formData.vehicleBadge}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    placeholder="e.g. SX, SR5, Ascent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="vehicleYear" className="block text-sm font-medium text-gray-700 mb-2">
-                    Year *
-                  </label>
-                  <select
-                    id="vehicleYear"
-                    name="vehicleYear"
-                    required
-                    value={formData.vehicleYear}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                  >
-                    <option value="">Select Year</option>
-                    {years.map(year => (
-                      <option key={year} value={year.toString()}>{year}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Postcode & Message */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
-                    Postcode *
-                  </label>
-                  <input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    required
-                    value={formData.postcode}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    placeholder="2000"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Additional Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={3}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors resize-vertical"
-                    placeholder="Any additional details..."
-                  />
-                </div>
-              </div>
-            </div>
-
-            <motion.button
-              type="submit"
-              disabled={loading}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
-            </motion.button>
-          </form>
-        </div>
-      ) : (
-        // Manual entry flow (user already entered Make/Model/Badge/Year in step 1)
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Confirm Your Details
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Almost done! Just add your location and any extra info.
-          </p>
-
-          {/* Show entered vehicle summary */}
-          {formData.vehicleMake && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-gray-900">
-                    {formData.vehicleYear} {formData.vehicleMake} {formData.vehicleModel}
-                    {formData.vehicleBadge ? ` ${formData.vehicleBadge}` : ''}
-                  </p>
-                  {formData.vinOrReg && (
-                    <p className="text-sm text-gray-500 mt-1">Rego/VIN: {formData.vinOrReg}</p>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setStep(1)}
-                  className="text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer"
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-          )}
-
-          <form onSubmit={handleFullSubmit} className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
-                    Postcode *
-                  </label>
-                  <input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    required
-                    value={formData.postcode}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    placeholder="2000"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Additional Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={3}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors resize-vertical"
-                    placeholder="Any additional details..."
-                  />
-                </div>
-              </div>
-            </div>
-
-            <motion.button
-              type="submit"
-              disabled={loading}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
-            </motion.button>
-          </form>
+      {success && (
+        <div className="bg-green-100 border border-green-200 text-green-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
+          <div className="flex items-center gap-2">
+            <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+            <span><strong className="font-bold">Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
+          </div>
+          <button onClick={() => setSuccess(false)} className="ml-4 text-green-800 hover:text-green-900 font-bold text-xl leading-none">&times;</button>
         </div>
       )}
+
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        Confirm Your Vehicle
+      </h2>
+      <p className="text-gray-600 mb-6">
+        We looked up <strong>{formData.vinOrReg}</strong> ({formData.state}). Please confirm the details below.
+      </p>
+
+      {/* Vehicle details from API */}
+      {regoLookupResult ? (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Vehicle Found</h3>
+          <div className="grid grid-cols-2 gap-3 text-sm">
+            {regoLookupResult.year && (
+              <div><span className="text-gray-500">Year:</span> <span className="font-medium">{regoLookupResult.year}</span></div>
+            )}
+            {regoLookupResult.make && (
+              <div><span className="text-gray-500">Make:</span> <span className="font-medium">{regoLookupResult.make}</span></div>
+            )}
+            {regoLookupResult.model && (
+              <div><span className="text-gray-500">Model:</span> <span className="font-medium">{regoLookupResult.model}</span></div>
+            )}
+            {regoLookupResult.badge && (
+              <div><span className="text-gray-500">Badge:</span> <span className="font-medium">{regoLookupResult.badge}</span></div>
+            )}
+            {regoLookupResult.colour && (
+              <div><span className="text-gray-500">Colour:</span> <span className="font-medium">{regoLookupResult.colour}</span></div>
+            )}
+            {regoLookupResult.bodyType && (
+              <div><span className="text-gray-500">Body Type:</span> <span className="font-medium">{regoLookupResult.bodyType}</span></div>
+            )}
+            {regoLookupResult.transmission && (
+              <div><span className="text-gray-500">Transmission:</span> <span className="font-medium">{regoLookupResult.transmission}</span></div>
+            )}
+            {regoLookupResult.engineSize && (
+              <div><span className="text-gray-500">Engine:</span> <span className="font-medium">{regoLookupResult.engineSize}</span></div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="flex items-center gap-3 text-gray-500">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-sm">Vehicle details will appear here once the AutoGrab API is connected. For now, we&apos;ve recorded your registration.</p>
+          </div>
+        </div>
+      )}
+
+      <form onSubmit={handleRegoConfirmSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
+              Postcode
+            </label>
+            <input
+              type="text"
+              id="postcode"
+              name="postcode"
+              value={formData.postcode}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+              placeholder="2000"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              Additional Info
+            </label>
+            <input
+              type="text"
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+              placeholder="Any additional details..."
+            />
+          </div>
+        </div>
+
+        <motion.button
+          type="submit"
+          disabled={loading}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
+        </motion.button>
+      </form>
 
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
