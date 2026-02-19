@@ -114,7 +114,7 @@ export default function Home() {
       <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="md" />
 
       {/* 3-Step Process */}
-      <section id="how-it-works" className="py-12 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+      <section id="how-it-works" className="py-12 ">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -178,7 +178,7 @@ export default function Home() {
       <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" size="md" />
 
       {/* Why Choose Section */}
-      <section id="why-choose" className="relative py-12 bg-gray-50 overflow-hidden">
+      <section id="why-choose" className="relative py-12 overflow-hidden">
         {/* Logo Underlay - Left side, partially off-screen */}
         <div className="absolute top-1/2 -translate-y-1/2 -left-32 lg:-left-16 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
