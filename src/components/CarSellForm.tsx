@@ -38,6 +38,8 @@ export default function CarSellForm() {
   const [error, setError] = useState<string | null>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
 
+  const [notMyCar, setNotMyCar] = useState(false);
+
   // TODO: Will be populated by AutoGrab API response
   const [regoLookupResult, setRegoLookupResult] = useState<{
     make?: string;
@@ -191,22 +193,37 @@ export default function CarSellForm() {
     setError(null);
     setSuccess(false);
 
+    if (notMyCar) {
+      if (!formData.vehicleMake || !formData.vehicleModel || !formData.vehicleYear) {
+        setError('Please fill in Make, Model, and Year.');
+        setLoading(false);
+        return;
+      }
+      if (!/^\d{4}$/.test(formData.vehicleYear)) {
+        setError('Please enter a valid 4-digit year.');
+        setLoading(false);
+        return;
+      }
+    }
+
     const supabaseData = {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       postcode: formData.postcode,
       enquiry_type: 'sell',
-      vehicle_make: regoLookupResult?.make || formData.vehicleMake,
-      vehicle_model: regoLookupResult?.model || formData.vehicleModel,
-      vehicle_year: regoLookupResult?.year || formData.vehicleYear,
+      vehicle_make: notMyCar ? formData.vehicleMake : (regoLookupResult?.make || formData.vehicleMake),
+      vehicle_model: notMyCar ? formData.vehicleModel : (regoLookupResult?.model || formData.vehicleModel),
+      vehicle_year: notMyCar ? formData.vehicleYear : (regoLookupResult?.year || formData.vehicleYear),
       vehicle_odometer: '',
       vehicle_condition: '',
-      vehicle_description: formData.vehicleDescription || '',
+      vehicle_description: notMyCar
+        ? `${formData.vehicleBadge ? 'Badge: ' + formData.vehicleBadge : ''}`
+        : (formData.vehicleDescription || ''),
       message: formData.message || `Quote request via rego lookup: ${formData.vinOrReg} (${formData.state})`,
       budget: "",
       preferred_location: formData.postcode,
-      vin_or_reg: formData.vinOrReg,
+      vin_or_reg: notMyCar ? 'manual_entry' : formData.vinOrReg,
     };
 
     const { error: supabaseError } = await supabase.from('inquiries').insert([supabaseData]);
@@ -243,6 +260,7 @@ export default function CarSellForm() {
         message: ''
       });
       setRegoLookupResult(null);
+      setNotMyCar(false);
       setStep(1);
       setTimeout(() => {
         if (feedbackRef.current) feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -617,8 +635,82 @@ export default function CarSellForm() {
         We looked up <strong>{formData.vinOrReg}</strong> ({formData.state}). Please confirm the details below.
       </p>
 
-      {/* Vehicle details from API */}
-      {regoLookupResult ? (
+      {/* Vehicle details from API or manual entry */}
+      {notMyCar ? (
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Enter Your Vehicle Details</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="vehicleMake" className="block text-sm font-medium text-gray-700 mb-2">
+                Make *
+              </label>
+              <input
+                type="text"
+                id="vehicleMake"
+                name="vehicleMake"
+                required
+                value={formData.vehicleMake}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                placeholder="e.g. Toyota, Ford, BMW"
+              />
+            </div>
+            <div>
+              <label htmlFor="vehicleModel" className="block text-sm font-medium text-gray-700 mb-2">
+                Model *
+              </label>
+              <input
+                type="text"
+                id="vehicleModel"
+                name="vehicleModel"
+                required
+                value={formData.vehicleModel}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                placeholder="e.g. Camry, Commodore"
+              />
+            </div>
+            <div>
+              <label htmlFor="vehicleBadge" className="block text-sm font-medium text-gray-700 mb-2">
+                Badge
+              </label>
+              <input
+                type="text"
+                id="vehicleBadge"
+                name="vehicleBadge"
+                value={formData.vehicleBadge}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                placeholder="e.g. SX, SR5, Ascent"
+              />
+            </div>
+            <div>
+              <label htmlFor="vehicleYear" className="block text-sm font-medium text-gray-700 mb-2">
+                Year *
+              </label>
+              <input
+                type="text"
+                id="vehicleYear"
+                name="vehicleYear"
+                required
+                inputMode="numeric"
+                maxLength={4}
+                value={formData.vehicleYear}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
+                placeholder="e.g. 2019"
+              />
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setNotMyCar(false)}
+            className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+          >
+            Use the looked-up vehicle instead
+          </button>
+        </div>
+      ) : regoLookupResult ? (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Vehicle Found</h3>
           <div className="grid grid-cols-2 gap-3 text-sm">
@@ -647,6 +739,13 @@ export default function CarSellForm() {
               <div><span className="text-gray-500">Engine:</span> <span className="font-medium">{regoLookupResult.engineSize}</span></div>
             )}
           </div>
+          <button
+            type="button"
+            onClick={() => setNotMyCar(true)}
+            className="mt-4 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+          >
+            Not your car? Enter details manually
+          </button>
         </div>
       ) : (
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
@@ -656,6 +755,13 @@ export default function CarSellForm() {
             </svg>
             <p className="text-sm">Vehicle details will appear here once the AutoGrab API is connected. For now, we&apos;ve recorded your registration.</p>
           </div>
+          <button
+            type="button"
+            onClick={() => setNotMyCar(true)}
+            className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+          >
+            Not your car? Enter details manually
+          </button>
         </div>
       )}
 
