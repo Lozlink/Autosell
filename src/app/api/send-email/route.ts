@@ -5,9 +5,9 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const { name, email, phone, postcode, vehicle_make, vehicle_model, vehicle_year } = body;
+    const { name, email, phone, vehicle_make, vehicle_model, vehicle_year } = body;
 
-    if (!name || !email || !phone || !postcode || !vehicle_make || !vehicle_model || !vehicle_year) {
+    if (!name || !email || !phone || !vehicle_make || !vehicle_model || !vehicle_year) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
