@@ -77,11 +77,11 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <Link href="mailto:info@Auto-Sell.ai" className="font-semibold" style={{ color: '#FFC325' }}>
+                  <Link href="mailto:info@auto-Sell.ai" className="font-semibold" style={{ color: '#FFC325' }}>
                   <div>
                     <h3 className="font-semibold text-gray-800">Email Us</h3>
 
-                      info@Auto-Sell.ai
+                      info@auto-sell.ai
 
                     <p className="text-sm text-gray-600">Response within 2 hours</p>
                   </div>

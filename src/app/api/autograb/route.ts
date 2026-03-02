@@ -6,8 +6,7 @@ export async function GET(request: NextRequest) {
     const plate = searchParams.get('plate');
     const state = searchParams.get('state');
 
-    const cleanPlate = plate?.replace(/\s/g, '') || '';
-    if (!cleanPlate || !state) {
+    if (!plate || !state) {
       return NextResponse.json(
         { error: 'Missing required parameters: plate and state' },
         { status: 400 }
@@ -24,7 +23,7 @@ export async function GET(request: NextRequest) {
     }
 
     const url = new URL(
-      `https://api.autograb.com.au/v2/vehicles/registrations/${encodeURIComponent(cleanPlate)}`
+      `https://api.autograb.com.au/v2/vehicles/registrations/${encodeURIComponent(plate)}`
     );
     url.searchParams.set('state', state);
     url.searchParams.set('region', 'au');
