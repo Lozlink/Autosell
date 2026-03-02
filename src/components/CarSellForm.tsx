@@ -40,7 +40,6 @@ export default function CarSellForm() {
 
   const [notMyCar, setNotMyCar] = useState(false);
 
-  // TODO: Will be populated by AutoGrab API response
   const [regoLookupResult, setRegoLookupResult] = useState<{
     make?: string;
     model?: string;
@@ -84,10 +83,38 @@ export default function CarSellForm() {
       console.error('Lead save error:', supabaseError);
     }
 
-    // TODO: Call AutoGrab API here with formData.vinOrReg and formData.state
-    // Then populate regoLookupResult with the response
-    // For now, show placeholder
-    setRegoLookupResult(null); // Will be set from API response
+    // Call AutoGrab API via our server-side proxy
+    try {
+      const res = await fetch(
+        `/api/autograb?plate=${encodeURIComponent(formData.vinOrReg)}&state=${encodeURIComponent(formData.state)}`
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        const vehicle = data?.vehicle;
+
+        if (vehicle) {
+          setRegoLookupResult({
+            make: vehicle.make || undefined,
+            model: vehicle.model || undefined,
+            year: vehicle.year || undefined,
+            badge: vehicle.badge || undefined,
+            colour: data.colour || undefined,
+            bodyType: vehicle.body_type || undefined,
+            transmission: vehicle.transmission || undefined,
+            engineSize: vehicle.capacity_cc ? `${vehicle.capacity_cc}cc` : undefined,
+          });
+        } else {
+          setRegoLookupResult(null);
+        }
+      } else {
+        console.error('AutoGrab lookup failed:', res.status);
+        setRegoLookupResult(null);
+      }
+    } catch (err) {
+      console.error('AutoGrab lookup error:', err);
+      setRegoLookupResult(null);
+    }
 
     // Move to step 2
     setStep(2);
@@ -753,7 +780,7 @@ export default function CarSellForm() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p className="text-sm">Vehicle details will appear here once the AutoGrab API is connected. For now, we&apos;ve recorded your registration.</p>
+            <p className="text-sm">We couldn&apos;t find vehicle details for this registration. You can still get a quote by entering your vehicle details manually below.</p>
           </div>
           <button
             type="button"
