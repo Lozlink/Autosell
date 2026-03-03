@@ -48,7 +48,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="relative bg-[#FFF9E6] text-gray-900 pt-12 pb-8 overflow-hidden">
+      <section id="sell-form" className="relative bg-[#FFF9E6] text-gray-900 pt-6 lg:pt-12 pb-8 overflow-hidden">
         {/* Logo Underlay - Right side, partially off-screen */}
         <div className="absolute top-1/2 -translate-y-1/2 -right-20 md:-right-10 lg:right-0 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
@@ -62,9 +62,17 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Hero Content */}
-            <div>
+          {/* Heading - always on top */}
+          <div className="mb-4 lg:hidden">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900">
+              Sell Your Car Today
+              <span className="block mt-1 text-yellow-500">Get The Best Price Guaranteed</span>
+            </h1>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            {/* Hero Content - hidden on mobile (heading pulled above, trust strip below form) */}
+            <div className="hidden lg:block">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
                 Sell Your Car Today
                 <span className="block mt-2 text-yellow-500">Get The Best Price Guaranteed</span>
