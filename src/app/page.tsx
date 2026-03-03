@@ -113,30 +113,30 @@ export default function Home() {
       <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="md" />
 
       {/* 3-Step Process */}
-      <section id="how-it-works" className="py-12 ">
+      <section id="how-it-works" className="py-8 md:py-12">
         <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
               How It Works
             </h2>
-            <p className="text-lg text-gray-600">Three simple steps to get cash for your car</p>
+            <p className="text-base md:text-lg text-gray-600">Three simple steps to get cash for your car</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-            <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-3xl font-bold text-gray-900">1</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Get Your Quote</h3>
-              <p className="text-gray-600 leading-relaxed">Fill out our simple form and receive an instant offer within 30 minutes</p>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mb-6 md:mb-8">
+            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
+              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">1</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Get Your Quote</h3>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Fill out our simple form and receive an instant offer within 30 minutes</p>
             </div>
-            <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-3xl font-bold text-gray-900">2</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Book Inspection</h3>
-              <p className="text-gray-600 leading-relaxed">Schedule a free on-site inspection at your convenience - we come to you</p>
+            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
+              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">2</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Book Inspection</h3>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Schedule a free on-site inspection at your convenience - we come to you</p>
             </div>
-            <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-3xl font-bold text-gray-900">3</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Get Paid Instantly</h3>
-              <p className="text-gray-600 leading-relaxed">Same-day OSKO payment directly to your bank account - it&#39;s that simple</p>
+            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
+              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">3</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Get Paid Instantly</h3>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Same-day OSKO payment directly to your bank account - it&#39;s that simple</p>
             </div>
           </div>
 
@@ -174,10 +174,10 @@ export default function Home() {
       </section>
 
       {/* Wave divider: Reviews to Why Choose - layered wave */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#F9FAFB" text="Sell your car the smarter way" size="md" />
+      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#ffffff" text="Sell your car the smarter way" size="md" />
 
       {/* Why Choose Section */}
-      <section id="why-choose" className="relative py-12 overflow-hidden">
+      <section id="why-choose" className="relative py-8 md:py-12 overflow-hidden">
         {/* Logo Underlay - Left side, partially off-screen */}
         <div className="absolute top-1/2 -translate-y-1/2 -left-32 lg:-left-16 opacity-[0.05] pointer-events-none z-0 hidden md:block">
           <Image
@@ -191,14 +191,14 @@ export default function Home() {
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
               Why Choose The Smarter Way?
             </h2>
-            <p className="text-lg text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
+            <p className="text-base md:text-lg text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {[
               {
                 title: "Instant Payment",
@@ -236,7 +236,7 @@ export default function Home() {
               },
             ].map((item, i) => (
               <div key={i} className="group">
-                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8`}>
+                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-4 md:gap-8`}>
 
                   {/* Text Content */}
                   <div className="flex-1 flex items-start gap-4">
@@ -491,18 +491,18 @@ export default function Home() {
 
 
       {/* Process Details Section */}
-      <section className="py-12 bg-gradient-to-br from-blue-50 via-white to-gray-50">
+      <section className="py-8 md:py-12 bg-gradient-to-br from-blue-50 via-white to-gray-50">
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-2 md:mb-3">
               What Happens After You Submit?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-xl text-gray-600">
               Our streamlined process gets you paid quickly and safely
             </p>
           </div>
-          
-          <div className="  grid md:grid-cols-2 gap-4 md:gap-6">
+
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             <div className="p-0 md:py-3">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Immediate Response</h3>
               <ul className="space-y-2 text-gray-600">
@@ -525,7 +525,7 @@ export default function Home() {
               </ul>
             </div>
             {/* Flowing image suggestion replacing placeholder CTA */}
-            <div className="relative h-96 md:h-full md:row-span-2 md:col-start-2 md:row-start-1 min-h-[220px] rounded-xl overflow-hidden">
+            <div className="relative h-56 md:h-full md:row-span-2 md:col-start-2 md:row-start-1 min-h-[220px] rounded-xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop"
                 alt="Sleek car silhouette at night, representing a fast, seamless selling journey"
