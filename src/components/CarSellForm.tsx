@@ -16,6 +16,10 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
+const inputClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-colors";
+const labelClass = "block text-sm font-semibold text-gray-800 mb-1.5 tracking-wide";
+const formFont = { fontFamily: 'var(--font-montserrat), system-ui, sans-serif' };
+
 export default function CarSellForm() {
   const [step, setStep] = useState(1);
   const [manualEntry, setManualEntry] = useState(false);
@@ -317,539 +321,340 @@ export default function CarSellForm() {
     })
   }
 
-  // Step 1: Contact info + Rego/VIN or Manual entry
+  // Step progress indicator
+  const StepIndicator = ({ current }: { current: 1 | 2 }) => (
+    <div className="flex items-center justify-center gap-0 mb-8">
+      <div className={`w-9 h-9 rounded-md flex items-center justify-center text-sm font-bold transition-colors ${current >= 1 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
+        1
+      </div>
+      <div className={`flex-1 h-0.5 max-w-32 transition-colors ${current >= 2 ? 'bg-gray-900' : 'bg-gray-200'}`} />
+      <div className={`w-9 h-9 rounded-md flex items-center justify-center text-sm font-bold transition-colors ${current >= 2 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
+        2
+      </div>
+    </div>
+  );
+
+  // Step 1: Vehicle info + Contact details
   if (step === 1) {
     return (
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="bg-white rounded-xl p-8 shadow-lg"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="p-6 md:p-8"
+        style={formFont}
       >
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
-          Get Your Free Car Valuation
-        </h2>
-        <p className="text-gray-600 mb-8">
-          Takes less than 1 minute &bull; Get your quote in 30 minutes &bull; No obligations
-        </p>
+        <StepIndicator current={1} />
 
         <div ref={feedbackRef} />
         {error && (
-          <div className="bg-blue-100 border border-blue-200 text-blue-600 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
-            <div className="flex items-center gap-2">
-              <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span><strong className="font-bold">Error!</strong> {error}</span>
-            </div>
-            <button onClick={() => setError(null)} className="ml-4 text-blue-600 hover:text-blue-700 font-bold text-xl leading-none">&times;</button>
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+            <span>{error}</span>
+            <button onClick={() => setError(null)} className="ml-4 text-red-500 hover:text-red-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
         {success && (
-          <div className="bg-green-100 border border-green-200 text-green-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
-            <div className="flex items-center gap-2">
-              <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong className="font-bold">Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
-            </div>
-            <button onClick={() => setSuccess(false)} className="ml-4 text-green-800 hover:text-green-900 font-bold text-xl leading-none">&times;</button>
+          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+            <span><strong>Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
+            <button onClick={() => setSuccess(false)} className="ml-4 text-green-500 hover:text-green-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
 
-        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-6">
-          {/* Contact Details */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="Your name"
-              />
-            </div>
+        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-5">
+          {/* Vehicle Identification */}
+          {!manualEntry ? (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="md:col-span-2">
+                  <label htmlFor="vinOrReg" className={labelClass}>
+                    Registration or VIN
+                  </label>
+                  <input
+                    type="text"
+                    id="vinOrReg"
+                    name="vinOrReg"
+                    required
+                    value={formData.vinOrReg}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="e.g. ABC123 or 17-digit VIN"
+                  />
+                </div>
+              </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Mobile *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="0400 000 000"
-              />
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="state" className={labelClass}>
+                    Registration State
+                  </label>
+                  <select
+                    id="state"
+                    name="state"
+                    required
+                    value={formData.state}
+                    onChange={handleChange}
+                    className={inputClass}
+                  >
+                    <option value="">Select State</option>
+                    {australianStates.map(s => (
+                      <option key={s.value} value={s.value}>{s.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="postcode" className={labelClass}>
+                    Postcode
+                  </label>
+                  <input
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    value={formData.postcode}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="e.g. 2000"
+                  />
+                </div>
+              </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="your.email@example.com"
-              />
+              <button
+                type="button"
+                onClick={() => setManualEntry(true)}
+                className="text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
+              >
+                Or enter car details manually
+              </button>
             </div>
-          </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="vehicleMake" className={labelClass}>Make</label>
+                  <input type="text" id="vehicleMake" name="vehicleMake" required value={formData.vehicleMake} onChange={handleChange} className={inputClass} placeholder="e.g. Toyota" />
+                </div>
+                <div>
+                  <label htmlFor="vehicleModel" className={labelClass}>Model</label>
+                  <input type="text" id="vehicleModel" name="vehicleModel" required value={formData.vehicleModel} onChange={handleChange} className={inputClass} placeholder="e.g. Camry" />
+                </div>
+                <div>
+                  <label htmlFor="vehicleYear" className={labelClass}>Year</label>
+                  <input type="text" id="vehicleYear" name="vehicleYear" required inputMode="numeric" maxLength={4} value={formData.vehicleYear} onChange={handleChange} className={inputClass} placeholder="e.g. 2019" />
+                </div>
+                <div>
+                  <label htmlFor="vehicleBadge" className={labelClass}>Badge</label>
+                  <input type="text" id="vehicleBadge" name="vehicleBadge" value={formData.vehicleBadge} onChange={handleChange} className={inputClass} placeholder="e.g. SR5" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="postcode" className={labelClass}>Postcode</label>
+                  <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
+                </div>
+                <div>
+                  <label htmlFor="message" className={labelClass}>Additional Info</label>
+                  <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setManualEntry(false)}
+                className="text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
+              >
+                Use registration/VIN instead
+              </button>
+            </div>
+          )}
 
           {/* Divider */}
-          <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Vehicle Identification</h3>
-
-            {!manualEntry ? (
-              <>
-                {/* Rego/VIN + State */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="md:col-span-2">
-                    <label htmlFor="vinOrReg" className="block text-sm font-medium text-gray-700 mb-2">
-                      Registration or VIN *
-                    </label>
-                    <input
-                      type="text"
-                      id="vinOrReg"
-                      name="vinOrReg"
-                      required
-                      value={formData.vinOrReg}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="e.g. ABC123 or 17-digit VIN"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">
-                      State *
-                    </label>
-                    <select
-                      id="state"
-                      name="state"
-                      required
-                      value={formData.state}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="">Select</option>
-                      {australianStates.map(s => (
-                        <option key={s.value} value={s.value}>{s.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setManualEntry(true)}
-                  className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
-                >
-                  Or enter car details manually
-                </button>
-              </>
-            ) : (
-              <>
-                {/* Manual Entry: All free text fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="vehicleMake" className="block text-sm font-medium text-gray-700 mb-2">
-                      Make *
-                    </label>
-                    <input
-                      type="text"
-                      id="vehicleMake"
-                      name="vehicleMake"
-                      required
-                      value={formData.vehicleMake}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="e.g. Toyota, Ford, BMW"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="vehicleModel" className="block text-sm font-medium text-gray-700 mb-2">
-                      Model *
-                    </label>
-                    <input
-                      type="text"
-                      id="vehicleModel"
-                      name="vehicleModel"
-                      required
-                      value={formData.vehicleModel}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="e.g. Camry, Commodore"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="vehicleBadge" className="block text-sm font-medium text-gray-700 mb-2">
-                      Badge
-                    </label>
-                    <input
-                      type="text"
-                      id="vehicleBadge"
-                      name="vehicleBadge"
-                      value={formData.vehicleBadge}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="e.g. SX, SR5, Ascent"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="vehicleYear" className="block text-sm font-medium text-gray-700 mb-2">
-                      Year *
-                    </label>
-                    <input
-                      type="text"
-                      id="vehicleYear"
-                      name="vehicleYear"
-                      required
-                      inputMode="numeric"
-                      maxLength={4}
-                      value={formData.vehicleYear}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="e.g. 2019"
-                    />
-                  </div>
-                </div>
-
-                {/* Postcode & Message for manual entry */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
-                      Postcode
-                    </label>
-                    <input
-                      type="text"
-                      id="postcode"
-                      name="postcode"
-                      value={formData.postcode}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="2000"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Additional Info
-                    </label>
-                    <input
-                      type="text"
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                      placeholder="Any additional details..."
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setManualEntry(false)}
-                  className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
-                >
-                  Use registration/VIN instead
-                </button>
-              </>
-            )}
+          <div className="border-t border-gray-100 pt-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label htmlFor="name" className={labelClass}>Name</label>
+                <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Your name" />
+              </div>
+              <div>
+                <label htmlFor="phone" className={labelClass}>Mobile</label>
+                <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="0400 000 000" />
+              </div>
+              <div>
+                <label htmlFor="email" className={labelClass}>Email</label>
+                <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="your@email.com" />
+              </div>
+            </div>
           </div>
 
           <motion.button
             type="submit"
             disabled={loading}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-gray-900 text-white py-4 px-6 rounded-md text-lg font-bold tracking-wide uppercase hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
+            {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'GET MY FREE QUOTE' : 'FIND MY CAR'}
           </motion.button>
         </form>
 
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-            <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            Your information is secure and will not be shared with third parties
-          </p>
-          <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
-            <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            We&apos;ll contact you within 30 minutes with your competitive offer
-          </p>
-        </div>
+        <p className="mt-5 text-center text-xs text-gray-400">
+          Your information is secure and will not be shared with third parties
+        </p>
       </motion.div>
     );
   }
 
-  // Step 2: Rego lookup confirmation only (not shown for manual entry)
+  // Step 2: Rego lookup confirmation
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="bg-white rounded-xl p-8 shadow-lg border border-gray-200"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="p-6 md:p-8"
+      style={formFont}
     >
-      {/* Step indicator */}
-      <div className="mb-6">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setStep(1)}
-            className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 cursor-pointer transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back
-          </button>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-            <span className="text-sm font-medium text-gray-700">Confirm Vehicle</span>
-          </div>
-        </div>
-      </div>
+      <StepIndicator current={2} />
+
+      {/* Back link */}
+      <button
+        onClick={() => setStep(1)}
+        className="mb-6 text-sm text-gray-500 hover:text-gray-900 cursor-pointer transition-colors flex items-center gap-1"
+      >
+        &larr; Back
+      </button>
 
       <div ref={feedbackRef} />
       {loading && (
-        <div className="bg-gradient-to-br from-white via-blue-200 to-blue-400 border border-blue-200 text-blue-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
-            <span><strong className="font-bold">Processing...</strong> Getting your quote ready.</span>
-          </div>
-          <button onClick={() => setLoading(false)} className="ml-4 text-blue-800 hover:text-blue-900 font-bold text-xl leading-none">&times;</button>
+        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+          <span><strong>Processing...</strong> Getting your quote ready.</span>
+          <button onClick={() => setLoading(false)} className="ml-4 text-yellow-600 hover:text-yellow-800 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
       )}
       {error && (
-        <div className="bg-red-100 border border-red-200 text-red-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
-          <div className="flex items-center gap-2">
-            <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <span><strong className="font-bold">Error!</strong> {error}</span>
-          </div>
-          <button onClick={() => setError(null)} className="ml-4 text-red-800 hover:text-red-900 font-bold text-xl leading-none">&times;</button>
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+          <span>{error}</span>
+          <button onClick={() => setError(null)} className="ml-4 text-red-500 hover:text-red-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
       )}
       {success && (
-        <div className="bg-green-100 border border-green-200 text-green-800 px-4 py-3 rounded relative mb-4 flex items-center justify-between" role="alert">
-          <div className="flex items-center gap-2">
-            <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span><strong className="font-bold">Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
-          </div>
-          <button onClick={() => setSuccess(false)} className="ml-4 text-green-800 hover:text-green-900 font-bold text-xl leading-none">&times;</button>
+        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+          <span><strong>Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
+          <button onClick={() => setSuccess(false)} className="ml-4 text-green-500 hover:text-green-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
       )}
 
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+      <h2 className="text-xl font-bold text-gray-900 mb-1" style={formFont}>
         Confirm Your Vehicle
       </h2>
-      <p className="text-gray-600 mb-6">
-        We looked up <strong>{formData.vinOrReg}</strong> ({formData.state}). Please confirm the details below.
+      <p className="text-sm text-gray-500 mb-6">
+        We looked up <strong className="text-gray-700">{formData.vinOrReg}</strong> ({formData.state}). Please confirm below.
       </p>
 
       {/* Vehicle details from API or manual entry */}
       {notMyCar ? (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Enter Your Vehicle Details</h3>
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+          <h3 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide" style={formFont}>Enter Your Vehicle Details</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="vehicleMake" className="block text-sm font-medium text-gray-700 mb-2">
-                Make *
-              </label>
-              <input
-                type="text"
-                id="vehicleMake"
-                name="vehicleMake"
-                required
-                value={formData.vehicleMake}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="e.g. Toyota, Ford, BMW"
-              />
+              <label htmlFor="vehicleMake" className={labelClass}>Make</label>
+              <input type="text" id="vehicleMake" name="vehicleMake" required value={formData.vehicleMake} onChange={handleChange} className={inputClass} placeholder="e.g. Toyota" />
             </div>
             <div>
-              <label htmlFor="vehicleModel" className="block text-sm font-medium text-gray-700 mb-2">
-                Model *
-              </label>
-              <input
-                type="text"
-                id="vehicleModel"
-                name="vehicleModel"
-                required
-                value={formData.vehicleModel}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="e.g. Camry, Commodore"
-              />
+              <label htmlFor="vehicleModel" className={labelClass}>Model</label>
+              <input type="text" id="vehicleModel" name="vehicleModel" required value={formData.vehicleModel} onChange={handleChange} className={inputClass} placeholder="e.g. Camry" />
             </div>
             <div>
-              <label htmlFor="vehicleBadge" className="block text-sm font-medium text-gray-700 mb-2">
-                Badge
-              </label>
-              <input
-                type="text"
-                id="vehicleBadge"
-                name="vehicleBadge"
-                value={formData.vehicleBadge}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="e.g. SX, SR5, Ascent"
-              />
+              <label htmlFor="vehicleBadge" className={labelClass}>Badge</label>
+              <input type="text" id="vehicleBadge" name="vehicleBadge" value={formData.vehicleBadge} onChange={handleChange} className={inputClass} placeholder="e.g. SR5" />
             </div>
             <div>
-              <label htmlFor="vehicleYear" className="block text-sm font-medium text-gray-700 mb-2">
-                Year *
-              </label>
-              <input
-                type="text"
-                id="vehicleYear"
-                name="vehicleYear"
-                required
-                inputMode="numeric"
-                maxLength={4}
-                value={formData.vehicleYear}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-                placeholder="e.g. 2019"
-              />
+              <label htmlFor="vehicleYear" className={labelClass}>Year</label>
+              <input type="text" id="vehicleYear" name="vehicleYear" required inputMode="numeric" maxLength={4} value={formData.vehicleYear} onChange={handleChange} className={inputClass} placeholder="e.g. 2019" />
             </div>
           </div>
           <button
             type="button"
             onClick={() => setNotMyCar(false)}
-            className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+            className="mt-3 text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
           >
             Use the looked-up vehicle instead
           </button>
         </div>
       ) : regoLookupResult ? (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Vehicle Found</h3>
-          <div className="grid grid-cols-2 gap-3 text-sm">
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+          <h3 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide" style={formFont}>Vehicle Found</h3>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {regoLookupResult.year && (
-              <div><span className="text-gray-500">Year:</span> <span className="font-medium">{regoLookupResult.year}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Year</span><span className="font-medium text-gray-900">{regoLookupResult.year}</span></div>
             )}
             {regoLookupResult.make && (
-              <div><span className="text-gray-500">Make:</span> <span className="font-medium">{regoLookupResult.make}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Make</span><span className="font-medium text-gray-900">{regoLookupResult.make}</span></div>
             )}
             {regoLookupResult.model && (
-              <div><span className="text-gray-500">Model:</span> <span className="font-medium">{regoLookupResult.model}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Model</span><span className="font-medium text-gray-900">{regoLookupResult.model}</span></div>
             )}
             {regoLookupResult.badge && (
-              <div><span className="text-gray-500">Badge:</span> <span className="font-medium">{regoLookupResult.badge}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Badge</span><span className="font-medium text-gray-900">{regoLookupResult.badge}</span></div>
             )}
             {regoLookupResult.colour && (
-              <div><span className="text-gray-500">Colour:</span> <span className="font-medium">{regoLookupResult.colour}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Colour</span><span className="font-medium text-gray-900">{regoLookupResult.colour}</span></div>
             )}
             {regoLookupResult.bodyType && (
-              <div><span className="text-gray-500">Body Type:</span> <span className="font-medium">{regoLookupResult.bodyType}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Body</span><span className="font-medium text-gray-900">{regoLookupResult.bodyType}</span></div>
             )}
             {regoLookupResult.transmission && (
-              <div><span className="text-gray-500">Transmission:</span> <span className="font-medium">{regoLookupResult.transmission}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Trans</span><span className="font-medium text-gray-900">{regoLookupResult.transmission}</span></div>
             )}
             {regoLookupResult.engineSize && (
-              <div><span className="text-gray-500">Engine:</span> <span className="font-medium">{regoLookupResult.engineSize}</span></div>
+              <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Engine</span><span className="font-medium text-gray-900">{regoLookupResult.engineSize}</span></div>
             )}
           </div>
           <button
             type="button"
             onClick={() => setNotMyCar(true)}
-            className="mt-4 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+            className="mt-4 text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
           >
             Not your car? Enter details manually
           </button>
         </div>
       ) : (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-          <div className="flex items-center gap-3 text-gray-500">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-sm">We couldn&apos;t find vehicle details for this registration. You can still get a quote by entering your vehicle details manually below.</p>
-          </div>
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+          <p className="text-sm text-gray-500">We couldn&apos;t find vehicle details for this registration. You can still get a quote by entering your vehicle details manually below.</p>
           <button
             type="button"
             onClick={() => setNotMyCar(true)}
-            className="mt-3 text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+            className="mt-3 text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
           >
-            Not your car? Enter details manually
+            Enter details manually
           </button>
         </div>
       )}
 
-      <form onSubmit={handleRegoConfirmSubmit} className="space-y-6">
+      <form onSubmit={handleRegoConfirmSubmit} className="space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="postcode" className="block text-sm font-medium text-gray-700 mb-2">
-              Postcode
-            </label>
-            <input
-              type="text"
-              id="postcode"
-              name="postcode"
-              value={formData.postcode}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-              placeholder="2000"
-            />
+            <label htmlFor="postcode" className={labelClass}>Postcode</label>
+            <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
           </div>
-
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-              Additional Info
-            </label>
-            <input
-              type="text"
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors"
-              placeholder="Any additional details..."
-            />
+            <label htmlFor="message" className={labelClass}>Additional Info</label>
+            <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
           </div>
         </div>
 
         <motion.button
           type="submit"
           disabled={loading}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full cursor-pointer bg-gray-900 text-white py-4 px-6 rounded-md text-lg font-bold tracking-wide uppercase hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
+          {loading ? 'GETTING YOUR QUOTE...' : 'GET MY FREE QUOTE'}
         </motion.button>
       </form>
 
-      <div className="mt-6 text-center">
-        <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-          Your information is secure and will not be shared with third parties
-        </p>
-        <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
-          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          We&apos;ll contact you within 30 minutes with your competitive offer
-        </p>
-      </div>
+      <p className="mt-5 text-center text-xs text-gray-400">
+        Your information is secure and will not be shared with third parties
+      </p>
     </motion.div>
   );
 }

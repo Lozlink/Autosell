@@ -5,9 +5,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-yellow-400
- via-yellow-100 to-white
- text-gray-700 border-t border-blue-200">
+    <footer className="bg-white text-gray-700 border-t-2" style={{ borderColor: '#FFC325' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 xl:gap-24">
@@ -26,7 +24,7 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            <p className="text-gray-600 mb-4 max-w-md">
+            <p className="text-gray-400 mb-4 max-w-md">
               Get your FREE car valuation in 30 minutes. Same-day OSKO payment, 
               on-site inspections, and we come to you anywhere in Australia.
             </p>
@@ -106,7 +104,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-blue-200 mt-8 pt-8">
+        <div className="border-t border-gray-200 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-zinc-500 text-sm mb-4 md:mb-0">
               <p>&copy; {new Date().getFullYear()} Auto-Sell.ai. All rights reserved.</p>
