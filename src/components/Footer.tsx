@@ -6,9 +6,9 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-700 border-t-2" style={{ borderColor: '#FFC325' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-16 xl:gap-24">
           {/* Company Info */}
           <div>
             <div className="flex justify-between items-center">
@@ -20,11 +20,12 @@ export default function Footer() {
                     alt='Autosell.ai, The smart way to sell cars'
                     width={250}
                     height={100}
+                    className="w-[180px] md:w-[250px] h-auto"
                   />
                 </Link>
               </div>
             </div>
-            <p className="text-gray-400 mb-4 max-w-md">
+            <p className="text-gray-400 mb-3 md:mb-4 max-w-md text-sm md:text-base">
               Get your FREE car valuation in 30 minutes. Same-day OSKO payment, 
               on-site inspections, and we come to you anywhere in Australia.
             </p>
@@ -40,8 +41,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-800">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-800">Quick Links</h4>
+            <ul className="space-y-1.5 md:space-y-2">
               <li>
                 <Link href="/" className="text-gray-600 hover:text-gray-800 transition-colors">
                   Home
@@ -72,8 +73,8 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-800">Services</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-800">Services</h4>
+            <ul className="space-y-1.5 md:space-y-2">
               <li>
                 <Link href="/#sell-form" className="text-gray-600 hover:text-gray-800 transition-colors">
                   Free Car Valuation
@@ -104,7 +105,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 mt-8 pt-8">
+        <div className="border-t border-gray-200 mt-6 pt-4 md:mt-8 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-zinc-500 text-sm mb-4 md:mb-0">
               <p>&copy; {new Date().getFullYear()} Auto-Sell.ai. All rights reserved.</p>

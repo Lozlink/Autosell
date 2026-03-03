@@ -33,15 +33,15 @@ export default function BrandMarquee() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FFF9E6] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#FFF9E6] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FFF9E6] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#FFF9E6] to-transparent z-10" />
 
-      <div className="marquee flex items-center gap-10 will-change-transform">
+      <div className="marquee flex items-center gap-10">
         {items.map((brand, idx) => (
           <a
             key={`${brand}-${idx}`}
             href={`/sell-${brand.toLowerCase()}`}
-            className="shrink-0 opacity-80 hover:opacity-100 transition-opacity"
+            className="shrink-0  hover:opacity-100 transition-opacity"
             aria-label={`Go to ${brand} brand page`}
           >
             <Image
@@ -50,6 +50,7 @@ export default function BrandMarquee() {
               width={140}
               height={60}
               className="object-contain max-h-[60px]"
+              style={brand === 'Kia' ? { filter: 'invert(1)', mixBlendMode: 'multiply' } : { mixBlendMode: 'multiply' }}
               priority={idx < 4}
             />
           </a>
