@@ -16,8 +16,8 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
-const inputClass = "w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors";
-const labelClass = "block text-sm font-medium text-gray-700 mb-1.5";
+const inputClass = "w-full px-3 py-2.5 md:px-4 md:py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors";
+const labelClass = "block text-sm font-medium text-gray-700 mb-1";
 const formFont = { fontFamily: 'var(--font-montserrat), system-ui, sans-serif' };
 
 export default function CarSellForm() {
@@ -323,7 +323,7 @@ export default function CarSellForm() {
 
   // Step progress indicator
   const StepIndicator = ({ current }: { current: 1 | 2 }) => (
-    <div className="flex items-center justify-center gap-0 mb-8">
+    <div className="flex items-center justify-center gap-0 mb-4 md:mb-8">
       <div className={`w-9 h-9 rounded-md flex items-center justify-center text-sm font-bold transition-colors ${current >= 1 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
         1
       </div>
@@ -341,30 +341,30 @@ export default function CarSellForm() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="p-6 md:p-8"
+        className="p-4 md:p-8"
         style={formFont}
       >
         <StepIndicator current={1} />
 
         <div ref={feedbackRef} />
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
             <span>{error}</span>
             <button onClick={() => setError(null)} className="ml-4 text-red-500 hover:text-red-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
         {success && (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
             <span><strong>Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
             <button onClick={() => setSuccess(false)} className="ml-4 text-green-500 hover:text-green-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
 
-        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-5">
+        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-3 md:space-y-5">
           {/* Vehicle Identification */}
           {!manualEntry ? (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3 md:space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div className="md:col-span-2">
                   <label htmlFor="vinOrReg" className={labelClass}>
                     Registration or VIN
@@ -382,7 +382,7 @@ export default function CarSellForm() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div>
                   <label htmlFor="state" className={labelClass}>
                     Registration State
@@ -426,8 +426,8 @@ export default function CarSellForm() {
               </button>
             </div>
           ) : (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3 md:space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div>
                   <label htmlFor="vehicleMake" className={labelClass}>Make</label>
                   <input type="text" id="vehicleMake" name="vehicleMake" required value={formData.vehicleMake} onChange={handleChange} className={inputClass} placeholder="e.g. Toyota" />
@@ -446,7 +446,7 @@ export default function CarSellForm() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div>
                   <label htmlFor="postcode" className={labelClass}>Postcode</label>
                   <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
@@ -468,8 +468,8 @@ export default function CarSellForm() {
           )}
 
           {/* Divider */}
-          <div className="border-t border-gray-100 pt-5">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="border-t border-gray-100 pt-3 md:pt-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
               <div>
                 <label htmlFor="name" className={labelClass}>Name</label>
                 <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Your name" />
@@ -496,7 +496,7 @@ export default function CarSellForm() {
           </motion.button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-4 md:mt-6 text-center">
           <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
             <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -514,7 +514,7 @@ export default function CarSellForm() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 md:p-8"
+      className="p-4 md:p-8"
       style={formFont}
     >
       <StepIndicator current={2} />
@@ -522,26 +522,26 @@ export default function CarSellForm() {
       {/* Back link */}
       <button
         onClick={() => setStep(1)}
-        className="mb-6 text-sm text-gray-500 hover:text-gray-900 cursor-pointer transition-colors flex items-center gap-1"
+        className="mb-3 md:mb-6 text-sm text-gray-500 hover:text-gray-900 cursor-pointer transition-colors flex items-center gap-1"
       >
         &larr; Back
       </button>
 
       <div ref={feedbackRef} />
       {loading && (
-        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
           <span><strong>Processing...</strong> Getting your quote ready.</span>
           <button onClick={() => setLoading(false)} className="ml-4 text-yellow-600 hover:text-yellow-800 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
       )}
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
           <span>{error}</span>
           <button onClick={() => setError(null)} className="ml-4 text-red-500 hover:text-red-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
       )}
       {success && (
-        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6 flex items-center justify-between text-sm" role="alert">
+        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
           <span><strong>Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
           <button onClick={() => setSuccess(false)} className="ml-4 text-green-500 hover:text-green-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
         </div>
@@ -550,15 +550,15 @@ export default function CarSellForm() {
       <h2 className="text-xl font-bold text-gray-900 mb-1" style={formFont}>
         Confirm Your Vehicle
       </h2>
-      <p className="text-sm text-gray-500 mb-6">
+      <p className="text-sm text-gray-500 mb-4 md:mb-6">
         We looked up <strong className="text-gray-700">{formData.vinOrReg}</strong> ({formData.state}). Please confirm below.
       </p>
 
       {/* Vehicle details from API or manual entry */}
       {notMyCar ? (
-        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Enter Your Vehicle Details</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div>
               <label htmlFor="vehicleMake" className={labelClass}>Make</label>
               <input type="text" id="vehicleMake" name="vehicleMake" required value={formData.vehicleMake} onChange={handleChange} className={inputClass} placeholder="e.g. Toyota" />
@@ -585,7 +585,7 @@ export default function CarSellForm() {
           </button>
         </div>
       ) : regoLookupResult ? (
-        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Vehicle Found</h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {regoLookupResult.year && (
@@ -622,7 +622,7 @@ export default function CarSellForm() {
           </button>
         </div>
       ) : (
-        <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
           <p className="text-sm text-gray-500">We couldn&apos;t find vehicle details for this registration. You can still get a quote by entering your vehicle details manually below.</p>
           <button
             type="button"
@@ -634,8 +634,8 @@ export default function CarSellForm() {
         </div>
       )}
 
-      <form onSubmit={handleRegoConfirmSubmit} className="space-y-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <form onSubmit={handleRegoConfirmSubmit} className="space-y-3 md:space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           <div>
             <label htmlFor="postcode" className={labelClass}>Postcode</label>
             <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
@@ -657,7 +657,7 @@ export default function CarSellForm() {
         </motion.button>
       </form>
 
-      <div className="mt-6 text-center">
+      <div className="mt-4 md:mt-6 text-center">
         <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
           <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
