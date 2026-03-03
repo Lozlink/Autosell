@@ -16,8 +16,8 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
-const inputClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-colors";
-const labelClass = "block text-sm font-semibold text-gray-800 mb-1.5 tracking-wide";
+const inputClass = "w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors";
+const labelClass = "block text-sm font-medium text-gray-700 mb-1.5";
 const formFont = { fontFamily: 'var(--font-montserrat), system-ui, sans-serif' };
 
 export default function CarSellForm() {
@@ -420,7 +420,7 @@ export default function CarSellForm() {
               <button
                 type="button"
                 onClick={() => setManualEntry(true)}
-                className="text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
+                className="text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
               >
                 Or enter car details manually
               </button>
@@ -460,7 +460,7 @@ export default function CarSellForm() {
               <button
                 type="button"
                 onClick={() => setManualEntry(false)}
-                className="text-sm text-gray-500 hover:text-gray-900 underline underline-offset-2 cursor-pointer transition-colors"
+                className="text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
               >
                 Use registration/VIN instead
               </button>
@@ -490,15 +490,20 @@ export default function CarSellForm() {
             disabled={loading}
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full cursor-pointer bg-gray-900 text-white py-4 px-6 rounded-md text-lg font-bold tracking-wide uppercase hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-md text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'GET MY FREE QUOTE' : 'FIND MY CAR'}
+            {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
           </motion.button>
         </form>
 
-        <p className="mt-5 text-center text-xs text-gray-400">
-          Your information is secure and will not be shared with third parties
-        </p>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Your information is secure and will not be shared with third parties
+          </p>
+        </div>
       </motion.div>
     );
   }
@@ -552,7 +557,7 @@ export default function CarSellForm() {
       {/* Vehicle details from API or manual entry */}
       {notMyCar ? (
         <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide" style={formFont}>Enter Your Vehicle Details</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Enter Your Vehicle Details</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="vehicleMake" className={labelClass}>Make</label>
@@ -581,7 +586,7 @@ export default function CarSellForm() {
         </div>
       ) : regoLookupResult ? (
         <div className="bg-gray-50 border border-gray-200 rounded-md p-5 mb-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide" style={formFont}>Vehicle Found</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Vehicle Found</h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {regoLookupResult.year && (
               <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Year</span><span className="font-medium text-gray-900">{regoLookupResult.year}</span></div>
@@ -646,15 +651,26 @@ export default function CarSellForm() {
           disabled={loading}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full cursor-pointer bg-gray-900 text-white py-4 px-6 rounded-md text-lg font-bold tracking-wide uppercase hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-md text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {loading ? 'GETTING YOUR QUOTE...' : 'GET MY FREE QUOTE'}
+          {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
         </motion.button>
       </form>
 
-      <p className="mt-5 text-center text-xs text-gray-400">
-        Your information is secure and will not be shared with third parties
-      </p>
+      <div className="mt-6 text-center">
+        <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          Your information is secure and will not be shared with third parties
+        </p>
+        <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
+          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          We&apos;ll contact you within 30 minutes with your competitive offer
+        </p>
+      </div>
     </motion.div>
   );
 }
