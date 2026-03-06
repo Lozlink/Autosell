@@ -344,7 +344,7 @@ export default function CarSellForm() {
         className="p-3 md:p-8"
         style={formFont}
       >
-        <h1 className="text-2xl font-extrabold leading-tight text-gray-900 text-center mb-2 -mx-3 md:mx-0 lg:hidden">
+        <h1 className="text-2xl font-black leading-tight text-gray-900 text-center mb-2 -mx-3 md:mx-0 lg:hidden">
           Sell Your Car Today
           <span className="block text-yellow-500">Get The Best Price Guaranteed</span>
         </h1>

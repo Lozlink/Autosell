@@ -65,7 +65,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Hero Content - hidden on mobile (heading pulled above, trust strip below form) */}
             <div className="hidden lg:block">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
+              <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-gray-900">
                 Sell Your Car Today
                 <span className="block mt-2 text-yellow-500">Get The Best Price Guaranteed</span>
               </h1>
