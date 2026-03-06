@@ -16,8 +16,8 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
-const inputClass = "w-full px-3 py-2.5 md:px-4 md:py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors";
-const labelClass = "block text-sm font-medium text-gray-700 mb-1";
+const inputClass = "w-full px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors text-base";
+const labelClass = "block text-xs md:text-sm font-medium text-gray-700 mb-0.5 md:mb-1";
 const formFont = { fontFamily: 'var(--font-montserrat), system-ui, sans-serif' };
 
 export default function CarSellForm() {
@@ -323,12 +323,12 @@ export default function CarSellForm() {
 
   // Step progress indicator
   const StepIndicator = ({ current }: { current: 1 | 2 }) => (
-    <div className="flex items-center justify-center gap-0 mb-4 md:mb-8">
-      <div className={`w-9 h-9 rounded-md flex items-center justify-center text-sm font-bold transition-colors ${current >= 1 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
+    <div className="flex items-center justify-center gap-0 mb-2 md:mb-8">
+      <div className={`w-7 h-7 md:w-9 md:h-9 rounded-md flex items-center justify-center text-xs md:text-sm font-bold transition-colors ${current >= 1 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
         1
       </div>
-      <div className={`flex-1 h-0.5 max-w-32 transition-colors ${current >= 2 ? 'bg-gray-900' : 'bg-gray-200'}`} />
-      <div className={`w-9 h-9 rounded-md flex items-center justify-center text-sm font-bold transition-colors ${current >= 2 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
+      <div className={`flex-1 h-0.5 max-w-24 md:max-w-32 transition-colors ${current >= 2 ? 'bg-gray-900' : 'bg-gray-200'}`} />
+      <div className={`w-7 h-7 md:w-9 md:h-9 rounded-md flex items-center justify-center text-xs md:text-sm font-bold transition-colors ${current >= 2 ? 'bg-gray-900 text-white' : 'border-2 border-gray-300 text-gray-400'}`}>
         2
       </div>
     </div>
@@ -341,30 +341,34 @@ export default function CarSellForm() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="p-4 md:p-8"
+        className="p-3 md:p-8"
         style={formFont}
       >
+        <h1 className="text-2xl font-extrabold leading-tight text-gray-900 text-center mb-2 -mx-3 md:mx-0 lg:hidden">
+          Sell Your Car Today
+          <span className="block text-yellow-500">Get The Best Price Guaranteed</span>
+        </h1>
         <StepIndicator current={1} />
 
         <div ref={feedbackRef} />
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2.5 rounded-md mb-2 md:mb-6 flex items-center justify-between text-sm" role="alert">
             <span>{error}</span>
             <button onClick={() => setError(null)} className="ml-4 text-red-500 hover:text-red-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
         {success && (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-3 md:mb-6 flex items-center justify-between text-sm" role="alert">
+          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-2.5 rounded-md mb-2 md:mb-6 flex items-center justify-between text-sm" role="alert">
             <span><strong>Quote Submitted!</strong> We&apos;ll contact you within 30 minutes with your offer.</span>
             <button onClick={() => setSuccess(false)} className="ml-4 text-green-500 hover:text-green-700 font-bold text-lg leading-none cursor-pointer">&times;</button>
           </div>
         )}
 
-        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-3 md:space-y-5">
+        <form onSubmit={manualEntry ? handleManualSubmit : handleRegoLookup} className="space-y-2 md:space-y-5">
           {/* Vehicle Identification */}
           {!manualEntry ? (
-            <div className="space-y-3 md:space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="space-y-2 md:space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 <div className="md:col-span-2">
                   <label htmlFor="vinOrReg" className={labelClass}>
                     Registration or VIN
@@ -382,45 +386,29 @@ export default function CarSellForm() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                <div>
-                  <label htmlFor="state" className={labelClass}>
-                    Registration State
-                  </label>
-                  <select
-                    id="state"
-                    name="state"
-                    required
-                    value={formData.state}
-                    onChange={handleChange}
-                    className={inputClass}
-                  >
-                    <option value="">Select State</option>
-                    {australianStates.map(s => (
-                      <option key={s.value} value={s.value}>{s.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="postcode" className={labelClass}>
-                    Postcode
-                  </label>
-                  <input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    value={formData.postcode}
-                    onChange={handleChange}
-                    className={inputClass}
-                    placeholder="e.g. 2000"
-                  />
-                </div>
+              <div>
+                <label htmlFor="state" className={labelClass}>
+                  Registration State
+                </label>
+                <select
+                  id="state"
+                  name="state"
+                  required
+                  value={formData.state}
+                  onChange={handleChange}
+                  className={inputClass}
+                >
+                  <option value="">Select State</option>
+                  {australianStates.map(s => (
+                    <option key={s.value} value={s.value}>{s.label}</option>
+                  ))}
+                </select>
               </div>
 
               <button
                 type="button"
                 onClick={() => setManualEntry(true)}
-                className="text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+                className="text-sm text-gray-900 hover:text-black underline cursor-pointer transition-colors"
               >
                 Or enter car details manually
               </button>
@@ -440,27 +428,17 @@ export default function CarSellForm() {
                   <label htmlFor="vehicleYear" className={labelClass}>Year</label>
                   <input type="text" id="vehicleYear" name="vehicleYear" required inputMode="numeric" maxLength={4} value={formData.vehicleYear} onChange={handleChange} className={inputClass} placeholder="e.g. 2019" />
                 </div>
-                <div>
-                  <label htmlFor="vehicleBadge" className={labelClass}>Badge</label>
-                  <input type="text" id="vehicleBadge" name="vehicleBadge" value={formData.vehicleBadge} onChange={handleChange} className={inputClass} placeholder="e.g. SR5" />
-                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                <div>
-                  <label htmlFor="postcode" className={labelClass}>Postcode</label>
-                  <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
-                </div>
-                <div>
-                  <label htmlFor="message" className={labelClass}>Additional Info</label>
-                  <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
-                </div>
+              <div>
+                <label htmlFor="message" className={labelClass}>Additional Info</label>
+                <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
               </div>
 
               <button
                 type="button"
                 onClick={() => setManualEntry(false)}
-                className="text-sm text-blue-600 hover:text-blue-800 underline cursor-pointer transition-colors"
+                className="text-sm text-gray-900 hover:text-black underline cursor-pointer transition-colors"
               >
                 Use registration/VIN instead
               </button>
@@ -468,8 +446,8 @@ export default function CarSellForm() {
           )}
 
           {/* Divider */}
-          <div className="border-t border-gray-100 pt-3 md:pt-5">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="border-t border-gray-100 pt-2 md:pt-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 md:gap-4">
               <div>
                 <label htmlFor="name" className={labelClass}>Name</label>
                 <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Your name" />
@@ -490,15 +468,15 @@ export default function CarSellForm() {
             disabled={loading}
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-md text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-blue-600 text-white py-3 px-6 md:py-4 rounded-md text-lg md:text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
           </motion.button>
         </form>
 
-        <div className="mt-4 md:mt-6 text-center">
-          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-            <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mt-2 md:mt-6 text-center">
+          <p className="text-xs md:text-sm text-gray-500 flex items-center justify-center gap-2">
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
             Your information is secure and will not be shared with third parties
@@ -547,9 +525,6 @@ export default function CarSellForm() {
         </div>
       )}
 
-      <h2 className="text-xl font-bold text-gray-900 mb-1" style={formFont}>
-        Confirm Your Vehicle
-      </h2>
       <p className="text-sm text-gray-500 mb-4 md:mb-6">
         We looked up <strong className="text-gray-700">{formData.vinOrReg}</strong> ({formData.state}). Please confirm below.
       </p>
@@ -557,7 +532,6 @@ export default function CarSellForm() {
       {/* Vehicle details from API or manual entry */}
       {notMyCar ? (
         <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Enter Your Vehicle Details</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div>
               <label htmlFor="vehicleMake" className={labelClass}>Make</label>
@@ -586,7 +560,6 @@ export default function CarSellForm() {
         </div>
       ) : regoLookupResult ? (
         <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Vehicle Found</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {regoLookupResult.year && (
               <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Year</span><span className="font-medium text-gray-900">{regoLookupResult.year}</span></div>
@@ -635,15 +608,9 @@ export default function CarSellForm() {
       )}
 
       <form onSubmit={handleRegoConfirmSubmit} className="space-y-3 md:space-y-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-          <div>
-            <label htmlFor="postcode" className={labelClass}>Postcode</label>
-            <input type="text" id="postcode" name="postcode" value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. 2000" />
-          </div>
-          <div>
-            <label htmlFor="message" className={labelClass}>Additional Info</label>
-            <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
-          </div>
+        <div>
+          <label htmlFor="message" className={labelClass}>Additional Info</label>
+          <input type="text" id="message" name="message" value={formData.message} onChange={handleChange} className={inputClass} placeholder="Any additional details..." />
         </div>
 
         <motion.button
