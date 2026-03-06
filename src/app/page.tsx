@@ -64,7 +64,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-20">
           {/* Heading - always on top */}
           <div className="mb-4 lg:hidden">
-            <h1 className="text-3xl font-bold leading-tight text-gray-900">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900 text-center">
               Sell Your Car Today
               <span className="block mt-1 text-yellow-500">Get The Best Price Guaranteed</span>
             </h1>

@@ -587,7 +587,7 @@ export default function CarSellForm() {
       ) : regoLookupResult ? (
         <div className="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-5 mb-4 md:mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3" style={formFont}>Vehicle Found</h3>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {regoLookupResult.year && (
               <div className="flex justify-between py-1 border-b border-gray-100"><span className="text-gray-500">Year</span><span className="font-medium text-gray-900">{regoLookupResult.year}</span></div>
             )}
