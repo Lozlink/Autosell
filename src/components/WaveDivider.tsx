@@ -83,7 +83,7 @@ export default function WaveDivider({
               textRendering="optimizeLegibility"
               opacity="0.7"
             >
-              <textPath href="#waveDividerTextPath" startOffset="50%" textAnchor="middle" textLength="1000" lengthAdjust="spacing">
+              <textPath href="#waveDividerTextPath" startOffset="50%" textAnchor="middle" textLength="700" lengthAdjust="spacing">
                 {text}
               </textPath>
             </text>
@@ -164,7 +164,7 @@ export function WaveTop({
               textRendering="optimizeLegibility"
               opacity="0.7"
             >
-              <textPath href="#waveTopTextPath" startOffset="50%" textAnchor="middle" textLength="1000" lengthAdjust="spacing">
+              <textPath href="#waveTopTextPath" startOffset="50%" textAnchor="middle" textLength="700" lengthAdjust="spacing">
                 {text}
               </textPath>
             </text>
