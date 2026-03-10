@@ -14,7 +14,7 @@ export default function SellMyCarSydneyPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="text-white py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
+      <section className="text-white py-20" style={{ backgroundColor: '#FFC325' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: '#000' }}>
@@ -28,7 +28,7 @@ export default function SellMyCarSydneyPage() {
             <Link
               href="/#sell-form"
               className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#000', color: '#FFC325' }}
+              style={{ backgroundColor: '#FFC325', color: '#fff' }}
             >
               Get My Sydney Car Quote Now
             </Link>
@@ -125,7 +125,7 @@ export default function SellMyCarSydneyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
+      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#000' }}>
             Ready to Sell Your Car in Sydney?
@@ -136,7 +136,7 @@ export default function SellMyCarSydneyPage() {
           <Link
             href="/#sell-form"
             className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#000', color: '#FFC325' }}
+            style={{ backgroundColor: '#FFC325', color: '#fff' }}
           >
             Get My Sydney Car Quote Now
           </Link>

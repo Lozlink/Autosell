@@ -10,8 +10,8 @@ export default function Footer() {
         {/* Top grid: Company, Quick Links, Services (exactly like screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-16 xl:gap-24">
           {/* Company Info */}
-          <div>
-            <div className="flex justify-between items-center">
+          <div className="text-center md:text-left">
+            <div className="flex justify-center md:justify-between items-center">
               {/* Logo */}
               <div className="flex items-center py-2">
                 <Link href="/" >
@@ -25,12 +25,12 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            <p className="text-gray-400 mb-3 md:mb-4 max-w-md text-sm md:text-base">
+            <p className="text-gray-400 mb-3 md:mb-4 max-w-md mx-auto md:mx-0 text-sm md:text-base">
               Get your FREE car valuation in 30 minutes. Same-day OSKO payment, 
               on-site inspections, and we come to you anywhere in Australia.
             </p>
-            <div className="flex space-x-4">
-              <a href="tel:1800288673" className="text-brand-black hover:text-blue-500 font-semibold flex items-center gap-2">
+            <div className="flex justify-center md:justify-start space-x-4">
+              <a href="tel:1800288673" className="text-brand-black hover:text-gray-900 font-semibold flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-800">Quick Links</h4>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
@@ -72,7 +72,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-800">Services</h4>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
@@ -111,7 +111,7 @@ export default function Footer() {
               <p>&copy; {new Date().getFullYear()} Auto-Sell.ai. All rights reserved.</p>
             </div>
             
-            <div className="flex flex-wrap gap-6 text-sm">
+            <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
               <Link href="/privacy" className="text-zinc-500 hover:text-gray-800 transition-colors">
                 Privacy Policy
               </Link>

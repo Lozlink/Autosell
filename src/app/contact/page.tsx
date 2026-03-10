@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
       <Header />
       
       <section className="py-12">

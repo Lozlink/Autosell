@@ -1,32 +1,28 @@
-import {Suspense} from 'react'
+import { Suspense } from 'react'
 import Header from '@/components/Header'
 import CarSellForm from '@/components/CarSellForm'
 import BrandMarquee from '@/components/BrandMarquee'
 import ReviewsComponent from '@/components/ReviewsComponent'
-import MapComponent from '@/components/MapComponent'
 import Accordion from '@/components/Accordion'
-import WaveDivider, { WaveTop } from '@/components/WaveDivider'
-import Image from 'next/image'
-import SmoothSalesProcess from "@/components/SmoothSalesProcess"
-import Link from 'next/link'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { motion } from 'framer-motion'
+import HowItWorks from '@/components/HowItWorks'
+import WhyChoose from '@/components/WhyChoose'
+import VehicleTypesGrid from '@/components/VehicleTypesGrid'
 import type { Metadata } from 'next'
 
 function CarSellFormFallback() {
   return (
-      <div className="rounded-2xl p-8 border border-blue-200 bg-white/30">
-        <div className="animate-pulse">
-          <div className="h-8 bg-zinc-800 rounded mb-6"></div>
-          <div className="space-y-4">
-            <div className="h-12 bg-zinc-800 rounded"></div>
-            <div className="h-12 bg-zinc-800 rounded"></div>
-            <div className="h-12 bg-zinc-800 rounded"></div>
-            <div className="h-12 bg-zinc-800 rounded"></div>
-            <div className="h-12 bg-zinc-800 rounded"></div>
-          </div>
+    <div className="rounded-2xl p-8 border border-gray-100 bg-white/30">
+      <div className="animate-pulse">
+        <div className="h-8 bg-gray-200 rounded mb-6"></div>
+        <div className="space-y-4">
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
         </div>
       </div>
+    </div>
   )
 }
 
@@ -47,49 +43,30 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section with Integrated Form */}
-      <section id="sell-form" className="relative bg-[#FFF9E6] text-gray-900 pt-3 lg:pt-12 pb-8 overflow-hidden">
-        {/* Logo Underlay - Right side, partially off-screen */}
-        <div className="absolute top-1/2 -translate-y-1/2 -right-20 md:-right-10 lg:right-0 opacity-[0.05] pointer-events-none z-0 hidden md:block">
-          <Image
-            src='/brand-guideline/autosell-logo/PNG/1 (1).png'
-            alt=''
-            width={600}
-            height={300}
-            className='object-contain'
-            aria-hidden="true"
-          />
-        </div>
+      {/* ─── Hero Section ─────────────────────────────────────────────── */}
+      <section id="sell-form" className="bg-[#8B8987]/25 text-gray-900 pt-6 pb-6 md:pt-10 md:pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-            {/* Hero Content - hidden on mobile (heading pulled above, trust strip below form) */}
-            <div className="hidden lg:block">
-              <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-gray-900">
+            {/* SEO h1 — visually hidden on mobile (CarSellForm has its own visual heading),
+                visible on desktop where it anchors the left column.
+                pt-8 matches the form card's top padding (md:p-8 = 32px) so the h1
+                sits level with the StepIndicator row at the top of the form. */}
+            <div className="hidden lg:block pt-4">
+              <h1 className="text-4xl md:text-5xl font-black leading-tight text-gray-900">
                 Sell Your Car Today
-                <span className="block mt-2 text-yellow-500">Get The Best Price Guaranteed</span>
+                <span className="block mt-2 text-[#FFC325]">Get The Best Price Guaranteed</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-8">
-                Get a <strong>FREE valuation</strong> in 30 minutes, same-day OSKO payment, and we come to you Australia-wide. No hassles, no fees.
+              <p className="text-lg text-gray-600 mt-4 mb-6 max-w-lg">
+                Get a <strong>FREE valuation</strong> in 30 minutes, same-day OSKO payment, and we come to you Australia-wide.
               </p>
-
-              {/* Trust Strip - 3 Key Differentiators */}
-              <div className="grid md:grid-cols-3 gap-4 mb-8">
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">Fast</h3>
-                  <p className="text-sm text-gray-600">Quote in 30 minutes, payment same day</p>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">Easy</h3>
-                  <p className="text-sm text-gray-600">We come to you, handle all paperwork</p>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">Best Price</h3>
-                  <p className="text-sm text-gray-600">We beat like-for-like offers, guaranteed</p>
-                </div>
-              </div>
-
             </div>
+
+            {/* Screen-reader-only h1 for mobile — CarSellForm's visual heading is not an h1,
+                so this ensures crawlers always find a primary heading. */}
+            <h1 className="sr-only">
+              Sell Your Car Today — Get The Best Price Guaranteed with Auto-Sell.ai
+            </h1>
 
             {/* Hero Form */}
             <div>
@@ -101,347 +78,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wave divider: Hero to How It Works */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" text="Sell your car the smarter way" size="md" />
-
-      {/* 3-Step Process */}
-      <section id="how-it-works" className="py-8 md:py-12">
-        <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-6 md:mb-10">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
+      {/* ─── How It Works ─────────────────────────────────────────────── */}
+      <section id="how-it-works" className="py-5 md:py-7 bg-white">
+        <div className="px-4 sm:px-8 max-w-6xl mx-auto">
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-2xl md:text-4xl font-black text-gray-900 mb-2">
               How It Works
             </h2>
             <p className="text-base md:text-lg text-gray-600">Three simple steps to get cash for your car</p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mb-6 md:mb-8">
-            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
-              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">1</div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Get Your Quote</h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Fill out our simple form and receive an instant offer within 30 minutes</p>
-            </div>
-            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
-              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">2</div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Book Inspection</h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Schedule a free on-site inspection at your convenience - we come to you</p>
-            </div>
-            <div className="text-center bg-white rounded-2xl p-5 md:p-8 shadow-lg">
-              <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-6 rounded-full bg-yellow-500 flex items-center justify-center text-2xl md:text-3xl font-bold text-gray-900">3</div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Get Paid Instantly</h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">Same-day OSKO payment directly to your bank account - it&#39;s that simple</p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-              Get Your FREE Quote Now
-            </a>
-          </div>
+          <HowItWorks />
         </div>
       </section>
 
-      {/* Wave divider: How It Works to Reviews - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
-
-      {/* Customer Reviews - Moved higher for social proof */}
-      <section id="reviews" className="py-12 bg-[#FFF9E6]">
-        <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-              Thousands Sold in Seconds
+      {/* ─── Why Choose ───────────────────────────────────────────────── */}
+      <section id="why-choose" className="py-5 md:py-8 bg-[#8B8987]/25">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              Why Choose The Smarter Way?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
+          </div>
+          <WhyChoose />
+        </div>
+      </section>
+
+      {/* ─── Customer Reviews ─────────────────────────────────────────── */}
+      <section id="reviews" className="py-5 md:py-8 bg-white">
+        <div className="px-4 sm:px-8 max-w-6xl mx-auto">
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-2xl md:text-4xl font-black text-gray-900 mb-3">
+              Thousands of Happy Sellers
+            </h2>
+            <p className="text-base md:text-lg text-gray-600">
               Real Australians who chose the smarter way to sell their cars
             </p>
           </div>
 
           <ReviewsComponent />
 
-          <div className="text-center mt-8">
-            <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-              Sell Your Car The Smarter Way
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Wave divider: Reviews to Why Choose - layered wave */}
-      <WaveDivider fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="#ffffff" text="Sell your car the smarter way" size="md" />
-
-      {/* Why Choose Section */}
-      <section id="why-choose" className="relative py-8 md:py-12 overflow-hidden">
-        {/* Logo Underlay - Left side, partially off-screen */}
-        <div className="absolute top-1/2 -translate-y-1/2 -left-32 lg:-left-16 opacity-[0.05] pointer-events-none z-0 hidden md:block">
-          <Image
-            src='/brand-guideline/autosell-logo/PNG/1 (1).png'
-            alt=''
-            width={600}
-            height={300}
-            className='object-contain'
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
-          <div className="text-center mb-6 md:mb-10">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
-              Why Choose The Smarter Way?
-            </h2>
-            <p className="text-base md:text-lg text-gray-600">AI-powered selling that gets you paid in seconds, not weeks</p>
-          </div>
-
-          <div className="space-y-4 md:space-y-6">
-            {[
-              {
-                title: "Instant Payment",
-                description: "AI-powered valuation and same-day OSKO transfer. Get paid in seconds.",
-                image: {
-                  src: "/images/branding/osko-and-payid-icon.jpg",
-                  alt: "Osko payid icon",
-                },
-                href: "/value-propositions/immediate-payment",
-              },
-              {
-                title: "We Come To You",
-                description: "On-site inspection at your convenience. Sell from your driveway.",
-                image: {
-                  src: "/images/branding/on-site.jpg",
-                  alt: "On-site car inspection service",
-                },
-                href: "/value-propositions/on-site-inspections",
-              },
-              {
-                title: "Open 7 Days",
-                description: "Sell any day of the week. Our AI works 24/7 to get you the best offer.",
-                image: {
-                  src: "/images/branding/7days.jpg",
-                  alt: "Open 7 days a week",
-                  fit: "contain" as const,
-                },
-                href: "/value-propositions/open-7-days",
-              },
-              {
-                title: "Smart & Simple",
-                description: "AI technology handles everything. From quote to cash in record time.",
-                type: "component" as const,
-                href: "/value-propositions/smooth-sales-process",
-              },
-            ].map((item, i) => (
-              <div key={i} className="group">
-                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-4 md:gap-8`}>
-
-                  {/* Text Content */}
-                  <div className="flex-1 flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-gray-900 font-bold text-lg shadow-md">
-                      {i + 1}
-                    </div>
-                    <div className="border-l-2 border-yellow-400 pl-4">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Image */}
-                  <div className="w-full md:w-2/5 flex-shrink-0">
-                    <Link href={item.href} className="block">
-                      <div className={`relative overflow-hidden rounded-xl border border-gray-200 shadow-md group-hover:shadow-lg transition-shadow ${item.image?.fit === 'contain' ? 'bg-gray-900' : 'bg-white'}`}>
-                        <div className={item.type === "component" ? "relative md:aspect-[16/10]" : "relative aspect-[16/10]"}>
-                          {item.type === "component" ? (
-                            <div className="md:absolute md:inset-0 flex items-center justify-center">
-                              <SmoothSalesProcess variant="compact" />
-                            </div>
-                          ) : (
-                            <Image
-                              src={item.image!.src}
-                              alt={item.image!.alt}
-                              fill
-                              className={item.image?.fit === 'contain' ? 'object-contain' : 'object-cover'}
-                              sizes="(min-width: 768px) 40vw, 100vw"
-                            />
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Wave divider: Why Choose to Car Models */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
-
-      {/* Car Models We Buy */}
-      <section className="py-12 bg-[#FFF9E6]">
-        <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-              We Buy All Car Brands
-            </h2>
-            <p className="text-xl text-gray-600">
-              From popular makes to luxury brands - we buy them all
-            </p>
-          </div>
-
-          <BrandMarquee />
-
-          <div className="text-center mt-8">
-            <p className="text-lg text-gray-700 mb-4">
-              Don&apos;t see your brand? We buy all makes and models!
-            </p>
-            <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-              Get Your Quote Anyway
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Brands Grid (linked to /brands/[brand]) */}
-      <section className="hidden">
-        <div className="px-4 sm:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse by Brand</h2>
-            <p className="text-lg text-gray-600">We buy all makes. Pick yours to start.</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {["Toyota","Ford","Holden","Mazda","Honda","Nissan","BMW","Mercedes","Audi","Volkswagen","Hyundai","Kia"].map((brand) => (
-              <a
-                key={brand}
-                href={`/brands/${brand.toLowerCase()}`}
-                className="group text-center p-4 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-all duration-300 hover:border-red-300 hover:scale-[1.02]"
-              >
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-red-50">
-                  <span className="text-gray-700 group-hover:text-blue-500 font-bold text-lg">{brand.charAt(0)}</span>
-                </div>
-                <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-500">{brand}</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* We Buy All Types Section */}
-      <section className="py-12 bg-white">
-        <div className="px-4 sm:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-              We Buy All Types of Vehicles
-            </h2>
-            <p className="text-xl text-gray-600">
-              From sedans to trucks, we buy everything - any condition
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { type: 'Cars', href: '/types/cars', img: '/images/types/bmw.jpg' , desc: 'All makes and models, any condition' },
-              { type: 'SUVs', href: '/types/suvs', img: '/images/types/SUV.jpg' , desc: '4WDs, crossovers, and family vehicles' },
-              { type: 'Utes', href: '/types/utes', img: '/images/types/ute.jpg' , desc: 'Work utes, dual cabs, and pickups' },
-              { type: 'Trucks', href: '/types/trucks', img: '/images/types/truck.jpg' , desc: 'Commercial trucks and heavy vehicles' },
-              { type: 'Vans', href: '/types/vans', img: '/images/types/van.jpg' , desc: 'Passenger vans and cargo vans' },
-              { type: 'Motorcycles', href: '/types/motorcycles', img: '/images/types/motorcycle.jpg' , desc: 'Bikes, scooters, and ATVs' },
-            ].map((t) => (
-                <a key={t.type} href={t.href} className="group rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                  <div className="relative h-40">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${t.img})` }} />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                    <div className="absolute inset-0 flex items-end p-5">
-                      <div>
-                        <h3 className="text-lg font-semibold text-zinc-50 mb-1">{t.type}</h3>
-                        <p className="text-md text-zinc-100 ">{t.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Australia-Wide Coverage */}
-      <section className="hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Australia-Wide Service
-            </h2>
-            <p className="text-lg text-gray-600">
-              We come to you anywhere in Australia - from major cities to remote areas
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            {[
-              { city: 'Sydney', state: 'NSW', color: 'bg-gradient-to-br from-white via-blue-50 to-blue-100-500' },
-              { city: 'Melbourne', state: 'VIC', color: 'bg-purple-500' },
-              { city: 'Brisbane', state: 'QLD', color: 'bg-orange-500' },
-              { city: 'Perth', state: 'WA', color: 'bg-cyan-500' },
-              { city: 'Adelaide', state: 'SA', color: 'bg-red-500' },
-              { city: 'Canberra', state: 'ACT', color: 'bg-indigo-500' },
-              { city: 'Gold Coast', state: 'QLD', color: 'bg-yellow-500' },
-              { city: 'Darwin', state: 'NT', color: 'bg-green-500' }
-            ].map((location) => (
-              <div key={location.city} className="text-center p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105 group">
-                <div className={`w-12 h-12 mx-auto mb-3 rounded-full ${location.color} flex items-center justify-center`}>
-                  <span className="text-gray-800 font-bold text-lg">{location.city.charAt(0)}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">{location.city}</h3>
-                <p className="text-sm text-gray-600">{location.state}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mb-8">
-            <p className="text-gray-600 mb-4">
-              Plus all regional areas, country towns, and remote locations
-            </p>
-            <a 
-              href="#sell-form" 
-              className="inline-block bg-blue-600 text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-blue-600 transition-colors"
+          <div className="text-center mt-4">
+            <a
+              href="#sell-form"
+              className="inline-block px-8 py-3.5 rounded-full font-bold text-base transition-all hover:scale-[1.02] bg-[#FFC325] text-white hover:bg-[#e6af1f] shadow-sm hover:shadow-md"
             >
-              Get Your Quote - We Come to You!
+              Get My Free Quote
             </a>
-          </div>
-
-          {/* Map Component */}
-          <div className="max-w-4xl mx-auto">
-            <MapComponent />
+            <p className="text-sm text-gray-400 mt-2">Free quote. No obligation.</p>
           </div>
         </div>
       </section>
 
-      {/* Wave divider: Vehicle Types to FAQ - inverted wave */}
-      <WaveTop fillColor="#FEF9C3" fillColorAlt="#FFF9E6" bgColor="transparent" size="md" />
-
-      {/* FAQ Section */}
-      <section id="faq" className="relative py-12 bg-[#FFF9E6] overflow-hidden">
-        {/* Logo Underlay - Right side, partially off-screen */}
-        <div className="absolute top-1/2 -translate-y-1/2 -right-24 lg:-right-10 opacity-[0.05] pointer-events-none z-0 hidden md:block">
-          <Image
-            src='/brand-guideline/autosell-logo/PNG/1 (1).png'
-            alt=''
-            width={600}
-            height={300}
-            className='object-contain'
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-20">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-              How Does The Smarter Way Work?
+      {/* ─── FAQ ──────────────────────────────────────────────────────── */}
+      <section id="faq" className="py-5 md:py-8 bg-[#8B8987]/25">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
-              Everything you need to know about selling your car in seconds
+            <p className="text-base md:text-lg text-gray-600">
+              Everything you need to know about selling your car with us
             </p>
           </div>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <Accordion
               items={[
                 {
@@ -454,7 +155,15 @@ export default function Home() {
                 },
                 {
                   title: "Do you really pay on the same day?",
-                  content: "Yes! Once we inspect your vehicle and complete the paperwork, we transfer funds directly to your bank account via OSKO, which processes within seconds. That's the smarter way - no waiting weeks for payment.",
+                  content: "Yes! Once we inspect your vehicle and complete the paperwork, we transfer funds directly to your bank account via OSKO, which processes within seconds. That's the smarter way — no waiting weeks for payment.",
+                },
+                {
+                  title: "What if I don't like the offer?",
+                  content: "There's absolutely no obligation. You can decline the offer at any point before signing — we never pressure you. If you accept, we honour the agreed price on the spot.",
+                },
+                {
+                  title: "How do you calculate my car's value?",
+                  content: "Our AI cross-references live market data, recent comparable sales, your car's make, model, year, condition, and odometer. You'll get a fair, data-backed figure — not a lowball dealer guess.",
                 },
                 {
                   title: "What makes this 'smarter' than traditional selling?",
@@ -471,134 +180,73 @@ export default function Home() {
               ]}
             />
           </div>
-
-          <div className="text-center mt-8">
-            <a href="#sell-form" className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-              Try The Smarter Way Now
-            </a>
-          </div>
         </div>
       </section>
 
-
-
-      {/* Process Details Section */}
-      <section className="py-8 md:py-12 bg-gradient-to-br from-blue-50 via-white to-gray-50">
+      {/* ─── Vehicle Types ────────────────────────────────────────────── */}
+      <section className="py-5 md:py-8 bg-white">
         <div className="px-4 sm:px-8 max-w-6xl mx-auto">
-          <div className="text-center mb-6 md:mb-10">
-            <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-2 md:mb-3">
-              What Happens After You Submit?
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-3">
+              We Buy All Types of Vehicles
             </h2>
-            <p className="text-base md:text-xl text-gray-600">
-              Our streamlined process gets you paid quickly and safely
+            <p className="text-base md:text-lg text-gray-600">
+              From sedans to trucks, we buy everything — any condition
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-            <div className="p-0 md:py-3">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Immediate Response</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>Quote generated within 30 minutes</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>Phone call to discuss your offer</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>Inspection scheduled at your convenience</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>All paperwork prepared in advance</span>
-                </li>
-              </ul>
-            </div>
-            {/* Flowing image suggestion replacing placeholder CTA */}
-            <div className="relative h-56 md:h-full md:row-span-2 md:col-start-2 md:row-start-1 min-h-[220px] rounded-xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop"
-                alt="Sleek car silhouette at night, representing a fast, seamless selling journey"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent" />
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <a href="#sell-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all hover:scale-105 shadow-lg bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  Value my car
-                </a>
-              </div>
-            </div>
-            <div className="p-0 md:py-3">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Same-Day Completion</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>Professional inspection at your location</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>Final price confirmed on-site</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>All documents signed and completed</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 text-lg">✓</span>
-                  <span>OSKO payment transferred instantly</span>
-                </li>
-              </ul>
-            </div>
+          <VehicleTypesGrid />
+          <div className="text-center mt-4">
+            <a
+              href="#sell-form"
+              className="inline-block px-8 py-3 rounded-full font-bold text-base transition-all hover:scale-[1.02] border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+            >
+              What&apos;s My Car Worth?
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="relative py-16 bg-gradient-to-br from-yellow-100 via-yellow-50 to-white overflow-hidden">
-        {/* Logo Underlay - Left side, partially off-screen */}
-        <div className="absolute top-1/2 -translate-y-1/2 -left-28 lg:-left-12 opacity-[0.05] pointer-events-none z-0 hidden md:block">
-          <Image
-            src='/brand-guideline/autosell-logo/PNG/1 (1).png'
-            alt=''
-            width={600}
-            height={300}
-            className='object-contain'
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            Ready to Sell Your Car in Seconds?
-          </h2>
-          <p className="text-xl md:text-2xl mb-8 text-gray-700">
-            Join thousands who chose the smarter way. Get your AI-powered quote now and get paid today!
+      {/* ─── Brand Marquee ────────────────────────────────────────────── */}
+      <section className="py-4 md:py-6 bg-[#8B8987]/25">
+        <div className="px-4 sm:px-8 max-w-6xl mx-auto">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+            Trusted across all makes and models
           </p>
-          <div className="space-y-8">
+          <BrandMarquee />
+        </div>
+      </section>
+
+      {/* ─── Final CTA ────────────────────────────────────────────────── */}
+      <section className="py-8 md:py-12 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-3 md:mb-4">
+            Ready to Sell Your Car?
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 mb-5 md:mb-6">
+            Join thousands of Australians who chose the smarter way. Get your free quote now.
+          </p>
+          <div className="space-y-5">
             <a
               href="#sell-form"
-              className="inline-block bg-yellow-500 text-white px-12 py-5 rounded-full text-xl md:text-2xl font-bold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="inline-block bg-[#FFC325] text-white px-10 py-4 rounded-full text-lg md:text-xl font-bold hover:bg-[#e6af1f] transition-all hover:scale-[1.02] shadow-sm hover:shadow-md"
             >
-              Get My Instant Quote Now
+              Get My Free Quote
             </a>
-            <div className="text-center">
-              <p className="text-gray-700 font-semibold text-lg mb-3">Or call us directly:</p>
+
+            <p className="text-sm text-gray-400">— or —</p>
+
+            <div>
+              <p className="text-gray-600 text-base mb-2">Call us directly:</p>
               <a
                 href="tel:1800288673"
-                className="text-3xl md:text-4xl font-bold text-gray-900 hover:text-gray-700 transition-colors flex items-center justify-center gap-3"
+                className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 hover:text-gray-700 transition-colors flex items-center justify-center gap-3"
               >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span className="hidden sm:inline">1800 AUTO SELL</span>
+                <span>1800 AUTO SELL</span>
               </a>
-              <p className="text-gray-600 font-medium mt-4 text-lg">Open 7 days a week • 8am-6pm AEST</p>
+              <p className="text-sm text-gray-500 mt-2">Open 7 days a week &bull; 8am–6pm AEST</p>
             </div>
           </div>
         </div>
@@ -606,4 +254,3 @@ export default function Home() {
     </div>
   )
 }
-

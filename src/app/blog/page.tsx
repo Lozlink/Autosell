@@ -86,11 +86,11 @@ export default async function BlogPage() {
   const posts = dbPosts.length ? dbPosts : blogPosts;
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFD14D 100%)' }}>
+      <section className="text-gray-800 py-12" style={{ backgroundColor: '#FFC325' }}>
         <div className="px-4 sm:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -108,16 +108,16 @@ export default async function BlogPage() {
         <div className="px-4 sm:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <article key={post.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-yellow-300 transition-all duration-300">
+              <article key={post.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-[#FFC325] transition-all duration-300">
                 <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FFD14D 0%, #FFC325 100%)' }}>
+                  <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#FFC325' }}>
                     <span className="text-gray-800 text-4xl font-bold">{post.category.charAt(0)}</span>
                   </div>
                 </div>
                 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">
+                    <span className="bg-[#FFC325]/20 text-[#FFC325] text-xs font-semibold px-2 py-1 rounded-full">
                       {post.category}
                     </span>
                     <span className="text-gray-600 text-sm">{post.readTime}</span>
@@ -141,7 +141,7 @@ export default async function BlogPage() {
                     </time>
                     <Link
                       href={`/blog/${post.id}`}
-                      className="text-yellow-600 hover:text-yellow-500 font-semibold text-sm"
+                      className="text-[#FFC325] hover:text-[#FFC325] font-semibold text-sm"
                     >
                       Read More →
                     </Link>
@@ -166,9 +166,9 @@ export default async function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-yellow-600"
+              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#FFC325]"
             />
-            <button className="bg-white text-yellow-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-[#FFC325] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
               Subscribe
             </button>
           </div>

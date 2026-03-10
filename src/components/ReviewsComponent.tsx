@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -14,202 +14,257 @@ interface Review {
   verified: boolean
   url: string
 }
-//Unneeded
-// const realReviews: Review[] = [
-//   {
-//     id: 0,
-//     name: "Ziggy S",
-//     location: "Sydney",
-//     rating: 5,
-//     review: "Great to deal with and an easy negotiator.\n",
-//     date: "2025-09-22",
-//     verified: true
-//   },
-//   {
-//     id: 1,
-//     name: "Michael S.",
-//     location: "Sydney, NSW",
-//     rating: 5,
-//     review: "The team was very easy to deal with from start to finish. Communication was clear and straightforward, which made the whole process stress-free. They were professional yet friendly, and always willing to answer questions. The staff came across as genuine and honest, which built a lot of trust. Everything was handled smoothly without any issues. Overall, a really good experience with a nice team that I’d happily recommend.”",
-//     date: "2025-09-21",
-//     verified: true
-//   },
-//   {
-//     id: 2,
-//     name: "Tia",
-//     location: "Sydney",
-//     rating: 5,
-//     review: "Very friendly and easy to deal with. Money paid instantly. Would definitely recommend Alex if you’re wanting to sell your car.",
-//     date: "2025-08-25",
-//     verified: true
-//   },
-//   {
-//     id: 3,
-//     name: "James G.",
-//     location: "Sydney",
-//     rating: 5,
-//     review: "Quick easy sale, knows what they are talking about,great customer service,and gave me top dollar on my car I'll be using them every time I need to sell my car.",
-//     date: "2024-08-24",
-//     verified: true
-//   },
-//   {
-//     id: 4,
-//     name: "Marissa C",
-//     location: "Sydney",
-//     rating: 5,
-//     review: "Very happy with the whole process with trading in my car. Alex is very friendly and communicates promptly. Went out of his way to accommodate me so I didn't even have to leave my house.",
-//     date: "2025-08-18",
-//     verified: true
-//   }
-// ]
 
-export default function ReviewsComponent() {
-  const [reviews, setReviews] = useState<Review[]>([])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
+// ─── Shared review card ────────────────────────────────────────────────────
+function ReviewCard({ review, index, animate = true }: { review: Review; index: number; animate?: boolean }) {
+  const content = (
+    <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex text-yellow-400 text-lg" aria-label={`${review.rating} stars`}>
+          {'★'.repeat(review.rating)}
+        </div>
+        {review.verified && (
+          <span
+            className="text-xs font-semibold px-2 py-1 rounded-full"
+            style={{ backgroundColor: '#FFC325', color: '#000000' }}
+          >
+            Verified
+          </span>
+        )}
+      </div>
 
+      <p className="text-gray-600 mb-4 italic leading-relaxed flex-1">
+        &#34;{review.review}&#34;
+      </p>
+
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-semibold text-gray-600">{review.name}</div>
+          <div className="text-sm text-gray-600">{review.location}</div>
+        </div>
+        <div className="text-sm text-gray-600">
+          {new Intl.DateTimeFormat('en-AU', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            timeZone: 'UTC',
+          }).format(new Date(review.date + 'T00:00:00Z'))}
+        </div>
+      </div>
+    </div>
+  )
+
+  if (!animate) {
+    return <Link href={review.url} className="block h-full">{content}</Link>
+  }
+
+  return (
+    <Link href={review.url} className="block h-full">
+      <motion.div
+        className="h-full"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+      >
+        {content}
+      </motion.div>
+    </Link>
+  )
+}
+
+// ─── Loading skeleton ──────────────────────────────────────────────────────
+function Skeleton() {
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="bg-white p-8 rounded-xl border border-gray-100 animate-pulse">
+          <div className="flex items-center mb-4">
+            <div className="w-16 h-4 bg-gray-200 rounded" />
+          </div>
+          <div className="space-y-2 mb-4">
+            <div className="h-4 bg-gray-200 rounded" />
+            <div className="h-4 bg-gray-200 rounded" />
+            <div className="h-4 bg-gray-200 rounded w-3/4" />
+          </div>
+          <div className="h-4 bg-gray-200 rounded w-1/2" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ─── Mobile horizontal snap-scroll carousel ────────────────────────────────
+function MobileCarousel({ reviews }: { reviews: Review[] }) {
+  const [activeDot, setActiveDot] = useState(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Track active dot via IntersectionObserver on each card
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const res = await fetch('/api/google-reviews', {cache: 'no-store'})
-        const data = await res.json()
-        if (Array.isArray(data.reviews) && data.reviews.length > 0) {
-          setReviews(data.reviews)
-          setIsLoading(false)
-        }
-      }
-        catch (error) {
-        console.error(error)
-      }
-    }
-    fetchReviews()
-  }, [])
+    const container = scrollRef.current
+    if (!container) return
 
-  const getDisplayedReviews = () => {
+    const cards = Array.from(container.querySelectorAll('[data-review-card]'))
+    if (cards.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the most-visible card
+        let maxRatio = 0
+        let maxIdx = 0
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio
+            const idx = cards.indexOf(entry.target as HTMLElement)
+            if (idx !== -1) maxIdx = idx
+          }
+        })
+        if (maxRatio > 0.4) setActiveDot(maxIdx)
+      },
+      {
+        root: container,
+        threshold: [0.4, 0.6, 0.8],
+      }
+    )
+
+    cards.forEach((card) => observer.observe(card))
+    return () => observer.disconnect()
+  }, [reviews])
+
+  function scrollTo(idx: number) {
+    const container = scrollRef.current
+    if (!container) return
+    const cards = container.querySelectorAll('[data-review-card]')
+    const card = cards[idx] as HTMLElement
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    }
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Scroll track — edge-to-edge on mobile */}
+      <div
+        ref={scrollRef}
+        className="-mx-4 px-4 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-1 scrollbar-hide"
+        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+      >
+        {reviews.map((review, index) => (
+          <div
+            key={review.id}
+            data-review-card
+            className="w-[85vw] flex-none snap-center"
+          >
+            <ReviewCard review={review} index={index} animate={false} />
+          </div>
+        ))}
+      </div>
+
+      {/* Dot indicators */}
+      {reviews.length > 1 && (
+        <div className="flex justify-center gap-2" aria-hidden="true">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              className="transition-all duration-300 rounded-full focus:outline-none"
+              style={{
+                width: activeDot === i ? 20 : 8,
+                height: 8,
+                backgroundColor: activeDot === i ? '#FFC325' : '#d1d5db',
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Desktop rotating grid ─────────────────────────────────────────────────
+function DesktopGrid({ reviews }: { reviews: Review[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const getDisplayedReviews = useCallback(() => {
     if (reviews.length === 0) return []
     if (reviews.length <= 3) return reviews
-
     const displayed = []
     for (let i = 0; i < 3; i++) {
       const index = (currentIndex + i) % reviews.length
       displayed.push(reviews[index])
     }
     return displayed
-  }
+  }, [reviews, currentIndex])
 
+  // Auto-rotation — desktop only, this component is only rendered on lg+
   useEffect(() => {
     if (reviews.length === 0) return
-
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length)
-    }, 5000) // Rotate every 5 seconds
-
+      setCurrentIndex((prev) => (prev + 1) % reviews.length)
+    }, 5000)
     return () => clearInterval(interval)
   }, [reviews])
 
-  if (isLoading) {
-    return (
-      <div className="grid md:grid-cols-3 gap-8">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white p-8 rounded-xl border border-blue-200 animate-pulse">
-            <div className="flex items-center mb-4">
-              <div className="w-16 h-4 bg-zinc-700 rounded"></div>
-            </div>
-            <div className="space-y-2 mb-4">
-              <div className="h-4 bg-zinc-700 rounded"></div>
-              <div className="h-4 bg-zinc-700 rounded"></div>
-              <div className="h-4 bg-zinc-700 rounded w-3/4"></div>
-            </div>
-            <div className="h-4 bg-zinc-700 rounded w-1/2"></div>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
   const displayedReviews = getDisplayedReviews()
 
-
   return (
-    <div className="space-y-8 max-w-7xl mx-auto">
-      {/* Reviews Grid */}
-      <div className="grid md:grid-cols-3 gap-8">
+    <div className="space-y-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {displayedReviews.map((review, index) => (
-         <Link
-           key={review.id}
-           href={review.url}
-           className="block">
-           <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, delay: index * 0.1 }}
-               className="bg-white p-8 rounded-xl border border-blue-200 hover:shadow-lg transition-shadow"
-           >
-             <div className="flex items-center justify-between mb-4">
-               <div className="flex text-yellow-400 text-lg">
-                 {'★'.repeat(review.rating)}
-               </div>
-               {review.verified && (
-                   <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: '#FFC325', color: '#000000' }}>
-                  Verified
-                </span>
-               )}
-             </div>
-
-             <p className="text-gray-600 mb-4 italic leading-relaxed">
-               &#34;{review.review}&#34;
-             </p>
-
-             <div className="flex items-center justify-between">
-               <div>
-                 <div className="font-semibold text-gray-600">{review.name}</div>
-                 <div className="text-sm text-gray-600">{review.location}</div>
-               </div>
-               <div className="text-sm text-gray-600">
-                 {new Intl.DateTimeFormat('en-AU', {
-                   month: 'short',
-                   day: 'numeric',
-                   year: 'numeric',
-                   timeZone: 'UTC',
-                 }).format(new Date(review.date + 'T00:00:00Z'))}
-               </div>
-             </div>
-           </motion.div>
-         </Link>
+          <ReviewCard key={review.id} review={review} index={index} />
         ))}
       </div>
 
-      {/*/!* Review Stats *!/*/}
-      {/*<div className="bg-white rounded-xl p-8 text-center border border-blue-200">*/}
-      {/*  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
-      {/*    <div>*/}
-      {/*      <div className="text-3xl font-bold text-red-500 mb-2">5</div>*/}
-      {/*      <div className="text-gray-600">Average Rating</div>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <div className="text-3xl font-bold text-red-500 mb-2"></div>*/}
-      {/*      <div className="text-gray-600">Happy Customers</div>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <div className="text-3xl font-bold text-red-500 mb-2">98%</div>*/}
-      {/*      <div className="text-gray-600">Would Recommend</div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
-      {/* Review Indicators */}
+      {/* Dot indicators */}
       <div className="flex justify-center space-x-2">
         {reviews.slice(0, Math.ceil(reviews.length / 3)).map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index * 3)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              Math.floor(currentIndex / 3) === index
-                ? 'bg-blue-600'
-                : 'bg-zinc-700'
+              Math.floor(currentIndex / 3) === index ? 'bg-[#FFC325]' : 'bg-gray-300'
             }`}
           />
         ))}
+      </div>
+    </div>
+  )
+}
+
+// ─── Main export ───────────────────────────────────────────────────────────
+export default function ReviewsComponent() {
+  const [reviews, setReviews] = useState<Review[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch('/api/google-reviews', { cache: 'no-store' })
+        const data = await res.json()
+        if (Array.isArray(data.reviews) && data.reviews.length > 0) {
+          setReviews(data.reviews)
+          setIsLoading(false)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchReviews()
+  }, [])
+
+  if (isLoading) {
+    return <Skeleton />
+  }
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Mobile carousel — hidden on lg+ */}
+      <div className="lg:hidden">
+        <MobileCarousel reviews={reviews} />
+      </div>
+
+      {/* Desktop rotating grid — hidden below lg */}
+      <div className="hidden lg:block">
+        <DesktopGrid reviews={reviews} />
       </div>
     </div>
   )

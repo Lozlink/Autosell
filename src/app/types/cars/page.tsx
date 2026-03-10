@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function CarsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#8B8987]/25">
       <Header />
-      
+
       {/* Hero Section with Form */}
-      <section className="text-gray-800 py-20" style={{ background: 'linear-gradient(to bottom right, #FFC325, #e6af1f, #d09a19)' }}>
+      <section className="text-gray-800 py-20 bg-[#8B8987]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -59,13 +59,13 @@ export default function CarsPage() {
       </section>
 
       {/* Car Categories */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-[#8B8987]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               We Buy All Types of Cars
             </h2>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               From sedans to hatchbacks, we buy every type of car
             </p>
           </div>
@@ -83,10 +83,10 @@ export default function CarsPage() {
             ].map((category) => (
               <div key={category.type} className="text-center p-6 transition-all duration-300 hover:scale-105 group">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: '#FFC325' }}>
-                  <span className="text-2xl" style={{ color: '#000000' }}>{category.icon}</span>
+                  <span className="text-2xl" style={{ color: '#ffffff' }}>{category.icon}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{category.type}</h3>
-                <p className="text-sm text-gray-300">{category.description}</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">{category.type}</h3>
+                <p className="text-sm text-gray-600">{category.description}</p>
               </div>
             ))}
           </div>
@@ -94,13 +94,13 @@ export default function CarsPage() {
       </section>
 
       {/* Popular Car Brands */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-[#8B8987]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Popular Car Brands We Buy
             </h2>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               We buy cars from all major manufacturers
             </p>
           </div>
@@ -109,9 +109,9 @@ export default function CarsPage() {
             {['Toyota', 'Ford', 'Holden', 'Mazda', 'Honda', 'Nissan', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Hyundai', 'Kia'].map((brand) => (
               <div key={brand} className="text-center p-4 transition-all duration-300 hover:scale-105 group">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: '#FFC325' }}>
-                  <span className="font-bold text-lg" style={{ color: '#000000' }}>{brand.charAt(0)}</span>
+                  <span className="font-bold text-lg" style={{ color: '#ffffff' }}>{brand.charAt(0)}</span>
                 </div>
-                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">{brand}</h3>
+                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-gray-900 transition-colors">{brand}</h3>
               </div>
             ))}
           </div>
@@ -119,13 +119,13 @@ export default function CarsPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-[#8B8987]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Why Choose Auto-Sell.ai for Your Car?
             </h2>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               We make selling your car simple, fast, and profitable
             </p>
           </div>
@@ -136,7 +136,7 @@ export default function CarsPage() {
                 <span className="text-2xl font-bold" style={{ color: '#000000' }}>$</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Best Prices</h3>
-              <p className="text-gray-300">We guarantee the best price for your car using real-time market data.</p>
+              <p className="text-gray-600">We guarantee the best price for your car using real-time market data.</p>
             </div>
             
             <div className="text-center p-6  hover:shadow-md transition-shadow">
@@ -144,7 +144,7 @@ export default function CarsPage() {
                 <span className="text-2xl font-bold" style={{ color: '#000000' }}>⚡</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Fast Service</h3>
-              <p className="text-gray-300">Get your quote in 30 minutes and receive payment the same day.</p>
+              <p className="text-gray-600">Get your quote in 30 minutes and receive payment the same day.</p>
             </div>
             
             <div className="text-center p-6  hover:shadow-md transition-shadow">
@@ -152,19 +152,19 @@ export default function CarsPage() {
                 <span className="text-2xl font-bold" style={{ color: '#000000' }}>✓</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">No Hassle</h3>
-              <p className="text-gray-300">We handle all the paperwork and come to you for inspection.</p>
+              <p className="text-gray-600">We handle all the paperwork and come to you for inspection.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-[#FFC325]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Ready to Sell Your Car?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-gray-900 mb-8">
             Get your free quote today and join thousands of satisfied car owners who chose Auto-Sell.ai.
           </p>
           <a

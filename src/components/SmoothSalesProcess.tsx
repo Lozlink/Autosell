@@ -71,11 +71,11 @@ export default function SmoothSalesProcess({
                     aria-label="Keys handed over"
                 >
                     <div className={clsx(
-                        "flex items-center bg-white border border-yellow-400 rounded-2xl shadow-md",
+                        "flex items-center bg-white border border-[#FFC325] rounded-2xl shadow-md",
                         compact ? "gap-1.5 px-2 py-1.5" : "gap-2 md:gap-3 px-6 py-5"
                     )}>
-                        <Handshake className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
-                        <KeyRound className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
+                        <Handshake className={clsx("text-[#FFC325]", compact ? "w-4 h-4" : "w-8 h-8")} />
+                        <KeyRound className={clsx("text-[#FFC325]", compact ? "w-4 h-4" : "w-8 h-8")} />
                     </div>
                 </motion.div>
 
@@ -117,7 +117,7 @@ export default function SmoothSalesProcess({
 
                 <div className="col-span-1 lg:col-span-3 relative w-full flex items-center justify-center">
                     <div className={clsx("hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2", compact && "hidden") }>
-                        <div className="mx-8 border-t border-dashed border-blue-300" />
+                        <div className="mx-8 border-t border-dashed border-gray-200" />
                     </div>
 
                     <motion.div
@@ -129,11 +129,11 @@ export default function SmoothSalesProcess({
                         aria-label="Keys handed over"
                     >
                         <div className={clsx(
-                            "flex items-center bg-white border border-yellow-400 rounded-2xl shadow-md",
+                            "flex items-center bg-white border border-[#FFC325] rounded-2xl shadow-md",
                             compact ? "gap-1.5 px-2 py-1.5" : "gap-2 md:gap-3 px-6 py-5"
                         )}>
-                            <Handshake className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
-                            <KeyRound className={clsx("text-yellow-500", compact ? "w-4 h-4" : "w-8 h-8")} />
+                            <Handshake className={clsx("text-[#FFC325]", compact ? "w-4 h-4" : "w-8 h-8")} />
+                            <KeyRound className={clsx("text-[#FFC325]", compact ? "w-4 h-4" : "w-8 h-8")} />
                         </div>
                     </motion.div>
                 </div>
@@ -166,7 +166,7 @@ function ProcessPill({ i, icon, label, compact }: { i: number; icon: React.React
             )}
             role="listitem"
         >
-            <div className={clsx("flex items-center justify-center rounded-full bg-yellow-500 text-gray-900", compact ? "w-5 h-5" : "w-9 h-9") }>
+            <div className={clsx("flex items-center justify-center rounded-full bg-[#FFC325] text-white", compact ? "w-5 h-5" : "w-9 h-9") }>
                 {icon}
             </div>
             <span className={clsx("text-gray-900 font-medium whitespace-nowrap", compact ? "text-[10px]" : "text-sm md:text-base") }>{label}</span>
@@ -178,11 +178,11 @@ function Connector({ compact, vertical }: { compact?: boolean; vertical?: boolea
     if (vertical) {
         // Vertical connector for mobile flowchart
         return (
-            <div className={clsx("bg-gradient-to-b from-zinc-800 via-zinc-700 to-zinc-800", compact ? "h-6 w-px" : "h-8 w-px") } />
+            <div className={clsx("bg-zinc-700", compact ? "h-6 w-px" : "h-8 w-px") } />
         );
     }
     // Horizontal connector for desktop (hidden on mobile)
     return (
-        <div className={clsx("hidden md:block mx-8 self-center bg-gradient-to-b from-zinc-800 via-zinc-700 to-zinc-800", compact ? "h-6 w-px" : "h-8 w-px") } />
+        <div className={clsx("hidden md:block mx-8 self-center bg-zinc-700", compact ? "h-6 w-px" : "h-8 w-px") } />
     );
 }

@@ -23,7 +23,7 @@ export default async function TypePage({ params }: TypePageProps) {
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<Header />
-			<section className="text-gray-800 py-12" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 100%)' }}>
+			<section className="text-gray-800 py-12" style={{ backgroundColor: '#8b898740' }}>
 				<div className="px-4 sm:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div>

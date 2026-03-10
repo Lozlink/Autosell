@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function OnSiteInspectionsPage() {
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
       <Header />
-      <section className="text-gray-800 py-12" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+      <section className="text-gray-800 py-12" style={{ backgroundColor: '#8b898740' }}>
         <div className="px-4 sm:px-8 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">On-Site Inspections</h1>
           <p className="text-lg text-gray-600 max-w-3xl">

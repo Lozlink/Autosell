@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function CashForDamagedCarsPage() {
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 100%)' }}>
+      <section className="text-gray-800" style={{ backgroundColor: '#8b898740' }}>
         <div className="relative aspect-[16/10] overflow-hidden">
 
             <Image
@@ -41,7 +41,7 @@ export default function CashForDamagedCarsPage() {
               <Link
                 href="/#sell-form"
                 className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2"
-                style={{ backgroundColor: '#FFC325', color: '#000', '--tw-ring-color': '#FFC325' } as React.CSSProperties}
+                style={{ backgroundColor: '#FFC325', color: '#fff', '--tw-ring-color': '#FFC325' } as React.CSSProperties}
               >
                 Get Cash for Your Damaged Car
               </Link>
@@ -53,7 +53,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Why Choose Us for Damaged Cars */}
-      <section className="py-20" style={{ backgroundColor: '#FFF9E6' }}>
+      <section className="py-20" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -108,7 +108,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* Types of Damage We Accept */}
-      <section className="py-20 text-gray-800" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF3D4 50%, #FFE9C0 100%)' }}>
+      <section className="py-20 text-gray-800" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -168,7 +168,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20" style={{ background: 'linear-gradient(45deg, #ffffff 0%, #FFF3D4 50%, #FFE9C0 100%)' }}>
+      <section className="py-20" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -214,7 +214,7 @@ export default function CashForDamagedCarsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 50%, #FFE9C0 100%)' }}>
+      <section className="py-20" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Get Cash for Your Damaged Car?
@@ -225,7 +225,7 @@ export default function CashForDamagedCarsPage() {
           <Link
             href="/#sell-form"
             className="inline-block px-12 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#FFF9E6', color: '#FFC325' }}
+            style={{ backgroundColor: '#8b898740', color: '#FFC325' }}
           >
             Get My Quote Now
           </Link>

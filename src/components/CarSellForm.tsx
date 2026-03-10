@@ -16,7 +16,7 @@ const australianStates = [
   { value: 'ACT', label: 'ACT' },
 ];
 
-const inputClass = "w-full px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-colors text-base";
+const inputClass = "w-full px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-300 rounded-md text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#FFC325] focus:border-[#FFC325] transition-colors text-base";
 const labelClass = "block text-xs md:text-sm font-medium text-gray-700 mb-0.5 md:mb-1";
 const formFont = { fontFamily: 'var(--font-montserrat), system-ui, sans-serif' };
 
@@ -344,9 +344,9 @@ export default function CarSellForm() {
         className="p-3 md:p-8"
         style={formFont}
       >
-        <h1 className="text-2xl font-black leading-tight text-gray-900 text-center mb-2 -mx-3 md:mx-0 lg:hidden">
+        <h1 className="text-3xl sm:text-3xl font-black leading-tight text-gray-900 text-center mb-2 lg:hidden">
           Sell Your Car Today
-          <span className="block text-yellow-500">Get The Best Price Guaranteed</span>
+          <span className="block text-[#FFC325]">Get The Best Price Guaranteed</span>
         </h1>
         <StepIndicator current={1} />
 
@@ -468,7 +468,7 @@ export default function CarSellForm() {
             disabled={loading}
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full cursor-pointer bg-blue-600 text-white py-3 px-6 md:py-4 rounded-md text-lg md:text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-[#FFC325] text-white py-3 px-6 md:py-4 rounded-md text-lg md:text-xl font-bold hover:bg-[#e6af1f] focus:outline-none focus:ring-2 focus:ring-[#FFC325] focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (manualEntry ? 'Submitting...' : 'Finding Your Car...') : manualEntry ? 'Get My Free Quote' : 'Find My Car'}
           </motion.button>
@@ -476,7 +476,7 @@ export default function CarSellForm() {
 
         <div className="mt-2 md:mt-6 text-center">
           <p className="text-xs md:text-sm text-gray-500 flex items-center justify-center gap-2">
-            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
             Your information is secure and will not be shared with third parties
@@ -618,7 +618,7 @@ export default function CarSellForm() {
           disabled={loading}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full cursor-pointer bg-blue-600 text-white py-4 px-6 rounded-md text-xl font-bold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full cursor-pointer bg-[#FFC325] text-white py-4 px-6 rounded-md text-xl font-bold hover:bg-[#e6af1f] focus:outline-none focus:ring-2 focus:ring-[#FFC325] focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? 'Getting Your Quote...' : 'Get My Free Quote Now'}
         </motion.button>
@@ -626,13 +626,13 @@ export default function CarSellForm() {
 
       <div className="mt-4 md:mt-6 text-center">
         <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
           </svg>
           Your information is secure and will not be shared with third parties
         </p>
         <p className="text-sm text-gray-500 mt-1 flex items-center justify-center gap-2">
-          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
           We&apos;ll contact you within 30 minutes with your competitive offer
