@@ -21,11 +21,11 @@ export default async function BrandPage({ params }: BrandPageProps) {
   const titleBrand = brand.charAt(0).toUpperCase() + brand.slice(1)
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#8b898740' }}>
       <Header />
 
       {/* Hero Section with Form (Toyota layout-inspired) */}
-      <section className="text-gray-800 py-20" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #FFF9E6 100%)' }}>
+      <section className="text-gray-800 py-20" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -69,7 +69,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
       </section>
 
       {/* Popular Models Section (dark theme) */}
-      <section className="py-16" style={{ backgroundColor: '#FFF9E6' }}>
+      <section className="py-16" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-3">
@@ -104,7 +104,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #FFF9E6 100%)' }}>
+      <section className="py-16" style={{ backgroundColor: '#8b898740' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-3">
@@ -144,7 +144,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
+      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Ready to Sell Your {titleBrand}?
@@ -155,7 +155,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
           <a
             href="#sell-form"
             className="inline-block px-8 py-4 rounded-lg text-xl font-bold transition-colors"
-            style={{ backgroundColor: '#FFC325', color: '#000' }}
+            style={{ backgroundColor: '#FFC325', color: '#fff' }}
           >
             Get My {titleBrand} Quote Now
           </a>

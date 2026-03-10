@@ -180,7 +180,7 @@ export default function MapComponent({
   if (mapError || !isGoogleMapsLoaded) {
     return (
       <div className={className}>
-        <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center relative overflow-hidden border border-gray-700 shadow-lg">
+        <div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center relative overflow-hidden border border-gray-700 shadow-lg">
           <div 
             className="absolute inset-0 bg-center bg-no-repeat bg-contain"
             style={{
@@ -197,8 +197,8 @@ export default function MapComponent({
                     <circle cx="0" cy="0" r="100" fill="none" stroke="#FFC325" stroke-width="2" opacity="0.5"/>
                     <circle cx="0" cy="0" r="50" fill="none" stroke="#FFC325" stroke-width="2" opacity="0.7"/>
                     <circle cx="0" cy="0" r="10" fill="#FFC325"/>
-                    <text x="0" y="-30" text-anchor="middle" class="text-lg font-bold text-blue-800">Australia</text>
-                    <text x="0" y="10" text-anchor="middle" class="text-sm text-blue-600">We Service All Areas</text>
+                    <text x="0" y="-30" text-anchor="middle" class="text-lg font-bold text-gray-900">Australia</text>
+                    <text x="0" y="10" text-anchor="middle" class="text-sm text-gray-900">We Service All Areas</text>
                   </g>
                 </svg>
               `)}')`
@@ -208,7 +208,7 @@ export default function MapComponent({
             <h3 className="text-xl font-bold text-gray-800 mb-2">Australia-Wide Coverage</h3>
             <p className="text-gray-300">We come to you anywhere in Australia</p>
             {mapError && (
-              <p className="text-sm text-blue-600 mt-2">Map temporarily unavailable</p>
+              <p className="text-sm text-gray-900 mt-2">Map temporarily unavailable</p>
             )}
           </div>
         </div>

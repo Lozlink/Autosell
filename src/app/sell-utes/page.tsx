@@ -14,7 +14,7 @@ export default function SellUtesPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="text-gray-800 py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
+      <section className="text-gray-800 py-20" style={{ backgroundColor: '#FFC325' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -28,7 +28,7 @@ export default function SellUtesPage() {
             <Link
               href="/#sell-form"
               className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              style={{ backgroundColor: '#FFC325', color: '#000' }}
+              style={{ backgroundColor: '#FFC325', color: '#fff' }}
             >
               Get My Ute Quote Now
             </Link>
@@ -125,7 +125,7 @@ export default function SellUtesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #FFC325 0%, #FFD14D 100%)' }}>
+      <section className="py-20" style={{ backgroundColor: '#FFC325' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to Sell Your Ute?
@@ -136,7 +136,7 @@ export default function SellUtesPage() {
           <Link
             href="/#sell-form"
             className="inline-block px-12 py-4 rounded-lg text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#FFC325', color: '#000' }}
+            style={{ backgroundColor: '#FFC325', color: '#fff' }}
           >
             Get My Ute Quote Now
           </Link>
